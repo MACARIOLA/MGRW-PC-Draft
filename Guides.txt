@@ -1,0 +1,4 @@
+Poster:
+  Landscape - 1460px
+  Portrait - 700px 
+
