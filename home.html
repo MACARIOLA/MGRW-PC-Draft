@@ -13,8 +13,9 @@
     <!---------------
          CSS & JS
     ---------------->
-    <link rel="stylesheet" href="mainstyle.css">
-    <script src="mainscript.js"></script>
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/mainscript.js"></script>
 
     <!---------------
           FONTS
@@ -36,24 +37,28 @@
           NAVBAR
     ---------------->
     <header class="header">
-        <a href="" class="logo">MGWR PC</a>
+        <a href="home.html" class="logo">MGWR PC</a>
 
         <input type="checkbox" id="check">
         <label for="check" class="icons">
-            <i class="bx bx-menu" id="menu-icon"></i>
-            <i class='bx bx-x' id="close-icon"></i>
+            <img src="Images/Menu.png" alt="" id="menu-icon">
+            <img src="Images/MenuX.png" alt="" id="close-icon">
         </label>
 
         <nav class="navbar">
-            <a href="#" style="--i:0">Home</a>
-            <a href="#" style="--i:1">About Us</a>
-            <a href="#" style="--i:2">Services</a>
-            <a href="#" style="--i:3">Feedbacks</a>
-            <a href="#" style="--i:4">FAQs</a>
+            <a class="active" href="home.html" style="--i:0">Home</a>
+            <a href="aboutus.html" style="--i:1">About Us</a>
+            <a href="pricelist.html" style="--i:2">Pricelist</a>
+            <a href="feedback.html" style="--i:3">Feedbacks</a>
+            <a href="faqs.html" style="--i:4">FAQs</a>
         </nav>
     </header>    
 
 
+
+    <!---------------
+        PROMOTIONS
+    ---------------->
     <section class="slider-container">
         <div class="slider">
             <div class="list">
@@ -88,8 +93,159 @@
     </section>
 
 
+
     <!---------------
-          FOOTER
+        SULIT PCS
+    ---------------->
+    <section class="sulitPc">
+        <div class="text-center">
+            <h2>Sulit PC Sets</h2>
+            <p class="sentence1">Introducing our best-selling PC sets: unbeatable performance, seamless multitasking, and complimentary accessories included.</p>
+        </div>
+
+        <div class="sulitPcContents">
+            <div class="row">
+                <img src="Images/SulitPc1.jpg" alt="">
+                <h4>AMD Athlon 3000G</h4>
+                <h5>Sulit PC 1</h5>
+                <h6>₱10,990</h6>
+                <img class="bestsellericon" src="Images/BestSeller.png" alt="">
+                <p class="hot-label">Hot</p>
+                <div class="sulitbtn">
+                    <a href="product.html">Click to Reserve</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="Images/SulitPc2.jpg" alt="">
+                <h4>AMD RYZEN 5 2400G</h4>
+                <h5>Sulit PC 2</h5>
+                <h6>₱12,510</h6>
+                <img class="bestsellericon" src="Images/BestSeller.png" alt="">
+                <p class="hot-label">Hot</p>
+                <div class="sulitbtn">
+                    <a href="product.html">Click to Reserve</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="Images/SulitPc3.jpg" alt="">
+                <h4>AMD RYZEN 3 3200G</h4>
+                <h5>Sulit PC 3</h5>
+                <h6>₱15,300</h6>
+                <img class="bestsellericon" src="Images/BestSeller.png" alt="">
+                <p class="hot-label">Hot</p>
+                <div class="sulitbtn">
+                    <a href="product.html">Click to Reserve</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!---------------
+      SULIT LAPTOPS
+    ---------------->
+    <section class="sulitLaptop">
+        <div class="text-center">
+            <h2>Sulit Laptop Sets</h2>
+            <p class="sentence1">Experience unparalleled portability and power with our top-selling laptops. Perfect for on-the-go productivity, paired with stunning displays for immersive entertainment.</p>
+        </div>
+
+        <div class="sulitLaptopContents">
+            <div class="row">
+                <img src="Images/SulitLaptop2.jpg" alt="">
+                <h4>ASUS VIVOBOOK 14</h4>
+                <h5>Sulit Laptop 1</h5>
+                <h6>₱25,995</h6>
+                <img class="bestsellericon" src="Images/BestSeller.png" alt="">
+                <p class="hot-label">Hot</p>
+                <div class="sulitbtn">
+                    <a href="product.html">Click to Reserve</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="Images/sulitLaptop1.jpg" alt="">
+                <h4>ASUS VIVOBOOK 16</h4>
+                <h5>Sulit Laptop 2</h5>
+                <h6>₱27,995</h6>
+                <img class="bestsellericon" src="Images/BestSeller.png" alt="">
+                <p class="hot-label">Hot</p>
+                <div class="sulitbtn">
+                    <a href="product.html">Click to Reserve</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="Images/sulitLaptop2.jpg" alt="">
+                <h4>ASUS VIVOBOOK 13</h4>
+                <h5>Sulit Laptop 1</h5>
+                <h6>₱25,995</h6>
+                <img class="bestsellericon" src="Images/BestSeller.png" alt="">
+                <p class="hot-label">Hot</p>
+                <div class="sulitbtn">
+                    <a href="product.html">Click to Reserve</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!---------------
+      SULIT LAPTOPS
+    ---------------->
+    <section class="sulitPrinter">
+        <div class="text-center">
+            <h2>Sulit Printer Sets</h2>
+            <p class="sentence1">Unlock efficiency and reliability with our best-selling printers. From crisp documents to vibrant photos, enjoy high-quality printing with ease, making every task a breeze.</p>
+        </div>
+
+        <div class="sulitPrinterContents">
+            <div class="row">
+                <img src="Images/sulitPrinter1.jpg" alt="">
+                <h4>L121 PRINTER</h4>
+                <h5>Sulit Printer 1</h5>
+                <h6>₱5,595</h6>
+                <img class="bestsellericon" src="Images/BestSeller.png" alt="">
+                <p class="hot-label">Hot</p>
+                <div class="sulitbtn">
+                    <a href="product.html">Click to Reserve</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <img class="Raul" src="Images/sulitPrinter2.jpg" alt="">
+                <h4>L3210 3IN PRINTER</h4>
+                <h5>Sulit Printer 2</h5>
+                <h6>₱8,795</h6>
+                <img class="bestsellericon" src="Images/BestSeller.png" alt="">
+                <p class="hot-label">Hot</p>
+                <div class="sulitbtn">
+                    <a href="product.html">Click to Reserve</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <img class="Raul" src="Images/sulitPrinter3.jpg" alt="">
+                <h4>L3250 4IN1 PRINTER</h4>
+                <h5>Sulit Printer 1</h5>
+                <h6>₱10,225</h6>
+                <img class="bestsellericon" src="Images/BestSeller.png" alt="">
+                <p class="hot-label">Hot</p>
+                <div class="sulitbtn">
+                    <a href="product.html">Click to Reserve</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!---------------
+         FOOTER
     ---------------->
     <footer class="footer">
         <div class="footer-content">
@@ -100,7 +256,8 @@
         <div class="footer-content">
             <h4>Company</h4>
             <ul>
-                <li><a href="#">About Us</a></li>                
+                <li><a href="aboutus.html">About Us</a></li>       
+                <li><a href="services.html">Our Services</a></li>         
                 <li><a href="#">Meet Our Team</a></li>
                 <li><a href="#">Store Location</a></li>
             </ul>
@@ -109,28 +266,31 @@
         <div class="footer-content">
             <h4>Help</h4>
             <ul>
+                <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="#">Privacy Policy</a></li>                
                 <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">FAQs</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
             </ul>
         </div>
 
         <div class="footer-content">
             <h4>Connect With Us</h4>
             <div class="icons2">
-                <a href="#"><i class='bx bxl-facebook-circle'></i></a>
-                <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
-                <a href="#"><i class='bx bxl-tiktok' ></i></a>
-                <a href="#"><i class='bx bxl-gmail'></i></a>
+                <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
+                <a href="#"><img src="Images/igicon.png" alt=""></a>
+                <a href="#"><img src="Images/tticon.png" alt=""></a>
+                <a href="#"><img src="Images/gmicon.png" alt=""></i></a>
             </div>
         </div>
     </footer>
 
     <!---------------
-      COPYRIGHTS
+       COPYRIGHTS
     ---------------->
     <div class="copyrights">
         <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
     </div>
 </body>
 </html>
+
+

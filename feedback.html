@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!---------------
+           TAB
+    ---------------->
+    <title>MGWR PC | Feedbacks</title>
+    <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
+    
+    <!---------------
+         CSS & JS
+    ---------------->
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" type="text/css" href="css/feedbacks.css">
+    <script type="text/javascript" src="js/admin_feedback.js"></script>
+
+    <!---------------
+          FONTS
+    ---------------->
+    <script src="https://kit.fontawesome.com/aa7454d09f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+    <!---------------
+        CAROUSEL
+    ---------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+    <!---------------
+          ICONS
+    ---------------->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<header class="header">
+    <a href="home.html" class="logo">MGWR PC</a>
+
+    <input type="checkbox" id="check">
+    <label for="check" class="icons">
+        <img src="Images/Menu.png" alt="" id="menu-icon">
+        <img src="Images/MenuX.png" alt="" id="close-icon">
+    </label>
+
+    <nav class="navbar">
+        <a href="home.html" style="--i:0">Home</a>
+        <a href="aboutus.html" style="--i:1">About Us</a>
+        <a href="pricelist.html" style="--i:2">Pricelist</a>
+        <a class="active" href="feedback.html" style="--i:3">Feedbacks</a>
+        <a href="faqs.html" style="--i:4">FAQs</a>
+    </nav>
+</header> 
+
+<body>
+    <!---------------
+          NAVBAR
+    ---------------->
+
+
+
+
+    <!---------------
+        FEEDBACKS
+    ---------------->
+    <main class="table" id="customers_table">
+        <section class="table__header">
+            <h1>Customer Feedbacks</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+                <img src="images/search.png" alt="">
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Customer <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Feedback </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> Zinzu Chan Lee</td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">First ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                    
+                    </tr>
+                    <tr>
+                        <td> Jeet Saru </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                  
+                    </tr>
+                    <tr>
+                        <td> Sonal Gharti </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                      
+                    </tr>
+                    <tr>
+                        <td> Alson GC </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                     
+                    </tr>
+                    <tr>
+                        <td> Sarita Limbu </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                 
+                    </tr>
+                    <tr>
+                        <td> Alex Gonley </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                      
+                    </tr>
+                    <tr>
+                        <td> Jeet Saru </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                      
+                    </tr>
+                    <tr>
+                        <td> Aayat Ali Khan </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                      
+                    </tr>
+                    <tr>
+                        <td> Alson GC </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                       
+                    </tr>
+                    <tr>
+                        <td> Alson GC </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                  
+                    </tr>
+                    <tr>
+                        <td> Alson GC </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                    
+                    </tr>
+                    <tr>
+                        <td> Alson GC </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                    
+                    </tr>
+                    <tr>
+                        <td> Alson GC </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
+                        </td>                      
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="/js/admin_feedback.js"></script>
+
+
+
+    <!---------------
+      LEAVE FEEDBACK
+    ---------------->
+    <div class="contactus">
+        <p>Help Us Improve Our Web</p>
+        <a class="btn-fdbck" id="leaveFeedbackBtn" href="survey.html">Leave A Feedback</a>
+    </div>
+
+
+
+    <!---------------
+         FOOTER
+    ---------------->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="logo2">MGWR PC</span>
+            <p>Committed in providing you with the best Computer parts and accessories, with a focus on product quality, best service, and real-time assistance.</p>
+        </div>
+
+        <div class="footer-content">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="aboutus.html">About Us</a></li>       
+                <li><a href="services.html">Our Services</a></li>         
+                <li><a href="#">Meet Our Team</a></li>
+                <li><a href="#">Store Location</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-content">
+            <h4>Help</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>                
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-content">
+            <h4>Connect With Us</h4>
+            <div class="icons2">
+                <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
+                <a href="#"><img src="Images/igicon.png" alt=""></a>
+                <a href="#"><img src="Images/tticon.png" alt=""></a>
+                <a href="#"><img src="Images/gmicon.png" alt=""></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!---------------
+       COPYRIGHTS
+    ---------------->
+    <div class="copyrights">
+        <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
+    </div>
+
+
+
+    <!---------------
+         SCRIPTS
+    ----------------> 
+    <script type="text/javascript" src="js/mainscript.js"></script>
+</body>
+</html>

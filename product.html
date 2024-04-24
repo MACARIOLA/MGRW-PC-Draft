@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!---------------
+           TAB
+    ---------------->
+    <title>MGWR PC | Product Info</title>
+    <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
+    
+    <!---------------
+         CSS & JS
+    ---------------->
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" href="css/product.css">
+    <script type="text/javascript" src="js/mainscript.js"></script>
+
+    <!---------------
+          FONTS
+    ---------------->
+    <script src="https://kit.fontawesome.com/aa7454d09f.js" crossorigin="anonymous"></script>
+
+    <!---------------
+          ICONS
+    ---------------->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+
+
+<body class="contactBg">
+    <!---------------
+          NAVBAR
+    ---------------->
+    <header class="header">
+        <a href="home.html" class="logo">MGWR PC</a>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <img src="Images/Menu.png" alt="" id="menu-icon">
+            <img src="Images/MenuX.png" alt="" id="close-icon">
+        </label>
+
+        <nav class="navbar">
+            <a href="home.html" style="--i:0">Home</a>
+            <a href="aboutus.html" style="--i:1">About Us</a>
+            <a href="pricelist.html" style="--i:2">Pricelist</a>
+            <a href="feedback.html" style="--i:3">Feedbacks</a>
+            <a href="faqs.html" style="--i:4">FAQs</a>
+        </nav>
+    </header>     
+
+    <section class="about">
+        <div class="main">
+            <img src="Images/SulitPc1.jpg" alt="">
+            <div class="all-text">
+                <h4>AMD ATHLON 3000G</h4>
+                <h1>SULIT PC 1</h1>
+                <div class="price">₱10,990</div>
+                <p>Introducing AMD ATHLON 3000G – Discover a powerful computing solution built for speed and efficiency. This PC delivers seamless multitasking, vibrant visuals, ample storage, and sleek design. Experience enhanced productivity and performance in a compact package.</p>
+                <p>High-speed computing solution, bundled with complimentary mouse and keyboard for added convenience.</p>
+                <div class="features">
+                    <div class="row">
+                        <img class="icn" src="Images/icon-cpu.png" alt="">
+                        <div class="column c1">AMD ATHLON 3000G</div>
+                        <img class="icn" src="Images/icon-mb.png" alt="">
+                        <div class="column c2">BIOSTAR A520M H 3.1</div>
+                    </div>
+                    <div class="row">
+                        <img class="icn" src="Images/icon-ram.png" alt="">
+                        <div class="column c3">8GB DDR4</div>
+                        <img class="icn" src="Images/icon-mntr.png" alt="">
+                        <div class="column c4">FONUDAR 19" LED</div>
+                    </div>
+                    <div class="row">
+                        <img class="icn" src="Images/icon-ssd.png" alt="">
+                        <div class="column c5">128GB SATA 3.0,</div>
+                        <img class="icn" src="Images/icon-cc.png" alt="">
+                        <div class="column c6">POWERLOGIC V200</div>
+                    </div>
+                </div>
+                
+                <div class="btn">
+                    <button type="button" class="btn2" id="reserveNowBtn">Reserve Now</button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+    <!---------------
+          POPUP
+    ---------------->
+    <div id="reserveModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closebtn">&times;</span>
+            <h2>Reservation Details</h2>
+            <form id="reserveForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter email" required>
+                
+                <label for="contactNum">Contact Number</label>
+                <input type="tel" id="contactNum" placeholder="Enter contact number" required>
+                
+                <div class="btn-container">
+                    <button type="button" id="confirmBtn">Confirm</button>
+                    <button type="button" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Reservation Completed Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Reservation Completed!</h2>
+            <button type="button" id="goBackBtn">Go Back</button>
+        </div>
+    </div>
+
+
+
+    <!---------------
+         FOOTER
+    ---------------->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="logo2">MGWR PC</span>
+            <p>Committed in providing you with the best Computer parts and accessories, with a focus on product quality, best service, and real-time assistance.</p>
+        </div>
+
+        <div class="footer-content">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="aboutus.html">About Us</a></li>       
+                <li><a href="services.html">Our Services</a></li>         
+                <li><a href="#">Meet Our Team</a></li>
+                <li><a href="#">Store Location</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-content">
+            <h4>Help</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>                
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-content">
+            <h4>Connect With Us</h4>
+            <div class="icons2">
+                <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
+                <a href="#"><img src="Images/igicon.png" alt=""></a>
+                <a href="#"><img src="Images/tticon.png" alt=""></a>
+                <a href="#"><img src="Images/gmicon.png" alt=""></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!---------------
+       COPYRIGHTS
+    ---------------->
+    <div class="copyrights">
+        <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
+    </div>
+</body>
+</html> 
