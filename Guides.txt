@@ -1,0 +1,34 @@
+Design Guide for Website Promotion
+
+Promotion Contents:
+  Full Screen: 1920x750
+  Responsive: 480x750 (If responsive design is implemented)
+
+Displayed Products:
+  Media Queries: 480x480
+
+Team/Staff:
+  Media Queries: 270x270
+
+Testimonials:
+  Background (Full Screen): 1920x850
+  Responsive: 480x850
+  Customer Icons: 80x80
+
+Product Clicked: Product About
+  Media Queries: 437x734
+
+Other Images (For About or Services)
+  Size: 370x280
+
+Contact Us
+  Map: 1920x750
+
+Color Palette
+  Purple: #8C52FF
+  Orange: #FF914D
+  Background: Black
+
+Typography
+  Logo: 'Ethnocentric', sans-serif;
+  Norms: 'Poppins', sans-serif;

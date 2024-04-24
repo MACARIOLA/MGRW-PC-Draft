@@ -1,0 +1,338 @@
+/* ------------
+   SHORTCUTS
+------------ */
+:root {
+    --mgwrpcMain1: #8C52FF; 
+    --mgwrpcMain2: #FF914D;
+    --black1: #000;
+    --black2: #151515;
+    --black3: #303030;
+    --gray1: #222;
+    --gray2: #333;
+    --gray3: #444;
+    --white1: #ffffff;
+    --white2: #F2EFEB;
+    --white3: #dddddd;
+    --paracolor: #5e6c79;
+	--yellow: #FFBD13;
+}
+
+
+
+/* -------------
+    FEEDBACK
+------------- */ 
+.table {
+    margin-top: 20px;
+    width: 80%;
+    height: 860px;
+    background-color: var(--black1);
+    box-shadow: 0 .4rem .8rem #0005;
+    overflow: hidden;
+    justify-content: center !important;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+   
+.table__header {
+    width: 100%;
+    height: 8%;
+    background-color: var(--black1);
+    padding: .8rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white1);
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+h1 {
+    font-size: 60px;
+}
+   
+.table__header .input-group {
+    width: 35%;
+    height: 100%;
+    background-color: var(--black3);
+    padding: 0 .8rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+}
+   
+.table__header .input-group:hover {
+    width: 45%;
+    background-color: var(--gray3);
+    box-shadow: 0 .1rem .4rem #0002;
+}
+   
+.table__header .input-group img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+   
+.table__header .input-group input {
+    width: 100%;
+    padding: 0 .5rem 0 .3rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+   
+.table__body {
+    width: 100%;
+    max-height: calc(89% - 1.6rem);
+    background-color: var(--white3);
+    margin: .8rem auto;
+    border: 8px solid var(--gray3);
+    border-radius: .5rem;
+    overflow: auto;
+    overflow: overlay;
+}
+   
+.table__body td:first-child {
+    width: 10%;
+}
+   
+.table__body td:first-child {
+    padding: 1rem;
+}
+   
+.table__body td:nth-child(2) {
+    width: 30%; 
+}
+   
+.table__body td:nth-child(2) {
+    padding: 1rem; 
+}
+   
+.table__body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--gray3);
+}
+   
+.table__body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: var(--gray2);
+    visibility: hidden;
+}
+   
+.table__body:hover::-webkit-scrollbar-thumb{ 
+    visibility: visible;
+}
+   
+table {
+    width: 100%;
+    height: 100vh;
+}
+   
+table, th, td {
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: left;
+}
+   
+thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: var(--gray3);
+    cursor: pointer;
+    text-transform: capitalize;
+    color: var(--white1);
+    transition: .3s ease-in-out;
+}
+   
+tbody tr:nth-child(odd) {
+    background-color: var(--white1);
+}
+   
+tbody tr {
+    --delay: .1s;
+    transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+   
+tbody tr.hide {
+    opacity: 0;
+    transform: translateX(100%);
+}
+   
+tbody tr:hover {
+    background-color: var(--white2);
+}
+   
+tbody tr td,
+tbody tr td p,
+tbody tr td img {
+    transition: .2s ease-in-out;
+    text-align: justify;
+}
+   
+tbody tr.hide td,
+tbody tr.hide td p {
+    padding: 0;
+    transition: .2s ease-in-out .5s;
+}
+   
+tbody tr.hide td img {
+    width: 0;
+    height: 0;
+    transition: .2s ease-in-out .5s;
+}
+   
+@media (max-width: 1000px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+}
+   
+thead th span.icon-arrow {
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    border: 1.4px solid transparent;
+    text-align: center;
+    font-size: 1rem;
+    margin-left: .5rem;
+    transition: .3s ease-in-out;
+}
+   
+thead th:hover {
+    color: var(--black1);
+}
+   
+thead th.active span.icon-arrow{
+    background-color: var(--mgwrpcMain1);
+    color: var(--black1);
+    font-size: 16px;
+}
+   
+thead th.asc span.icon-arrow{
+    transform: rotate(180deg);
+}
+   
+thead th.active,tbody td.active {
+    color: var(--mgwrpcMain1);
+}
+   
+.post-delete-button.post {
+    background: var(--black3); 
+    color: var(--white1);
+}
+   
+.post-delete-button.delete {
+    background: var(--black3);
+    color: var(--white1);
+}
+   
+.post-delete-button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+   
+.post-delete-button:hover {
+    background: var(--gray3);
+}
+
+@media (max-width: 1700px) {
+    h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .table__header {
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1000px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .table__header .input-group:hover {
+        width: 35%;
+    }
+
+    tbody tr td,
+    tbody tr td p,
+    tbody tr td img {
+        transition: .2s ease-in-out;
+        text-align: left;
+    }
+}
+
+
+
+
+/* -------------
+ LEAVE FEEDBACK
+------------- */ 
+.contactus {
+	width: 100%;
+	height: 250px;
+	background: var(--black2);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+
+}
+
+.contactus p {
+	color: var(--white1);
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 25px;
+}
+
+.contactus .btn-fdbck {
+	background-color: var(--black1);
+	color: var(--white1);
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 13px 30px;
+	border-radius: 30px;
+	transition: 0.3s;
+}
+
+.contactus .btn-fdbck:hover {
+	background-color: transparent;
+	border: 2px solid var(--black3);
+	cursor: pointer;
+}
+
+/* -------------
+   BREAKPOINTS
+-------------- */
+@media (max-width: 610px) {
+    .contactus p {
+        font-size: 26px;
+        text-align: center;
+    }
+
+	.contactus .btn-fdbck {
+		font-size: 16px;
+		padding: 10px 20px;
+	}
+}

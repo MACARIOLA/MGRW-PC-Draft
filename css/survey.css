@@ -1,0 +1,149 @@
+/* -------------
+    SHORTCUTS
+-------------- */
+:root {
+    --mgwrpcMain1: #8C52FF; 
+    --mgwrpcMain2: #FF914D;
+    --black1: #000;
+    --black2: #151515;
+    --black3: #303030;
+    --gray1: #222;
+    --gray2: #333;
+    --gray3: #444;
+    --white1: #ffffff;
+    --white2: #F2EFEB;
+    --white3: #dddddd;
+    --paracolor: #5e6c79;
+    --mission: #3DA8DA;
+    --vission: #8FC800;
+    --coreValues: #F6A800;
+}
+
+
+
+/* -------------
+      FORM
+-------------- */
+.heading {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+#head, #subheading, #content, form {
+    color: var(--white1);
+}
+
+#head {
+	padding-top: 50px;
+    font-size: 3em;
+    color: var(--white1);
+	text-align: center;
+	max-width: 700px;
+	margin: auto auto 20px;
+    margin-top: -100px;
+}
+
+#subheading {
+    text-align: center;
+    color: var(--paracolor);
+    font-size: 1.1rem;
+    line-height: 1.5em;
+	max-width: 700px;
+	margin: auto auto 20px;
+    margin-bottom: 50px;
+}
+
+#content1 {
+    width: 90%;
+    margin: auto;
+}
+
+form {
+    background-color: rgba(29, 29, 29, 0.7);
+    padding-top: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 10px;
+    padding-bottom: 60px;
+    margin-bottom: 50px;
+}
+
+form .box {
+    width: 98.5%;
+    height: 2.8rem;
+    position: relative;
+    bottom: 10px;
+    border: 0;
+    border-radius: 5px;
+}
+
+#content1 textarea {
+    width: 98.5%;
+    height: 125px;
+    position: relative;
+    bottom: 17px;
+}
+
+button {
+    width: 98.5%;
+    height: 3em;
+    position: relative;
+    top: 11px;
+    background-color: var(--black1);
+    border: none;
+    color: var(--white1);
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: var(--black3);
+}
+
+textarea::placeholder {
+    font-size: 1.4em;
+    position: relative;
+    top: 8px;
+    left: 5px;
+    width: 70%;
+}
+
+input::placeholder {
+    font-size: 1.1em;
+    position: relative;
+    left: 10px;
+    width: 50%;
+    font-weight: 500;
+}
+
+input .larger {
+    width: 20px;
+    height: 20px;
+}
+
+/* -------------
+   BREAKPOINTS
+-------------- */
+@media (max-width: 1280px) {
+    form {
+        width: 75%;
+    }
+}
+
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+    }
+
+    #subheading {
+        width: 80%;
+    }
+}

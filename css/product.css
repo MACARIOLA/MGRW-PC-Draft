@@ -1,0 +1,321 @@
+/* -------------
+    SHORTCUTS
+-------------- */
+:root {
+    --mgwrpcMain1: #8C52FF; 
+    --mgwrpcMain2: #FF914D;
+    --black1: #000;
+    --black2: #151515;
+    --black3: #303030;
+    --gray1: #222;
+    --gray2: #333;
+    --gray3: #444;
+    --white1: #ffffff;
+    --white2: #F2EFEB;
+    --white3: #dddddd;
+    --paracolor: #5e6c79;
+}
+
+
+
+/* -------------
+    PRODUCT
+-------------- */
+.about {
+    height: 100vh;
+    width: 100%;
+    background: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -80px;
+    padding-bottom: -60px;
+}
+
+.about .main img {
+    width: 580px;
+    max-width: 100%;
+    height: auto;
+    padding: 0 10px;
+}
+
+.all-text {
+    width: 600px;
+    max-width: 100%;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.main {
+    width: 1290px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.all-text h4 {
+    font-size: 18px;
+    color: var(--white1);
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin-top: 50px;
+}
+
+.price {
+    color: var(--white1);
+    align-self: flex-end;
+    margin-top: -65px; 
+}
+
+.all-text h1 {
+    font-size: 65px;
+    color: var(--white1);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.all-text p {
+    font-size: 16px;
+    color: var(--paracolor);
+    line-height: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px; 
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--gray1); 
+    padding: 10px 0 10px 0;
+    margin-bottom: 15px; 
+}
+
+.column {
+    flex: 1;
+    color: var(--white1); 
+    padding: 10px;
+}
+
+.features .c1, 
+.features .c2, 
+.features .c3, 
+.features .c4,
+.features .c5, 
+.features .c6 {
+    margin-left: -5px;
+    transition: 0.3s;
+}
+
+.features .c1:hover, 
+.features .c2:hover,
+.features .c3:hover, 
+.features .c4:hover,
+.features .c5:hover, 
+.features .c6:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.features .row .icn {
+    max-width: 60px;
+    height: 50px;
+}
+
+.btn button {
+    background: var(--black2);
+    padding: 20px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--white1);
+    border: none;
+    outline: none;
+    box-shadow: 0px 16px 32px 0px rgb(0 0 0 / 6%);
+    margin-right: 20px;
+}
+
+.btn button:hover {
+    background-color: var(--black3);
+    color: var(--white1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn .btn2 {
+    background: var(--white1);
+    color: #000;
+}
+
+/* -------------
+   BREAKPOINTS
+-------------- */
+@media screen and (max-width: 1250px) {
+    .about {
+        width: 100%;
+        height: auto;
+        padding: 80px 0;
+    }
+
+    .all-text {
+        text-align: center;
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .about .main img {
+        margin-bottom: 35px;   
+    }
+
+    .all-text h1 {
+        font-size: 45px;
+        margin-bottom: 20px;
+    }
+} 
+
+
+
+/* -------------
+      POPUP
+-------------- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    height: 400px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+    color: var(--black1);
+    font-size: 24px;
+}
+
+.modal-content h2 {
+    color: var(--black1);
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+.modal-content label {
+    color: var(--black1);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-content input[type="email"],
+.modal-content input[type="tel"],
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.modal-content input[type="email"]::placeholder,
+.modal-content input[type="tel"]::placeholder {
+    color: var(--black3);
+    opacity: 0.6;
+}
+
+.modal-content input[type="email"],
+.modal-content input[type="tel"] {
+    background-color: var(--white1);
+    color: var(--black1);
+    border: 1px solid var(--black1);
+}
+
+.modal-content button {
+    background-color: var(--black1);
+    color: var(--white1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 48%;
+    justify-content: space-between; 
+    margin: 0 10px  0 10px;
+}
+
+.modal-content button:hover {
+    background-color: var(--black3);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 20px; 
+}
+
+#successModal .modal-content {
+    width: 500px; 
+    height: 400px;
+}
+
+#successModal .modal-content button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%; 
+}
+
+/* -------------
+   BREAKPOINTS
+-------------- */
+@media screen and (max-width: 1250px) {
+    .modal {
+        width: 100%;
+        height: 169vh;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .modal {
+        width: 100%;
+        height: 169vh;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+    
+    #successModal .modal-content {
+        width: 90%; 
+        height: 400px;
+    }
+}
