@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!---------------
+           TAB
+    ---------------->
+    <title>MGWR PC | Warehousing</title>
+    <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
+
+    <!---------------
+         CSS & JS
+    ---------------->
+    
+    <link rel="stylesheet" href="css/admin-inventory.css">
+    <style>
+        /* Style for the preview image */
+        #preview {
+            position: absolute;
+            display:none;
+            width: 100px; /* Adjust the width of the preview image */
+            height: auto; /* Maintain aspect ratio */
+            border: 2px solid #333; /* Add border */
+            border-radius: 5px; /* Add border radius */
+            background-color: #fff; /* Background color */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow */
+            z-index: 999; /* Ensure it's above other elements */
+            /* Adjust position */
+            top: 0; /* Adjust based on your layout */
+            left: 100%; /* Adjust based on your layout */
+            margin-left: 10px; /* Adjust the distance from the image */
+        }
+    </style>
+    </style>
+</head>
+<body>
+        <!---------------
+          NAVBAR
+    ---------------->
+    <header class="header-container">
+        <a href="" class="logo">MGWR PC</a>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+        </label>
+
+        <nav class="navbar">
+            <a href="home.html" style="--i:0">Analytics</a>
+            <a href="#" style="--i:1">CMS</a>
+            <a href="#" style="--i:2">Warehousing</a>
+            <a href="#" style="--i:3">Feedback</a>
+            <a href="#" style="--i:4">Message</a>
+        </nav>
+    </header>  
+</div>
+        <!---------------
+          INVENTORY MANAGEMENT TEXT
+    ---------------->
+ <div class="fixed-text">Inventory Management</div>
+         <!---------------
+          TABLE
+    ---------------->
+    <main class="table" id="customers_table">
+        <section class="table__header">
+            <h1>INVENTORY</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+                <img src="images/search.png" alt="">
+            </div>
+            <div></div>
+                </div>
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead> 
+                    <tr>
+                        <th> PRODUCT ID <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> PRODUCT NAME <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> IMAGE <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> UNIT PRICE <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> TOTAL UNITS <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> RESERVED UNITS <span class="icon-arrow">&UpArrow;</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SULIT PC 1</td> 
+                        <td><strong>Athlon 3000G </strong></td>
+                        <td><div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                            <img src="images/sulitpc1.jpg" alt="SULIT PC 1 Image" onclick="previewImage('images/sulitpc1jpg')">
+                            <img id="preview" src="images/sulitpc1.jpg" alt="Preview">
+                        </div></td>           
+                        <td>₱10,990</td>
+                            <td>4/22/2024</td>
+                        </td>
+                        <td> <strong> ----- </strong></td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 2</td>
+                        <td><strong> Ryzen 5 2400G</strong></td>
+                        <td>
+                            <div class="image-container2" onmouseover="showPreview2('sulitpc2.jpg')" onmouseout="hidePreview2()">
+                                <img src="images/sulitpc2.jpg" alt="SULIT PC 2 Image">
+                                <img id="preview2" src="images/sulitpc2.jpg" alt="Preview2">
+                            </div>
+                        </td> 
+                        <td>₱12,510</td>
+                        <td>4/23/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 3 </td>
+                        <td><strong>Ryzen 3 3200G</strong></td>
+                        <td> <div class="image-container2" onmouseover="showPreview2('sulitpc3.jpg')" onmouseout="hidePreview2()">
+                            <img src="images/sulitpc3.jpg" alt="SULIT PC 2 Image">
+                            <img id="preview2" src="images/sulitpc3.jpg" alt="Preview3">
+                        </div> </td>
+                        <td>₱15,300</td>
+                        <td>4/24/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 4 </td>
+                        <td> <strong>Ryzen 5 2400G</strong>  </td>
+                        <td>  </td>
+                        <td>₱15,770</td>
+                        <td>4/25/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 5</td>
+                        <td><strong> Ryzen 5 4650G</strong> </td>
+                        <td>  </td>
+                        <td>₱19,990</td>
+                        <td>4/22/2024</td>  
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 6</td>
+                        <td><strong>Ryzen 5 5600G</strong> </td>
+                        <td>  </td>
+                        <td>₱21,490</td>
+                        <td>4/22/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC  7</td>
+                        <td><strong>Ryzen 5 5600G</strong> </td>
+                        <td>  </td>
+                        <td>₱26,390</td>
+                        <td>4/22/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 8 </td>
+                        <td><strong>Ryzen 7 5700G</strong>  </td>
+                        <td></td>
+                        <td>₱33,910</td>
+                        <td>4/22/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td>-----</td>
+                        <td>----- </td>
+                        <td> ----- </td>
+                        <td>
+                        </td>
+                        <td>-----</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td>-----</td>
+                        <td>----- </td>   
+                        <td> ----- </td>
+                        <td>
+                        </td>
+                        <td>-----</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> -----</td>
+                        <td> ----- </td>
+                        <td>----- </td>
+                        <td>
+                        </td>
+                        <td>-----</td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td>-----</td>
+                        <td>----- </td>
+                        <td>-----</td>
+                        <td>
+                        </td>
+                        <td>-----</td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td>-----</td>
+                        <td>-----</td>
+                        <td>-----</td>
+                        <td>
+                        </td>
+                        <td>-----</td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <main class="table" id="customers_table">
+        <section class="table__header">
+            <h1>RESERVATION</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+                <img src="images/search.png" alt="">
+            </div>
+            <div class="export__file">
+                <label for="export-file" class="export__file-btn" title="Export File"></label>
+                
+                <input type="checkbox" id="export-file">
+                <div class="export__file-options">
+                    <label>Export As &nbsp; &#10140;</label>
+                    <label for="export-file" id="toPDF">PDF <img src="images/pdf.png" alt=""></label>
+                    <label for="export-file" id="toJSON">JSON <img src="images/json.png" alt=""></label>
+                    <label for="export-file" id="toCSV">CSV <img src="images/csv.png" alt=""></label>
+                    <label for="export-file" id="toEXCEL">EXCEL <img src="images/excel.png" alt=""></label>
+                </div>
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead> 
+                    <tr>
+                        <th> CUSTOMER NAME <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> PRODUCT ID <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> RESERVED <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> STATUS <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> PICKUP DATE <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> DELIVERY <span class="icon-arrow">&UpArrow;</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Zinzu Chan Lee</td>
+                        <td>SULIT PC 1</td>
+                        <td> 2 </td>
+                        <td>
+                            <p class="status delivered">Delivered</p>
+                        </td>
+                            <td>4/22/2024</td>
+                        </td>
+                        <td> <strong> ----- </strong></td>
+                    </tr>
+                    <tr>
+                        <td> Jeet Saru</td>
+                        <td>SULIT PC 2</td>
+                        <td> 3</td>
+                        <td>
+                            <p class="status cancelled">Cancelled</p>
+                        </td>
+                        <td>4/23/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Sonal Gharti </td>
+                        <td> SULIT PC 3</td>
+                        <td> 4 </td>
+                        <td>
+                            <p class="status pending">Pending</p>
+                        </td>
+                        <td>4/24/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Alson GC </td>
+                        <td> SULIT PC 4  </td>
+                        <td> 1 </td>
+                        <td>
+                            <p class="status delivered">Delivered</p>
+                        </td>
+                        <td>4/25/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Sarita Limbu </td>
+                        <td>SULIT PC 5  </td>
+                        <td> 3 </td>
+                        <td>
+                            <p class="status delivered">Delivered</p>
+                        </td>
+                        <td>4/22/2024</td>  
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Alex Gonley</td>
+                        <td>  SULIT PC 6 </td>
+                        <td> 4 </td>
+                        <td>
+                            <p class="status shipped">Shipped</p>
+                        </td>
+                        <td>4/22/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Jeet Saru</td>
+                        <td>SULIT PC  7 </td>
+                        <td> 2 </td>
+                        <td>
+                            <p class="status delivered">Delivered</p>
+                        </td>
+                        <td>4/22/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Aayat Ali Khan </td>
+                        <td>SULIT PC 8  </td>
+                        <td> 3 </td>
+                        <td>
+                            <p class="status cancelled">Cancelled</p>
+                        </td>
+                        <td>4/22/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Alson GC</td>
+                        <td>SULIT PC  9 </td>
+                        <td> 1 </td>
+                        <td>
+                            <p class="status shipped">Shipped</p>
+                        </td>
+                        <td>4/22/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Allyson Shore</td>
+                        <td>SULIT PC 10 </td>   
+                        <td> 3 </td>
+                        <td>
+                            <p class="status delivered">Delivered</p>
+                        </td>
+                        <td>4/23/2024</td>
+                        </td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Whiz Khalifa</td>
+                        <td> SULIT PC 11 </td>
+                        <td> 2 </td>
+                        <td>
+                            <p class="status shipped">Shipped</p>
+                        </td>
+                        <td>4/22/2024</td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Josh</td>
+                        <td> SULIT PC 12 </td>
+                        <td> 4 </td>
+                        <td>
+                            <p class="status delivered">Delivered</p>
+                        </td>
+                        <td>4/22/2024</td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                    <tr>
+                        <td> Zack Tabuldo</td>
+                        <td>SULIT PC 13</td>
+                        <td> 3 </td>
+                        <td>
+                            <p class="status cancelled">Cancelled</p>
+                        </td>
+                        <td>4/22/2024</td>
+                        <td> <strong>-----</strong> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <script src="admin-inventory.js"></script>
+    <script>
+        // JavaScript functions to show and hide image preview
+        function showPreview() {
+            document.getElementById("preview").style.display = "block";
+        }
+
+        function hidePreview() {
+            document.getElementById("preview").style.display = "none";
+        }
+
+    </script>
+    
+
+    
+</body>
+</html>
