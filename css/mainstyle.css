@@ -205,7 +205,7 @@ body {
      FOOTER
 -------------- */
 footer {
-    padding: 80px 13% 100px;
+    padding: 80px 13% 80px;
 }
 
 .footer {
@@ -230,30 +230,60 @@ footer {
 }
 
 .icons2 a img {
-    width: 30px; 
+    width: 30px;
     height: 30px;
     opacity: 1; 
-    transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.5s ease-in-out; 
+}
+    
+.icons2 a:hover img {
+    opacity: 1; 
+    animation: zoomOut 0.5s ease-in-out forwards; 
 }
 
-.icons2 a:nth-child(1) img {
-    transition: content 8s ease-in-out;
+.icons2 a img:not(:hover) {
+    animation: zoomIn 0.5s ease-in-out forwards;
+    transition: opacity 0.3s ease-in-out; 
+}
+
+@keyframes zoomOut {
+    0% {
+        opacity: 0; 
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 1; 
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1.2);
+        opacity: 1; 
+    }
+    100% {
+        opacity: 1; 
+    }
 }
 
 .icons2 a:nth-child(1):hover img {
     content: url('/Images/fbicon2.png');
+    opacity: 1;
 }
 
 .icons2 a:nth-child(2):hover img {
     content: url('/Images/igicon2.png');
+    opacity: 1;
 }
 
 .icons2 a:nth-child(3):hover img {
     content: url('/Images/tticon2.png');
+    opacity: 1;
 }
 
 .icons2 a:nth-child(4):hover img {
     content: url('/Images/gmicon2.png');
+    opacity: 1;
 }
 
 .icons img {
@@ -298,8 +328,17 @@ footer {
 }
 
 .icons2 a:hover {
-    color: var(--mgwrpcMain1);
-    transform: translateY(-5px);
+    animation: bounce 1.8s infinite ease-in-out;
+    transform-origin: center bottom;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateZ(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* -------------
