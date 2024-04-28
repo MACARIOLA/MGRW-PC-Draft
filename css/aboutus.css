@@ -55,13 +55,13 @@
 .all-text {
     width: 600px;
     max-width: 100%;
-    padding: 0 10px;
+    padding: 0 30px;
 }
 
 .main {
     width: 1290px;
     max-width: 95%;
-    margin: 0 auto;
+    margin: 0 100;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -118,7 +118,7 @@
 /* -------------
    BREAKPOINTS
 -------------- */
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1242px) {
     .about {
         width: 100%;
         height: auto;
