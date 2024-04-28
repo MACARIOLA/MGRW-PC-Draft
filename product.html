@@ -54,8 +54,10 @@
 
     <section class="about">
         <div class="main">
-            <img src="Images/SulitPc1.jpg" alt="">
-            <div class="all-text">
+            <div class="image-container">
+                <img src="Images/SulitPc1.jpg" alt="">
+            </div>
+            <div class="all-text"> 
                 <h4>AMD ATHLON 3000G</h4>
                 <h1>SULIT PC 1</h1>
                 <div class="price">₱10,990</div>
@@ -97,14 +99,19 @@
     ---------------->
     <div id="reserveModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" id="closebtn">&times;</span>
             <h2>Reservation Details</h2>
             <form id="reserveForm">
+                <label for="email">First Name</label>
+                <input type="fname" id="fName" placeholder="Enter First Name" required>
+
+                <label for="email">Last Name</label>
+                <input type="lname" id="lname" placeholder="Enter Last Name" required>
+                
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter email" required>
+                <input type="email" id="email" placeholder="Enter Email" required>
                 
                 <label for="contactNum">Contact Number</label>
-                <input type="tel" id="contactNum" placeholder="Enter contact number" required>
+                <input type="tel" id="contactNum" placeholder="Enter Contact Number" required>
                 
                 <div class="btn-container">
                     <button type="button" id="confirmBtn">Confirm</button>
@@ -138,16 +145,14 @@
             <h4>Company</h4>
             <ul>
                 <li><a href="aboutus.html">About Us</a></li>       
-                <li><a href="services.html">Our Services</a></li>         
-                <li><a href="#">Meet Our Team</a></li>
                 <li><a href="#">Store Location</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </div>
         
         <div class="footer-content">
             <h4>Help</h4>
             <ul>
-                <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="#">Privacy Policy</a></li>                
                 <li><a href="#">Terms of Service</a></li>
                 <li><a href="faqs.html">FAQs</a></li>
