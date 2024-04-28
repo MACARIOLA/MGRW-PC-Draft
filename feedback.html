@@ -35,29 +35,29 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<header class="header">
-    <a href="home.html" class="logo">MGWR PC</a>
 
-    <input type="checkbox" id="check">
-    <label for="check" class="icons">
-        <img src="Images/Menu.png" alt="" id="menu-icon">
-        <img src="Images/MenuX.png" alt="" id="close-icon">
-    </label>
-
-    <nav class="navbar">
-        <a href="home.html" style="--i:0">Home</a>
-        <a href="aboutus.html" style="--i:1">About Us</a>
-        <a href="pricelist.html" style="--i:2">Pricelist</a>
-        <a class="active" href="feedback.html" style="--i:3">Feedbacks</a>
-        <a href="faqs.html" style="--i:4">FAQs</a>
-    </nav>
-</header> 
 
 <body>
     <!---------------
           NAVBAR
     ---------------->
-
+    <header class="header">
+        <a href="home.html" class="logo">MGWR PC</a>
+    
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <img src="Images/Menu.png" alt="" id="menu-icon">
+            <img src="Images/MenuX.png" alt="" id="close-icon">
+        </label>
+    
+        <nav class="navbar">
+            <a href="home.html" style="--i:0">Home</a>
+            <a href="aboutus.html" style="--i:1">About Us</a>
+            <a href="pricelist.html" style="--i:2">Pricelist</a>
+            <a class="active" href="feedback.html" style="--i:3">Feedbacks</a>
+            <a href="faqs.html" style="--i:4">FAQs</a>
+        </nav>
+    </header> 
 
 
 
@@ -65,8 +65,9 @@
         FEEDBACKS
     ---------------->
     <main class="table" id="customers_table">
-        <section class="table__header">
-            <h1>Customer Feedbacks</h1>
+        <h1 class="heading" id="question">Customer Feedbacks</h1>
+        <p class="sentence1">Your feedback drives us to improve. Share your thoughts and help us serve you better.</p>
+        <section class="table__header">        
             <div class="input-group">
                 <input type="search" placeholder="Search Data...">
                 <img src="images/search.png" alt="">
@@ -82,91 +83,91 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td> Zinzu Chan Lee</td>
+                        <td> Joshua Lopez </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">First ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                    
                     </tr>
                     <tr>
-                        <td> Jeet Saru </td>
+                        <td> Jessalyn Macariola </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                  
                     </tr>
                     <tr>
-                        <td> Sonal Gharti </td>
+                        <td> Katrina Ibias </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                      
                     </tr>
                     <tr>
-                        <td> Alson GC </td>
+                        <td> Gerald Autentico </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                     
                     </tr>
                     <tr>
-                        <td> Sarita Limbu </td>
+                        <td> Johnrod Templo </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                 
                     </tr>
                     <tr>
-                        <td> Alex Gonley </td>
+                        <td> Vnew Rodelas </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                      
                     </tr>
                     <tr>
-                        <td> Jeet Saru </td>
+                        <td> Mitzi Purificacion </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                      
                     </tr>
                     <tr>
-                        <td> Aayat Ali Khan </td>
+                        <td> Louie Insorio </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                      
                     </tr>
                     <tr>
-                        <td> Alson GC </td>
+                        <td> Angel Abucay </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                       
                     </tr>
                     <tr>
-                        <td> Alson GC </td>
+                        <td> Chynna Chavez </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                  
                     </tr>
                     <tr>
-                        <td> Alson GC </td>
+                        <td> Kevin Paclejan </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                    
                     </tr>
                     <tr>
-                        <td> Alson GC </td>
+                        <td> Mark Zion </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
                         </td>                    
                     </tr>
                     <tr>
-                        <td> Alson GC </td>
+                        <td> Charles Xavier </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
                             <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
@@ -204,7 +205,7 @@
             <ul>
                 <li><a href="aboutus.html">About Us</a></li>       
                 <li><a href="services.html">Our Services</a></li>         
-                <li><a href="#">Meet Our Team</a></li>
+                <li><a href="team.html">Meet Our Team</a></li>
                 <li><a href="#">Store Location</a></li>
             </ul>
         </div>
