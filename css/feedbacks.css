@@ -14,7 +14,7 @@
     --white2: #F2EFEB;
     --white3: #dddddd;
     --paracolor: #5e6c79;
-	--yellow: #FFBD13;
+    --yellow: #FFBD13;
 }
 
 
@@ -23,11 +23,9 @@
     FEEDBACK
 ------------- */ 
 .table {
-    margin-top: 20px;
     width: 80%;
     height: 860px;
-    background-color: var(--black1);
-    box-shadow: 0 .4rem .8rem #0005;
+    background-color: transparent;
     overflow: hidden;
     justify-content: center !important;
     align-items: center;
@@ -42,27 +40,43 @@
     background-color: var(--black1);
     padding: .8rem 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     color: var(--white1);
-    padding-left: 50px;
-    padding-right: 50px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    margin-top: -100px;
 }
 
 h1 {
-    font-size: 60px;
+    padding-top: 110px;
+    font-size: 3em;
+    color: var(--white1);
+    text-align: center;
+    max-width: 700px;
+    margin: auto auto 20px;
+    margin-top: -100px;
 }
-   
+
+.sentence1 {
+    text-align: center;
+    color: var(--paracolor);
+    font-size: 1.1rem;
+    line-height: 1.5em;
+    max-width: 700px;
+    margin: auto auto 20px;
+}
+
 .table__header .input-group {
     width: 35%;
     height: 100%;
     background-color: var(--black3);
     padding: 0 .8rem;
-    border-radius: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: .2s;
+    display: none;
 }
    
 .table__header .input-group:hover {
@@ -89,27 +103,22 @@ h1 {
     max-height: calc(89% - 1.6rem);
     background-color: var(--white3);
     margin: .8rem auto;
-    border: 8px solid var(--gray3);
-    border-radius: .5rem;
-    overflow: auto;
+    border-top: 8px solid var(--gray3);
+    border-left: 8px solid var(--gray3);
+    border-bottom: 61px solid var(--gray3);
     overflow: overlay;
 }
    
 .table__body td:first-child {
     width: 10%;
-}
-   
-.table__body td:first-child {
     padding: 1rem;
 }
    
 .table__body td:nth-child(2) {
     width: 30%; 
+    padding: 1rem;
 }
    
-.table__body td:nth-child(2) {
-    padding: 1rem; 
-}
    
 .table__body::-webkit-scrollbar{
     width: 0.5rem;
@@ -247,7 +256,19 @@ thead th.active,tbody td.active {
 
 @media (max-width: 1700px) {
     h1 {
-        font-size: 40px;
+        font-size: 50px;
+    }
+
+    .table__body {
+        width: 100%;
+        max-height: calc(89% - 1.6rem);
+        background-color: var(--white3);
+        margin: .8rem auto;
+        border-top: 0;
+        border-left: 0;
+        border-bottom: 0;
+        overflow: auto;
+        overflow: overlay;
     }
 }
 
@@ -259,13 +280,13 @@ thead th.active,tbody td.active {
     }
 
     h1 {
-        font-size: 30px;
+        font-size: 40px;
     }
 }
 
 @media (max-width: 1000px) {
     h1 {
-        font-size: 20px;
+        font-size: 30px;
     }
 
     .table__header .input-group:hover {
@@ -277,6 +298,10 @@ thead th.active,tbody td.active {
     tbody tr td img {
         transition: .2s ease-in-out;
         text-align: left;
+    }
+
+    thead th span.icon-arrow {
+        display: none;
     }
 }
 
