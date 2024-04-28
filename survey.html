@@ -13,7 +13,6 @@
     <!---------------
          CSS & JS
     ---------------->
-    <link rel="stylesheet" href="css/mainstyle.css">
     <link rel="stylesheet" href="css/survey.css">
 
     <!---------------
@@ -44,52 +43,148 @@
             <input type="name" name="name" placeholder="Enter your name" class="box"><br><br>
 
             <label id="head1">1. How was your experience with the MGWR PC Online website?</label><br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Excellent <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Very Good <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Good <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Fair <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Poor <br><br><br>
+            <div class="radio-container">
+                <input type="radio" id="option1" name="radio1" class="radio-btn">
+                <label for="option1" class="radio-text">Excellent</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option2" name="radio1" class="radio-btn">
+                <label for="option2" class="radio-text">Very Good</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option3" name="radio1" class="radio-btn">
+                <label for="option3" class="radio-text">Good</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option4" name="radio1" class="radio-btn">
+                <label for="option4" class="radio-text">Fair</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option5" name="radio1" class="radio-btn">
+                <label for="option5" class="radio-text">Poor</label>
+              </div>
 
-            <label id="head1">2. What did you like most about the MGWR PC Online website?</label><br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Looks & Design <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Easy to Use <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Useful Content <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Fun Features <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;None <br><br><br>
+              <label id="head1">2. What did you like most about the MGWR PC Online website?</label><br><br>
+              <div class="radio-container">
+                <input type="radio" id="option6" name="radio2" class="radio-btn larger">
+                <label for="option6" class="radio-text">Looks & Design</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option7" name="radio2" class="radio-btn larger">
+                <label for="option7" class="radio-text">Easy to Use</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option8" name="radio2" class="radio-btn larger">
+                <label for="option8" class="radio-text">Useful Content</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option9" name="radio2" class="radio-btn larger">
+                <label for="option9" class="radio-text">Fun Features</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option10" name="radio2" class="radio-btn larger">
+                <label for="option10" class="radio-text">None</label>
+              </div>
+              
+              <label id="head1">3. Would you recommend the MGWR PC Online website to others?</label><br><br>
+              <div class="radio-container">
+                <input type="radio" id="option11" name="radio3" class="radio-btn larger">
+                <label for="option11" class="radio-text">Definitely</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option12" name="radio3" class="radio-btn larger">
+                <label for="option12" class="radio-text">Probably</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option13" name="radio3" class="radio-btn larger">
+                <label for="option13" class="radio-text">Not Sure</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option14" name="radio3" class="radio-btn larger">
+                <label for="option14" class="radio-text">Probably Not</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option15" name="radio3" class="radio-btn larger">
+                <label for="option15" class="radio-text">Definitely Not</label>
+              </div>
+              
+              <label id="head1">4. What part of the MGWR PC Online website made the most sense to you?</label><br><br>
+              <div class="radio-container">
+                <input type="radio" id="option16" name="radio4" class="radio-btn larger">
+                <label for="option16" class="radio-text">Finding Your Way Around</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option17" name="radio4" class="radio-btn larger">
+                <label for="option17" class="radio-text">Trustworthy Info</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option18" name="radio4" class="radio-btn larger">
+                <label for="option18" class="radio-text">--- Making It Yours ---</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option19" name="radio4" class="radio-btn larger">
+                <label for="option19" class="radio-text">--- Being Social ---</label>
+              </div>
 
-            <label id="head1">3. Would you recommend the MGWR PC Online website to others?</label><br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Definitely <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Probably <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Not Sure <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Probably Not <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Definitely Not <br><br><br>
+              <label id="head1">5. How can we make the MGWR PC Online website better for you?</label><br><br>
+              <div class="radio-container">
+                <input type="radio" id="option20" name="radio5" class="radio-btn larger">
+                <label for="option20" class="radio-text">--- Faster Loading ---</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option21" name="radio5" class="radio-btn larger">
+                <label for="option21" class="radio-text">Easier to Navigate</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option22" name="radio5" class="radio-btn larger">
+                <label for="option22" class="radio-text">More Interesting Stuff</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option23" name="radio5" class="radio-btn larger">
+                <label for="option23" class="radio-text">Better Help When You Need It</label>
+              </div>
+              
+              <label id="head1">6. How much do your friends and family affect how you use the MGWR PC Online website?</label><br><br>
+              <div class="radio-container">
+                <input type="radio" id="option24" name="radio6" class="radio-btn larger">
+                <label for="option24" class="radio-text">A Lot</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option25" name="radio6" class="radio-btn larger">
+                <label for="option25" class="radio-text">A Bit</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option26" name="radio6" class="radio-btn larger">
+                <label for="option26" class="radio-text">Not Much</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option27" name="radio6" class="radio-btn larger">
+                <label for="option27" class="radio-text">Not At All</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option28" name="radio6" class="radio-btn larger">
+                <label for="option28" class="radio-text">Not Sure</label>
+              </div>
+              
+              <label id="head1">7. Does the kind of tech you have affect how well you use the MGWR PC Online website?</label><br><br>
+              <div class="radio-container">
+                <input type="radio" id="option29" name="radio7" class="radio-btn larger">
+                <label for="option29" class="radio-text">Helps a lot</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option30" name="radio7" class="radio-btn larger">
+                <label for="option30" class="radio-text">Makes it a bit harder</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option31" name="radio7" class="radio-btn larger">
+                <label for="option31" class="radio-text">Doesn't matter</label>
+              </div>
+              <div class="radio-container">
+                <input type="radio" id="option32" name="radio7" class="radio-btn larger">
+                <label for="option32" class="radio-text">Doesn't apply to me</label>
+              </div>
 
-            <label id="head1">4. What part of the MGWR PC Online website made the most sense to you?</label><br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Finding Your Way Around <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Trustworthy Info <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;--- Making It Yours ---<br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;--- Being Social ---<br><br>
-
-            <label id="head1">5. How can we make the MGWR PC Online website better for you?</label><br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;--- Faster Loading ---<br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Easier to Navigate <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;More Interesting Stuff <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Better Help When You Need It <br><br>
-
-            <label id="head1">6. How much do your friends and family affect how you use the MGWR PC Online website?</label><br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;A Lot <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;A Bit <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Not Much <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Not At All <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Not Sure <br><br><br>
-
-            <label id="head1">7. Does the kind of tech you have affect how well you use the MGWR PC Online website?</label><br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Helps a lot <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Makes it a bit harder <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Doesn't matter <br><br>
-            <input type="radio" name="radio" class="larger">&nbsp;&nbsp;&nbsp;Doesn't apply to me <br><br><br>
-
-            <label id="head2">Any comments or suggestion?</label><br><br>
+            <label id="head2">8. Please leave a comment or suggestion?</label><br><br>
             <textarea placeholder="Enter your comment here..."></textarea>
             <button><h3>Submit</h3></button>
         </div>
