@@ -29,20 +29,34 @@
     justify-content: center;
     align-items: center;
     margin-top: -80px;
-    padding-bottom: -60px;
+    margin-bottom: 100px;
 }
 
-.about .main img {
+.about .main .image-container {
+    width: 580px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.about .main .image-container img {
+    margin-top: 80px;
     width: 580px;
     max-width: 100%;
     height: auto;
-    padding: 0 10px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    
+}
+
+.about .main .image-container img:hover {
+    transform: scale(1.06); 
 }
 
 .all-text {
+    margin-top: 110px;
     width: 600px;
     max-width: 100%;
-    padding: 0 10px;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -134,6 +148,8 @@
 .features .row .icn {
     max-width: 60px;
     height: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .btn button {
@@ -163,7 +179,7 @@
 /* -------------
    BREAKPOINTS
 -------------- */
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1242px) {
     .about {
         width: 100%;
         height: auto;
@@ -171,12 +187,21 @@
     }
 
     .all-text {
-        text-align: center;
-        margin-top: 40px;
+        margin-top: -40px;
     }
-}
 
-@media screen and (max-width: 1250px) {
+    .features .row .icn {
+        max-width: 50px;
+        height: 40px;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+
+    .all-text .btn {
+        text-align: center;
+    }
+
     .about .main img {
         margin-bottom: 35px;   
     }
@@ -212,23 +237,14 @@
     padding: 20px;
     border-radius: 8px;
     width: 500px;
-    height: 400px;
+    height: 570px;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
-}
-
-.close-btn {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    cursor: pointer;
-    color: var(--black1);
-    font-size: 24px;
 }
 
 .modal-content h2 {
     color: var(--black1);
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-size: 32px;
 }
 
@@ -240,23 +256,29 @@
 
 .modal-content input[type="email"],
 .modal-content input[type="tel"],
+.modal-content input[type="fname"],
+.modal-content input[type="lname"],
 .modal-content button {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
 }
 
 .modal-content input[type="email"]::placeholder,
-.modal-content input[type="tel"]::placeholder {
+.modal-content input[type="tel"]::placeholder,
+.modal-content input[type="fname"]::placeholder,
+.modal-content input[type="lname"]::placeholder {
     color: var(--black3);
     opacity: 0.6;
 }
 
 .modal-content input[type="email"],
-.modal-content input[type="tel"] {
+.modal-content input[type="tel"],
+.modal-content input[type="fname"],
+.modal-content input[type="lname"] {
     background-color: var(--white1);
     color: var(--black1);
     border: 1px solid var(--black1);
