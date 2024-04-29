@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!---------------
+           TAB
+    ---------------->
+    <title>MGWR PC | Home</title>
+    <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
+
+    <!---------------
+         CSS & JS
+    ---------------->
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/mainscript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!---------------
+          FONTS
+    ---------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!---------------
+          ICONS
+    ---------------->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+    <!---------------
+          NAVBAR
+    ---------------->
+    <header class="header">
+        <a href="" class="logo">MGWR PC</a>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+        </label>
+
+        <nav class="navbar">
+            <a href="#" style="--i:0">Analytics</a>
+            <a href="#" style="--i:1">CMS</a>
+            <a href="#" style="--i:2">Warehousing</a>
+            <a href="#" style="--i:3">Feedbacks</a>
+            <a href="#" style="--i:4">FAQs</a>
+        </nav>
+    </header>
+
+    <!---------------
+        CHARTS
+    ---------------->
+    <section class="chart-container">
+        <div class="chart">
+            <canvas id="myChart1"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart2"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart3"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart4"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart5"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart6"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart7"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart8"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart9"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart10"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart11"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart12"></canvas>
+        </div>
+    </section>
+
+    <!---------------
+          FOOTER
+    ---------------->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="logo2">MGWR PC</span>
+            <p>Committed in providing you with the best Computer parts and accessories, with a focus on product quality,
+                best service, and real-time assistance.</p>
+        </div>
+
+        <div class="footer-content">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Meet Our Team</a></li>
+                <li><a href="#">Store Location</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-content">
+            <h4>Help</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-content">
+            <h4>Connect With Us</h4>
+            <div class="icons2">
+                <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="#"><i class='bx bxl-tiktok'></i></a>
+                <a href="#"><i class='bx bxl-gmail'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!---------------
+      COPYRIGHTS
+    ---------------->
+    <div class="copyrights">
+        <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
+    </div>
+
+    <script>
+        // Sample data for the charts
+        const data1 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'January',
+                data: [65, 59, 80],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data2 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'February',
+                data: [45, 23, 60],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data3 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'March',
+                data: [35, 69, 50],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data4 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'April',
+                data: [25, 23, 23],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data5 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'May',
+                data: [30, 20, 10],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data6 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'June',
+                data: [30, 20, 10],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data7 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'July',
+                data: [55, 40, 65],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data8 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'August',
+                data: [23, 20, 20],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data9 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'September',
+                data: [45, 55, 83],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data10 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'October',
+                data: [80, 59, 80],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data11 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'November',
+                data: [45, 55, 60],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const data12 = {
+            labels: ['Sulit PC', 'Laptops', 'Printers'],
+            datasets: [{
+                label: 'December',
+                data: [43, 69, 50],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Get the canvas elements
+        const ctx1 = document.getElementById('myChart1').getContext('2d');
+        const ctx2 = document.getElementById('myChart2').getContext('2d');
+        const ctx3 = document.getElementById('myChart3').getContext('2d');
+        const ctx4 = document.getElementById('myChart4').getContext('2d');
+        const ctx5 = document.getElementById('myChart5').getContext('2d');
+        const ctx6 = document.getElementById('myChart6').getContext('2d');
+        const ctx7 = document.getElementById('myChart7').getContext('2d');
+        const ctx8 = document.getElementById('myChart8').getContext('2d');
+        const ctx9 = document.getElementById('myChart9').getContext('2d');
+        const ctx10 = document.getElementById('myChart10').getContext('2d');
+        const ctx11 = document.getElementById('myChart11').getContext('2d');
+        const ctx12 = document.getElementById('myChart12').getContext('2d');
+
+        // Create the charts
+        const chart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: data1,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: data2,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart3 = new Chart(ctx3, {
+            type: 'bar',
+            data: data3,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart4 = new Chart(ctx4, {
+            type: 'bar',
+            data: data4,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart5 = new Chart(ctx5, {
+            type: 'bar',
+            data: data5,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart6 = new Chart(ctx6, {
+            type: 'bar',
+            data: data6,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart7 = new Chart(ctx7, {
+            type: 'bar',
+            data: data7,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart8 = new Chart(ctx8, {
+            type: 'bar',
+            data: data8,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart9 = new Chart(ctx9, {
+            type: 'bar',
+            data: data9,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart10 = new Chart(ctx10, {
+            type: 'bar',
+            data: data10,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart11 = new Chart(ctx11, {
+            type: 'bar',
+            data: data11,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const chart12 = new Chart(ctx12, {
+            type: 'bar',
+            data: data12,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <style>
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+            max-height: 100vh;
+            /* Set a maximum height for the container */
+            padding: 50px 0;
+            /* Add some padding for better spacing */
+        }
+
+        .chart {
+            width: 50%;
+            /* Adjust width as needed */
+            margin-top: 20px;
+            margin-bottom: 20px;
+            /* Add some margin between charts */
+        }
+    </style>
+
+</body>
+
+</html>#1a242f
