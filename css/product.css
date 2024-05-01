@@ -322,14 +322,14 @@
 @media screen and (max-width: 1250px) {
     .modal {
         width: 100%;
-        height: 169vh;
+        height: 197vh;
     }
 }
 
 @media screen and (max-width: 550px) {
     .modal {
         width: 100%;
-        height: 169vh;
+        height: 197vh;
     }
 
     .modal-content {
