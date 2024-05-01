@@ -140,55 +140,55 @@
 /* -------------
    BREAKPOINTS
 ------------- */ 
-@media screen and (max-width: 1750px){
+@media screen and (max-width: 1750px) {
     .slider{
         height: 820px;
     }
 }
 
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 1600px) {
     .slider{
         height: 800px;
     }
 }
 
-@media screen and (max-width: 1500px){
+@media screen and (max-width: 1500px) {
     .slider{
         height: 760px;
     }
 }
 
-@media screen and (max-width: 1400px){
+@media screen and (max-width: 1400px) {
     .slider{
         height: 710px;
     }
 }
 
-@media screen and (max-width: 1300px){
+@media screen and (max-width: 1300px) {
     .slider{
         height: 660px;
     }
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
     .slider{
         height: 610px;
     }
 }
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1100px) {
     .slider{
         height: 560px;
     }
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
     .slider{
         height: 510px;
     }
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 900px) {
     .slider{
         height: 400px;
     }
@@ -197,6 +197,8 @@
         content: url('Images/bg1.jpg');
     }
 }
+
+
 
 /* -------------
  SULIT SECTIONS
@@ -224,8 +226,8 @@
     font-size: 1.1rem;
     line-height: 1.5em;
     margin-bottom: 1em;
-	max-width: 700px;
-	margin: auto auto 20px;
+	max-width: 800px;
+	margin: auto;
 }
 
 .sulitPcContents, .sulitLaptopContents, .sulitPrinterContents {
@@ -255,492 +257,140 @@
     transition: 0.3s;
 }
 
-.row h4 {
+.row img:hover {
+    transform: scale(0.97);
+}
+
+.row h4, .row h5, .row h6 {
+    text-align: center;
+    font-weight: 400;
     font-family: 'ManifoldCF', sans-serif;
-    font-size: 18px;
+    transition: all .50s ease;
+} 
+
+.row h4 {
+    font-size: 16px;
     color: var(--paracolor);
     margin-bottom: 5px;
     text-transform: uppercase;
-    font-weight: 400;
-    
 }
 
 .row h5 {
-    font-family: 'ManifoldCF', sans-serif;
     color: var(--white1);
-    font-size: 25px;
-    font-weight: 400;
-    transition: all .50s ease;
+    font-size: 20px;
 }
 
 .row h6 {
-    font-family: 'ManifoldCF', sans-serif;
     color: var(--white1);
-    font-size: 25px;
-    font-weight: 400;
-    transition: all .50s ease;
+    font-size: 20px;
 }
 
-.row h6:hover {
+.row h5:hover {
     color: var(--mgwrpcMain2);
     cursor: pointer;
     scale: 1.09;
 }
 
-.sulitPcContents .row .bestseller-container,
-.sulitLaptopContents .row .bestseller-container,
-.sulitPrinterContents .row .bestseller-container {
-    position: relative;
+.row .product {
+    width: 80%;
 }
 
-.sulitPcContents .row .bestsellericon,
-.sulitLaptopContents .row .bestsellericon,
-.sulitPrinterContents .row .bestsellericon {
-    width: 130px; 
-    height: auto; 
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    transition: all 0.5s ease;
+.shortcut {
+	width: 100%;
+	height: 10px;
+	background: none;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.sulitPcContents .row:hover .bestsellericon,
-.sulitLaptopContents .row:hover .bestsellericon,
-.sulitPrinterContents .row:hover .bestsellericon {
-    scale: 1.1;
+.btn-fdbck {
+	background-color: var(--black1);
+	color: var(--white1);
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 13px 30px;
+	border-radius: 10px;
+	transition: 0.3s;
+    margin-bottom: 90px;
 }
 
-.sulitPcContents .row .hot-label,
-.sulitLaptopContents .row .hot-label,
-.sulitPrinterContents .row .hot-label {
-    color: var(--white1);
-    font-size: 18px;
-    font-weight: 800;
-    top: 12px;
-    left: 66px;
-    position: absolute;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-    background: none;
-    z-index: 1; 
+.btn-fdbck:hover {
+	background-color: transparent;
+	border: 2px solid var(--black3);
+	cursor: pointer;
 }
 
-.sulitPcContents .row:hover .hot-label,
-.sulitLaptopContents .row:hover .hot-label,
-.sulitPrinterContents .row:hover .hot-label {
-    scale: 1.1;
+.btn-fdbck2 {
+	background-color: var(--black2);
+	color: var(--white1);
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 13px 30px;
+	border-radius: 10px;
+	transition: 0.3s;
+    margin-bottom: 90px;
 }
 
-.row .sulitbtn a {
-    position: absolute;
-    bottom: 38px;
-    left: 0;
-    right: 0;
-    padding: 13px;
-    background: rgba(0, 0, 0, 0.8);
-    color: var(--white1);
-    margin-bottom: 67px;
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    margin-left: 55px;
-    margin-right: 55px;
-    transition: opacity 0.5s, color 0.3s;
-    opacity: 0;
-}
-
-.row:hover .sulitbtn a {
-    opacity: 1;
-}
-
-.sulitbtn:hover a {
-    color: var(--mgwrpcMain2);
-}
-
-
-    .custom-button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        border-radius: 5px;
-        border: none;
-    }
-/* ------------
-   SHORTCUTS
------------- */
-:root {
-    --mgwrpcMain1: #8C52FF; 
-    --mgwrpcMain2: #FF914D;
-    --black1: #000;
-    --black2: #151515;
-    --black3: #303030;
-    --gray1: #222;
-    --gray2: #333;
-    --gray3: #444;
-    --white1: #ffffff;
-    --white2: #F2EFEB;
-    --white3: #dddddd;
-    --paracolor: #5e6c79;
-}
-
-
-
-/* -------------
-   PROMOTION
-------------- */ 
-.slider-container {
-    position: relative;
-    z-index: 1; 
-    padding: 0 0 50px 0;
-}
-
-.slider {
-    width: calc(100vw - 20px); 
-    height: calc(100vh - 80px); 
-    margin: auto;
-    position: relative;
-    overflow: hidden; 
-}
-
-.slider .list {
-    position: absolute;
-    width: 100%; 
-    height: 100%;
-    left: 0;
-    top: 0;
-    display: flex;
-    transition: 1s;
-}
-
-.slider .list .item {
-    width: 100%; 
-    flex-shrink: 0;
-}
-
-.slider .list img {
-    width: 100%; 
-    height: auto; 
-    max-height: 100%; 
-    object-fit: contain; 
-    display: block; 
-    margin: auto;
-}
-
-.slider .buttons,
-.slider .dots {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    z-index: 2;
-}
-
-.slider .buttons {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.slider .buttons button{
-    width: 50px;
-    height: 50px;
-    background-color: #fff5;
-    color: #fff;
-    border: none;
-    font-family: monospace;
-    font-weight: bold;
-}
-
-.slider .dots{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    color: #fff;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.slider .dots li{
-    list-style: none;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    margin: 10px;
-    border-radius: 20px;
-    transition: 0.5s;
-}
-
-.slider .dots li.active{
-    width: 30px;
-}
-
-.slider .item img {
-    width: 100%; 
-    height: auto; 
-    display: block;
-}
-
-.promoCon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99999;
-    text-align: center;
-}
-
-.slider .list .item {
-    position: relative;
-}
-
-.slider .list .item .promoCon {
-    opacity: 0;
-}
-
-.slider .list .item.active .promoCon {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+.btn-fdbck2:hover {
+	background-color: transparent;
+	border: 2px solid var(--black3);
+	cursor: pointer;
 }
 
 /* -------------
    BREAKPOINTS
 ------------- */ 
-@media screen and (max-width: 1750px){
-    .slider{
-        height: 820px;
-    }
+@media screen and (max-width: 1115px) {
+	.sulitPcContents, .sulitLaptopContents, .sulitPrinterContents {
+	    display: flex;
+		flex-direction: column;
+	    margin-left: 10px;
+	    margin-right: 10px;
+	}
+	
+	.row img{
+		width: 50%;
+		margin-top: -30px;
+	}
+
+	.row h4 {
+	    font-size: 20px;
+	}
+	
+	.row h5 {
+	    font-size: 24px;
+	}
+	
+	.row h6 {
+	    font-size: 24px;
+		margin-bottom: 20px;
+	}
 }
 
-@media screen and (max-width: 1600px){
-    .slider{
-        height: 800px;
-    }
-}
-
-@media screen and (max-width: 1500px){
-    .slider{
-        height: 760px;
-    }
-}
-
-@media screen and (max-width: 1400px){
-    .slider{
-        height: 710px;
-    }
-}
-
-@media screen and (max-width: 1300px){
-    .slider{
-        height: 660px;
-    }
-}
-
-@media screen and (max-width: 1200px){
-    .slider{
-        height: 610px;
-    }
-}
-
-@media screen and (max-width: 1100px){
-    .slider{
-        height: 560px;
-    }
-}
-
-@media screen and (max-width: 1000px){
-    .slider{
-        height: 510px;
-    }
-}
-
-@media screen and (max-width: 900px){
-    .slider{
-        height: 400px;
+@media screen and (max-width: 900px) {
+    .text-center h2{
+        font-size: 2.5em;
     }
 
-    .item img {
-        content: url('Images/bg1.jpg');
-    }
-}
-
-/* -------------
- SULIT SECTIONS
--------------- */
-.sulitPc, .sulitPrinter {
-    background: var(--black2);
-}
-
-.sulitLaptop {
-    background: var(--black1);
-}
-
-.text-center h2{
-	padding-top: 50px;
-    font-size: 3em;
-    color: var(--white1);
-	text-align: center;
-	max-width: 700px;
-	margin: auto auto 20px;
-}
-
-.sentence1 {
-	text-align: center;
-    color: var(--paracolor);
-    font-size: 1.1rem;
-    line-height: 1.5em;
-    margin-bottom: 1em;
-	max-width: 700px;
-	margin: auto auto 20px;
-}
-
-.sulitPcContents, .sulitLaptopContents, .sulitPrinterContents {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-    align-items: center;
-    gap: 3rem;
-    margin-top: 5rem;
-    text-align: center;
-    padding-bottom: 100px;
-    margin-left: 60px;
-    margin-right: 60px;
-}
-
-.row {
-    position: relative;
-    cursor: pointer;
-    border-radius: 12px;
-}
-
-.row img {
-    width: 80%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 12px;
-    transition: transform 0.5s;
-    transition: 0.3s;
-}
-
-.row h4 {
-    font-family: 'ManifoldCF', sans-serif;
-    font-size: 18px;
-    color: var(--paracolor);
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    font-weight: 400;
-    
-}
-
-.row h5 {
-    font-family: 'ManifoldCF', sans-serif;
-    color: var(--white1);
-    font-size: 25px;
-    font-weight: 400;
-    transition: all .50s ease;
-}
-
-.row h6 {
-    font-family: 'ManifoldCF', sans-serif;
-    color: var(--white1);
-    font-size: 25px;
-    font-weight: 400;
-    transition: all .50s ease;
-}
-
-.row h6:hover {
-    color: var(--mgwrpcMain2);
-    cursor: pointer;
-    scale: 1.09;
-}
-
-.sulitPcContents .row .bestseller-container,
-.sulitLaptopContents .row .bestseller-container,
-.sulitPrinterContents .row .bestseller-container {
-    position: relative;
-}
-
-.sulitPcContents .row .bestsellericon,
-.sulitLaptopContents .row .bestsellericon,
-.sulitPrinterContents .row .bestsellericon {
-    width: 130px; 
-    height: auto; 
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    transition: all 0.5s ease;
-}
-
-.sulitPcContents .row:hover .bestsellericon,
-.sulitLaptopContents .row:hover .bestsellericon,
-.sulitPrinterContents .row:hover .bestsellericon {
-    scale: 1.1;
-}
-
-.sulitPcContents .row .hot-label,
-.sulitLaptopContents .row .hot-label,
-.sulitPrinterContents .row .hot-label {
-    color: var(--white1);
-    font-size: 18px;
-    font-weight: 800;
-    top: 12px;
-    left: 66px;
-    position: absolute;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-    background: none;
-    z-index: 1; 
-}
-
-.sulitPcContents .row:hover .hot-label,
-.sulitLaptopContents .row:hover .hot-label,
-.sulitPrinterContents .row:hover .hot-label {
-    scale: 1.1;
-}
-
-.row .sulitbtn a {
-    position: absolute;
-    bottom: 38px;
-    left: 0;
-    right: 0;
-    padding: 13px;
-    background: rgba(0, 0, 0, 0.8);
-    color: var(--white1);
-    margin-bottom: 67px;
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    margin-left: 55px;
-    margin-right: 55px;
-    transition: opacity 0.5s, color 0.3s;
-    opacity: 0;
-}
-
-.row:hover .sulitbtn a {
-    opacity: 1;
-}
-
-.sulitbtn:hover a {
-    color: var(--mgwrpcMain2);
-}
-
-
-    .custom-button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
+    .sentence1 {
+        font-size: 1.1rem;
         text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        border-radius: 5px;
-        border: none;
     }
+}
+
+@media screen and (max-width: 800px) {
+    .sentence1 {
+        font-size: 1.1rem;
+        text-align: center;
+        margin: 0 15px 0 15px;
+    }
+
+	.row img{
+		width: 60%;
+		margin-top: -30px;
+	}
+}
