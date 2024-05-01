@@ -77,6 +77,7 @@
 }
 
 .all-text h1 {
+    font-family: 'Ethnocentric', sans-serif;
     font-size: 65px;
     color: var(--white1);
     font-weight: 700;
