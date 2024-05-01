@@ -76,15 +76,10 @@ body {
 }
 
 .logo {
-    font-size: 2rem;
-    text-decoration: none;
-    font-weight: 700;
-    font-family: 'Ethnocentric', sans-serif;
-    background-image: linear-gradient(to right, var(--mgwrpcMain1), var(--mgwrpcMain2));
-    -webkit-background-clip: text;
-    background-clip: text; 
-    color: transparent;
+    width: 240px;
+    height: auto;
     transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .logo:hover {
