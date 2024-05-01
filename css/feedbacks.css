@@ -254,43 +254,9 @@ thead th.active,tbody td.active {
     background: var(--gray3);
 }
 
-@media (max-width: 1700px) {
-    h1 {
-        font-size: 50px;
-    }
-
-    .table__body {
-        width: 100%;
-        max-height: calc(89% - 1.6rem);
-        background-color: var(--white3);
-        margin: .8rem auto;
-        border-top: 0;
-        border-left: 0;
-        border-bottom: 0;
-        overflow: auto;
-        overflow: overlay;
-    }
-}
-
-@media (max-width: 1200px) {
-    .table__header {
-        width: 100%;
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-    h1 {
-        font-size: 40px;
-    }
-}
-
 @media (max-width: 1000px) {
     h1 {
         font-size: 30px;
-    }
-
-    .table__header .input-group:hover {
-        width: 35%;
     }
 
     tbody tr td,
