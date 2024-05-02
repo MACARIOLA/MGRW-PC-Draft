@@ -32,7 +32,7 @@ body {
 }
 
 
-
+ 
 /* -------------
       LOGIN
 -------------- */
@@ -65,17 +65,30 @@ body {
     display: flex;
     flex-direction: column;
     padding: 10px 40px;
-}
-.logo {
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-size: 60px;
+}
+
+.logo {
+    width: 280px;
+    height: auto;
+    transition: 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 10px;
+    cursor: default;
+}
+
+.logo:hover {
+    transform: scale(1.06);
 }
 
 .login__subtitle {
     font-size: 20px;
     text-align: center;
     margin-bottom: 50px;
-    color: var(--paracolor);
+    color: var(--white1);
+    cursor: default;
 }
 
 .login-form {
@@ -107,7 +120,6 @@ body {
 
 .input-field {
     width: 100%;
-    border: 1px solid rgb(200, 200, 200);
     border-radius: 4px;
     padding: 12px 15px;
     box-sizing: border-box;
