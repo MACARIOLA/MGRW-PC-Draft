@@ -133,3 +133,28 @@ CREATE TABLE IF NOT EXISTS Survey (
     FOREIGN KEY (QuestionID) REFERENCES SurveyQuestions(QuestionID),
     FOREIGN KEY (ChoiceID) REFERENCES SurveyChoices(ChoiceID)
 );
+
+
+
+-----------------------------
+-- Product Comments Table --
+-----------------------------
+CREATE TABLE IF NOT EXISTS ProductComments (
+    CommentID INT PRIMARY KEY AUTO_INCREMENT,
+    ProductID INT,
+    Name VARCHAR(255),
+    Comment TEXT,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+);
+
+
+
+---------------------
+-- PDF Files Table --
+---------------------
+CREATE TABLE IF NOT EXISTS PdfFiles (
+    PdfID INT PRIMARY KEY AUTO_INCREMENT,
+    FileName VARCHAR(255) NOT NULL,
+    FilePath VARCHAR(255) NOT NULL,
+    Description TEXT
+);
