@@ -28,6 +28,7 @@
           ICONS
     ---------------->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 </head>
 
 
@@ -285,8 +286,158 @@
 
 
     <!---------------
+          FAQs
+    ---------------->
+    <h1 class="heading" id="question">FAQs</h1>
+    <section class="faqs">
+        <div class="container">
+            <div class="list" >
+                <div class="list-items">
+                    <span class="list-link">
+                        What payment methods do you accept?
+                        <i class="icon ion-md-add"></i>
+                        <i class="icon ion-md-remove"></i>
+                    </span>
+                    <div class="answer">
+                        <p>
+                        We Accept Cash, Online Payment And Bank Transfer.<br>
+                        For Online Payment And Bank Transfer Please Use Official MGWR PC Bank Account:<br><br>
+
+                        Union Bank<br
+                        >Account Name: MGWR PC COMPUTER PARTS AND ACCESSORIES SHOP<br>
+                        Account Number: 0027-4001-3341<br><br>
+
+                        Bank of the Philippines Island<br>
+                        Account Name: MGWR PC COMPUTER PARTS AND ACCESSORIES SHOP<br>
+                        Account Number: 0989-644-661
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="list-items">
+                    <span class="list-link">
+                        Do you offer financing options for purchasing computers?
+                        <i class="icon ion-md-add"></i>
+                        <i class="icon ion-md-remove"></i>
+                    </span>
+                    <div class="answer">
+                        <p>
+                            We Accept Product Installment Via Home Credit And Credit Card.<br><br>
+
+                            Preferred Bank For Credit Card Installment.<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;Bank of the philippines Island<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;HSCBC<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;China Bank
+                        </p>
+                    </div>
+                </div>
+
+                <div class="list-items">
+                    <span class="list-link">
+                        How Do I apply in Home Credit?
+                        <i class="icon ion-md-add"></i>
+                        <i class="icon ion-md-remove"></i>
+                    </span>
+                    <div class="answer">
+                        <p>
+                            You Can Apply In Home Credit In Just Simple Way:<br><br>
+
+                            &#8226;&nbsp;&nbsp;&nbsp;Download "My Home Credit App" (Not compatible in IOS)<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;Create an account and kindly fill up all required information<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;Check if you are qualified for product loand by answering those necessary question.<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;If you already finished those steps. Home credit will give you an offer for upto 60k product loand and together with your m Valid ID you can now go to our shop to process your loan.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="list-items">
+                    <span class="list-link">
+                        Are your products covered by warranty?
+                        <i class="icon ion-md-add"></i>
+                        <i class="icon ion-md-remove"></i>
+                    </span>
+                    <div class="answer">
+                        <p>
+                            All MGWR PC Products Carry A Standard One (1) Year Warranty Except Of The Following:<br><br>
+
+                            One Month Warranty Applies Only For:<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;External batteries of Laptops<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;Bundled Items ( mouse, keyboards, speacker,etc.)<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;Chargers, Adaptors<br><br>		
+
+                            One Week Warranty Applies Only For:<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;Tables and Chairs<br>					
+                            &#8226;&nbsp;&nbsp;&nbsp;Generic Fans,Laptop coolers,Heatsink, LAN tester<br>	
+                            &#8226;&nbsp;&nbsp;&nbsp;Powercord , Display Cables<br><br>	
+
+                            There Is No Warranty For:<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;Consumables (ink,disc, etc)<br>				
+                            &#8226;&nbsp;&nbsp;&nbsp;Software ( OS, Office)<br>					
+                            &#8226;&nbsp;&nbsp;&nbsp;Acessories, promotional/sale items, freebies,cables<br>	
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!---------------
             JS
     ---------------->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const listLinks = document.querySelectorAll('.list-link');
+
+            listLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default behavior
+                    event.stopPropagation(); // Stop the event from propagating up the DOM tree
+                    
+                    const answer = this.nextElementSibling;
+                    const allAnswers = document.querySelectorAll('.answer');
+                    const allIconsAdd = document.querySelectorAll('.ion-md-add');
+                    const allIconsRemove = document.querySelectorAll('.ion-md-remove');
+
+                    // Hide all answers
+                    allAnswers.forEach(ans => {
+                        ans.style.maxHeight = null;
+                    });
+
+                    // Reset all icons to add state
+                    allIconsAdd.forEach(icon => {
+                        icon.style.display = 'inline';
+                    });
+
+                    // Hide all remove icons
+                    allIconsRemove.forEach(icon => {
+                        icon.style.display = 'none';
+                    });
+
+                    // Toggle clicked answer
+                    if (answer.classList.contains('expanded')) {
+                        answer.classList.remove('expanded');
+                        this.querySelector('.ion-md-add').style.display = 'inline';
+                        this.querySelector('.ion-md-remove').style.display = 'none';
+                    } else {
+                        // Collapse all answers
+                        allAnswers.forEach(ans => {
+                            ans.classList.remove('expanded');
+                            ans.style.maxHeight = null;
+                        });
+
+                        // Toggle clicked answer
+                        answer.classList.add('expanded');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        this.querySelector('.ion-md-add').style.display = 'none';
+                        this.querySelector('.ion-md-remove').style.display = 'inline';
+                    }
+                });
+            });
+        });
+    </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const items = document.querySelectorAll(".item");
