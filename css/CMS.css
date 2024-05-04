@@ -21,6 +21,8 @@
 
 
 
+
+
 /* -------------
    PROMOTION
 ------------- */ 
@@ -122,6 +124,43 @@
 
 .slider .list .item {
     position: relative;
+}
+
+
+.buttons button {
+    margin-top: 100px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.upload-button {
+    display: inline-block;
+    cursor: pointer;
+    background-color: transparent;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.upload-button input[type="file"] {
+    display: none;
+}
+
+.submit-button {
+    display: block;
+    background-color: black;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 /* -------------
@@ -276,6 +315,39 @@
     width: 80%;
 }
 
+.button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.upload-button {
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.row {
+    position: relative;
+}
+
+.submit-button {
+    display: inline-block;
+    background-color: #303030;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
 /* -------------
    BREAKPOINTS
 ------------- */ 
@@ -312,6 +384,8 @@
 		margin-top: -30px;
 	}
 }
+
+
 
 
 
