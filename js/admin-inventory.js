@@ -1,3 +1,4 @@
+
 const search = document.querySelector('.input-group input'),
     table_rows = document.querySelectorAll('tbody tr'),
     table_headings = document.querySelectorAll('thead th');
@@ -17,10 +18,7 @@ function searchTable() {
     document.querySelectorAll('tbody tr:not(.hide)').forEach((visible_row, i) => {
         visible_row.style.backgroundColor = (i % 2 == 0) ? 'transparent' : '#0000000b';
     });
-    
 }
-
-
         // JavaScript functions to show and hide image preview
         function showPreview() {
             document.getElementById("preview").style.display = "block";
@@ -37,7 +35,7 @@ function searchTable() {
             const editButton = document.getElementById('edit-button');
             const tableCells = document.querySelectorAll('tbody td');
             
-            if (editButton.classList.contains('editing')) { 
+            if (editButton.classList.contains('editing')) {
                 // Finish editing
                 editButton.classList.remove('editing');
                 tableCells.forEach(cell => {
@@ -56,4 +54,5 @@ function searchTable() {
                 });
             }
         }
+        
             
