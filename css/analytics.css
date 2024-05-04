@@ -16,12 +16,22 @@
     --paracolor: #5e6c79;
 }
 
+.chartSection {
+    margin-bottom: 50px;
+    
+}
+
 .chartBox {
-    width: 800px;
+    width: 65%;
     padding: 20px;
     margin: 0 auto;
     text-align: center;
+    border: 2px solid var(--mgwrpcMain1); 
+    border-radius: 10px;
+    background-color: var(--black1);
 }
+
+
 
 .selectBox,
 .selectBox2,
@@ -31,6 +41,7 @@
     margin-bottom: 80px;
     transition: 0.3s;
     width: 100%;
+    
 }
 
 #productReserve, #productReserve2, #productReserve3 {
