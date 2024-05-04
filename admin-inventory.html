@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,47 +7,58 @@
     <!---------------
            TAB
     ---------------->
-    <title>MGWR PC | Warehousing</title>
+    <title>MGWR PC | Inventory</title>
     <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
 
     <!---------------
          CSS & JS
     ---------------->
+    <link rel="stylesheet" href="css/mainstyle.css">
     <link rel="stylesheet" href="css/admin-inventory.css">
+    <script src="js/mainscript.js"></script>
+
+    <!---------------
+          FONTS
+    ---------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!---------------
+          ICONS
+    ---------------->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 </head>
- 
+
+
+
 <body>
     <!---------------
           NAVBAR
     ---------------->
     <header class="header">
-        <a href="" class="logo">MGWR PC</a>
+        <a href="adminAnalytics.html"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
 
         <input type="checkbox" id="check">
         <label for="check" class="icons">
             <img src="Images/Menu.png" alt="" id="menu-icon">
             <img src="Images/MenuX.png" alt="" id="close-icon">
         </label>
-
+   
         <nav class="navbar">
-            <a href="home.html" style="--i:0">Analytics</a>
-            <a href="#" style="--i:1">CMS</a>
-            <a href="#" style="--i:2">Warehousing</a>
-            <a href="#" style="--i:3">Feedback</a>
-            <a href="#" style="--i:4">Message</a>
+                <a href="adminAnalytics.html" style="--i:0">Analytics</a>
+                <a class="active" href="admin-inventory.html" style="--i:1">Inventory</a>
+                <a href="admin-inventory.html" style="--i:2">CMS</a>
+                <a href="feedback.html" style="--i:3">Feedbacks</a>
+                <a href="contact.html" style="--i:4">Contact Us</a>
         </nav>
-    </header>
-    </div>
-    <!---------------
-          INVENTORY MANAGEMENT TEXT
-    ---------------->
-    <div class="fixed-text">Inventory Management</div>
-    <!---------------
-          INVENTORY BUTTON
-    ---------------->
+    </header> 
+
+
 
     <!---------------
-          TABLE
+        INVENTORY
     ---------------->
     <main class="table" id="customers_table">
         <section class="table__header">
@@ -57,164 +67,221 @@
                 <input type="search" placeholder="Search Data...">
                 <img src="images/search.png" alt="">
             </div>
-            <div></div>
-            </div>
+
             <div class="edit-button">
                 <button class="btn btn-sm btn-icon" id="edit-button" onclick="toggleEdit()">
-                    <img src="images/edit-button.png" alt="">
+                    <img src="images/editBtn.png" alt="">
                 </button>
             </div>
-            </div>
         </section>
+
         <section class="table__body">
             <table>
                 <thead>
                     <tr>
-                        <th> PRODUCT ID <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> PRODUCT NAME <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> IMAGE <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> UNIT PRICE <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> TOTAL UNITS <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> RESERVED UNITS <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> PRODUCT ID </th>
+                        <th> PRODUCT NAME </th>
+                        <th> IMAGE </th>
+                        <th> UNIT PRICE </th>
+                        <th> TOTAL UNITS </th>
+                        <th> RESERVED UNITS </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td> SULIT PC 1</td>
-                        <td><strong>Athlon 3000G </strong></td>
+                        <td> Athlon 3000G </td>
                         <td>
                             <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
-                                <img src="images/sulitpc1.jpg" alt="SULIT PC 1 Image"
-                                    onclick="previewImage('images/sulitpc1jpg')">
+                                <img src="images/sulitpc1.jpg" alt="SULIT PC 1 Image">
                                 <img id="preview" src="images/sulitpc1.jpg" alt="Preview">
                             </div>
                         </td>
                         <td>₱10,990</td>
-                        <td>4/22/2024</td>
-                        </td>
-                        <td> <strong> ----- </strong></td>
+                        <td>250</td>
+                        <td>10</td>
                     </tr>
                     <tr>
                         <td> SULIT PC 2</td>
-                        <td><strong> Ryzen 5 2400G</strong></td>
+                        <td> Ryzen 5 2400G </td>
                         <td>
-                            <div class="image-container2" onmouseover="showPreview2('sulitpc2.jpg')"
-                                onmouseout="hidePreview2()">
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
                                 <img src="images/sulitpc2.jpg" alt="SULIT PC 2 Image">
-                                <img id="preview2" src="images/sulitpc2.jpg" alt="Preview2">
+                                <img id="preview" src="images/sulitpc2.jpg" alt="Preview">
                             </div>
                         </td>
                         <td>₱12,510</td>
-                        <td>4/23/2024</td>
-                        </td>
-                        <td> <strong>-----</strong> </td>
+                        <td>123</td>
+                        <td>4</td>
                     </tr>
                     <tr>
                         <td> SULIT PC 3 </td>
-                        <td><strong>Ryzen 3 3200G</strong></td>
+                        <td> Ryzen 3 3200G </td>
                         <td>
-                            <div class="image-container2" onmouseover="showPreview2('sulitpc3.jpg')"
-                                onmouseout="hidePreview2()">
-                                <img src="images/sulitpc3.jpg" alt="SULIT PC 2 Image">
-                                <img id="preview2" src="images/sulitpc3.jpg" alt="Preview3">
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc3.jpg" alt="SULIT PC 3 Image">
+                                <img id="preview" src="images/sulitpc3.jpg" alt="Preview">
                             </div>
                         </td>
                         <td>₱15,300</td>
-                        <td>4/24/2024</td>
-                        </td>
-                        <td> <strong>-----</strong> </td>
+                        <td>30</td>
+                        <td>0</td>
                     </tr>
                     <tr>
-                        <td> SULIT PC 4 </td>
-                        <td> <strong>Ryzen 5 2400G</strong> </td>
-                        <td> </td>
-                        <td>₱15,770</td>
-                        <td>4/25/2024</td>
-                        </td>
-                        <td> <strong>-----</strong> </td>
-                    </tr>
-                    <tr>
-                        <td> SULIT PC 5</td>
-                        <td><strong> Ryzen 5 4650G</strong> </td>
-                        <td> </td>
-                        <td>₱19,990</td>
-                        <td>4/22/2024</td>
-                        </td>
-                        <td> <strong>-----</strong> </td>
-                    </tr>
-                    <tr>
-                        <td> SULIT PC 6</td>
-                        <td><strong>Ryzen 5 5600G</strong> </td>
-                        <td> </td>
-                        <td>₱21,490</td>
-                        <td>4/22/2024</td>
-                        </td>
-                        <td> <strong>-----</strong> </td>
-                    </tr>
-                    <tr>
-                        <td> SULIT PC 7</td>
-                        <td><strong>Ryzen 5 5600G</strong> </td>
-                        <td> </td>
-                        <td>₱26,390</td>
-                        <td>4/22/2024</td>
-                        </td>
-                        <td> <strong>-----</strong> </td>
-                    </tr>
-                    <tr>
-                        <td> SULIT PC 8 </td>
-                        <td><strong>Ryzen 7 5700G</strong> </td>
-                        <td></td>
-                        <td>₱33,910</td>
-                        <td>4/22/2024</td>
-                        </td>
-                        <td> <strong>-----</strong> </td>
-                    </tr>
-                    <tr>
-                        <td>-----</td>
-                        <td>----- </td>
-                        <td> ----- </td>
+                        <td> SULIT PC 1</td>
+                        <td> Athlon 3000G </td>
                         <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc1.jpg" alt="SULIT PC 1 Image">
+                                <img id="preview" src="images/sulitpc1.jpg" alt="Preview">
+                            </div>
                         </td>
-                        <td>-----</td>
-                        </td>
-                        <td> <strong>-----</strong> </td>
+                        <td>₱10,990</td>
+                        <td>250</td>
+                        <td>10</td>
                     </tr>
                     <tr>
-                        <td>-----</td>
-                        <td>----- </td>
-                        <td> ----- </td>
+                        <td> SULIT PC 2</td>
+                        <td> Ryzen 5 2400G </td>
                         <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc2.jpg" alt="SULIT PC 2 Image">
+                                <img id="preview" src="images/sulitpc2.jpg" alt="Preview">
+                            </div>
                         </td>
-                        <td>-----</td>
-                        </td>
-                        <td> <strong>-----</strong> </td>
+                        <td>₱12,510</td>
+                        <td>123</td>
+                        <td>4</td>
                     </tr>
                     <tr>
-                        <td> -----</td>
-                        <td> ----- </td>
-                        <td>----- </td>
+                        <td> SULIT PC 3 </td>
+                        <td> Ryzen 3 3200G </td>
                         <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc3.jpg" alt="SULIT PC 3 Image">
+                                <img id="preview" src="images/sulitpc3.jpg" alt="Preview">
+                            </div>
                         </td>
-                        <td>-----</td>
-                        <td> <strong>-----</strong> </td>
+                        <td>₱15,300</td>
+                        <td>30</td>
+                        <td>0</td>
                     </tr>
                     <tr>
-                        <td>-----</td>
-                        <td>----- </td>
-                        <td>-----</td>
+                        <td> SULIT PC 1</td>
+                        <td> Athlon 3000G </td>
                         <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc1.jpg" alt="SULIT PC 1 Image">
+                                <img id="preview" src="images/sulitpc1.jpg" alt="Preview">
+                            </div>
                         </td>
-                        <td>-----</td>
-                        <td> <strong>-----</strong> </td>
+                        <td>₱10,990</td>
+                        <td>250</td>
+                        <td>10</td>
                     </tr>
                     <tr>
-                        <td>-----</td>
-                        <td>-----</td>
-                        <td>-----</td>
+                        <td> SULIT PC 2</td>
+                        <td> Ryzen 5 2400G </td>
                         <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc2.jpg" alt="SULIT PC 2 Image">
+                                <img id="preview" src="images/sulitpc2.jpg" alt="Preview">
+                            </div>
                         </td>
-                        <td>-----</td>
-                        <td> <strong>-----</strong> </td>
+                        <td>₱12,510</td>
+                        <td>123</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 3 </td>
+                        <td> Ryzen 3 3200G </td>
+                        <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc3.jpg" alt="SULIT PC 3 Image">
+                                <img id="preview" src="images/sulitpc3.jpg" alt="Preview">
+                            </div>
+                        </td>
+                        <td>₱15,300</td>
+                        <td>30</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 1</td>
+                        <td> Athlon 3000G </td>
+                        <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc1.jpg" alt="SULIT PC 1 Image">
+                                <img id="preview" src="images/sulitpc1.jpg" alt="Preview">
+                            </div>
+                        </td>
+                        <td>₱10,990</td>
+                        <td>250</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 2</td>
+                        <td> Ryzen 5 2400G </td>
+                        <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc2.jpg" alt="SULIT PC 2 Image">
+                                <img id="preview" src="images/sulitpc2.jpg" alt="Preview">
+                            </div>
+                        </td>
+                        <td>₱12,510</td>
+                        <td>123</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 3 </td>
+                        <td> Ryzen 3 3200G </td>
+                        <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc3.jpg" alt="SULIT PC 3 Image">
+                                <img id="preview" src="images/sulitpc3.jpg" alt="Preview">
+                            </div>
+                        </td>
+                        <td>₱15,300</td>
+                        <td>30</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 1</td>
+                        <td> Athlon 3000G </td>
+                        <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc1.jpg" alt="SULIT PC 1 Image">
+                                <img id="preview" src="images/sulitpc1.jpg" alt="Preview">
+                            </div>
+                        </td>
+                        <td>₱10,990</td>
+                        <td>250</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 2</td>
+                        <td> Ryzen 5 2400G </td>
+                        <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc2.jpg" alt="SULIT PC 2 Image">
+                                <img id="preview" src="images/sulitpc2.jpg" alt="Preview">
+                            </div>
+                        </td>
+                        <td>₱12,510</td>
+                        <td>123</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td> SULIT PC 3 </td>
+                        <td> Ryzen 3 3200G </td>
+                        <td>
+                            <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
+                                <img src="images/sulitpc3.jpg" alt="SULIT PC 3 Image">
+                                <img id="preview" src="images/sulitpc3.jpg" alt="Preview">
+                            </div>
+                        </td>
+                        <td>₱15,300</td>
+                        <td>30</td>
+                        <td>0</td>
                     </tr>
                 </tbody>
             </table>
@@ -229,12 +296,8 @@
                 <input type="search" placeholder="Search Data...">
                 <img src="images/search.png" alt="">
             </div>
-            <div>
-                
-            </div>
-            </div>
-            </div>
         </section>
+
         <section class="table__body">
             <table>
                 <thead>
