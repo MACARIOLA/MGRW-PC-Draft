@@ -31,6 +31,58 @@
           ICONS
     ---------------->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <style type="text/css">
+        .chartBox {
+            width: 600px;
+            padding: 20px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Custom select box styling */
+        .selectBox,
+        .selectBox2,
+        .selectBox3 {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .selectBox select,
+        .selectBox2 select,
+        .selectBox3 select {
+            padding: 10px;
+            border: 1px solid #8C52FF;
+            border-radius: 5px;
+            background-color: #FF914D;
+            font-size: 16px;
+            width: 200px;
+            
+        }
+
+        /* Styling for the arrow icon */
+        .selectBox::after,
+        .selectBox2::after,
+        .selectBox3::after {
+            content: '\25BC';
+            /* Unicode character for downward arrow */
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            /* Prevents click events on the arrow */
+        }
+
+        /* Styling for when the select box is focused */
+        .selectBox select:focus,
+        .selectBox2 select:focus,
+        .selectBox3 select:focus {
+            outline: none;
+            border-color: #6dabe4;
+            box-shadow: 0 0 5px rgba(109, 171, 228, 0.5);
+        }
+    </style>
 </head>
 
 <body>
@@ -58,44 +110,225 @@
     <!---------------
         CHARTS
     ---------------->
-    <section class="chart-container">
-        <div class="chart">
-            <canvas id="myChart1"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart2"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart3"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart4"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart5"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart6"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart7"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart8"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart9"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart10"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart11"></canvas>
-        </div>
-        <div class="chart">
-            <canvas id="myChart12"></canvas>
-        </div>
-    </section>
+
+    <div class="chartBox">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="selectBox">
+        <select id="productReserve">
+            <option value="12, 19, 3, 5, 2, 3, 5, 8">January</option>
+            <option value="12, 8, 3, 5, 4, 3,20, 1 ">February</option>
+            <option value="19, 17, 20, 7, 3, 3, 5, 2">March</option>
+            <option value="51, 35, 42, 35, 22, 23, 15, 3">April</option>
+            <option value="35, 12, 3, 8, 7, 3, 14, 5">May</option>
+            <option value="18, 17, 20, 35, 40, 22, 5, 8">June</option>
+            <option value="6, 20, 9, 5, 4, 12, 20, 10">July</option>
+            <option value="12, 8, 3, 5, 4, 3, 12, 13">August</option>
+            <option value="13, 6, 20, 5, 3, 3, 5, 8">September</option>
+            <option value="12, 19, 13, 15, 32, 43, 14, 30">October</option>
+            <option value="9, 20, 15, 5, 4, 3, 5, 1">November</option>
+            <option value="19, 17, 22, 7, 3, 3, 8, 9">December</option>
+        </select>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['𝐀𝐭𝐡𝐥𝐨𝐧 𝟑𝟎𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟐𝟒𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 3 𝟑𝟐𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟐𝟒𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟒𝟔𝟓𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟓𝟔𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟓𝟔𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟕 𝟓𝟕𝟎𝟎𝐆'],
+                datasets: [{
+                    label: '# of Reserve in PC',
+                    data: [12, 19, 3, 5, 2, 3, 5, 8],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const productReserve = document.getElementById('productReserve');
+        productReserve.addEventListener('change', salesTracker);
+
+        function salesTracker() {
+            const label = productReserve.options[productReserve.selectedIndex].text;
+            myChart.data.datasets[0].label = label;
+            myChart.data.datasets[0].data = productReserve.value.split(',');
+            myChart.update();
+        }
+    </script>
+
+
+    <!---------------
+       2nd CHART
+    ---------------->
+
+    <div class="chartBox">
+        <canvas id="myChart2"></canvas>
+    </div>
+
+    <div class="selectBox2">
+        <select id="productReserve2">
+            <option value="12, 19, 3, 5, 2">January</option>
+            <option value="12, 8, 3, 5, 4">February</option>
+            <option value="19, 17, 20, 7, 3">March</option>
+            <option value="51, 35, 42, 35, 22">April</option>
+            <option value="35, 12, 3, 8, 7">May</option>
+            <option value="18, 17, 20, 35, 40">June</option>
+            <option value="6, 20, 9, 5, 4">July</option>
+            <option value="12, 8, 3, 5, 4">August</option>
+            <option value="13, 6, 20, 5, 3">September</option>
+            <option value="12, 19, 13, 15, 32">October</option>
+            <option value="9, 20, 15, 5, 4">November</option>
+            <option value="19, 17, 22, 7, 3">December</option>
+        </select>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx2 = document.getElementById('myChart2').getContext('2d');
+        const myChart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Lenovo Thinkpad 1', 'Lenovo Thinkpad 2', 'Dell Laptop', 'Asus Laptop', 'Laptop 3'],
+                datasets: [{
+                    label: '# of Reserve in Laptop',
+                    data: [12, 19, 3, 5, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const productReserve2 = document.getElementById('productReserve2');
+        productReserve2.addEventListener('change', salesTracker2);
+
+        function salesTracker2() {
+            const label = productReserve2.options[productReserve2.selectedIndex].text;
+            myChart2.data.datasets[0].label = label;
+            myChart2.data.datasets[0].data = productReserve2.value.split(',');
+            myChart2.update();
+        }
+    </script>
+
+    <!---------------
+       3rd CHART
+    ---------------->
+
+    <div class="chartBox">
+        <canvas id="myChart3"></canvas>
+    </div>
+
+    <div class="selectBox3">
+        <select id="productReserve3">
+            <option value="12, 19, 3, 5">January</option>
+            <option value="12, 8, 3, 5">February</option>
+            <option value="19, 17, 20, 7">March</option>
+            <option value="51, 35, 42, 35">April</option>
+            <option value="35, 12, 3, 8">May</option>
+            <option value="18, 17, 20, 35">June</option>
+            <option value="6, 20, 9, 5">July</option>
+            <option value="12, 8, 3, 5">August</option>
+            <option value="13, 6, 5, 3">September</option>
+            <option value="12, 13, 15, 32">October</option>
+            <option value="9, 20, 15, 4">November</option>
+            <option value="19, 22, 7, 3">December</option>
+        </select>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx3 = document.getElementById('myChart3').getContext('2d');
+        const myChart3 = new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: [' EPSON L121', 'EPSON L3210', 'EPSON L3250', 'EPSON L5290'],
+                datasets: [{
+                    label: '# of Reserve in Printer',
+                    data: [12, 19, 3, 5, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const productReserve3 = document.getElementById('productReserve3');
+        productReserve3.addEventListener('change', salesTracker3);
+
+        function salesTracker3() {
+            const label = productReserve3.options[productReserve3.selectedIndex].text;
+            myChart3.data.datasets[0].label = label;
+            myChart3.data.datasets[0].data = productReserve3.value.split(',');
+            myChart3.update();
+        }
+    </script>
 
     <!---------------
           FOOTER
@@ -144,346 +377,6 @@
         <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
     </div>
 
-    <script>
-        // Sample data for the charts
-        const data1 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'January',
-                data: [65, 59, 80],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data2 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'February',
-                data: [45, 23, 60],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data3 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'March',
-                data: [35, 69, 50],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data4 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'April',
-                data: [25, 23, 23],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data5 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'May',
-                data: [30, 20, 10],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data6 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'June',
-                data: [30, 20, 10],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data7 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'July',
-                data: [55, 40, 65],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data8 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'August',
-                data: [23, 20, 20],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data9 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'September',
-                data: [45, 55, 83],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data10 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'October',
-                data: [80, 59, 80],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data11 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'November',
-                data: [45, 55, 60],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        const data12 = {
-            labels: ['Sulit PC', 'Laptops', 'Printers'],
-            datasets: [{
-                label: 'December',
-                data: [43, 69, 50],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        // Get the canvas elements
-        const ctx1 = document.getElementById('myChart1').getContext('2d');
-        const ctx2 = document.getElementById('myChart2').getContext('2d');
-        const ctx3 = document.getElementById('myChart3').getContext('2d');
-        const ctx4 = document.getElementById('myChart4').getContext('2d');
-        const ctx5 = document.getElementById('myChart5').getContext('2d');
-        const ctx6 = document.getElementById('myChart6').getContext('2d');
-        const ctx7 = document.getElementById('myChart7').getContext('2d');
-        const ctx8 = document.getElementById('myChart8').getContext('2d');
-        const ctx9 = document.getElementById('myChart9').getContext('2d');
-        const ctx10 = document.getElementById('myChart10').getContext('2d');
-        const ctx11 = document.getElementById('myChart11').getContext('2d');
-        const ctx12 = document.getElementById('myChart12').getContext('2d');
-
-        // Create the charts
-        const chart1 = new Chart(ctx1, {
-            type: 'bar',
-            data: data1,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart2 = new Chart(ctx2, {
-            type: 'bar',
-            data: data2,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart3 = new Chart(ctx3, {
-            type: 'bar',
-            data: data3,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart4 = new Chart(ctx4, {
-            type: 'bar',
-            data: data4,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart5 = new Chart(ctx5, {
-            type: 'bar',
-            data: data5,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart6 = new Chart(ctx6, {
-            type: 'bar',
-            data: data6,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart7 = new Chart(ctx7, {
-            type: 'bar',
-            data: data7,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart8 = new Chart(ctx8, {
-            type: 'bar',
-            data: data8,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart9 = new Chart(ctx9, {
-            type: 'bar',
-            data: data9,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart10 = new Chart(ctx10, {
-            type: 'bar',
-            data: data10,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart11 = new Chart(ctx11, {
-            type: 'bar',
-            data: data11,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        const chart12 = new Chart(ctx12, {
-            type: 'bar',
-            data: data12,
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-    </script>
-
-    <style>
-        .chart-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-y: auto;
-            /* Enable vertical scrolling */
-            max-height: 100vh;
-            /* Set a maximum height for the container */
-            padding: 50px 0;
-            /* Add some padding for better spacing */
-        }
-
-        .chart {
-            width: 50%;
-            /* Adjust width as needed */
-            margin-top: 20px;
-            margin-bottom: 20px;
-            /* Add some margin between charts */
-        }
-    </style>
-
 </body>
 
-</html>#1a242f
+</html>
