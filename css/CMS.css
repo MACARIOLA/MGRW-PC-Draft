@@ -336,16 +336,6 @@
     position: relative;
 }
 
-.submit-button {
-    display: inline-block;
-    background-color: #303030;
-    color: #fff;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-}
 
 
 /* -------------
@@ -461,6 +451,39 @@
     margin-bottom: 35px;
     text-align: justify;
     cursor: default;
+}
+
+#companyDetails, #companyInfo {
+    border: none;
+    transition: 0.3s;
+}
+
+#companyDetails:hover, #companyInfo:hover {
+    border: 1px solid var(--white1);
+}
+
+#companyDetails:focus, #companyInfo:focus {
+    color: var(--white1);
+}
+
+#saveButton {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--black2);
+    padding: 20px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--white1);
+    border: none;
+    outline: none;
+    box-shadow: 0px 16px 32px 0px rgb(0 0 0 / 6%);
+}
+
+#saveButton:hover {
+    background-color: var(--black3);
+    color: var(--white1);
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 /* -------------
