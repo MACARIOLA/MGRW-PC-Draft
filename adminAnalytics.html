@@ -24,7 +24,8 @@
     ---------------->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <!---------------
           ICONS
@@ -48,37 +49,39 @@
         </label>
 
         <nav class="navbar">
-                <a class="active" href="adminAnalytics.html" style="--i:0">Analytics</a>
-                <a href="admin-inventory.html" style="--i:1">Inventory</a>
-                <a href="cms.html" style="--i:2">CMS</a>
-                <a href="feedback.html" style="--i:3">Feedbacks</a>
-                <a href="contact.html" style="--i:4">Contact Us</a>
+            <a class="active" href="adminAnalytics.html" style="--i:0">Analytics</a>
+            <a href="admin-inventory.html" style="--i:1">Inventory</a>
+            <a href="cms.html" style="--i:2">CMS</a>
+            <a href="feedback.html" style="--i:3">Feedbacks</a>
+            <a href="contact.html" style="--i:4">Contact Us</a>
         </nav>
-    </header> 
+    </header>
 
 
 
     <!---------------
         CHARTS
     ---------------->
-    <div class="chartBox">
-        <canvas id="myChart"></canvas>
-    </div>
-    <div class="selectBox">
-        <select id="productReserve">
-            <option value="12, 19, 3, 5, 2, 3, 5, 8">January</option>
-            <option value="12, 8, 3, 5, 4, 3,20, 1 ">February</option>
-            <option value="19, 17, 20, 7, 3, 3, 5, 2">March</option>
-            <option value="51, 35, 42, 35, 22, 23, 15, 3">April</option>
-            <option value="35, 12, 3, 8, 7, 3, 14, 5">May</option>
-            <option value="18, 17, 20, 35, 40, 22, 5, 8">June</option>
-            <option value="6, 20, 9, 5, 4, 12, 20, 10">July</option>
-            <option value="12, 8, 3, 5, 4, 3, 12, 13">August</option>
-            <option value="13, 6, 20, 5, 3, 3, 5, 8">September</option>
-            <option value="12, 19, 13, 15, 32, 43, 14, 30">October</option>
-            <option value="9, 20, 15, 5, 4, 3, 5, 1">November</option>
-            <option value="19, 17, 22, 7, 3, 3, 8, 9">December</option>
-        </select>
+    <div class="chartSection">
+        <div class="chartBox">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="selectBox">
+            <select id="productReserve">
+                <option value="12, 19, 3, 5, 2, 3, 5, 8">January</option>
+                <option value="12, 8, 3, 5, 4, 3,20, 1 ">February</option>
+                <option value="19, 17, 20, 7, 3, 3, 5, 2">March</option>
+                <option value="51, 35, 42, 35, 22, 23, 15, 3">April</option>
+                <option value="35, 12, 3, 8, 7, 3, 14, 5">May</option>
+                <option value="18, 17, 20, 35, 40, 22, 5, 8">June</option>
+                <option value="6, 20, 9, 5, 4, 12, 20, 10">July</option>
+                <option value="12, 8, 3, 5, 4, 3, 12, 13">August</option>
+                <option value="13, 6, 20, 5, 3, 3, 5, 8">September</option>
+                <option value="12, 19, 13, 15, 32, 43, 14, 30">October</option>
+                <option value="9, 20, 15, 5, 4, 3, 5, 1">November</option>
+                <option value="19, 17, 22, 7, 3, 3, 8, 9">December</option>
+            </select>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -111,9 +114,16 @@
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
                     }
                 }
             }
@@ -135,25 +145,26 @@
        2nd CHART
     ---------------->
 
-    <div class="chartBox">
-        <canvas id="myChart2"></canvas>
-    </div>
-
-    <div class="selectBox2">
-        <select id="productReserve2">
-            <option value="12, 19, 3, 5, 2">January</option>
-            <option value="12, 8, 3, 5, 4">February</option>
-            <option value="19, 17, 20, 7, 3">March</option>
-            <option value="51, 35, 42, 35, 22">April</option>
-            <option value="35, 12, 3, 8, 7">May</option>
-            <option value="18, 17, 20, 35, 40">June</option>
-            <option value="6, 20, 9, 5, 4">July</option>
-            <option value="12, 8, 3, 5, 4">August</option>
-            <option value="13, 6, 20, 5, 3">September</option>
-            <option value="12, 19, 13, 15, 32">October</option>
-            <option value="9, 20, 15, 5, 4">November</option>
-            <option value="19, 17, 22, 7, 3">December</option>
-        </select>
+    <div class="chartSection">
+        <div class="chartBox">
+            <canvas id="myChart2"></canvas>
+        </div>
+        <div class="selectBox">
+            <select id="productReserve2">
+                <option value="12, 19, 3, 5, 2">January</option>
+                <option value="12, 8, 3, 5, 4">February</option>
+                <option value="19, 17, 20, 7, 3">March</option>
+                <option value="51, 35, 42, 35, 22">April</option>
+                <option value="35, 12, 3, 8, 7">May</option>
+                <option value="18, 17, 20, 35, 40">June</option>
+                <option value="6, 20, 9, 5, 4">July</option>
+                <option value="12, 8, 3, 5, 4">August</option>
+                <option value="13, 6, 20, 5, 3">September</option>
+                <option value="12, 19, 13, 15, 32">October</option>
+                <option value="9, 20, 15, 5, 4">November</option>
+                <option value="19, 17, 22, 7, 3">December</option>
+            </select>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -186,9 +197,16 @@
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
                     }
                 }
             }
@@ -209,25 +227,26 @@
        3rd CHART
     ---------------->
 
-    <div class="chartBox">
-        <canvas id="myChart3"></canvas>
-    </div>
-
-    <div class="selectBox3">
-        <select id="productReserve3">
-            <option value="12, 19, 3, 5">January</option>
-            <option value="12, 8, 3, 5">February</option>
-            <option value="19, 17, 20, 7">March</option>
-            <option value="51, 35, 42, 35">April</option>
-            <option value="35, 12, 3, 8">May</option>
-            <option value="18, 17, 20, 35">June</option>
-            <option value="6, 20, 9, 5">July</option>
-            <option value="12, 8, 3, 5">August</option>
-            <option value="13, 6, 5, 3">September</option>
-            <option value="12, 13, 15, 32">October</option>
-            <option value="9, 20, 15, 4">November</option>
-            <option value="19, 22, 7, 3">December</option>
-        </select>
+    <div class="chartSection">
+        <div class="chartBox">
+            <canvas id="myChart3"></canvas>
+        </div>
+        <div class="selectBox">
+            <select id="productReserve3">
+                <option value="12, 19, 3, 5">January</option>
+                <option value="12, 8, 3, 5">February</option>
+                <option value="19, 17, 20, 7">March</option>
+                <option value="51, 35, 42, 35">April</option>
+                <option value="35, 12, 3, 8">May</option>
+                <option value="18, 17, 20, 35">June</option>
+                <option value="6, 20, 9, 5">July</option>
+                <option value="12, 8, 3, 5">August</option>
+                <option value="13, 6, 5, 3">September</option>
+                <option value="12, 13, 15, 32">October</option>
+                <option value="9, 20, 15, 4">November</option>
+                <option value="19, 22, 7, 3">December</option>
+            </select>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -260,9 +279,16 @@
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
                     }
                 }
             }
@@ -279,4 +305,5 @@
         }
     </script>
 </body>
+
 </html>
