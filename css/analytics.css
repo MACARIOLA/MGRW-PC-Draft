@@ -122,3 +122,35 @@
     outline: none;
     border-color: var(--mgwrpcMain1);
 }
+
+@media screen and (max-width: 480px) {
+    .chartBox {
+        width: 90%;
+        height: 450px;
+        padding: 20px;
+        border: 2px solid var(--white1); 
+        background-color: var(--black1);
+    }
+    
+    .chartBox2 {
+        width: 90%;
+        height: 450px;
+        padding: 20px;
+        margin: 0 auto;
+        text-align: center;
+        border: 2px solid var(--white1); 
+        border-radius: 10px;
+        background-color: var(--black2);
+    }
+    
+    .chartBox3 {
+        width: 90%;
+        height: 450px;
+        padding: 20px;
+        margin: 0 auto;
+        text-align: center;
+        border: 2px solid var(--white1); 
+        border-radius: 10px;
+        background-color: var(--black1);
+    }
+} 
