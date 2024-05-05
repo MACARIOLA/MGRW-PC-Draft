@@ -63,6 +63,7 @@
         CHARTS
     ---------------->
     <div class="chartSection">
+        <div class="chartLabel">PC Reserves</div>
         <div class="chartBox">
             <canvas id="myChart"></canvas>
         </div>
@@ -82,70 +83,71 @@
                 <option value="19, 17, 22, 7, 3, 3, 8, 9">December</option>
             </select>
         </div>
-    </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['𝐀𝐭𝐡𝐥𝐨𝐧 𝟑𝟎𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟐𝟒𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 3 𝟑𝟐𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟐𝟒𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟒𝟔𝟓𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟓𝟔𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟓𝟔𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟕 𝟓𝟕𝟎𝟎𝐆'],
-                datasets: [{
-                    label: '# of Reserve in PC',
-                    data: [12, 19, 3, 5, 2, 3, 5, 8],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['𝐀𝐭𝐡𝐥𝐨𝐧 𝟑𝟎𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟐𝟒𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 3 𝟑𝟐𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟐𝟒𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟒𝟔𝟓𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟓𝟔𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟓 𝟓𝟔𝟎𝟎𝐆', '𝐑𝐲𝐳𝐞𝐧 𝟕 𝟓𝟕𝟎𝟎𝐆'],
+                    datasets: [{
+                        label: '# of Reserve in PC',
+                        data: [12, 19, 3, 5, 2, 3, 5, 8],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
                 },
-                plugins: {
-                    legend: {
-                        display: false
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
                     }
                 }
+            });
+
+            const productReserve = document.getElementById('productReserve');
+            productReserve.addEventListener('change', salesTracker);
+
+            function salesTracker() {
+                const label = productReserve.options[productReserve.selectedIndex].text;
+                myChart.data.datasets[0].label = label;
+                myChart.data.datasets[0].data = productReserve.value.split(',');
+                myChart.update();
             }
-        });
-
-        const productReserve = document.getElementById('productReserve');
-        productReserve.addEventListener('change', salesTracker);
-
-        function salesTracker() {
-            const label = productReserve.options[productReserve.selectedIndex].text;
-            myChart.data.datasets[0].label = label;
-            myChart.data.datasets[0].data = productReserve.value.split(',');
-            myChart.update();
-        }
-    </script>
+        </script>
 
 
-    <!---------------
+        <!---------------
        2nd CHART
     ---------------->
-
     <div class="chartSection">
+        <div class="chartLabel">Laptop Reserves</div>
         <div class="chartBox">
             <canvas id="myChart2"></canvas>
         </div>
@@ -165,69 +167,70 @@
                 <option value="19, 17, 22, 7, 3">December</option>
             </select>
         </div>
-    </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx2 = document.getElementById('myChart2').getContext('2d');
-        const myChart2 = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: ['Lenovo Thinkpad 1', 'Lenovo Thinkpad 2', 'Dell Laptop', 'Asus Laptop', 'Laptop 3'],
-                datasets: [{
-                    label: '# of Reserve in Laptop',
-                    data: [12, 19, 3, 5, 2],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const ctx2 = document.getElementById('myChart2').getContext('2d');
+            const myChart2 = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['Lenovo Thinkpad 1', 'Lenovo Thinkpad 2', 'Dell Laptop', 'Asus Laptop', 'Laptop 3'],
+                    datasets: [{
+                        label: '# of Reserve in Laptop',
+                        data: [12, 19, 3, 5, 2],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
                 },
-                plugins: {
-                    legend: {
-                        display: false
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
                     }
                 }
+            });
+
+            const productReserve2 = document.getElementById('productReserve2');
+            productReserve2.addEventListener('change', salesTracker2);
+
+            function salesTracker2() {
+                const label = productReserve2.options[productReserve2.selectedIndex].text;
+                myChart2.data.datasets[0].label = label;
+                myChart2.data.datasets[0].data = productReserve2.value.split(',');
+                myChart2.update();
             }
-        });
+        </script>
 
-        const productReserve2 = document.getElementById('productReserve2');
-        productReserve2.addEventListener('change', salesTracker2);
-
-        function salesTracker2() {
-            const label = productReserve2.options[productReserve2.selectedIndex].text;
-            myChart2.data.datasets[0].label = label;
-            myChart2.data.datasets[0].data = productReserve2.value.split(',');
-            myChart2.update();
-        }
-    </script>
-
-    <!---------------
+        <!---------------
        3rd CHART
     ---------------->
-
     <div class="chartSection">
+        <div class="chartLabel">Printer Reserves</div>
         <div class="chartBox">
             <canvas id="myChart3"></canvas>
         </div>
