@@ -127,42 +127,6 @@
 }
 
 
-.buttons button {
-    margin-top: 100px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: black;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.upload-button {
-    display: inline-block;
-    cursor: pointer;
-    background-color: transparent;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.upload-button input[type="file"] {
-    display: none;
-}
-
-.submit-button {
-    display: block;
-    background-color: black;
-    color: #fff;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
 
 /* -------------
    BREAKPOINTS
@@ -381,6 +345,24 @@
 .editable-text::placeholder {
     color: black
     
+}
+
+.saveButton {
+    background-color: var(--black1);
+    color: var(--white1);
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    margin-left: 100px;
+    margin-right: 100px;
+    cursor: pointer;
+}
+
+.saveButton:hover {
+    background-color: var(--white1);
+    color: var(--black1);
+    transform: scale(1.1);
+    border: 1px solid var(--black1);
 }
 
 /* Style for button container */
