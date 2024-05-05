@@ -21,25 +21,66 @@
     padding-top: 50px;
     padding-bottom: 5px;
     border-radius: 10px;
-    background-color: var(--black1);
-    
+    background-color: var(--black1); 
+}
+
+.chartSection2 {
+    margin-bottom: 70px;
+    padding-top: 50px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    background-color: var(--black2); 
+}
+
+.chartSection3 {
+    padding-top: 50px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    background-color: var(--black1); 
 }
 
 .chartBox {
     width: 65%;
+    height: 650px;
     padding: 30px;
     margin: 0 auto;
     text-align: center;
-    border: 2px solid var(--black2); 
+    border: 2px solid var(--white1); 
+    border-radius: 10px;
+    background-color: var(--black1);
+}
+
+.chartBox2 {
+    width: 65%;
+    height: 650px;
+    padding: 30px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid var(--white1); 
     border-radius: 10px;
     background-color: var(--black2);
 }
 
-.chartLabel {
+.chartBox3 {
+    width: 65%;
+    height: 650px;
+    padding: 30px;
+    margin: 0 auto;
     text-align: center;
-    color: #fff; 
-    font-size: 24px; 
-    font-weight: bold;
+    border: 2px solid var(--white1); 
+    border-radius: 10px;
+    background-color: var(--black1);
+}
+
+.chartLabel h1 {
+    padding-top: 110px;
+    font-size: 3em;
+    color: var(--white1);
+    text-align: center;
+    max-width: 700px;
+    margin: auto auto 20px;
+    margin-top: -100px;
+    cursor: default;
     margin-bottom: 20px;
 }
 
@@ -51,8 +92,8 @@
     margin-bottom: 50px;
     transition: 0.3s;
     width: 100%;
-    
 }
+
 
 #productReserve, #productReserve2, #productReserve3 {
     width: 200px;
