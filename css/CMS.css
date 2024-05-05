@@ -163,6 +163,7 @@
     margin-top: 10px;
 }
 
+
 /* -------------
    BREAKPOINTS
 ------------- */ 
@@ -367,6 +368,27 @@
     border: 1px solid var(--black1);
 }
 
+.editable-text {
+    width: calc(33.33% - 20px); /* Adjust width of textareas */
+    padding: 5px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    box-sizing: border-box;
+    resize: none; /* Prevent resizing */
+}
+.editable-text::placeholder {
+    color: black
+    
+}
+
+/* Style for button container */
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
 
 /* -------------
    BREAKPOINTS
@@ -515,6 +537,63 @@
     transition: 0.3s;
     cursor: pointer;
 }
+
+.buttons button {
+    margin-top: 100px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.upload-button {
+    display: inline-block;
+    cursor: pointer;
+    background-color: transparent;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.upload-button input[type="file"] {
+    display: none;
+}
+
+.submit-button {
+    display: block;
+    background-color: black;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#editButton {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--black2);
+    padding: 20px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--white1);
+    border: none;
+    outline: none;
+    box-shadow: 0px 16px 32px 0px rgb(0 0 0 / 6%);
+}
+
+#editButton:hover {
+    background-color: var(--black3);
+    color: var(--white1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
 
 /* -------------
    BREAKPOINTS
