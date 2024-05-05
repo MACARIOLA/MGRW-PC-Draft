@@ -17,28 +17,38 @@
 }
 
 .chartSection {
-    margin-bottom: 50px;
+    margin-bottom: 70px;
+    padding-top: 50px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    background-color: var(--black1);
     
 }
 
 .chartBox {
     width: 65%;
-    padding: 20px;
+    padding: 30px;
     margin: 0 auto;
     text-align: center;
-    border: 2px solid var(--mgwrpcMain1); 
+    border: 2px solid var(--black2); 
     border-radius: 10px;
-    background-color: var(--black1);
+    background-color: var(--black2);
 }
 
-
+.chartLabel {
+    text-align: center;
+    color: #fff; 
+    font-size: 24px; 
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
 .selectBox,
 .selectBox2,
 .selectBox3 {
     margin-top: 20px;
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     transition: 0.3s;
     width: 100%;
     
