@@ -66,39 +66,56 @@
         <div class="slider">
             <div class="list">
                 <div class="item">
-                    <label for="fileInput1">
-                        <img src="Images/Promo1.png" alt="">
+                    <label for="fileInput1" class="image-label">
+                        <img id="previewImage1" src="Images/Promo1.png" alt="">
                     </label>
-                    <input type="file" id="fileInput1" style="display: none;" required>
-                    <button class="submit-button">Submit</button>
+                    <input type="file" id="fileInput1" class="image-input" style="display: none;" required>
+                    <div class="button-container">
+                       <label>CLICK THE PHOTO TO CHOOSE FILE</label>
+                        <button class="submit-button" onclick="saveContent('previewImage1')">Save</button>
+                    </div>
                 </div>
                 <div class="item">
-                    <label for="fileInput1">
-                        <img src="Images/Promo1.png" alt="">
+                    <label for="fileInput2" class="image-label">
+                        <img id="previewImage2" src="Images/Promo1.png" alt="">
                     </label>
-                    <input type="file" id="fileInput1" style="display: none;" required>
-                    <button class="submit-button">Submit</button>
+                    <input type="file" id="fileInput2" class="image-input" style="display: none;" required>
+                    <div class="button-container">
+                       <label>CLICK THE PHOTO TO CHOOSE FILE</label>
+                        <button class="submit-button" onclick="saveContent('previewImage2')">Save</button>
+                    </div>
                 </div>
                 <div class="item">
-                    <label for="fileInput1">
-                        <img src="Images/Promo1.png" alt="">
+                    <label for="fileInput3" class="image-label">
+                        <img id="previewImage3" src="Images/Promo1.png" alt="">
                     </label>
-                    <input type="file" id="fileInput1" style="display: none;" required>
-                    <button class="submit-button">Submit</button>
+                    <input type="file" id="fileInput3" class="image-input" style="display: none;" required>
+                    <div class="button-container">
+                       <label>CLICK THE PHOTO TO CHOOSE FILE</label>
+                        <button class="submit-button" onclick="saveContent('previewImage1')">Save</button>
+                    </div>
                 </div>
                 <div class="item">
-                    <label for="fileInput1">
-                        <img src="Images/Promo1.png" alt="">
+                    <label for="fileInput4" class="image-label">
+                        <img id="previewImage4" src="Images/Promo1.png" alt="">
                     </label>
-                    <input type="file" id="fileInput1" style="display: none;" required>
-                    <button class="submit-button">Submit</button>
+                    <input type="file" id="fileInput4" class="image-input" style="display: none;" required>
+                    <div class="button-container">
+                       <label>CLICK THE PHOTO TO CHOOSE FILE
+                       </label>
+                        <button class="submit-button" onclick="saveContent('previewImage1')">Save</button>
+                    </div>
                 </div>
                 <div class="item">
-                    <label for="fileInput1">
-                        <img src="Images/Promo1.png" alt="">
+                    <label for="fileInput5" class="image-label">
+                        <img id="previewImage5" src="Images/Promo1.png" alt="">
                     </label>
-                    <input type="file" id="fileInput1" style="display: none;" required>
-                    <button class="submit-button">Submit</button>
+                    <input type="file" id="fileInput5" class="image-input" style="display: none;" required>
+                    <div class="button-container">
+                       <label>CLICK THE PHOTO TO CHOOSE FILE
+                       </label>
+                        <button class="submit-button" onclick="saveContent('previewImage1')">Save</button>
+                    </div>
                 </div>
             </div>
             <div class="buttons">
@@ -117,13 +134,25 @@
 
     <script>
      
-        function showSlide(index) {
-            if (index < 0) {
-                index = items.length - 1;
-            } else if (index >= items.length) {
-                index = 0;
-            }
-        }
+     saveButtons.forEach((button, index) => {
+            button.addEventListener("click", function () {
+                const input = imageInputs[index];
+                if (input.files.length > 0) {
+                    // You can add logic to handle the submission of the selected file here
+                    console.log("File submitted:", input.files[0]);
+                } else {
+                    console.log("No file selected");
+                }
+            });
+        });
+
+        imageInputs.forEach((input, index) => {
+            input.addEventListener("change", function () {
+                // You can add logic to preview the selected image here if needed
+                console.log("File selected:", input.files[0]);
+            });
+        });
+
 </script>
 
 
@@ -277,8 +306,8 @@
             <div class="all-text">
                 <h4>WHO ARE WE</h4>
                 <h1>MGWR PC</h1>
-                <p id="companyInfo" contenteditable="true">As a dynamic and innovative organization, we focus on providing the best computer and building a long-term relationship with our valued clients.</p>
-                <p id="companyDetails" contenteditable="true">At MGWR PC, we are dedicated with passion to excellence and commitment in delivering premium solutions to meet your specific needs. Our dedicated team works diligently to ensure your satisfaction and success.</p>
+                <p id="companyInfo" contenteditable="false">As a dynamic and innovative organization, we focus on providing the best computer and building a long-term relationship with our valued clients.</p>
+                <p id="companyDetails" contenteditable="false">At MGWR PC, we are dedicated with passion to excellence and commitment in delivering premium solutions to meet your specific needs. Our dedicated team works diligently to ensure your satisfaction and success.</p>
                 <button class="button" id="editButton">Edit</button>
                 <button id="saveButton" style="display: none;">Save</button>
             </div>
@@ -310,7 +339,7 @@
 
                 // Toggle button text
                 if (companyInfo.isContentEditable) {
-                    editButton.textContent = "Cancel";
+                    editButton.textContent = "Back";
                     saveButton.style.display = "block";
                 } else {
                     editButton.textContent = "Edit";
@@ -353,7 +382,7 @@
         });
     </script>
 
-        <!---------------
+    <!---------------
         PRICELIST
     ---------------->
     <section class="wrapper">
@@ -364,28 +393,28 @@
                 <i class="bx bx-desktop bx-md"></i>
                 <h2>Pricelist For PCs</h2>
                 <p>Explore our range of high-performance desktop computers. Check our price list to find the perfect fit for your needs.</p>
-                <a href="PDFs/LAPTOP-CATALOG.pdf" class="btn" target="_blank">Download Now!</a>
+                <a href="/PDFs/laptop-catalog.pdf" class="btn" target="_blank">Download Now!</a>
             </div>
 
             <div class="card">
                 <i class="bx bx-laptop bx-md"></i>
                 <h2>Pricelist For Laptops</h2>
                 <p>Discover our selection of reliable and portable laptops. Don't forget to check our price list for great deals.</p>
-                <a href="PDFs/LAPTOP-CATALOG.pdf" class="btn" target="_blank">Download Now!</a>
+                <a href="/PDFs/laptop-catalog.pdf" class="btn" target="_blank">Download Now!</a>
             </div>
             
             <div class="card">
                 <i class="bx bx-printer bx-md"></i>
                 <h2>Pricelist For Printers</h2>
                 <p>Find the ideal printer for your home or office needs among our quality selection. Check out our price list for competitive pricing.</p>     
-                <a href="PDFs/CANON PRINTER PRICELIST.pdf" class="btn" target="_blank">Download Now!</a>
+                <a href="/PDFs/laptop-catalog.pdf" class="btn" target="_blank">Download Now!</a>
             </div>
 
             <div class="card">
                 <i class="bx bx-package bx-md"></i>
                 <h2>Pricelist For Others</h2>
                 <p>Enhance your computing experience with our range of accessories. From cables to peripherals, find what you need in our price list.</p>        
-                <a href="PDFs/LAPTOP-CATALOG.pdf" class="btn" target="_blank">Download Now!</a>
+                <a href="/PDFs/laptop-catalog.pdf" class="btn" target="_blank">Download Now!</a>
             </div>
         </div>
     </section>
