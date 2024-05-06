@@ -9,7 +9,7 @@
     ---------------->
     <title>MGWR PC | Contact Us</title>
     <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
-    
+     
     <!---------------
          CSS & JS
     ---------------->
@@ -43,7 +43,7 @@
         </label>
 
         <nav class="navbar">
-            <a class="active" href="home.html" style="--i:0">Home</a>
+            <a href="home.html" style="--i:0">Home</a>
             <a href="aboutus.html" style="--i:1">About Us</a>
             <a href="pricelist.html" style="--i:2">Pricelist</a> 
             <a href="feedback.html" style="--i:3">Feedbacks</a>
@@ -61,15 +61,17 @@
         <p class="sentence1">We're here to help! Reach out to us with any inquiries or feedback you may have.</p>
         
         <div class="contactForm">
-            <form class="cForm" action="#">
-             <h1 class="sub-heading">Need Support!</h1>
-             <p class="sentence1 senleft">You Have Any Questions? Problems? Tell Us!</p>
-             <input type="text" class="input" placeholder="your name">
-             <input type="text" class="input" placeholder="your email">
-             <input type="text" class="input" placeholder="your Subject">
-             <textarea class="input" cols="30" rows="5" placeholder="Your message..."></textarea>
-             <input type="submit" class="inputbtn submitbtn" value="Send Message">
+            <form class="cForm" action="https://formsubmit.co/lopezjoshuaalen@gmail.com" method="POST">
+                <h1 class="sub-heading">Need Support!</h1>
+                <p class="sentence1 senleft">You Have Any Questions? Problems? Tell Us!</p>
+                <input type="text" class="input" name="name" placeholder="your name" required>
+                <input type="text" class="input" name="email" placeholder="your email" required>
+                <input type="text" class="input" name="subject" placeholder="your Subject" required>
+                <textarea class="input" name="message" cols="30" rows="5" placeholder="Your message..." required></textarea>
+                <input type="submit" class="inputbtn submitbtn" value="Send Message">
             </form>
+            
+            
     
             <!---------------
                    MAP
@@ -140,9 +142,8 @@
             <h4>Connect With Us</h4>
             <div class="icons2">
                 <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
-                <a href="#"><img src="Images/igicon.png" alt=""></a>
-                <a href="#"><img src="Images/tticon.png" alt=""></a>
-                <a href="#"><img src="Images/gmicon.png" alt=""></i></a>
+                <a href="https://www.instagram.com/mgwrpc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="Images/igicon.png" alt=""></a>
+                <a href="https://www.tiktok.com/@mgwrpctrading?is_from_webapp=1&sender_device=pc"><img src="Images/tticon.png" alt=""></a>
             </div>
         </div>
     </footer>
