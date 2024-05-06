@@ -29,37 +29,52 @@
     justify-content: center;
     align-items: center;
     margin-top: -80px;
-    margin-bottom: 100px;
 }
 
 .about .main .image-container {
     width: 580px;
+    height: 800px;
+    margin-top: 120px;
+}
+
+.about .main .image-container .hover-image{
     overflow: hidden;
     border-radius: 10px;
 }
 
 .about .main .image-container img {
-    margin-top: 80px;
-    width: 580px;
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s;
-    
 }
 
 .about .main .image-container img:hover {
-    transform: scale(1.06); 
+    transform: scale(1.06);
+}
+
+.about .main .image-container .btn {
+    height: auto;
+    transition: transform 0.3s;
+    margin-top: 20px;
+    margin-left: 35%;
+}
+
+.about .main .image-container .btn button {
+    width: 50%;
+    border-radius: 10px;
+    transition: transform 0.3s;
 }
 
 .all-text {
-    margin-top: 110px;
+    margin-top: 10px;
     width: 600px;
     max-width: 100%;
     padding: 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    cursor: default;
 }
 
 .main {
@@ -77,7 +92,7 @@
     color: var(--white1);
     letter-spacing: 1px;
     font-weight: 400;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .price {
@@ -87,7 +102,7 @@
 }
 
 .all-text h1 {
-    font-size: 65px;
+    font-size: 50px;
     color: var(--white1);
     font-weight: 700;
     margin-bottom: 20px;
@@ -105,24 +120,32 @@
 .features {
     display: flex;
     flex-direction: column;
-    margin-top: 30px; 
+    margin-top: 30px;
     margin-bottom: 20px;
     font-size: 16px;
 }
-
+  
 .row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--gray1); 
-    padding: 10px 0 10px 0;
-    margin-bottom: 15px; 
+    background-color: var(--gray1);
+    padding: 10px 0;
+    margin-bottom: 15px;
 }
-
+  
 .column {
     flex: 1;
-    color: var(--white1); 
+    color: var(--white1);
     padding: 10px;
+    display: flex;
+    align-items: center;
+}
+  
+.column img.icn {
+    max-width: 60px;
+    height: 50px;
+    margin-right: 20px;
 }
 
 .features .c1, 
@@ -130,7 +153,9 @@
 .features .c3, 
 .features .c4,
 .features .c5, 
-.features .c6 {
+.features .c6,
+.features .c7,
+.features .c8 {
     margin-left: -5px;
     transition: 0.3s;
 }
@@ -140,9 +165,11 @@
 .features .c3:hover, 
 .features .c4:hover,
 .features .c5:hover, 
-.features .c6:hover {
+.features .c6:hover,
+.features .c7:hover,
+.features .c8:hover {
     transform: scale(1.05);
-    cursor: pointer;
+    cursor: default;
 }
 
 .features .row .icn {
@@ -187,28 +214,74 @@
     }
 
     .all-text {
-        margin-top: -40px;
+        margin-top: -180px;
     }
-
-    .features .row .icn {
-        max-width: 50px;
-        height: 40px;
-        margin-right: 20px;
-        margin-left: 20px;
-        margin-top: 30px;
+      
+    .row {
+        border-radius: 8px;
     }
 
     .all-text .btn {
         text-align: center;
     }
 
-    .about .main img {
-        margin-bottom: 35px;   
-    }
-
     .all-text h1 {
         font-size: 45px;
         margin-bottom: 20px;
+    }
+
+    .about .main .image-container {
+        margin-top: 10px;
+    }
+} 
+
+@media screen and (max-width: 610px) {
+    .all-text {
+        margin-top: -180px;
+    }
+
+    .about .main .image-container .btn button {
+        width: 60%;
+    }
+
+    .about .main .image-container .btn {
+        margin-left: 30%;
+    }
+} 
+
+@media screen and (max-width: 580px) {
+    .all-text {
+        margin-top: -200px;
+    }
+} 
+
+@media screen and (max-width: 560px) {
+    .all-text {
+        margin-top: -220px;
+    }
+} 
+
+@media screen and (max-width: 540px) {
+    .all-text {
+        margin-top: -240px;
+    }
+} 
+
+@media screen and (max-width: 520px) {
+    .all-text {
+        margin-top: -260px;
+    }
+} 
+
+@media screen and (max-width: 500px) {
+    .all-text {
+        margin-top: -280px;
+    }
+} 
+
+@media screen and (max-width: 480px) {
+    .all-text {
+        margin-top: -300px;
     }
 } 
 
@@ -225,7 +298,7 @@
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
+    z-index: 1;
 }
 
 .modal-content {
@@ -236,8 +309,8 @@
     background-color: var(--white1);
     padding: 20px;
     border-radius: 8px;
-    width: 500px;
-    height: 570px;
+    width: 550px;
+    height: 670px;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -258,6 +331,7 @@
 .modal-content input[type="tel"],
 .modal-content input[type="fname"],
 .modal-content input[type="lname"],
+.modal-content input[type="number"],
 .modal-content button {
     width: 100%;
     padding: 10px;
@@ -270,7 +344,8 @@
 .modal-content input[type="email"]::placeholder,
 .modal-content input[type="tel"]::placeholder,
 .modal-content input[type="fname"]::placeholder,
-.modal-content input[type="lname"]::placeholder {
+.modal-content input[type="lname"]::placeholder,
+.modal-content input[type="number"]::placeholder {
     color: var(--black3);
     opacity: 0.6;
 }
@@ -278,7 +353,8 @@
 .modal-content input[type="email"],
 .modal-content input[type="tel"],
 .modal-content input[type="fname"],
-.modal-content input[type="lname"] {
+.modal-content input[type="lname"],
+.modal-content input[type="number"] {
     background-color: var(--white1);
     color: var(--black1);
     border: 1px solid var(--black1);
@@ -298,15 +374,24 @@
     background-color: var(--black3);
 }
 
-.btn-container {
+.btn-container { 
     display: flex;
     justify-content: center; 
     margin-top: 20px; 
 }
 
+#successModal .modal-content .btnfrFeed {
+    margin-bottom:10px;
+}
+
 #successModal .modal-content {
+    display: flex;
+    flex-direction: column;
     width: 500px; 
-    height: 400px;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
 }
 
 #successModal .modal-content button {
@@ -322,14 +407,16 @@
 @media screen and (max-width: 1250px) {
     .modal {
         width: 100%;
-        height: 197vh;
+        height: 180vh;
     }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
     .modal {
         width: 100%;
-        height: 197vh;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
     }
 
     .modal-content {
@@ -340,4 +427,4 @@
         width: 90%; 
         height: 400px;
     }
-}
+} 
