@@ -72,7 +72,7 @@
                     <input type="file" id="fileInput1" class="image-input" style="display: none;" required>
                     <div class="button-container">
                        <label>CLICK THE PHOTO TO CHOOSE FILE</label>
-                        <button class="submit-button" onclick="saveContent('previewImage1')">Save</button>
+                        <button class="Submit-Button1" onclick="saveContent('previewImage1')">Save</button>
                     </div>
                 </div>
                 <div class="item">
@@ -82,7 +82,7 @@
                     <input type="file" id="fileInput2" class="image-input" style="display: none;" required>
                     <div class="button-container">
                        <label>CLICK THE PHOTO TO CHOOSE FILE</label>
-                        <button class="submit-button" onclick="saveContent('previewImage2')">Save</button>
+                        <button class="Submit-Button1" onclick="saveContent('previewImage2')">Save</button>
                     </div>
                 </div>
                 <div class="item">
@@ -92,7 +92,7 @@
                     <input type="file" id="fileInput3" class="image-input" style="display: none;" required>
                     <div class="button-container">
                        <label>CLICK THE PHOTO TO CHOOSE FILE</label>
-                        <button class="submit-button" onclick="saveContent('previewImage1')">Save</button>
+                        <button class="Submit-Button1" onclick="saveContent('previewImage1')">Save</button>
                     </div>
                 </div>
                 <div class="item">
@@ -103,7 +103,7 @@
                     <div class="button-container">
                        <label>CLICK THE PHOTO TO CHOOSE FILE
                        </label>
-                        <button class="submit-button" onclick="saveContent('previewImage1')">Save</button>
+                        <button class="Submit-Button1" onclick="saveContent('previewImage1')">Save</button>
                     </div>
                 </div>
                 <div class="item">
@@ -114,7 +114,7 @@
                     <div class="button-container">
                        <label>CLICK THE PHOTO TO CHOOSE FILE
                        </label>
-                        <button class="submit-button" onclick="saveContent('previewImage1')">Save</button>
+                        <button class="Submit-Button1" onclick="saveContent('previewImage1')">Save</button>
                     </div>
                 </div>
             </div>
@@ -214,7 +214,7 @@
                 <div class="button-container">
                     <label for="imageInput1" class="upload-button">Choose Photo</label>
                     <input type="file" name="image" id="imageInput1" class="image-input" required>
-                    <button class="submit-button">SUBMIT</button>
+                    <button class="submit-Button2">SUBMIT</button>
                 </div>
             </div>
 
@@ -226,7 +226,7 @@
                 <div class="button-container">
                     <label for="imageInput1" class="upload-button">Choose Photo</label>
                     <input type="file" name="image" id="imageInput1" class="image-input" required>
-                    <button class="submit-button">SUBMIT</button>
+                    <button class="submit-Button2">SUBMIT</button>
                 </div>
             </div>
 
@@ -238,7 +238,7 @@
                 <div class="button-container">
                     <label for="imageInput1" class="upload-button">Choose Photo</label>
                     <input type="file" name="image" id="imageInput1" class="image-input" required>
-                    <button class="submit-button">SUBMIT</button>
+                    <button class="submit-Button2">SUBMIT</button>
                 </div>
             </div>
         </div>
@@ -259,7 +259,7 @@
             <div class="button-container">
                 <label for="imageInput1" class="upload-button">Choose Photo</label>
                 <input type="file" name="image" id="imageInput1" class="image-input" required>
-                <button class="submit-button">SUBMIT</button>
+                <button class="submit-Button2">SUBMIT</button>
             </div>
         </div>
 
@@ -271,7 +271,7 @@
             <div class="button-container">
                 <label for="imageInput1" class="upload-button">Choose Photo</label>
                 <input type="file" name="image" id="imageInput1" class="image-input" required>
-                <button class="submit-button">SUBMIT</button>
+                <button class="submit-Button2">SUBMIT</button>
             </div>
         </div>
 
@@ -283,7 +283,7 @@
             <div class="button-container">
                 <label for="imageInput1" class="upload-button">Choose Photo</label>
                 <input type="file" name="image" id="imageInput1" class="image-input" required>
-                <button class="submit-button">SUBMIT</button>
+                <button class="submit-Button2">SUBMIT</button>
             </div>
         </div>
     </div>
@@ -301,13 +301,13 @@
                 </label>
                 <label for="imageInput1" class="upload-button">Choose Photo</label>
                 <input type="file" name="image" id="imageInput1" class="image-input" style="display: none;" required>
-                <button class="submit-button" id="submitImage">SUBMIT</button>
+                <button class="submit-Button3" id="submitImage">SUBMIT</button>
             </div>
             <div class="all-text">
                 <h4>WHO ARE WE</h4>
                 <h1>MGWR PC</h1>
-                <p id="companyInfo" contenteditable="false">As a dynamic and innovative organization, we focus on providing the best computer and building a long-term relationship with our valued clients.</p>
-                <p id="companyDetails" contenteditable="false">At MGWR PC, we are dedicated with passion to excellence and commitment in delivering premium solutions to meet your specific needs. Our dedicated team works diligently to ensure your satisfaction and success.</p>
+                <p id="companyInfo" contenteditable="true">As a dynamic and innovative organization, we focus on providing the best computer and building a long-term relationship with our valued clients.</p>
+                <p id="companyDetails" contenteditable="true">At MGWR PC, we are dedicated with passion to excellence and commitment in delivering premium solutions to meet your specific needs. Our dedicated team works diligently to ensure your satisfaction and success.</p>
                 <button class="button" id="editButton">Edit</button>
                 <button id="saveButton" style="display: none;">Save</button>
             </div>
@@ -319,7 +319,10 @@
             const companyInfo = document.getElementById("companyInfo");
             const companyDetails = document.getElementById("companyDetails");
             const saveButton = document.getElementById("saveButton");
-            const submitImageButton = document.getElementById("submitImage");
+            const editButton = document.getElementById("editButton");
+    
+            let originalCompanyInfo;
+            let originalCompanyDetails;
     
             companyInfo.addEventListener("input", toggleSaveButton);
             companyDetails.addEventListener("input", toggleSaveButton);
@@ -327,30 +330,33 @@
             function toggleSaveButton() {
                 saveButton.style.display = "block";
             }
-    // Event listener for edit button
-    editButton.addEventListener("click", function () {
+    
+            // Event listener for edit button
+            editButton.addEventListener("click", function () {
                 toggleEdit();
             });
-
+    
             function toggleEdit() {
-                // Toggle contenteditable attribute
-                companyInfo.contentEditable = !companyInfo.isContentEditable;
-                companyDetails.contentEditable = !companyDetails.isContentEditable;
-
-                // Toggle button text
-                if (companyInfo.isContentEditable) {
+                if (editButton.textContent === "Edit") {
+                    // Save original content
+                    originalCompanyInfo = companyInfo.textContent;
+                    originalCompanyDetails = companyDetails.textContent;
                     editButton.textContent = "Back";
                     saveButton.style.display = "block";
                 } else {
+                    // Revert to original content
+                    companyInfo.textContent = originalCompanyInfo;
+                    companyDetails.textContent = originalCompanyDetails;
                     editButton.textContent = "Edit";
                     saveButton.style.display = "none";
                 }
             }
-
+    
             // Event listener for save button
             saveButton.addEventListener("click", function () {
                 saveContent();
                 saveButton.style.display = "none";
+                editButton.textContent = "Edit";
             });
     
             function saveContent() {
@@ -360,7 +366,7 @@
     
             // Trigger file input when clicking on the image
             submitImageButton.addEventListener("click", function () {
-                document.getElementById("").click();
+                document.getElementById("imageInput1").click();
             });
     
             // Preview selected image
@@ -381,7 +387,7 @@
             });
         });
     </script>
-
+    
     <!---------------
         PRICELIST
     ---------------->
