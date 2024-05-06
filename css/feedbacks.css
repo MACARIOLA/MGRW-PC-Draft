@@ -56,6 +56,7 @@ h1 {
     max-width: 700px;
     margin: auto auto 20px;
     margin-top: -100px;
+    cursor: default;
 }
 
 .sentence1 {
@@ -65,37 +66,11 @@ h1 {
     line-height: 1.5em;
     max-width: 700px;
     margin: auto auto 20px;
+    cursor: default;
 }
 
 .table__header .input-group {
-    width: 35%;
-    height: 100%;
-    background-color: var(--black3);
-    padding: 0 .8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .2s;
     display: none;
-}
-   
-.table__header .input-group:hover {
-    width: 45%;
-    background-color: var(--gray3);
-    box-shadow: 0 .1rem .4rem #0002;
-}
-   
-.table__header .input-group img {
-    width: 1.2rem;
-    height: 1.2rem;
-}
-   
-.table__header .input-group input {
-    width: 100%;
-    padding: 0 .5rem 0 .3rem;
-    background-color: transparent;
-    border: none;
-    outline: none;
 }
    
 .table__body {
@@ -110,15 +85,24 @@ h1 {
 }
    
 .table__body td:first-child {
-    width: 10%;
-    padding: 1rem;
+    width: 25%;
+    text-align: left;
 }
    
 .table__body td:nth-child(2) {
-    width: 30%; 
-    padding: 1rem;
+    width: 5%; 
+    text-align: center;
 }
-   
+
+.table__body td:nth-child(3) {
+    width: 50%; 
+    text-align: center;
+}
+
+.table__body td:nth-child(4) {
+    width: 20%; 
+    text-align: center;
+}
    
 .table__body::-webkit-scrollbar{
     width: 0.5rem;
@@ -144,7 +128,6 @@ table {
 table, th, td {
     border-collapse: collapse;
     padding: 1rem;
-    text-align: left;
 }
    
 thead th {
@@ -156,6 +139,23 @@ thead th {
     text-transform: capitalize;
     color: var(--white1);
     transition: .3s ease-in-out;
+    text-align: left;
+}
+
+thead th:first-child {
+    text-align: left;
+}
+
+thead th:nth-child(2) {
+    text-align: center;
+}
+
+thead th:nth-child(3) {
+    text-align: center;
+}
+
+thead th:nth-child(4) {
+    text-align: center;
 }
    
 tbody tr:nth-child(odd) {
@@ -181,6 +181,7 @@ tbody tr td p,
 tbody tr td img {
     transition: .2s ease-in-out;
     text-align: justify;
+    cursor: default;
 }
    
 tbody tr.hide td,
@@ -193,12 +194,6 @@ tbody tr.hide td img {
     width: 0;
     height: 0;
     transition: .2s ease-in-out .5s;
-}
-   
-@media (max-width: 1000px) {
-    td:not(:first-of-type) {
-        min-width: 12.1rem;
-    }
 }
    
 thead th span.icon-arrow {
@@ -230,30 +225,14 @@ thead th.asc span.icon-arrow{
 thead th.active,tbody td.active {
     color: var(--mgwrpcMain1);
 }
-   
-.post-delete-button.post {
-    background: var(--black3); 
-    color: var(--white1);
-}
-   
-.post-delete-button.delete {
-    background: var(--black3);
-    color: var(--white1);
-}
-   
-.post-delete-button {
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
+
+.feedback-cell {
     cursor: pointer;
-    transition: background 0.3s ease;
-}
-   
-.post-delete-button:hover {
-    background: var(--gray3);
 }
 
+/* -------------
+   BREAKPOINTS
+-------------- */
 @media (max-width: 1000px) {
     h1 {
         font-size: 30px;
@@ -269,8 +248,11 @@ thead th.active,tbody td.active {
     thead th span.icon-arrow {
         display: none;
     }
-}
 
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+}
 
 
 
@@ -286,7 +268,6 @@ thead th.active,tbody td.active {
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
-
 }
 
 .contactus p {
@@ -294,6 +275,7 @@ thead th.active,tbody td.active {
 	font-size: 30px;
 	font-weight: bold;
 	margin-bottom: 25px;
+    cursor: default;
 }
 
 .contactus .btn-fdbck {
