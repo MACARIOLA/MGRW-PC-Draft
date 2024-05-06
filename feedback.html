@@ -24,19 +24,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
 
     <!---------------
-        CAROUSEL
-    ---------------->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
-
-    <!---------------
           ICONS
     ---------------->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 
 
-
+ 
 <body>
     <!---------------
           NAVBAR
@@ -51,10 +45,10 @@
         </label>
 
         <nav class="navbar">
-            <a class="active" href="home.html" style="--i:0">Home</a>
+            <a href="home.html" style="--i:0">Home</a>
             <a href="aboutus.html" style="--i:1">About Us</a>
             <a href="pricelist.html" style="--i:2">Pricelist</a> 
-            <a href="feedback.html" style="--i:3">Feedbacks</a>
+            <a class="active" href="feedback.html" style="--i:3">Feedbacks</a>
             <a href="faqs.html" style="--i:4">FAQs</a> 
         </nav>
     </header>  
@@ -78,100 +72,227 @@
                 <thead>
                     <tr>
                         <th> Customer <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Ratings </th>
                         <th> Feedback </th>
+                        <th> Tags </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td> Joshua Lopez </td>
+                        <td> Gelo Enriquez </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">First ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                    
+                            <span class="full-feedback" style="display:none;">11/10 would recommend💯💯💯💯</span>
+                        </td>
+                        <td> Regular Customer </td>                  
                     </tr>
                     <tr>
-                        <td> Jessalyn Macariola </td>
+                        <td> Royce Margaux Remigio Dimailig </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                  
+                            <span class="full-feedback" style="display:none;">I highly recommend this shop. The item that I got is of good quality and the seller is very accommodating and responsive! Until my next transction! 🤙🏼</span>
+                        </td>   
+                        <td> First Time Buyer </td>                
                     </tr>
                     <tr>
-                        <td> Katrina Ibias </td>
+                        <td> Bebe Juancarlosroxas </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                      
+                            <span class="full-feedback" style="display:none;">pwede mag COD at mabilis ang shipping, quality pa ang product. thanks sir.</span>
+                        </td> 
+                        <td> First Time Buyer </td>                      
                     </tr>
                     <tr>
-                        <td> Gerald Autentico </td>
+                        <td> Enriko R. Mendez </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                     
+                            <span class="full-feedback" style="display:none;">Trusted shop... already bought a lot of items and repair from this shop, good quality, very accommodating and honest seller.</span>
+                        </td> 
+                        <td> First Time Buyer <br> Budget Shopper </td>                     
                     </tr>
                     <tr>
-                        <td> Johnrod Templo </td>
+                        <td> Davis Silvestre </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                 
+                            <span class="full-feedback" style="display:none;">FAST SPEED TRANSACTION AND VERY COMMENDABLE EMPLOYEES🔥🔥🔥</span>
+                        </td> 
+                        <td> Brand Loyalist </td>                 
                     </tr>
                     <tr>
-                        <td> Vnew Rodelas </td>
+                        <td> Joven A Suarez </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                      
+                            <span class="full-feedback" style="display:none;">Sobrang Quality ng mga Pc And Accessories nila sobrang bait pa at maayos kausap More SALES and More BLESSINGS to come MGWR PC !!!</span>
+                        </td>
+                        <td> Gift Shopper <br> First Time Buyer </td>                       
                     </tr>
                     <tr>
-                        <td> Mitzi Purificacion </td>
+                        <td> Gelo Enriquez </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                      
+                            <span class="full-feedback" style="display:none;">11/10 would recommend💯💯💯💯</span>
+                        </td>
+                        <td> Regular Customer </td>                  
                     </tr>
                     <tr>
-                        <td> Louie Insorio </td>
+                        <td> Royce Margaux Remigio Dimailig </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                      
+                            <span class="full-feedback" style="display:none;">I highly recommend this shop. The item that I got is of good quality and the seller is very accommodating and responsive! Until my next transction! 🤙🏼</span>
+                        </td>   
+                        <td> First Time Buyer </td>                
                     </tr>
                     <tr>
-                        <td> Angel Abucay </td>
+                        <td> Bebe Juancarlosroxas </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                       
+                            <span class="full-feedback" style="display:none;">pwede mag COD at mabilis ang shipping, quality pa ang product. thanks sir.</span>
+                        </td> 
+                        <td> First Time Buyer </td>                      
                     </tr>
                     <tr>
-                        <td> Chynna Chavez </td>
+                        <td> Enriko R. Mendez </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                  
+                            <span class="full-feedback" style="display:none;">Trusted shop... already bought a lot of items and repair from this shop, good quality, very accommodating and honest seller.</span>
+                        </td> 
+                        <td> First Time Buyer <br> Budget Shopper </td>                     
                     </tr>
                     <tr>
-                        <td> Kevin Paclejan </td>
+                        <td> Davis Silvestre </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                    
+                            <span class="full-feedback" style="display:none;">FAST SPEED TRANSACTION AND VERY COMMENDABLE EMPLOYEES🔥🔥🔥</span>
+                        </td> 
+                        <td> Brand Loyalist </td>                 
                     </tr>
                     <tr>
-                        <td> Mark Zion </td>
+                        <td> Joven A Suarez </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                    
+                            <span class="full-feedback" style="display:none;">Sobrang Quality ng mga Pc And Accessories nila sobrang bait pa at maayos kausap More SALES and More BLESSINGS to come MGWR PC !!!</span>
+                        </td>
+                        <td> Gift Shopper <br> First Time Buyer </td>                       
                     </tr>
                     <tr>
-                        <td> Charles Xavier </td>
+                        <td> Gelo Enriquez </td>
+                        <td> 5 Stars </td>
                         <td class="feedback-cell" onclick="toggleFeedback(this)">
                             <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
-                            <span class="full-feedback" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et dignissim sem. Donec laoreet magna sit amet lacus porttitor tempor. Vestibulum blandit id ligula auctor eleifend. Integer posuere ante nibh, eu consequat odio posuere sed. Mauris tortor ex, fringilla eget lacus at, luctus fringilla turpis. Aliquam faucibus tincidunt risus ac porttitor. Aenean felis nisl, pulvinar et lacus id, lobortis imperdiet metus. Morbi ac nisi ac purus maximus venenatis. Donec in facilisis odio. Ut ullamcorper ipsum ut mattis dignissim. Integer volutpat tristique ultricies.</span>
-                        </td>                      
+                            <span class="full-feedback" style="display:none;">11/10 would recommend💯💯💯💯</span>
+                        </td>
+                        <td> Regular Customer </td>                  
+                    </tr>
+                    <tr>
+                        <td> Royce Margaux Remigio Dimailig </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">I highly recommend this shop. The item that I got is of good quality and the seller is very accommodating and responsive! Until my next transction! 🤙🏼</span>
+                        </td>   
+                        <td> First Time Buyer </td>                
+                    </tr>
+                    <tr>
+                        <td> Bebe Juancarlosroxas </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">pwede mag COD at mabilis ang shipping, quality pa ang product. thanks sir.</span>
+                        </td> 
+                        <td> First Time Buyer </td>                      
+                    </tr>
+                    <tr>
+                        <td> Enriko R. Mendez </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Trusted shop... already bought a lot of items and repair from this shop, good quality, very accommodating and honest seller.</span>
+                        </td> 
+                        <td> First Time Buyer <br> Budget Shopper </td>                     
+                    </tr>
+                    <tr>
+                        <td> Davis Silvestre </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">FAST SPEED TRANSACTION AND VERY COMMENDABLE EMPLOYEES🔥🔥🔥</span>
+                        </td> 
+                        <td> Brand Loyalist </td>                 
+                    </tr>
+                    <tr>
+                        <td> Joven A Suarez </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Sobrang Quality ng mga Pc And Accessories nila sobrang bait pa at maayos kausap More SALES and More BLESSINGS to come MGWR PC !!!</span>
+                        </td>
+                        <td> Gift Shopper <br> First Time Buyer </td>                       
+                    </tr>
+                    <tr>
+                        <td> Gelo Enriquez </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">11/10 would recommend💯💯💯💯</span>
+                        </td>
+                        <td> Regular Customer </td>                  
+                    </tr>
+                    <tr>
+                        <td> Royce Margaux Remigio Dimailig </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">I highly recommend this shop. The item that I got is of good quality and the seller is very accommodating and responsive! Until my next transction! 🤙🏼</span>
+                        </td>   
+                        <td> First Time Buyer </td>                
+                    </tr>
+                    <tr>
+                        <td> Bebe Juancarlosroxas </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">pwede mag COD at mabilis ang shipping, quality pa ang product. thanks sir.</span>
+                        </td> 
+                        <td> First Time Buyer </td>                      
+                    </tr>
+                    <tr>
+                        <td> Enriko R. Mendez </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Trusted shop... already bought a lot of items and repair from this shop, good quality, very accommodating and honest seller.</span>
+                        </td> 
+                        <td> First Time Buyer <br> Budget Shopper </td>                     
+                    </tr>
+                    <tr>
+                        <td> Davis Silvestre </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">FAST SPEED TRANSACTION AND VERY COMMENDABLE EMPLOYEES🔥🔥🔥</span>
+                        </td> 
+                        <td> Brand Loyalist </td>                 
+                    </tr>
+                    <tr>
+                        <td> Joven A Suarez </td>
+                        <td> 5 Stars </td>
+                        <td class="feedback-cell" onclick="toggleFeedback(this)">
+                            <span class="short-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</span>
+                            <span class="full-feedback" style="display:none;">Sobrang Quality ng mga Pc And Accessories nila sobrang bait pa at maayos kausap More SALES and More BLESSINGS to come MGWR PC !!!</span>
+                        </td>
+                        <td> Gift Shopper <br> First Time Buyer </td>                       
                     </tr>
                 </tbody>
             </table>
@@ -186,7 +307,7 @@
     ---------------->
     <div class="contactus">
         <p>Help Us Improve Our Web</p>
-        <a class="btn-fdbck" id="leaveFeedbackBtn" href="survey.html">Leave A Feedback</a>
+        <a class="btn-fdbck" id="leaveFeedbackBtn" href="itemReview.html">Leave A Feedback</a>
     </div>
 
 
@@ -220,9 +341,8 @@
             <h4>Connect With Us</h4>
             <div class="icons2">
                 <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
-                <a href="#"><img src="Images/igicon.png" alt=""></a>
-                <a href="#"><img src="Images/tticon.png" alt=""></a>
-                <a href="#"><img src="Images/gmicon.png" alt=""></i></a>
+                <a href="https://www.instagram.com/mgwrpc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="Images/igicon.png" alt=""></a>
+                <a href="https://www.tiktok.com/@mgwrpctrading?is_from_webapp=1&sender_device=pc"><img src="Images/tticon.png" alt=""></a>
             </div>
         </div>
     </footer>
