@@ -44,7 +44,7 @@
         </label>
 
         <nav class="navbar">
-            <a class="active" href="home.html" style="--i:0">Home</a>
+            <a href="home.html" style="--i:0">Home</a>
             <a href="aboutus.html" style="--i:1">About Us</a>
             <a href="pricelist.html" style="--i:2">Pricelist</a> 
             <a href="feedback.html" style="--i:3">Feedbacks</a>
@@ -60,7 +60,12 @@
     <section class="about">
         <div class="main">
             <div class="image-container">
-                <img src="Images/SulitPc1.jpg" alt="">
+                <div class="hover-image">
+                    <img src="Images/Sulit PC 1.jpg" alt="">
+                </div>
+                <div class="btn">
+                    <button type="button" class="btn2" id="reserveNowBtn">Reserve Now</button>
+                </div>
             </div>
             <div class="all-text"> 
                 <h4>AMD ATHLON 3000G</h4>
@@ -77,22 +82,23 @@
                     </div>
                     <div class="row">
                         <img class="icn" src="Images/icon-ram.png" alt="">
-                        <div class="column c3">8GB DDR4</div>
+                        <div class="column c3">ADATA 8GB 3200MHZ</div>
                         <img class="icn" src="Images/icon-mntr.png" alt="">
-                        <div class="column c4">FONUDAR 19" LED</div>
+                        <div class="column c4">VIEWPLUS MH-20 20</div>
                     </div>
                     <div class="row">
                         <img class="icn" src="Images/icon-ssd.png" alt="">
-                        <div class="column c5">128GB SATA 3.0,</div>
+                        <div class="column c5">ADATA SU650 256GB SATA</div>
                         <img class="icn" src="Images/icon-cc.png" alt="">
                         <div class="column c6">POWERLOGIC V200</div>
                     </div>
+                    <div class="row">
+                        <img class="icn" src="Images/icon-ps.png" alt="">
+                        <div class="column c7">POWERLOGIC 700W</div>
+                        <img class="icn" src="Images/icon-fan.png" alt="">
+                        <div class="column c8">Not Included</div>
+                    </div>
                 </div>
-                
-                <div class="btn">
-                    <button type="button" class="btn2" id="reserveNowBtn">Reserve Now</button>
-                </div>
-                
             </div>
         </div>
     </section>
@@ -116,7 +122,45 @@
                 <input type="email" id="email" placeholder="Enter Email" required>
                 
                 <label for="contactNum">Contact Number</label>
-                <input type="tel" id="contactNum" placeholder="Enter Contact Number" required>
+                <input type="tel" id="contactNum" name="contactNum" maxlength="11" value="09" required>
+                
+                <script>
+                    document.getElementById("contactNum").addEventListener("input", function(event) {
+                        let inputValue = event.target.value;
+                        // Remove any non-digit characters
+                        inputValue = inputValue.replace(/\D/g, "");
+                        // Ensure the input starts with "09"
+                        if (!inputValue.startsWith("09")) {
+                            // If not, prepend "09" to the input value
+                            inputValue = "09" + inputValue.substring(9);
+                        }
+                        // Limit to 11 characters
+                        inputValue = inputValue.substring(0, 11);
+                        // Update input value
+                        event.target.value = inputValue;
+                    });
+                </script>
+                
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="999" value="1" required>
+
+                <script>
+                    document.getElementById("quantity").addEventListener("input", function(event) {
+                        let inputValue = event.target.value;
+                        // Remove any non-digit characters
+                        inputValue = inputValue.replace(/\D/g, "");
+                        // Ensure the input is not empty and is a valid number
+                        if (!inputValue || isNaN(inputValue)) {
+                            // If empty or not a number, set value to 1
+                            inputValue = "1";
+                        }
+                        // Limit to 3 digits
+                        inputValue = inputValue.substring(0, 3);
+                        // Update input value
+                        event.target.value = inputValue;
+                    });
+                </script>
+
                 
                 <div class="btn-container">
                     <button type="button" id="confirmBtn">Confirm</button>
@@ -125,12 +169,12 @@
             </form>
         </div>
     </div>
-
-    <!-- Reservation Completed Modal -->
+ 
     <div id="successModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
             <h2>Reservation Completed!</h2>
+            <button type="button" class="btnfrFeed" onclick="window.location.href = 'survey.html'">Leave Feedback</button>
             <button type="button" id="goBackBtn">Go Back</button>
         </div>
     </div>
@@ -166,9 +210,8 @@
             <h4>Connect With Us</h4>
             <div class="icons2">
                 <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
-                <a href="#"><img src="Images/igicon.png" alt=""></a>
-                <a href="#"><img src="Images/tticon.png" alt=""></a>
-                <a href="#"><img src="Images/gmicon.png" alt=""></i></a>
+                <a href="https://www.instagram.com/mgwrpc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="Images/igicon.png" alt=""></a>
+                <a href="https://www.tiktok.com/@mgwrpctrading?is_from_webapp=1&sender_device=pc"><img src="Images/tticon.png" alt=""></a>
             </div>
         </div>
     </footer>
