@@ -126,7 +126,7 @@
     position: relative;
 }
 
-.Submit-Button1 {
+.Save-Button1 {
     background-color: var(--black1);
     color: var(--white1);
     font-size: 18px;
@@ -137,7 +137,7 @@
     cursor: pointer;
 }
 
-.Submit-Button1:hover {
+.Save-Button1:hover {
     background-color: var(--white1);
     color: var(--black1);
     transform: scale(1.1);
@@ -332,6 +332,24 @@
     display: none;
 }
 
+.submit-Button {
+    background-color: var(--black1);
+    color: var(--white1);
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    margin-left: 100px;
+    margin-right: 100px;
+    cursor: pointer;
+}
+
+.submit-Button:hover {
+    background-color: var(--white1);
+    color: var(--black1);
+    transform: scale(1.1);
+    border: 1px solid var(--black1);
+}
+
 .submit-Button2 {
     background-color: var(--black1);
     color: var(--white1);
@@ -344,6 +362,24 @@
 }
 
 .submit-Button2:hover {
+    background-color: var(--white1);
+    color: var(--black1);
+    transform: scale(1.1);
+    border: 1px solid var(--black1);
+}
+
+.submit-Button3 {
+    background-color: var(--black1);
+    color: var(--white1);
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    margin-left: 100px;
+    margin-right: 100px;
+    cursor: pointer;
+}
+
+.submit-Button3:hover {
     background-color: var(--white1);
     color: var(--black1);
     transform: scale(1.1);
