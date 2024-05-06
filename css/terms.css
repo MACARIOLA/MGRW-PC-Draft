@@ -22,6 +22,11 @@
     --paracolor: #5e6c79;
 }
 
+
+
+/* -------------
+     RESETS
+-------------- */
 * {
     font-family: "Open Sans", sans-serif;
 }
@@ -32,6 +37,11 @@ body {
     color: var(--black1);
 }
 
+
+
+/* -------------
+      TERMS
+-------------- */
 .flex_align_justify {
     display: flex;
     align-items: center;
@@ -45,7 +55,7 @@ body {
 .tc_wrap {
     width: 85%;
     max-width: 100%;
-    height: 588px;
+    height: 570px;
     background: var(--black2);
     display: flex;
     border-radius: 10px;
@@ -63,6 +73,7 @@ body {
     width: calc(100% - 200px);
     padding: 0 10px 0 20px;
     height: 100%;
+    cursor: default;
 }
 
 .tc_wrap .tabs_content .tab_head,
@@ -87,7 +98,7 @@ body {
 }
 
 .tc_wrap .tabs_list ul li{
-    padding: 10px 0;
+    padding: 8px 0;
     position: relative;
     margin-bottom: 3px;
     cursor: pointer;
@@ -135,6 +146,9 @@ body {
     display: block !important;
 }
 
+/* -------------
+   BREAKPOINTS
+-------------- */
 @media(max-width: 768px){
     .tc_wrap{
         width: 95%;
