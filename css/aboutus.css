@@ -74,6 +74,7 @@
     letter-spacing: 1px;
     font-weight: 400;
     margin-top: 10px;
+    cursor: default;
 }
 
 .all-text h1 {
@@ -82,6 +83,7 @@
     color: var(--white1);
     font-weight: 700;
     margin-bottom: 20px;
+    cursor: default;
 }
 
 .all-text p {
@@ -90,6 +92,7 @@
     line-height: 30px;
     margin-bottom: 35px;
     text-align: justify;
+    cursor: default;
 }
 
 .btn button {
@@ -179,6 +182,7 @@
     box-sizing: border-box;
     overflow: hidden;
     text-align: center;
+    cursor: default;
 }
 
 @keyframes bounce {
