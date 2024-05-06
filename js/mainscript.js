@@ -20,13 +20,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let refreshInterval = setInterval(()=> {next.click()}, 3000);
 
-   function reloadSlider() {
+    function reloadSlider() {
         slider.style.left = -active * items[0].offsetWidth + 'px';
         let last_active_dot = document.querySelector('.slider .dots li.active');
         last_active_dot.classList.remove('active');
         dots[active].classList.add('active');
         clearInterval(refreshInterval);
-        //refreshInterval = setInterval(()=> {next.click()}, 12000);
+        refreshInterval = setInterval(()=> {next.click()}, 12000);
     }
 
     dots.forEach((li, key) => {
