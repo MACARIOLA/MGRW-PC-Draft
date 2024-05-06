@@ -44,6 +44,7 @@
 	margin: auto auto 20px; 
     margin-top: -100px;
 	margin-bottom: 10px;
+    cursor: default;
 }
 
 .sub-heading {
@@ -51,6 +52,7 @@
     margin-bottom: .5em;
     font-weight: bold;
     color: #fff;
+    cursor: default;
 }
 
 .contactForm {
@@ -71,13 +73,15 @@
     margin-bottom: 1em;
 	max-width: 700px;
 	margin: auto auto 20px;
+    cursor: default;
 }
 
 .sentence2 {
     color: var(--paracolor);
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5em;
     margin-bottom: 1em;
+    cursor: default;
 }
 
 .senleft {
@@ -216,4 +220,3 @@
         justify-content: center;
     }
 }
-
