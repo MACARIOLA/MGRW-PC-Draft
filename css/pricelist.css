@@ -17,7 +17,7 @@
 }
 
 
-
+ 
 /* -------------
     PRICELIST
 -------------- */
@@ -30,6 +30,7 @@
 	margin: auto auto 20px;
     margin-top: -100px;
 	margin-bottom: 10px;
+    cursor: default;
 }
 
 .sentence1 {
@@ -40,6 +41,7 @@
     margin-bottom: 1em;
 	max-width: 700px;
 	margin: auto auto 20px;
+    cursor: default;
 }
 
 .wrapper {
@@ -86,6 +88,7 @@
     color: var(--white1);
     z-index: 2;
     transition: all 0.3s;
+    cursor: default;
 }
 
 .card p {
@@ -93,6 +96,7 @@
     text-align: center;
     width: 600px;
     transition: all 0.3s;
+    cursor: default;
 }
 
 .card:hover h2,
