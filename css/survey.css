@@ -43,8 +43,6 @@ body {
 
 
 
-
-
 /* -------------
       FORM
 -------------- */
@@ -55,26 +53,20 @@ body {
     margin-top: 100px;
 }
 
-#head, #subheading, #content, form {
+#subheading, #content, form {
     color: var(--white1);
 }
 
-#head {
-    padding-top: 50px;
-    font-size: 3em;
-    color: var(--white1);
-    text-align: center;
-    max-width: 700px;
-    margin: auto;
-    margin-top: -100px;
-    text-decoration: none;
-    font-weight: 700;
-    font-family: 'Ethnocentric', sans-serif;
-    background-image: linear-gradient(to right, var(--mgwrpcMain1), var(--mgwrpcMain2));
-    -webkit-background-clip: text;
-    background-clip: text; 
-    color: transparent;
+.logo {
+    width: 280px;
+    height: auto;
     transition: 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.logo:hover {
+    transform: scale(1.06);
 }
 
 #subheading {
@@ -85,6 +77,7 @@ body {
 	max-width: 700px;
 	margin: auto auto 20px;
     margin-bottom: 50px;
+    cursor: default;
 }
 
 #content1 {
@@ -221,10 +214,11 @@ input:hover::placeholder {
 input[type="radio"] {
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
 
 input[type="radio"]:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
 input[type="radio"].radio-btn {
@@ -233,7 +227,7 @@ input[type="radio"].radio-btn {
 
 input[type="radio"].radio-btn:checked {
     accent-color: var(--mgwrpcMain1);
-    transition: 1s;
+    transition: 0.8s;
 }
 
 .radio-container {
@@ -244,12 +238,14 @@ input[type="radio"].radio-btn:checked {
   
 .radio-btn {
     margin-right: 20px;
-    accent-color: #fff; 
+    accent-color: var(--black1); 
+    transition: 1s;
 }
   
 .radio-text {
     color: var(--paracolor);
     transition: color 0.3s ease;
+    cursor: pointer;
 }
   
 .radio-btn:hover + .radio-text {
@@ -260,7 +256,51 @@ input[type="radio"].radio-btn:checked {
     color: var(--mgwrpcMain1); 
 }
 
-/* Change Autocomplete styles in Chrome*/
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:hover {
+    transform: scale(1.3);
+}
+
+input[type="checkbox"].radio-btn {
+    accent-color:var(--black1);
+}
+
+input[type="checkbox"].radio-btn:checked {
+    accent-color: var(--mgwrpcMain1);
+    transition: 0.8s;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-btn {
+    margin-right: 30px;
+    accent-color: var(--white1); 
+    transition: 1s;
+}
+
+.checkbox-text {
+    color: var(--paracolor);
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.checkbox-btn:hover + .checkbox-text {
+    color: var(--mgwrpcMain1); 
+}
+
+.checkbox-btn:checked + .checkbox-text {
+    color: var(--mgwrpcMain1); 
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
@@ -270,9 +310,9 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--mgwrpcMain1); 
-  font-size: 1.1em;
-  transition: background-color 5000s ease-in-out 0s; 
+    -webkit-text-fill-color: var(--mgwrpcMain1); 
+    font-size: 1.1em;
+    transition: background-color 5000s ease-in-out 0s; 
 }
 
 
