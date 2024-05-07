@@ -11,7 +11,7 @@
     <title>MGWR PC | Inventory</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" href="css/admin-mainstyle.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-oP7mI/HC6pVx2jzrLnMlqA25eXHVTQwYb3CgeCLHq/9ItT5qro5BxxL5tWnfqFi/OA7NTVAtTAjyQq62oyC7Ig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/admin-inventory.css">
     <script src="js/mainscript.js"></script>
