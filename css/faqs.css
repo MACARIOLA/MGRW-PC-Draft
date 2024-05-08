@@ -133,6 +133,45 @@
     display: block;
 }
 
+.edit2-btn {
+    background-color: var(--black1);
+    color: var(--white1);
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    margin-left: 100px;
+    margin-right: 100px;
+    cursor: pointer;
+}
+
+.edit2-btn:hover {
+    background-color: var(--white1);
+    color: var(--black1);
+    transform: scale(1.1);
+    border: 1px solid var(--black1);
+}
+
+
+
+.save3-btn {
+    background-color: var(--black1);
+    color: var(--white1);
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    margin-left: 100px;
+    margin-right: 100px;
+    cursor: pointer;
+}
+
+.save3-btn:hover {
+    background-color: var(--white1);
+    color: var(--black1);
+    transform: scale(1.1);
+    border: 1px solid var(--black1);
+}
+
+
 /* -------------
    BREAKPOINTS
 -------------- */
