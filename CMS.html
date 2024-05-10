@@ -448,91 +448,81 @@
           FAQs
     ---------------->
     <h1 class="heading" id="question">FAQs</h1>
+    <p class="sentence1">Got questions? Find answers to commonly asked questions here.</p>
+    
     <section class="faqs">
         <div class="container">
-            <div class="list" >
+            <div class="list">
                 <div class="list-items">
-                    <span class="list-link">
-                        What payment methods do you accept?
-                        <i class="icon ion-md-add"></i>
+                    <span class="list-link">What payment methods do you accept?
+                        <button class="edit2-btn" onclick="editContent(this)">Edit</button>
+                        <button class="save3-btn" style="display: none;" onclick="editContent(this)">Save</button>
+                        <button class="remove1-btn" onclick="removeQuestion(this)">Remove</button>
                         <i class="icon ion-md-remove"></i>
                     </span>
                     <div class="answer">
                         <p>
-                        We Accept Cash, Online Payment And Bank Transfer.<br>
-                        For Online Payment And Bank Transfer Please Use Official MGWR PC Bank Account:<br><br>
-
-                        Union Bank<br
-                        >Account Name: MGWR PC COMPUTER PARTS AND ACCESSORIES SHOP<br>
-                        Account Number: 0027-4001-3341<br><br>
-
-                        Bank of the Philippines Island<br>
-                        Account Name: MGWR PC COMPUTER PARTS AND ACCESSORIES SHOP<br>
-                        Account Number: 0989-644-661
+                            We Accept Cash, Online Payment And Bank Transfer.<br>
+                            For Online Payment And Bank Transfer Please Use Official MGWR PC Bank Account:<br><br>
+    
+                            Union Bank<br>
+                            Account Name: MGWR PC COMPUTER PARTS AND ACCESSORIES SHOP<br>
+                            Account Number: 0027-4001-3341<br><br>
+    
+                            Bank of the Philippines Island<br>
+                            Account Name: MGWR PC COMPUTER PARTS AND ACCESSORIES SHOP<br>
+                            Account Number: 0989-644-661
                         </p>
                     </div>
                 </div>
-                
-                <div class="list-items">
-                    <span class="list-link">
-                        Do you offer financing options for purchasing computers?
-                        <i class="icon ion-md-add"></i>
-                        <i class="icon ion-md-remove"></i>
-                    </span>
-                    <div class="answer">
-                        <p>
-                            We Accept Product Installment Via Home Credit And Credit Card.<br><br>
-
-                            Preferred Bank For Credit Card Installment.<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;Bank of the philippines Island<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;HSCBC<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;China Bank
-                        </p>
-                    </div>
-                </div>
-
+    
+    
                 <div class="list-items">
                     <span class="list-link">
                         How Do I apply in Home Credit?
-                        <i class="icon ion-md-add"></i>
+                        <button class="edit2-btn" onclick="editContent(this)">Edit</button>
+                        <button class="save3-btn" style="display: none;" onclick="editContent(this)">Save</button>
+                        <button class="remove1-btn" onclick="removeQuestion(this)">Remove</button>
                         <i class="icon ion-md-remove"></i>
                     </span>
                     <div class="answer">
                         <p>
                             You Can Apply In Home Credit In Just Simple Way:<br><br>
-
+    
                             &#8226;&nbsp;&nbsp;&nbsp;Download "My Home Credit App" (Not compatible in IOS)<br>
                             &#8226;&nbsp;&nbsp;&nbsp;Create an account and kindly fill up all required information<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;Check if you are qualified for product loand by answering those necessary question.<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;If you already finished those steps. Home credit will give you an offer for upto 60k product loand and together with your m Valid ID you can now go to our shop to process your loan.
+                            &#8226;&nbsp;&nbsp;&nbsp;Check if you are qualified for product loan by answering those necessary questions.<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;If you already finished those steps. Home credit will give you an offer for up to 60k product loan and together with your Valid ID you can now go to our shop to process your loan.
                         </p>
                     </div>
                 </div>
-
+    
                 <div class="list-items">
                     <span class="list-link">
                         Are your products covered by warranty?
-                        <i class="icon ion-md-add"></i>
+                        <button class="edit2-btn" onclick="editContent(this)">Edit</button>
+                        <button class="save3-btn" style="display: none;" onclick="editContent(this)">Save</button>
+                        <button class="remove1-btn" onclick="removeQuestion(this)">Remove</button>
                         <i class="icon ion-md-remove"></i>
                     </span>
                     <div class="answer">
                         <p>
                             All MGWR PC Products Carry A Standard One (1) Year Warranty Except Of The Following:<br><br>
-
+    
                             One Month Warranty Applies Only For:<br>
                             &#8226;&nbsp;&nbsp;&nbsp;External batteries of Laptops<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;Bundled Items ( mouse, keyboards, speacker,etc.)<br>
+                            &#8226;&nbsp;&nbsp;&nbsp;Bundled Items ( mouse, keyboards, speaker,etc.)<br>
                             &#8226;&nbsp;&nbsp;&nbsp;Chargers, Adaptors<br><br>		
-
+    
                             One Week Warranty Applies Only For:<br>
                             &#8226;&nbsp;&nbsp;&nbsp;Tables and Chairs<br>					
                             &#8226;&nbsp;&nbsp;&nbsp;Generic Fans,Laptop coolers,Heatsink, LAN tester<br>	
-                            &#8226;&nbsp;&nbsp;&nbsp;Powercord , Display Cables<br><br>	
-
+                            &#8226;&nbsp;&nbsp;&nbsp;Power cord , Display Cables<br><br>	
+    
                             There Is No Warranty For:<br>
                             &#8226;&nbsp;&nbsp;&nbsp;Consumables (ink,disc, etc)<br>				
                             &#8226;&nbsp;&nbsp;&nbsp;Software ( OS, Office)<br>					
-                            &#8226;&nbsp;&nbsp;&nbsp;Acessories, promotional/sale items, freebies,cables<br>	
+                            &#8226;&nbsp;&nbsp;&nbsp;Accessories, promotional/sale items, freebies,cables<br>	
                         </p>
                     </div>
                 </div>
@@ -540,7 +530,89 @@
         </div>
     </section>
 
+    <div class="new-item-template">
+        <div class="list-items">
+            <span class="list-link">
+                <input type="text" class="new-question" placeholder="New Question">
+                <button class="add-btn" onclick="addNewContent(this)">Add</button>
+                <button class="edit2-btn" onclick="editContent(this)">Edit</button>
+                <button class="save3-btn" style="display: none;" onclick="editContent(this)">Save</button>
+                <button class="remove-btn" onclick="removeQuestion(this)">Remove</button>
+            </span>
+            <div class="answer" contenteditable="true">
+                <p>Answer</p>
+            </div>
+        </div>
+    </div>
 
+
+    <script>
+        function editContent(button) {
+            var answer = button.parentElement.nextElementSibling;
+            var isEditable = answer.getAttribute('contenteditable') === 'true';
+
+            if (!isEditable) {
+                answer.setAttribute('contenteditable', 'true');
+                button.textContent = 'Save';
+                button.classList.remove('edit2-btn');
+                button.classList.add('save3-btn');
+            } else {
+                // Save the edited content (you can save to local storage or send to server)
+                var editedContent = answer.innerHTML;
+                console.log('Edited Content:', editedContent);
+                
+                answer.setAttribute('contenteditable', 'false');
+                button.textContent = 'Edit';
+                button.classList.remove('save3-btn');
+                button.classList.add('edit2-btn');
+            }
+        }
+
+        function addNewQuestion() {
+            var list = document.querySelector('.list');
+            var newQuestion = `
+                <div class="list-items">
+                    <span class="list-link">
+                        <input type="text" placeholder="New Question" class="new-question">
+                        <button class="add-btn" onclick="addNewContent(this)">Add</button>
+                        <button class="remove-btn" onclick="removeQuestion(this)">Remove</button>
+                    </span>
+                    <div class="answer" contenteditable="true">
+                        <p>Answer</p>
+                    </div>
+                </div>
+            `;
+            list.insertAdjacentHTML('afterbegin', newQuestion);
+        }
+
+        function addNewContent(button) {
+            var listItem = button.parentElement.parentElement;
+            var newQuestion = listItem.querySelector('.new-question').value;
+            var answer = listItem.querySelector('.answer');
+            var list = document.querySelector('.list');
+
+            if (newQuestion.trim() !== '') {
+                var newContent = `
+                    <div class="list-items">
+                        <span class="list-link">
+                            ${newQuestion}
+                            <button class="edit2-btn" onclick="editContent(this)">Edit</button>
+                            <i class="icon ion-md-remove" onclick="removeQuestion(this)"></i>
+                        </span>
+                        <div class="answer" contenteditable="false">
+                            <p>Answer</p>
+                        </div>
+                    </div>
+                `;
+                list.insertAdjacentHTML('afterbegin', newContent);
+            }
+        }
+
+        function removeQuestion(button) {
+            var listItem = button.parentElement.parentElement;
+            listItem.remove();
+        }
+    </script>
 
     <!---------------
             JS
