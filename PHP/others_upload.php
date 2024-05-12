@@ -41,10 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["fileToUpload"])) {
             if ($conn->query($sql) === TRUE) {
                 // Display alert box
                 echo '<script>alert("The file '. htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). ' has been uploaded and saved to the database.");</script>';
-                // Refresh the page
-                echo '<script>setTimeout(function(){ location.reload(); }, 1000);</script>';
                 // Redirect to another page
-                echo '<script>window.location.href = "cms.html";</script>';
+                echo '<script>window.location.href = "../cms.php";</script>';
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }

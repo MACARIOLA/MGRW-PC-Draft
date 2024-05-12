@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["fileToUpload"])) {
     $conn->query($delete_previous_query);
 
     // File upload handling
-    $target_dir = "uploads/"; // Directory where uploaded files will be stored, assuming the php folder is one level down
+    $target_dir = "uploads/"; // Directory where uploaded files will be stored
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["fileToUpload"])) {
                 // Display alert box
                 echo '<script>alert("The file '. htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). ' has been uploaded and saved to the database.");</script>';
                 // Redirect to another page
-                echo '<script>window.location.href = "../cms.html";</script>';
+                echo '<script>window.location.href = "../cms.php";</script>';
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
