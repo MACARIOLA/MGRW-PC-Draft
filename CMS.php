@@ -102,9 +102,9 @@
         <nav class="navbar">
                 <a href="adminAnalytics.html" style="--i:0">Analytics</a>
                 <a href="admin-inventory.html" style="--i:1">Inventory</a>
-                <a class="active" href="admin-inventory.html" style="--i:2">CMS</a>
-                <a href="feedback.html" style="--i:3">Feedbacks</a>
-                <a href="contact.html" style="--i:4">Contact Us</a>
+                <a class="active" href="CMS.php" style="--i:2">CMS</a>
+                <a href="#" style="--i:3">Feedbacks</a>
+                <a href="#" style="--i:4">Contact Us</a>
         </nav>
     </header>    
 
@@ -191,24 +191,7 @@
         </ul>
     </div>
 </section>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/><br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+
 
     <!---------------
          ABOUT US
