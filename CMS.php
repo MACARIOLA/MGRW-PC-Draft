@@ -305,7 +305,7 @@
     
     
     
-    <!---------------
+   <!---------------
         PRICELIST
     ---------------->
     <section class="wrapper">
@@ -316,32 +316,43 @@
                 <i class="bx bx-desktop bx-md"></i>
                 <h2>Pricelist For PCs</h2>
                 <p>Explore our range of high-performance desktop computers. Check our price list to find the perfect fit for your needs.</p>
-                <a href="/PDFs/laptop-catalog.pdf" class="btn" target="_blank">Download Now!</a>
+                <form action="php/pc_upload.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <button type="submit" class="btn">Upload</button>
+                </form>
             </div>
 
             <div class="card">
                 <i class="bx bx-laptop bx-md"></i>
                 <h2>Pricelist For Laptops</h2>
                 <p>Discover our selection of reliable and portable laptops. Don't forget to check our price list for great deals.</p>
-                <a href="/PDFs/laptop-catalog.pdf" class="btn" target="_blank">Download Now!</a>
+                <form action="laptop_upload.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <button type="submit" class="btn">Upload</button>
+                </form>
             </div>
             
             <div class="card">
                 <i class="bx bx-printer bx-md"></i>
                 <h2>Pricelist For Printers</h2>
                 <p>Find the ideal printer for your home or office needs among our quality selection. Check out our price list for competitive pricing.</p>     
-                <a href="/PDFs/laptop-catalog.pdf" class="btn" target="_blank">Download Now!</a>
+                <form action="printer_upload.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <button type="submit" class="btn">Upload</button>
+                </form>
             </div>
 
             <div class="card">
                 <i class="bx bx-package bx-md"></i>
                 <h2>Pricelist For Others</h2>
                 <p>Enhance your computing experience with our range of accessories. From cables to peripherals, find what you need in our price list.</p>        
-                <a href="/PDFs/laptop-catalog.pdf" class="btn" target="_blank">Download Now!</a>
+                <form action="others_upload.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <button type="submit" class="btn">Upload</button>
+                </form>
             </div>
         </div>
     </section>
-
 
 
     <!---------------
