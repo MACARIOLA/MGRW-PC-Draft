@@ -1,5 +1,5 @@
 <?php
-@include 'config.php';
+@include 'admin-config.php';
 
 if(isset($_POST['update_reservation'])){
   $id = $_POST['id'];
