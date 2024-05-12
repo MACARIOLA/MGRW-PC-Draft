@@ -1,3 +1,102 @@
+<?php
+
+$servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "mgwrpcdtb";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+            $sql = "SELECT * FROM promotions WHERE ID = 1";
+            $result = mysqli_query($conn, $sql);
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $promoImage = "data:image;base64," . base64_encode($row['PHOTO']);
+                }
+            }
+
+
+            $sql2 = "SELECT * FROM promotions WHERE ID = 2";
+            $result2 = mysqli_query($conn, $sql2);
+            if ($result2 && mysqli_num_rows($result2) > 0) {
+                while ($row2 = mysqli_fetch_assoc($result2)) {
+                    $promoImage2 = "data:image;base64," . base64_encode($row2['PHOTO']);
+                }
+            }
+
+
+            $sql3 = "SELECT * FROM promotions WHERE ID = 3";
+            $result3 = mysqli_query($conn, $sql3);
+            if ($result3 && mysqli_num_rows($result3) > 0) {
+                while ($row3 = mysqli_fetch_assoc($result3)) {
+                    $promoImage3 = "data:image;base64," . base64_encode($row3['PHOTO']);
+                }
+            }
+        
+            //// for inserting photo
+
+            if(isset($_POST['submit'])) {
+ 
+
+                // Handle photo upload based on photoId
+                $photo = $_FILES['photo']['tmp_name'];
+                $photoData = addslashes(file_get_contents($photo)); // Addslashes to escape special characters
+            
+                $sql = "UPDATE promotions SET PHOTO = '$photoData' WHERE ID = 1";
+            
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo '<meta http-equiv="refresh" content="0">';
+                } else {
+                    echo "Error updating profile photo!";
+                }
+            }
+            
+            
+            elseif(isset($_POST['submit2'])) {
+                // Handle photo upload for photo2
+                $photo = $_FILES['photo2']['tmp_name'];
+               
+                // Read the contents of the file
+                $photoData = addslashes(file_get_contents($photo)); // Addslashes to escape special characters
+            
+                $sql = "UPDATE promotions SET PHOTO = '$photoData' WHERE ID = 2";
+            
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo '<meta http-equiv="refresh" content="0">';
+                } else {
+                    echo "Error updating profile photo!";
+                }
+            }
+             elseif(isset($_POST['submit3'])) {
+                // Handle photo upload for photo3
+                $photo = $_FILES['photo3']['tmp_name'];
+                
+                // Read the contents of the file
+                $photoData = addslashes(file_get_contents($photo)); // Addslashes to escape special characters
+            
+                $sql = "UPDATE promotions SET PHOTO = '$photoData' WHERE ID = 3";
+            
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo '<meta http-equiv="refresh" content="0">';
+                } else {
+                    echo "Error updating profile photo!";
+                }
+            } else {
+                // Handle error (no submit button clicked)
+            }
+
+
+            
+            ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +115,50 @@
     <link rel="stylesheet" href="css/mainstyle.css">
     <link rel="stylesheet" href="css/cms.css">
     <script src="js/mainscript.js"></script>
+
+    <style>
+    /* Styles for the white background overlay */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+        z-index: 1000; /* Ensure it's above other content */
+        display: none; /* Initially hidden */
+    }
+
+    /* Styles for the popup */
+    .popup {
+        position: fixed;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff; /* Popup background color */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow */
+        z-index: 1001; /* Ensure it's above the overlay */
+        max-width: 80%; /* Optional: Set max width */
+        max-height: 80%; /* Optional: Set max height */
+        overflow-y: auto; /* Optional: Add scrollbars if needed */
+        display: none; /* Initially hidden */
+    }
+    #openPopup {
+    background-color: green; /* Change the background color to green */
+    color: white; /* Change the text color to white */
+    padding: 10px 20px; /* Add padding to the button */
+    font-size: 1.2em; /* Increase the font size */
+    border: none; /* Remove the border */
+    cursor: pointer; /* Add cursor pointer */
+    border-radius: 5px; /* Add border radius */
+    }
+
+    #openPopup:hover {
+    background-color: darkgreen; /* Change the background color on hover */
+    }
+    </style>
 
     <!---------------
           FONTS
@@ -57,258 +200,107 @@
         </nav>
     </header>    
 
+<!---------------
+        POPUP
+    ---------------->
+   <button id="openPopup">UPDATE PHOTO</button>
+<!-- Add a button to open the popup -->
+<div class="overlay" id="overlay" style="display: none;">
+    <!-- Popup content -->
+    <div class="popup" id="popup">
+        <h2>Update Photo</h2>
+        <form id="updatePhotoForm" enctype="multipart/form-data"  method="POST">
+            <label for="photoInput">Choose Photo:</label>
+            <input type="file" id="photoInput" name="photo" accept="image/*" >
+            <button type="submit" name="submit">Upload</button><br/>
+            <!---->
+            <label for="photoInput2">Choose Photo:</label>
+            <input type="file" id="photoInput2" name="photo2" accept="image/*" >
+            <button type="submit" name="submit2">Upload</button><br/>
+             <!---->
+             <label for="photoInput3">Choose Photo:</label>
+            <input type="file" id="photoInput3" name="photo3" accept="image/*" >
+            <button type="submit" name="submit3">Upload</button>
+ </form>
+ 
+       
+        <!-- Close button inside the popup -->
+        <button id="closePopup">Close</button>
+    </div>
+</div>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const openButton = document.getElementById('openPopup');
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('overlay');
+        const closeButton = document.getElementById('closePopup');
+
+        function openPopup() {
+            overlay.style.display = 'flex'; // Show the overlay
+            popup.style.display = 'block'; // Show the popup
+        }
+
+        function closePopup() {
+            overlay.style.display = 'none'; // Hide the overlay
+            popup.style.display = 'none'; // Hide the popup
+        }
+
+        // Event listener for the open button
+        openButton.addEventListener('click', openPopup);
+
+        // Event listener for the close button
+        closeButton.addEventListener('click', closePopup);
+    });
+</script>
 
     <!---------------
         PROMOTIONS
     ---------------->
     <section class="slider-container">
-        <div class="slider">
-            <div class="list">
-                <div class="item">
-                    <label for="fileInput1" class="image-label">
-                        <img id="previewImage1" src="Images/Promo1.png" alt="">
-                    </label>
-                    <input type="file" id="fileInput1" class="image-input" style="display: none;" required>
-                    <div class="button-container">
-                       <label>CLICK THE PHOTO TO CHOOSE FILE</label>
-                        <button class="Save-Button1" onclick="saveContent('previewImage1')">Save</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <label for="fileInput2" class="image-label">
-                        <img id="previewImage2" src="Images/Promo1.png" alt="">
-                    </label>
-                    <input type="file" id="fileInput2" class="image-input" style="display: none;" required>
-                    <div class="button-container">
-                       <label>CLICK THE PHOTO TO CHOOSE FILE</label>
-                        <button class="Save-Button1" onclick="saveContent('previewImage2')">Save</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <label for="fileInput3" class="image-label">
-                        <img id="previewImage3" src="Images/Promo1.png" alt="">
-                    </label>
-                    <input type="file" id="fileInput3" class="image-input" style="display: none;" required>
-                    <div class="button-container">
-                       <label>CLICK THE PHOTO TO CHOOSE FILE</label>
-                        <button class="Save-Button1" onclick="saveContent('previewImage1')">Save</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <label for="fileInput4" class="image-label">
-                        <img id="previewImage4" src="Images/Promo1.png" alt="">
-                    </label>
-                    <input type="file" id="fileInput4" class="image-input" style="display: none;" required>
-                    <div class="button-container">
-                       <label>CLICK THE PHOTO TO CHOOSE FILE
-                       </label>
-                        <button class="Save-Button1" onclick="saveContent('previewImage1')">Save</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <label for="fileInput5" class="image-label">
-                        <img id="previewImage5" src="Images/Promo1.png" alt="">
-                    </label>
-                    <input type="file" id="fileInput5" class="image-input" style="display: none;" required>
-                    <div class="button-container">
-                       <label>CLICK THE PHOTO TO CHOOSE FILE
-                       </label>
-                        <button class="Save-Button1" onclick="saveContent('previewImage1')">Save</button>
-                    </div>
-                </div>
+    <div class="slider">
+        <div class="list">
+            <div class="item">
+                <img src="<?php echo $promoImage; ?>" alt="" value="1">
             </div>
-            <div class="buttons">
-                <button id="prev"><</button>
-                <button id="next">></button>
+            <div class="item">
+                <img src="<?php echo $promoImage2; ?>" alt="" value="2">
             </div>
-            <ul class="dots">
-                <li class="active"></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-    </section>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const imageInputs = document.querySelectorAll('.image-input');
-            const saveButtons = document.querySelectorAll('.Save-Button1');
-    
-            saveButtons.forEach((button, index) => {
-                button.addEventListener("click", function () {
-                    const input = imageInputs[index];
-                    if (input.files.length > 0) {
-                        // You can add logic to handle the submission of the selected file here
-                        console.log("File submitted:", input.files[0]);
-                    } else {
-                        console.log("No file selected");
-                    }
-                });
-            });
-    
-            imageInputs.forEach((input, index) => {
-                input.addEventListener("change", function () {
-                    // You can add logic to preview the selected image here if needed
-                    console.log("File selected:", input.files[0]);
-                    previewImage(input, index + 1); // calling the function to preview the selected image
-                });
-            });
-    
-            // Function to preview the selected image
-            function previewImage(input, index) {
-                const preview = document.getElementById('previewImage' + index);
-                const file = input.files[0];
-                const reader = new FileReader();
-    
-                reader.onloadend = function () {
-                    preview.src = reader.result;
-                }
-    
-                if (file) {
-                    reader.readAsDataURL(file);
-                } else {
-                    preview.src = "";
-                }
-            }
-        });
-    </script>
-
-    <!---------------
-        SULIT PCS
-    ---------------->
-    <section class="sulitPc">
-        <div class="sulitPcContents">
-            <div class="row">
-                <a href="product.html"><img src="Images/SulitPc1.jpg" alt=""></a>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="AMD Athlon 3000G"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="Sulit PC 1"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="₱10,990"></textarea>
-                <div class="button-container">
-                    <label for="imageInput1" class="upload-button">Choose Photo</label>
-                    <input type="file" name="image" id="imageInput1" class="image-input" required>
-                    <button class="submit-Button">SUBMIT</button>
-                </div>
-            </div>
-
-            <div class="row">
-                <a href="product.html"><img src="Images/SulitPc2.jpg" alt=""></a>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="AMD RYZEN 5 2400G"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="Sulit PC 2"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="₱12,510"></textarea>
-                <div class="button-container">
-                    <label for="imageInput1" class="upload-button">Choose Photo</label>
-                    <input type="file" name="image" id="imageInput1" class="image-input" required>
-                    <button class="submit-Button">SUBMIT</button>
-                </div>
-            </div>
-
-            <div class="row">
-                <a href="product.html"><img src="Images/SulitPc3.jpg" alt=""></a>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="AMD RYZEN 3 3200G"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="Sulit PC 3"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="₱15,300"></textarea>
-                <div class="button-container">
-                    <label for="imageInput1" class="upload-button">Choose Photo</label>
-                    <input type="file" name="image" id="imageInput1" class="image-input" required>
-                    <button class="submit-Button">SUBMIT</button>
-                </div>
+            <div class="item">
+                <img src="<?php echo $promoImage3; ?>" alt="" value="3">
             </div>
         </div>
-    </section>
-
-
-
-    <!---------------
-      SULIT LAPTOPS
-    ---------------->
-    <section class="sulitLaptop">
-        <div class="sulitLaptopContents">
-            <div class="row">
-                <a href="product.html"><img src="Images/SulitLaptop2.jpg" alt=""></a>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="ASUS VIVOBOOK 14"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="Sulit Laptop 1"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="₱25,995"></textarea>
-                <div class="button-container">
-                    <label for="imageInput1" class="upload-button">Choose Photo</label>
-                    <input type="file" name="image" id="imageInput1" class="image-input" required>
-                    <button class="submit-Button2">SUBMIT</button>
-                </div>
-            </div>
-
-            <div class="row">
-                <a href="product.html"><img src="Images/SulitLaptop1.jpg" alt=""></a>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="ASUS VIVOBOOK 16"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="Sulit Laptop 2"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="₱27,995"></textarea>
-                <div class="button-container">
-                    <label for="imageInput1" class="upload-button">Choose Photo</label>
-                    <input type="file" name="image" id="imageInput1" class="image-input" required>
-                    <button class="submit-Button2">SUBMIT</button>
-                </div>
-            </div>
-
-            <div class="row">
-                <a href="product.html"><img src="Images/SulitLaptop2.jpg" alt=""></a>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="ASUS VIVOBOOK 13"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="Sulit Laptop 3"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="₱25,995"></textarea>
-                <div class="button-container">
-                    <label for="imageInput1" class="upload-button">Choose Photo</label>
-                    <input type="file" name="image" id="imageInput1" class="image-input" required>
-                    <button class="submit-Button2">SUBMIT</button>
-                </div>
-            </div>
+        <div class="buttons">
+            <button id="prev"><</button>
+            <button id="next">></button>
         </div>
-    </section>
-
-
-
-    <!---------------
-    SULIT PRINTER
----------------->
-<section class="sulitPrinter">
-    <div class="sulitPrinterContents">
-        <div class="row">
-            <a href="product.html" class="image-link"><img src="Images/sulitPrinter1.jpg" alt=""></a>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="L121 PRINTER"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="Sulit Printer 1"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="₱5,595"></textarea>
-            <div class="button-container">
-                <label for="imageInput1" class="upload-button">Choose Photo</label>
-                <input type="file" name="image" id="imageInput1" class="image-input" required>
-                <button class="submit-Button2">SUBMIT</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <a href="product.html" class="image-link"><img class="Raul" src="Images/sulitPrinter2.jpg" alt=""></a>
-            <textarea class="editable-text" rows="3" cols="50" placeholder="L3210 3IN PRINTER"></textarea>
-            <textarea class="editable-text" rows="3" cols="50" placeholder="Sulit Printer 2"></textarea>
-            <textarea class="editable-text" rows="3" cols="50" placeholder="₱8,795"></textarea>
-            <div class="button-container">
-                <label for="imageInput1" class="upload-button">Choose Photo</label>
-                <input type="file" name="image" id="imageInput1" class="image-input" required>
-                <button class="submit-Button2">SUBMIT</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <a href="product.html" class="image-link"><img class="Raul" src="Images/sulitPrinter3.jpg" alt=""></a>
-            <textarea class="editable-text" rows="3" cols="50" placeholder="L3250 4IN1 PRINTER"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="Sulit Printer 3"></textarea>
-                <textarea class="editable-text" rows="3" cols="50" placeholder="₱10,225"></textarea>
-            <div class="button-container">
-                <label for="imageInput1" class="upload-button">Choose Photo</label>
-                <input type="file" name="image" id="imageInput1" class="image-input" required>
-                <button class="submit-Button2">SUBMIT</button>
-            </div>
-        </div>
+        <ul class="dots">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
 </section>
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
     <!---------------
          ABOUT US
