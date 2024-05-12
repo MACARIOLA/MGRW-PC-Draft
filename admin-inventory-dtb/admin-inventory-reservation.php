@@ -7,7 +7,6 @@ if(isset($_POST['update_reservation'])){
   $customer = $_POST['customer'];
   $product = $_POST['product'];
   $reserve_units = $_POST['reserved_units'];
-  $description = $_POST['description'];
   $status = $_POST['status'];
   
   $sql = "UPDATE `reservation` SET `reservation_name`='$reservation_name',`customer`='$customer',`product`='$product',`reserved_units`='$reserve_units', `status`='$status' WHERE id = $id";
@@ -19,7 +18,7 @@ if(isset($_POST['update_reservation'])){
     echo "
     <script>alert('Update data successfully.')</script>
     ";
-    header("Location: index.php");
+    header("Location: admin-inventory.php");
   }
   
 }
