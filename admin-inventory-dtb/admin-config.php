@@ -1,5 +1,5 @@
 <?php
 
-$conn = mysqli_connect('localhost','root','','inventory-management');
+$conn = mysqli_connect('localhost','root','','admin-inventory');
 
 ?>
