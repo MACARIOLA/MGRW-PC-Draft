@@ -1,39 +1,93 @@
-
-const search = document.querySelector('.input-group input'),
-    table_rows = document.querySelectorAll('tbody tr'),
-    table_headings = document.querySelectorAll('thead th');
-
-
-search.addEventListener('input', searchTable);
+//search for inventoryTable
 
 function searchTable() {
-    table_rows.forEach((row, i) => {
-        let table_data = row.textContent.toLowerCase(),
-            search_data = search.value.toLowerCase();
 
-        row.classList.toggle('hide', table_data.indexOf(search_data) < 0);
-        row.style.setProperty('--delay', i / 25 + 's');
-    })
 
-    document.querySelectorAll('tbody tr:not(.hide)').forEach((visible_row, i) => {
-        visible_row.style.backgroundColor = (i % 2 == 0) ? 'transparent' : '#0000000b';
-    });
+    var input, filter, table, tbody, tr, td, i, j, txtValue;
+    input = document.getElementById("inventorySearchInput"); 
+    filter = input.value.toUpperCase();
+    table = document.getElementById("inventoryTable");
+    tbody = table.getElementsByTagName("tbody");
+    tr = tbody[0].getElementsByTagName("tr");
+
+
+    for (i = 0; i < tr.length; i++) {
+        var found = false;
+
+        for (j = 0; j < tr[i].cells.length; j++) {
+            td = tr[i].cells[j];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    found = true;
+                    break; 
+                }
+            }
+        }
+
+        if (found) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
 }
+
+
+//search for reservation
+
+function searchTable2() {
+
     
-        function showPreview() {
-            document.getElementById("preview").style.display = "block";
-        }
+    var input, filter, table, tbody, tr, td, i, j, txtValue;
+    input = document.getElementById("reservationSearchInput"); 
+    filter = input.value.toUpperCase();
+    table = document.getElementById("reservationTable"); 
+    tbody = table.getElementsByTagName("tbody");
+    tr = tbody[0].getElementsByTagName("tr");
 
-        function hidePreview() {
-            document.getElementById("preview").style.display = "none";
+    for (i = 0; i < tr.length; i++) {
+        var found = false;
+      
+        for (j = 0; j < tr[i].cells.length; j++) {
+            td = tr[i].cells[j];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    found = true;
+                    break; 
+                }
+            }
         }
+        if (found) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
 
-        
+
+
+
+
+
+
+
+    function showPreview() {
+        document.getElementById("preview").style.display = "block";
+    }
+
+    function hidePreview() {
+        document.getElementById("preview").style.display = "none";
+    }
+
+    
 function toggleClick() {
-  const navContainer = document.getElementById("nav-container");
-  if (navContainer.style.left === '-800px') {
-    navContainer.style.left = '0';
-  } else {
-    navContainer.style.left = '-800px';
-  }
+const navContainer = document.getElementById("nav-container");
+if (navContainer.style.left === '-800px') {
+navContainer.style.left = '0';
+} else {
+navContainer.style.left = '-800px';
+}
 }
