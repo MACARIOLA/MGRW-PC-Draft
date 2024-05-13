@@ -1,5 +1,5 @@
 <?php
-    @include 'admin-config.php';
+    @include 'PHP/admin-config.php';
 ?>
 
 <!DOCTYPE html>
@@ -104,8 +104,8 @@
                                 <td><?php echo $row['products_name']; ?></td>
                                 <td>
                                     <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
-                                        <img src="uploaded_img/<?php echo $row['image']; ?>">
-                                        <img id="preview" src="uploaded_img/<?php echo $row['image']; ?>" alt="Preview">
+                                        <img src="Images/<?php echo $row['image']; ?>">
+                                        <img id="preview" src="Images/<?php echo $row['image']; ?>" alt="Preview">
                                     </div>
                                 </td>
                                 <td><?php echo $row['total_units']; ?></td>
@@ -190,7 +190,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="admin-update.php" method="post" enctype="multipart/form-data">
+                    <form action="PHP/admin-update.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" id="product_id">
                         <div class="form-group">
                             <label for="product_products_id">Product ID</label>
@@ -234,7 +234,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="admin-update-reservation.php" method="post">
+                    <form action="PHP/admin-update-reservation.php" method="post">
                         <input type="hidden" name="id" id="id">
 
                         <div class="form-group">
@@ -311,7 +311,7 @@
                 $('#product_id').val(id);
                 $('#product_products_id').val(products_id);
                 $('#product_name').val(products_name);
-                $('#product_image').attr('src', 'uploaded_img/' + image);
+                $('#product_image').attr('src', 'Images/' + image);
                 $('#product_total_units').val(total_units);
                 $('#product_reserved_units').val(reserved_units);
             });
