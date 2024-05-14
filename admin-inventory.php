@@ -1,5 +1,7 @@
 <?php
     @include 'PHP/admin-config.php';
+    @include 'PHP/admin-update.php';
+    @include 'PHP/admin-update-reservation.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +21,7 @@
     ---------------->
     <link rel="stylesheet" href="css/admin-inventory.css">
       <link rel="stylesheet" href="css/admin-mainstyle.css">
-    <script src="js/mainscript.js"></script>
+    <script src="js/admin-inventory.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!---------------
@@ -190,12 +192,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="PHP/admin-update.php" method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data">
+
                         <input type="hidden" name="id" id="product_id">
                         <div class="form-group">
                             <label for="product_products_id">Product ID</label>
                             <input type="text" class="form-control" id="product_products_id" name="product_products_id" placeholder="Enter product ID" required="">
-                        </div>s
+                        </div>
                         <div class="form-group">
                             <label for="product_name">Product Name</label>
                             <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" required="">
@@ -234,7 +237,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="PHP/admin-update-reservation.php" method="post">
+                    <form  method="post">
                         <input type="hidden" name="id" id="id">
 
                         <div class="form-group">
