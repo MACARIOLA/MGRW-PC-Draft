@@ -1,6 +1,6 @@
 <?php
 
-@include 'PHP/admin-config.php';
+@include 'admin-config.php';
 if(isset($_POST['update_product'])){
    $product_id = $_POST['id'];
    $product_products_id = $_POST['product_products_id']; 
