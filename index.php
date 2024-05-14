@@ -15,7 +15,7 @@
 <!---------------
      CSS & JS
 ---------------->
-<link rel="stylesheet" href="isurvey.css">
+<link rel="stylesheet" href="item_reviews.css">
 
 <!---------------
       FONTS
