@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,80 +14,71 @@
          CSS & JS
     ---------------->
     <link rel="stylesheet" href="css/survey.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!---------------
            PHP
     ---------------->
     <?php
-    // Establishing a connection to the database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "mgwrpcdtb";
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "mgwrpcdtb";
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // If the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Escape user inputs for security
-        $name = $conn->real_escape_string($_POST['name']);
-        $email = $conn->real_escape_string($_POST['email']);
-        $age = $conn->real_escape_string($_POST['age']);
-        
-        // Get the selected options
-        $option1 = $conn->real_escape_string($_POST['radio1']);
-        $option2 = $conn->real_escape_string($_POST['radio2']);
-        $option3 = $conn->real_escape_string($_POST['radio3']);
-        $option4 = $conn->real_escape_string($_POST['radio4']);
-        $option5 = $conn->real_escape_string($_POST['radio5']);
-        $option6 = $conn->real_escape_string($_POST['radio6']);
-        $option7 = $conn->real_escape_string($_POST['radio7']);
-        $option8 = $conn->real_escape_string($_POST['radio8']);
-        $option9 = $conn->real_escape_string($_POST['radio9']);
-        
-        // Get the comment from the textarea
-        $comment = $conn->real_escape_string($_POST['comment']);
-    
-        // SQL query to insert data into the database
-        $sql = "INSERT INTO tbl_survey_responses (name, email, age,
-        experience,
-        liked_feature,
-        recommend,
-        sensible_part,
-        improvement_suggestion,
-        device_impact,
-        likelihood_of_return,
-        likelihood_of_purchase,
-        overall_performance,
-        comment) 
-                VALUES ('$name', '$email', '$age',
-                '$option1',
-                '$option2',
-                '$option3',
-                '$option4',
-                '$option5',
-                '$option6',
-                '$option7',
-                '$option8',
-                '$option9',
-                '$comment')";
-        
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
-    }
-    
 
-    // Close connection
-    $conn->close();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $name = $conn->real_escape_string($_POST['name']);
+            $email = $conn->real_escape_string($_POST['email']);
+            $age = $conn->real_escape_string($_POST['age']);
+            
+            $option1 = $conn->real_escape_string($_POST['radio1']);
+            $option2 = $conn->real_escape_string($_POST['radio2']);
+            $option3 = $conn->real_escape_string($_POST['radio3']);
+            $option4 = $conn->real_escape_string($_POST['radio4']);
+            $option5 = $conn->real_escape_string($_POST['radio5']);
+            $option6 = $conn->real_escape_string($_POST['radio6']);
+            $option7 = $conn->real_escape_string($_POST['radio7']);
+            $option8 = $conn->real_escape_string($_POST['radio8']);
+            $option9 = $conn->real_escape_string($_POST['radio9']);
+            
+            $comment = $conn->real_escape_string($_POST['comment']);
+        
+            $sql = "INSERT INTO tbl_survey_responses (name, email, age,
+            experience,
+            liked_feature,
+            recommend,
+            sensible_part,
+            improvement_suggestion,
+            device_impact,
+            likelihood_of_return,
+            likelihood_of_purchase,
+            overall_performance,
+            comment) 
+                    VALUES ('$name', '$email', '$age',
+                    '$option1',
+                    '$option2',
+                    '$option3',
+                    '$option4',
+                    '$option5',
+                    '$option6',
+                    '$option7',
+                    '$option8',
+                    '$option9',
+                    '$comment')";
+            
+            if ($conn->query($sql) === TRUE) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        }
+        
+        $conn->close();
     ?>
     
     <!---------------
@@ -104,26 +95,32 @@
 
 
 <body>
+    <!---------------
+      QUESTIONAIRES 
+    ---------------->
     <div class="heading">
         <a href="home.html"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
         <h2 id="subheading">Help us, the Developers, in improving our skills in web developing by simply answering our questions and leaving some feedback. Thank you!</h2>
     </div>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+    <form id="surveyForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="showSuccessModal(event)">
         <div id="content1">
             <label>Name</label><br><br>
-            <input type="text" name="name" placeholder="Enter Your Name" class="box"><br><br>
+            <input type="text" name="name" placeholder="Enter Your Name" class="box" required><br><br>
+
             <label>Email</label><br><br>
-            <input type="text" name="email" placeholder="Enter Your Email" class="box"><br><br>
+            <input type="text" name="email" placeholder="Enter Your Email" class="box" required><br><br>
+
             <label>Age (Optional)</label><br><br>
-            <input type="text" name="age" placeholder="Enter Your Age" class="box"><br><br>
+            <input type="text" name="age" placeholder="Enter Your Age" class="box" required><br><br>
 
             <label id="head1">1. How was your experience with the MGWR PC Online website?</label><br><br>
                 <div class="radio-container">
-                    <input type="radio" id="option1" name="radio1" class="radio-btn" value="Excellent">
+                    <input type="radio" id="option1" name="radio1" class="radio-btn" value="Excellent" required>
                     <label for="option1" class="radio-text">Excellent</label>
                 </div>
                 <div class="radio-container">
-                    <input type="radio" id="option2" name="radio1" class="radio-btn" value="Very Good">
+                    <input type="radio" id="option2" name="radio1" class="radio-btn" value="Very Good"> 
                     <label for="option2" class="radio-text">Very Good</label>
                 </div>
                 <div class="radio-container">
@@ -142,7 +139,7 @@
 
             <label id="head1">2. What did you like most about the MGWR PC Online website?</label><br><br>
                 <div class="radio-container">
-                    <input type="radio" id="option6" name="radio2" class="radio-btn larger" value="Looks & Design">
+                    <input type="radio" id="option6" name="radio2" class="radio-btn larger" value="Looks & Design" required>
                     <label for="option6" class="radio-text">Looks & Design</label>
                 </div>
                 <div class="radio-container">
@@ -164,7 +161,7 @@
 
             <label id="head1">3. Would you recommend the MGWR PC Online website to others?</label><br><br>
                 <div class="radio-container">
-                    <input type="radio" id="option11" name="radio3" class="radio-btn larger" value="Definitely">
+                    <input type="radio" id="option11" name="radio3" class="radio-btn larger" value="Definitely" required>
                     <label for="option11" class="radio-text">Definitely</label>
                 </div>
                 <div class="radio-container">
@@ -186,7 +183,7 @@
             
             <label id="head1">4. What part of the MGWR PC Online website made the most sense to you?</label><br><br>
                 <div class="radio-container">
-                    <input type="radio" id="option16" name="radio4" class="radio-btn larger" value="Home">
+                    <input type="radio" id="option16" name="radio4" class="radio-btn larger" value="Home" required>
                     <label for="option16" class="radio-text">Home</label>
                 </div>
                 <div class="radio-container">
@@ -208,7 +205,7 @@
 
             <label id="head1">5. How can we make the MGWR PC Online website better for you?</label><br><br>
                 <div class="radio-container">
-                    <input type="radio" id="option21" name="radio5" class="radio-btn larger" value="It’s PERFECT">
+                    <input type="radio" id="option21" name="radio5" class="radio-btn larger" value="It’s PERFECT" required>
                     <label for="option21" class="radio-text">It’s PERFECT</label>
                 </div>
                 <div class="radio-container">
@@ -230,7 +227,7 @@
                 
             <label id="head1">6. Does the kind of device you have affect how well you use the MGWR PC Online website?</label><br><br>
                 <div class="radio-container">
-                    <input type="radio" id="option26" name="radio6" class="radio-btn larger" value="Helps a Lot">
+                    <input type="radio" id="option26" name="radio6" class="radio-btn larger" value="Helps a Lot" required>
                     <label for="option26" class="radio-text">Helps a Lot</label>
                 </div>
                 <div class="radio-container">
@@ -248,7 +245,7 @@
             
             <label id="head1">7. On a scale of 1 to 10, how likely are you to visit the MGWR PC Online website again in the future?</label><br><br>
                 <div class="radio-container">
-                    <input type="radio" id="option30" name="radio7" class="radio-btn larger" value="1 - 3">
+                    <input type="radio" id="option30" name="radio7" class="radio-btn larger" value="1 - 3" required>
                     <label for="option30" class="radio-text">1 - 3</label>
                 </div>
                 <div class="radio-container">
@@ -266,7 +263,7 @@
 
             <label id="head1">8. How likely are you to purchase products or services from MGWR PC Online in the future?</label><br><br>
                 <div class="radio-container">
-                    <input type="radio" id="option34" name="radio8" class="radio-btn larger" value="Very likely">
+                    <input type="radio" id="option34" name="radio8" class="radio-btn larger" value="Very likely" required>
                     <label for="option34" class="radio-text">Very likely</label>
                 </div>
                 <div class="radio-container">
@@ -288,7 +285,7 @@
 
             <label id="head1">9. How would you rate the overall performance of the MGWR PC Online website?</label><br><br>
                 <div class="radio-container">
-                    <input type="radio" id="option39" name="radio9" class="radio-btn larger" value="Excellent">
+                    <input type="radio" id="option39" name="radio9" class="radio-btn larger" value="Excellent" required>
                     <label for="option39" class="radio-text">Excellent</label>
                 </div>
                 <div class="radio-container">
@@ -309,12 +306,54 @@
                 </div>
 
                 <label id="head2">10. Did you encounter any technical issues while using the MGWR PC Online website? If yes, please specify.</label><br><br>
-                <textarea name="comment" placeholder="Enter your comment here..."></textarea>
+                <textarea name="comment" placeholder="Enter your comment here..." required></textarea>
 
-
-            <button><h3>Submit</h3></button>
+            <button type="submit">Submit</button>
         </div>
-
     </form>
+
+
+    <!---------------
+        INLINE JS
+    ---------------->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("surveyForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                var formData = new FormData(this);
+
+                fetch("<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data); 
+
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your work has been saved",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+
+                        document.getElementById("surveyForm").reset();
+                    });
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "error",
+                        title: "An error occurred",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                });
+            });
+        });
+    </script>
 </body> 
 </html>
