@@ -316,43 +316,52 @@
         INLINE JS
     ---------------->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("surveyForm").addEventListener("submit", function(event) {
-                event.preventDefault(); // Prevent default form submission
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("surveyForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
 
-                var formData = new FormData(this);
+            var formData = new FormData(this);
 
-                fetch("<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>", {
-                    method: "POST",
-                    body: formData
-                })
-                .then(response => response.text())
-                .then(data => {
-                    console.log(data); 
+            fetch("<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); 
 
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "Your work has been saved",
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).then(() => {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: true, 
+                    timer: 5000, 
+                    timerProgressBar: true, 
+                    allowOutsideClick: false, 
+                    allowEscapeKey: false 
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "home.html";
+                    } else {
 
-                        document.getElementById("surveyForm").reset();
-                    });
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "error",
-                        title: "An error occurred",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
+                        setTimeout(function() {
+                            window.location.href = "home.html";
+                        }, 0); 
+                    }
+                });
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "An error occurred",
+                    showConfirmButton: false,
+                    timer: 1500
                 });
             });
         });
+    });
     </script>
 </body> 
 </html>
