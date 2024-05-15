@@ -14,6 +14,7 @@
          CSS & JS
     ---------------->
     <link rel="stylesheet" href="css/survey.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!---------------
          PHP
@@ -25,15 +26,12 @@
             $password = "";
             $dbname = "mgwrpcdtb";
 
-            // Create connection
             $conn = new mysqli($servername, $username, $password, $dbname);
 
-            // Check connection
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            // Prepare and bind
             $stmt = $conn->prepare("INSERT INTO reviews (
                 name,
                 comment,
@@ -57,7 +55,6 @@
                 $gift_shopper,
                 $not_interested);
 
-            // Set parameters and execute
             $name = $_POST['name'];
             $comment = $_POST['comment'];
             $rating = $_POST['radio1'];
@@ -88,12 +85,18 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 
+
+
 <body>
+    <!---------------
+      QUESTIONAIRES 
+    ---------------->
     <div class="heading">
         <a href="home.html"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
         <h2 id="subheading">Your answers play a crucial role in our continuous efforts to enhance our offerings and services. Thank you for helping us serve you better!</h2>
     </div>
-    <form method="post" action="">
+
+    <form id="surveyForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="showSuccessModal(event)">
         <div id="content1">
             <label>Name</label><br><br>
             <input type="text" name="name" placeholder="Enter your name" class="box" required><br><br>
@@ -141,7 +144,7 @@
                 <label for="option9" class="checkbox-text">Brand Loyalist</label>
             </div>
             <div class="checkbox-container">
-                <input type="checkbox" id="option11" name="checkbox5" class="checkbox-btn larger">
+                <input type="checkbox" id="option11" name="checkbox5" class="checkbox-btn larger" >
                 <label for="option11" class="checkbox-text">Gift Shopper</label>
             </div>
             <div class="checkbox-container">
@@ -152,5 +155,50 @@
             <button type="submit"><h3>Submit</h3></button>
         </div>
     </form>
+
+
+
+    <!---------------
+        INLINE JS
+    ---------------->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("surveyForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                var formData = new FormData(this);
+
+                fetch("<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data); 
+
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your work has been saved",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+
+                        document.getElementById("surveyForm").reset();
+                    });
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "error",
+                        title: "An error occurred",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
