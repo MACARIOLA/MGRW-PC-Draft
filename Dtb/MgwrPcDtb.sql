@@ -66,9 +66,6 @@ CREATE TABLE IF NOT EXISTS PdfFiles (
 );
 
 
----------------------
--- Reviews --
----------------------
 CREATE TABLE `reviews` (
   `submission_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `id` int(11) NOT NULL,
