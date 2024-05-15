@@ -1,5 +1,6 @@
 -- ------------------------------- --
 -- -< CREATING MGWR PC DATABASE >- --
+
 CREATE DATABASE IF NOT EXISTS MgwrPcDtb;
 USE MgwrPcDtb;
 
