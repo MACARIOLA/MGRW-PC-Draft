@@ -25,7 +25,7 @@ if (isset($_POST['id'])) {
     }
 
     // Delete the feedback from the database
-    $sql = "DELETE FROM reviews WHERE id = ?";
+    $sql = "DELETE FROM customer_product_reviews WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     if ($stmt->execute()) {
