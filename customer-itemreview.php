@@ -164,7 +164,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("surveyForm").addEventListener("submit", function(event) {
-                event.preventDefault(); // Prevent default form submission
+                event.preventDefault(); 
 
                 var formData = new FormData(this);
 
@@ -180,11 +180,20 @@
                         position: "center",
                         icon: "success",
                         title: "Your work has been saved",
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).then(() => {
-
-                        document.getElementById("surveyForm").reset();
+                        showConfirmButton: true, 
+                        timer: 5000, 
+                        timerProgressBar: true,
+                        allowOutsideClick: false, 
+                        allowEscapeKey: false 
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "feedback_page.html"; 
+                        } else {
+                
+                            setTimeout(function() {
+                                window.location.href = "feedback.html";
+                            }, 0);
+                        }
                     });
                 })
                 .catch(error => {
@@ -200,5 +209,7 @@
             });
         });
     </script>
+
+
 </body>
 </html>
