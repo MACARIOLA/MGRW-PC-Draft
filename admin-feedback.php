@@ -47,7 +47,7 @@
                             <th>Rating</th>
                             <th>Tags</th>
                             <th>Status</th>
-                            <th> </th>
+                                <th> </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -144,17 +144,17 @@
                     if ($row['gift_shopper']) $tags[] = "<span style='" . getTagStyle("Gift Shopper") . "'>Gift Shopper</span>";
                     if ($row['not_interested']) $tags[] = "<span style='" . getTagStyle("Not Interested") . "'>Not Interested</span>";
                 $tags_str = implode(" ", $tags);
-                echo "<tr>
-                    <td>{$row['name']}</td>
-                    <td class='feedback-cell' onclick='toggleFeedback(this)'>
-                        <span class='short-feedback'>" . substr($row['comment'], 0, 50) . "...</span>
-                        <span class='full-feedback' style='display:none;'>{$row['comment']}</span>
-                    </td>
-                    <td>{$stars_html}</td>
-                    <td>{$tags_str}</td>
-                    <td><button class='status post'>Post</button></td>
-                    <td><button class='status delete' onclick='deleteFeedback({$row['id']}, this)'>Delete</button></td>
-                    <input type='hidden' name='id' value='{$row['id']}'> <!-- Hidden input field for ID -->
+                echo "<tr data-review-id='{$row['id']}'>
+                <td>{$row['name']}</td>
+                <td class='feedback-cell' onclick='toggleFeedback(this)'>
+                    <span class='short-feedback'>" . substr($row['comment'], 0, 50) . "...</span>
+                    <span class='full-feedback' style='display:none;'>{$row['comment']}</span>
+                </td>
+                <td>{$stars_html}</td>
+                <td>{$tags_str}</td>
+                <td><button class='status post' onclick='postData({$row['id']})'>Post</button></td>
+                <td><button class='status delete' onclick='deleteFeedback({$row['id']}, this)'>Delete</button></td>
+                <input type='hidden' name='id' value='{$row['id']}'>
                 </tr>";
             }
         } else {
