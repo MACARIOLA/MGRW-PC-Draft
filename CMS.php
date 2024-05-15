@@ -80,6 +80,70 @@
     ---------------->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!---------------
+     FAQ's + FORM STYLE
+    ---------------->
+
+    <style>
+        /* Styles for the form */
+        #addFaqForm {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            width: 80%; /* Adjust the width of the form */
+            max-width: 600px; /* Limit the maximum width of the form */
+            margin: 20px auto; /* Center the form horizontally */
+            padding: 20px; /* Add padding to the form */
+            background-color: #8C52FF; /* Add a background color */
+            border-radius: 10px; /* Add rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow */
+        }
+
+        /* Styles for the button */
+        #toggleFormButton, #toggleDeleteButtons {
+            font-size: 25px; /* Increase the font size */
+            padding: 10px 20px; /* Add padding */
+            border: none; /* Remove the border */
+            background-color: #007bff; /* Change the background color */
+            color: white; /* Change the text color */
+            border-radius: 5px; /* Add rounded corners */
+            cursor: pointer; /* Add cursor pointer */
+            margin: 0 10px; /* Add space between the buttons */
+            display: inline-block; /* Ensure the buttons are displayed inline */
+
+        }
+
+        #toggleFormButton:hover, #toggleDeleteButtons:hover {
+            background-color: #0056b3; /* Change the background color on hover */
+        }
+
+        /* Styles for form inputs */
+        input[type="text"],
+        textarea {
+            width: 100%; /* Make inputs and textareas full width */
+            padding: 10px; /* Add padding */
+            margin-bottom: 10px; /* Add margin between inputs */
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 5px; /* Add rounded corners */
+            box-sizing: border-box; /* Include padding and border in the width */
+            
+        }
+
+        /* Style for the submit button */
+        input[type="submit"] {
+            background-color: #17E202    ; /* Change the background color */
+            color: white; /* Change the text color */
+            border: none; /* Remove the border */
+            border-radius: 5px; /* Add rounded corners */
+            padding: 10px 20px; /* Add padding */
+            cursor: pointer; /* Add cursor pointer */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #11BC00  ; /* Change the background color on hover */
+            transition: color 0.3s ease, background-color 0.3s ease; 
+        }
+    </style>
 </head>
 
 
@@ -343,252 +407,70 @@
     ---------------->
     <h1 class="heading" id="question">FAQs</h1>
     <p class="sentence1">Got questions? Find answers to commonly asked questions here.</p>
-    
+
     <section class="faqs">
         <div class="container">
-            <div class="list">
-                <div class="list-items">
-                    <span class="list-link">What payment methods do you accept?
-                        <button class="edit2-btn" onclick="editContent(this)">Edit</button>
-                        <button class="save3-btn" style="display: none;" onclick="editContent(this)">Save</button>
-                        <button class="remove1-btn" onclick="removeQuestion(this)">Remove</button>
-                        <i class="icon ion-md-remove"></i>
-                    </span>
-                    <div class="answer">
-                        <p>
-                            We Accept Cash, Online Payment And Bank Transfer.<br>
-                            For Online Payment And Bank Transfer Please Use Official MGWR PC Bank Account:<br><br>
-    
-                            Union Bank<br>
-                            Account Name: MGWR PC COMPUTER PARTS AND ACCESSORIES SHOP<br>
-                            Account Number: 0027-4001-3341<br><br>
-    
-                            Bank of the Philippines Island<br>
-                            Account Name: MGWR PC COMPUTER PARTS AND ACCESSORIES SHOP<br>
-                            Account Number: 0989-644-661
-                        </p>
-                    </div>
-                </div>
-    
-    
-                <div class="list-items">
-                    <span class="list-link">
-                        How Do I apply in Home Credit?
-                        <button class="edit2-btn" onclick="editContent(this)">Edit</button>
-                        <button class="save3-btn" style="display: none;" onclick="editContent(this)">Save</button>
-                        <button class="remove1-btn" onclick="removeQuestion(this)">Remove</button>
-                        <i class="icon ion-md-remove"></i>
-                    </span>
-                    <div class="answer">
-                        <p>
-                            You Can Apply In Home Credit In Just Simple Way:<br><br>
-    
-                            &#8226;&nbsp;&nbsp;&nbsp;Download "My Home Credit App" (Not compatible in IOS)<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;Create an account and kindly fill up all required information<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;Check if you are qualified for product loan by answering those necessary questions.<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;If you already finished those steps. Home credit will give you an offer for up to 60k product loan and together with your Valid ID you can now go to our shop to process your loan.
-                        </p>
-                    </div>
-                </div>
-    
-                <div class="list-items">
-                    <span class="list-link">
-                        Are your products covered by warranty?
-                        <button class="edit2-btn" onclick="editContent(this)">Edit</button>
-                        <button class="save3-btn" style="display: none;" onclick="editContent(this)">Save</button>
-                        <button class="remove1-btn" onclick="removeQuestion(this)">Remove</button>
-                        <i class="icon ion-md-remove"></i>
-                    </span>
-                    <div class="answer">
-                        <p>
-                            All MGWR PC Products Carry A Standard One (1) Year Warranty Except Of The Following:<br><br>
-    
-                            One Month Warranty Applies Only For:<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;External batteries of Laptops<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;Bundled Items ( mouse, keyboards, speaker,etc.)<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;Chargers, Adaptors<br><br>		
-    
-                            One Week Warranty Applies Only For:<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;Tables and Chairs<br>					
-                            &#8226;&nbsp;&nbsp;&nbsp;Generic Fans,Laptop coolers,Heatsink, LAN tester<br>	
-                            &#8226;&nbsp;&nbsp;&nbsp;Power cord , Display Cables<br><br>	
-    
-                            There Is No Warranty For:<br>
-                            &#8226;&nbsp;&nbsp;&nbsp;Consumables (ink,disc, etc)<br>				
-                            &#8226;&nbsp;&nbsp;&nbsp;Software ( OS, Office)<br>					
-                            &#8226;&nbsp;&nbsp;&nbsp;Accessories, promotional/sale items, freebies,cables<br>	
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="new-item-template">
-        <div class="list-items">
-            <span class="list-link">
-                <input type="text" class="new-question" placeholder="New Question">
-                <button class="add-btn" onclick="addNewContent(this)">Add</button>
-                <button class="edit2-btn" onclick="editContent(this)">Edit</button>
-                <button class="save3-btn" style="display: none;" onclick="editContent(this)">Save</button>
-                <button class="remove-btn" onclick="removeQuestion(this)">Remove</button>
-            </span>
-            <div class="answer" contenteditable="true">
-                <p>Answer</p>
-            </div>
-        </div>
-    </div>
-
-
-    <script>
-        function editContent(button) {
-            var answer = button.parentElement.nextElementSibling;
-            var isEditable = answer.getAttribute('contenteditable') === 'true';
-
-            if (!isEditable) {
-                answer.setAttribute('contenteditable', 'true');
-                button.textContent = 'Save';
-                button.classList.remove('edit2-btn');
-                button.classList.add('save3-btn');
-            } else {
-                // Save the edited content (you can save to local storage or send to server)
-                var editedContent = answer.innerHTML;
-                console.log('Edited Content:', editedContent);
+            <div class="list" >
                 
-                answer.setAttribute('contenteditable', 'false');
-                button.textContent = 'Edit';
-                button.classList.remove('save3-btn');
-                button.classList.add('edit2-btn');
-            }
+
+         <!---------------
+         FAQ's in Database
+        ---------------->             
+                <?php
+// Include display_faqs.php to show FAQs
+include "php/display_faqs.php";
+?>
+
+<!-- Button to toggle the form for Add and Delete -->
+<button id="toggleFormButton">Add</button>
+<button id="toggleDeleteButtons">Delete</button>
+    
+<!-- Form for adding a new FAQ -->
+<form id="addFaqForm" action="php/add_faq.php" method="post" style="display: none;">
+    <input type="text" id="new_question" name="new_question" placeholder="Question"><br>
+    <textarea id="new_answer" name="new_answer" rows="4" cols="50" placeholder="Answer"></textarea><br>
+    <input type="submit" value="Submit">
+</form>
+
+<!---------------
+    Add Button Script
+---------------->  
+
+<script>
+    // Get references to the button and the form
+    const toggleFormButton = document.getElementById('toggleFormButton');
+    const addFaqForm = document.getElementById('addFaqForm');
+
+    // Event listener for the button click
+    toggleFormButton.addEventListener('click', function() {
+        // Toggle the visibility of the form
+        if (addFaqForm.style.display === 'none') {
+            addFaqForm.style.display = 'block';
+            // Scroll to the form's question input field
+            document.getElementById('new_question').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            addFaqForm.style.display = 'none';
         }
+    });
 
-        function addNewQuestion() {
-            var list = document.querySelector('.list');
-            var newQuestion = `
-                <div class="list-items">
-                    <span class="list-link">
-                        <input type="text" placeholder="New Question" class="new-question">
-                        <button class="add-btn" onclick="addNewContent(this)">Add</button>
-                        <button class="remove-btn" onclick="removeQuestion(this)">Remove</button>
-                    </span>
-                    <div class="answer" contenteditable="true">
-                        <p>Answer</p>
-                    </div>
-                </div>
-            `;
-            list.insertAdjacentHTML('afterbegin', newQuestion);
-        }
+    //For Delete functionality
+    document.addEventListener('DOMContentLoaded', function() {
+    const toggleDeleteButton = document.getElementById('toggleDeleteButtons');
+    const deleteButtons = document.querySelectorAll('.delete-faq');
 
-        function addNewContent(button) {
-            var listItem = button.parentElement.parentElement;
-            var newQuestion = listItem.querySelector('.new-question').value;
-            var answer = listItem.querySelector('.answer');
-            var list = document.querySelector('.list');
+    // Hide delete buttons initially
+    deleteButtons.forEach(button => {
+        button.classList.add('hidden');
+    });
 
-            if (newQuestion.trim() !== '') {
-                var newContent = `
-                    <div class="list-items">
-                        <span class="list-link">
-                            ${newQuestion}
-                            <button class="edit2-btn" onclick="editContent(this)">Edit</button>
-                            <i class="icon ion-md-remove" onclick="removeQuestion(this)"></i>
-                        </span>
-                        <div class="answer" contenteditable="false">
-                            <p>Answer</p>
-                        </div>
-                    </div>
-                `;
-                list.insertAdjacentHTML('afterbegin', newContent);
-            }
-        }
-
-        function removeQuestion(button) {
-            var listItem = button.parentElement.parentElement;
-            listItem.remove();
-        }
-    </script>
-
-    <!---------------
-            JS
-    ---------------->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const listLinks = document.querySelectorAll('.list-link');
-
-            listLinks.forEach(link => {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault(); // Prevent default behavior
-                    event.stopPropagation(); // Stop the event from propagating up the DOM tree
-                    
-                    const answer = this.nextElementSibling;
-                    const allAnswers = document.querySelectorAll('.answer');
-                    const allIconsAdd = document.querySelectorAll('.ion-md-add');
-                    const allIconsRemove = document.querySelectorAll('.ion-md-remove');
-
-                    // Hide all answers
-                    allAnswers.forEach(ans => {
-                        ans.style.maxHeight = null;
-                    });
-
-                    // Reset all icons to add state
-                    allIconsAdd.forEach(icon => {
-                        icon.style.display = 'inline';
-                    });
-
-                    // Hide all remove icons
-                    allIconsRemove.forEach(icon => {
-                        icon.style.display = 'none';
-                    });
-
-                    // Toggle clicked answer
-                    if (answer.classList.contains('expanded')) {
-                        answer.classList.remove('expanded');
-                        this.querySelector('.ion-md-add').style.display = 'inline';
-                        this.querySelector('.ion-md-remove').style.display = 'none';
-                    } else {
-                        // Collapse all answers
-                        allAnswers.forEach(ans => {
-                            ans.classList.remove('expanded');
-                            ans.style.maxHeight = null;
-                        });
-
-                        // Toggle clicked answer
-                        answer.classList.add('expanded');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        this.querySelector('.ion-md-add').style.display = 'none';
-                        this.querySelector('.ion-md-remove').style.display = 'inline';
-                    }
-                });
-            });
+    toggleDeleteButton.addEventListener('click', function() {
+        // Toggle visibility of delete buttons
+        deleteButtons.forEach(button => {
+            button.classList.toggle('hidden');
         });
-    </script>
+    });
+});
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const items = document.querySelectorAll(".item");
-
-            items.forEach((item, index) => {
-                const input = item.querySelector("input[type=file]");
-                const image = item.querySelector("img");
-                const uploadButton = item.querySelector("button");
-
-                uploadButton.addEventListener("click", function() {
-                    input.click();
-                });
-
-                input.addEventListener("change", function() {
-                    if (input.files && input.files[0]) {
-                        const reader = new FileReader();
-
-                        reader.onload = function(e) {
-                            image.src = e.target.result;
-                        };
-
-                        reader.readAsDataURL(input.files[0]);
-                    }
-                });
-            });
-        });
-    </script>
+</script>
 </body>
 </html>
