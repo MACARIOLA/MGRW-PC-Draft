@@ -227,8 +227,25 @@ tbody tr.hide td img {
    BREAKPOINTS
 -------------- */
 @media (max-width: 1480px) {
-    td:not(:first-of-type) {
-        min-width: 9rem;
-        padding: 20px;
+    td {
+        min-width: 15rem;
+    }
+
+    tbody tr td:first-child {
+        width: 10%;
+    }
+
+    tbody tr td:nth-child(2) {
+        width: 60%;
+    }
+
+    tbody tr td:nth-child(3) {
+        width: 40%;
+    }
+}
+
+@media (max-width: 960px) {
+    td {
+        min-width: 10rem;
     }
 }
