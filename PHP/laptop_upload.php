@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["fileToUpload"])) {
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "mgwrpc dtb";
+    $dbname = "mgwrpcdtb";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
