@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="css/mainstyle.css">
         <link rel="stylesheet" href="css/login.css">
         <script src="js/mainscript.js"></script>
-        <script src="js/login.js"></script>
     
         <!---------------
               FONTS
@@ -32,18 +31,21 @@
     </head>
     
     <body>
+        
+        <form method="POST" action="php/admin_login.php">
         <div class="page">
             <div class="login-card">
                 <div class="login">
                     <img src="Images/MGWR PC Logo.png" alt="" class="logo">
                     <p class="login__subtitle">Welcome back!</p>
+
                     <form class="login-form" id="loginForm">
                         <label for="email"
                             class="input-label login-form__input-label">
                             Username
                         </label>
                         <input id="email"
-                            name="email"
+                            name="admin_username"
                             type="text"
                             class="input-field login-form__email-input"
                             placeholder="Enter Your Username"
@@ -54,7 +56,7 @@
                             Password
                         </label>
                         <input id="password"
-                            name="password"
+                            name="admin_password"
                             type="password"
                             class="input-field login-form__password-input"
                             placeholder="Enter Your Password"
@@ -65,6 +67,8 @@
                             Sign in
                         </button>
                     </form>
+                    </form>
+    
                 </div>
             </div>
         </div>
