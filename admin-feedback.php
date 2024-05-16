@@ -49,9 +49,9 @@
 
         <nav class="navbar">
             <a href="adminAnalytics.html" style="--i:0">Analytics</a>
-            <a class="active" href="admin-inventory.php" style="--i:1">Inventory</a>
+            <a href="admin-inventory.php" style="--i:1">Inventory</a>
             <a href="CMS.php" style="--i:2">CMS</a>
-            <a href="#" style="--i:3">Feedbacks</a>
+            <a class="active" href="#" style="--i:3">Feedbacks</a>
             <a href="#" style="--i:4">Contact Us</a>
         </nav>
     </header> 
@@ -111,17 +111,17 @@
                         text-align: center;"; 
                             switch($tag) {
                                 case "First Time Buyer":
-                                    return $baseStyle . "background-color: #586994; color: black; border: 1px solid black; font-weight: 600;";
+                                    return $baseStyle . "background-color: #586994; color: black; border: 1px solid black; font-weight: 600; cursor: default;";
                                 case "Regular Customer":
-                                    return $baseStyle . "background-color: #7D869C; color: black; border: 1px solid black; font-weight: 600;";
+                                    return $baseStyle . "background-color: #7D869C; color: black; border: 1px solid black; font-weight: 600; cursor: default;";
                                 case "Budget Shopper":
-                                    return $baseStyle . "background-color: #A2ABAB; color: black; border: 1px solid black; font-weight: 600;";
+                                    return $baseStyle . "background-color: #A2ABAB; color: black; border: 1px solid black; font-weight: 600; cursor: default;";
                                 case "Brand Loyalist":
-                                    return $baseStyle . "background-color: #B4C4AE; color: black; border: 1px solid black; font-weight: 600;";
+                                    return $baseStyle . "background-color: #B4C4AE; color: black; border: 1px solid black; font-weight: 600; cursor: default;";
                                 case "Gift Shopper":
-                                    return $baseStyle . "background-color: #E5E8B6; color: black; border: 1px solid black; font-weight: 600;";
+                                    return $baseStyle . "background-color: #E5E8B6; color: black; border: 1px solid black; font-weight: 600; cursor: default;";
                                 case "Window Shopper":
-                                    return $baseStyle . "background-color: #F7EF81; color: black; border: 1px solid black; font-weight: 600;";
+                                    return $baseStyle . "background-color: #F7EF81; color: black; border: 1px solid black; font-weight: 600; cursor: default;";
                                 default:
                                     return $baseStyle;
                             }
