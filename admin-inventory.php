@@ -65,6 +65,7 @@
 
 
 
+   
     <!---------------
           TABLES
     ---------------->
@@ -76,52 +77,137 @@
                     INVENTORY
                 ---------------->
                 <section class="table__header">
-                    <h2>INVENTORY</h2>
-                    <div class="input-group">
-                        <input type="search" placeholder="Search Data..." id="inventorySearchInput" onkeyup="searchTable()">
-                        <img src="images/search.png" alt="">
-                    </div>
-                </section>
+    <h2>INVENTORY</h2>
+    <div class="input-group">
+        <input type="search" placeholder="Search Data..." id="inventorySearchInput" onkeyup="searchTable()">
+        <img src="images/search.png" alt="">
+    </div>
+</section>
 
-                <section class="table__body">
-                    <table id="inventoryTable">
-                        <thead>
-                            <tr>
-                                <th> PRODUCT ID </th>
-                                <th> PRODUCT NAME </th>
-                                <th> IMAGE </th>
-                                <th> TOTAL UNITS </th>
-                                <th> RESERVED UNITS </th>
-                                <th> UPDATE </th>
-                            </tr>
-                        </thead>
-                    
-                        <tbody>
-                            <?php 
-                                $select = mysqli_query($conn, "SELECT * FROM inventory");
-                                while($row = mysqli_fetch_assoc($select)){ 
-                            ?>
-                            <tr>
-                                <td><?php echo $row['products_id']; ?></td>
-                                <td><?php echo $row['products_name']; ?></td>
-                                <td>
-                                    <div class="image-container" onmouseover="showPreview()" onmouseout="hidePreview()">
-                                        <img src="Images/<?php echo $row['image']; ?>">
-                                        <img id="preview" src="Images/<?php echo $row['image']; ?>" alt="Preview">
-                                    </div>
-                                </td>
-                                <td><?php echo $row['total_units']; ?></td>
-                                <td><?php echo $row['reserved_units']; ?></td>
-                                <td>
-                                    <button style="background:none;border:none;" class="btn btn-secondary edit-btn" data-toggle="modal" data-target="#updateModal" data-id="<?php echo $row['id']; ?>" data-products_id="<?php echo $row['products_id']; ?>" data-products_name="<?php echo $row['products_name']; ?>" 
-                                    data-image="<?php echo $row['image']; ?>" 
-                                    data-total_units="<?php echo $row['total_units']; ?>" data-reserved_units="<?php echo $row['reserved_units']; ?>">
+<section class="table__body">
+    <table id="inventoryTable">
+        <thead>
+            <tr>
+                <th> PRODUCT ID </th>
+                <th> PRODUCT NAME </th>
+                <th> IMAGE </th>
+                <th> TOTAL UNITS </th>
+                <th> RESERVED UNITS </th>
+                <th> UPDATE </th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+                $sql = "SELECT * FROM inventory";
+                $result = mysqli_query($conn, $sql);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <tr>
+                            <td><?php echo $row['products_id']; ?></td>
+                            <td><?php echo $row['products_name']; ?></td>
+                            <td>
+                                <div class="image-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+                                    <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="Product Image">
+                                    <img id="preview-<?php echo htmlspecialchars($row['id']); ?>" class="preview" src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="Preview" style="display: none;">
+                                </div>
+                            </td>
+                            <td><?php echo htmlspecialchars($row['total_units']); ?></td>
+                            <td><?php echo htmlspecialchars($row['reserved_units']); ?></td>
+                            <td>
+                                <button style="background:none;border:none;" class="btn btn-secondary edit-btn" data-toggle="modal" data-target="#updateModal" 
+                                    data-id="<?php echo htmlspecialchars($row['id']); ?>" 
+                                    data-products_id="<?php echo htmlspecialchars($row['products_id']); ?>" 
+                                    data-products_name="<?php echo htmlspecialchars($row['products_name']); ?>" 
+                                    data-image="<?php echo htmlspecialchars($row['image']); ?>" 
+                                    data-total_units="<?php echo htmlspecialchars($row['total_units']); ?>" 
+                                    data-reserved_units="<?php echo htmlspecialchars($row['reserved_units']); ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/></svg> 
-                                    </button>
-                                </td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
+                                </button>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                }
+            ?>
+        </tbody>
+    </table>
+</section>
+
+    <!---------------
+     INVENTORY POPUP
+    ---------------->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateModalLabel">Update Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" id="product_id">
+                    <div class="form-group">
+                        <label for="product_products_id">Product ID</label>
+                        <input type="text" class="form-control" id="product_products_id" name="product_products_id" placeholder="Enter product ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product_name">Product Name</label>
+                        <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product_image">Product Image</label>
+                        <input type="file" class="form-control" id="product_image" name="product_image" accept="image/png, image/jpeg, image/jpg">
+                    </div>
+                    <div class="form-group">
+                        <label for="product_total_units">Total Units</label>
+                        <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product_reserved_units">Reserved Units</label>
+                        <input type="number" min="0" class="form-control" id="product_reserved_units" name="product_reserved_units" placeholder="Enter reserved units" required>
+                    </div>
+                    <button type="submit" name="update_product" class="btn btn-primary">Update Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+function showPreview(element) {
+    const preview = element.querySelector('#preview');
+    preview.style.display = 'block';
+}
+
+function hidePreview(element) {
+    const preview = element.querySelector('#preview');
+    preview.style.display = 'none';
+}
+
+$(document).ready(function() {
+    $('#updateModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var id = button.data('id');
+        var product_products_id = button.data('product_products_id');
+        var product_name = button.data('product_name');
+        var product_image = button.data('product_image');
+        var product_total_units = button.data('product_total_units');
+        var product_reserved_units = button.data('product_reserved_units');
+        
+        var modal = $(this);
+        modal.find('#product_id').val(id);
+        modal.find('#product_products_id').val(product_products_id);
+        modal.find('#product_name').val(product_name);
+        modal.find('#product_total_units').val(product_total_units);
+        modal.find('#product_reserved_units').val(product_reserved_units);
+    });
+});
+</script>
+
                     </table>
                 </section>
 
@@ -176,53 +262,6 @@
             </main>
         </div>
     </div>
-
-
-
-    <!---------------
-     INVENTORY POPUP
-    ---------------->
-    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="updateModalLabel">Update Product</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                <form method="post" enctype="multipart/form-data">
-
-                        <input type="hidden" name="id" id="product_id">
-                        <div class="form-group">
-                            <label for="product_products_id">Product ID</label>
-                            <input type="text" class="form-control" id="product_products_id" name="product_products_id" placeholder="Enter product ID" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="product_name">Product Name</label>
-                            <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="product_image">Product Image</label>
-                            <input type="file" class="form-control" id="product_image" name="product_image" accept="image/png, image/jpeg, image/jpg">
-                        </div>
-                        <div class="form-group">
-                            <label for="product_total_units">Total Units</label>
-                            <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="product_reserved_units">Reserved Units</label>
-                            <input type="number" min="0" class="form-control" id="product_reserved_units" name="product_reserved_units" placeholder="Enter reserved units" required="">
-                        </div>
-                        <button type="submit" class="btn btn-primary" name="update_product">Update Inventory</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 
     <!---------------
     RESERVATION POPUP
