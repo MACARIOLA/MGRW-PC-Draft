@@ -25,16 +25,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $row = $result->fetch_assoc();
 
     if ($row['count'] > 0) {
-        // Copy the row of data from customer_product_reviews into the customer_feedbacks
+        // Get the row of data from customer_product_reviews sorted by submission_date in descending order
         $query = "
-            INSERT INTO customer_feedbacks (id, name, comment, rating, first_time_buyer, regular_customer, budget_shopper, brand_loyalist, gift_shopper, window_shopper)
-            SELECT id, name, comment, rating, first_time_buyer, regular_customer, budget_shopper, brand_loyalist, gift_shopper, window_shopper
+            SELECT 
+                id,
+                name,
+                comment,
+                rating,
+                first_time_buyer,
+                regular_customer,
+                budget_shopper,
+                brand_loyalist,
+                gift_shopper,
+                window_shopper
             FROM customer_product_reviews
             WHERE id = ?
+            ORDER BY id DESC
+            LIMIT 1
         ";
 
         $stmt = $conn->prepare($query);
         $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        // Copy the row of data from customer_product_reviews into the customer_feedbacks
+        $query = "
+            INSERT INTO customer_feedbacks (
+                id,
+                name,
+                comment,
+                rating,
+                first_time_buyer,
+                regular_customer,
+                budget_shopper,
+                brand_loyalist,
+                gift_shopper,
+                window_shopper)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ";
+
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("isssssssss", $row['id'], $row['name'], $row['comment'], $row['rating'], $row['first_time_buyer'], $row['regular_customer'], $row['budget_shopper'], $row['brand_loyalist'], $row['gift_shopper'], $row['window_shopper']);
 
         if ($stmt->execute()) {
             echo 'success';
