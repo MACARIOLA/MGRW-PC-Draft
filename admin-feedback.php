@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="css/admin_feedback.css">
     <script src="js/mainscript.js"></script>
     <script src="js/admin_feedback.js"></script>
+    <script src="js/customer-feedback.js"></script>
+
 
     <!---------------
           FONTS
@@ -51,7 +53,7 @@
             <a href="adminAnalytics.html" style="--i:0">Analytics</a>
             <a href="admin-inventory.php" style="--i:1">Inventory</a>
             <a href="CMS.php" style="--i:2">CMS</a>
-            <a class="active" href="#" style="--i:3">Feedbacks</a>
+            <a class="active" href="admin-feedback.php" style="--i:0">Feedback</a>
             <a href="#" style="--i:4">Contact Us</a>
         </nav>
     </header> 
@@ -84,15 +86,12 @@
                         function generateStars($rating) {
                             $stars = "";
                             $rating = floatval($rating);
-
                             for ($i = 0; $i < $rating; $i++) {
                                 $stars .= "<i class='bx bxs-star' style='font-size: 20px;'></i>";
                             }
-
                             if ($rating - floor($rating) > 0) {
                                 $stars .= "<i class='bx bxs-star-half' style='font-size: 20px;'></i>";
                             }
-
                             for ($i = ceil($rating); $i < 5; $i++) {
                                 $stars .= "<i class='bx bx-star' style='font-size: 20px;'></i>";
                             }
@@ -100,15 +99,15 @@
                         }
 
                         function getTagStyle($tag) {
-                        $baseStyle =
-                        "display: inline-block;
-                        padding: 5px 10px;
-                        margin: 5px;
-                        border-radius: 10px;
-                        width: 200px;
-                        height: 40px;
-                        line-height: 30px;
-                        text-align: center;"; 
+                            $baseStyle =
+                            "display: inline-block;
+                            padding: 5px 10px;
+                            margin: 5px;
+                            border-radius: 10px;
+                            width: 200px;
+                            height: 40px;
+                            line-height: 30px;
+                            text-align: center;"; 
                             switch($tag) {
                                 case "First Time Buyer":
                                     return $baseStyle . "background-color: #586994; color: black; border: 1px solid black; font-weight: 600; cursor: default;";
@@ -139,33 +138,32 @@
                         }
 
                         $sql = "SELECT 
-                            id,
-                            name,
-                            comment,
-                            rating,
-                            first_time_buyer,
-                            regular_customer,
-                            budget_shopper,
-                            brand_loyalist,
-                            gift_shopper,
-                            not_interested
-                        FROM customer_product_reviews";
+                        id,
+                        name,
+                        comment,
+                        rating,
+                        first_time_buyer,
+                        regular_customer,
+                        budget_shopper,
+                        brand_loyalist,
+                        gift_shopper,
+                        window_shopper
+                    FROM customer_product_reviews
+                    ORDER BY id DESC";  // Assuming 'id' is an auto-incremented primary key
+                    
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
-
                                 $stars_html = generateStars($row['rating']);
-
                                 $tags = [];
-                                    if ($row['first_time_buyer']) $tags[] = "<span style='" . getTagStyle("First Time Buyer") . "'>First Time Buyer</span>";
-                                    if ($row['regular_customer']) $tags[] = "<span style='" . getTagStyle("Regular Customer") . "'>Regular Customer</span>";
-                                    if ($row['budget_shopper']) $tags[] = "<span style='" . getTagStyle("Budget Shopper") . "'>Budget Shopper</span>";
-                                    if ($row['brand_loyalist']) $tags[] = "<span style='" . getTagStyle("Brand Loyalist") . "'>Brand Loyalist</span>";
-                                    if ($row['gift_shopper']) $tags[] = "<span style='" . getTagStyle("Gift Shopper") . "'>Gift Shopper</span>";
-                                    if ($row['not_interested']) $tags[] = "<span style='" . getTagStyle("Not Interested") . "'>Not Interested</span>";
+                                if ($row['first_time_buyer']) $tags[] = "<span style='" . getTagStyle("First Time Buyer") . "'>First Time Buyer</span>";
+                                if ($row['regular_customer']) $tags[] = "<span style='" . getTagStyle("Regular Customer") . "'>Regular Customer</span>";
+                                if ($row['budget_shopper']) $tags[] = "<span style='" . getTagStyle("Budget Shopper") . "'>Budget Shopper</span>";
+                                if ($row['brand_loyalist']) $tags[] = "<span style='" . getTagStyle("Brand Loyalist") . "'>Brand Loyalist</span>";
+                                if ($row['gift_shopper']) $tags[] = "<span style='" . getTagStyle("Gift Shopper") . "'>Gift Shopper</span>";
+                                if ($row['window_shopper']) $tags[] = "<span style='" . getTagStyle("Window Shopper") . "'>Window Shopper</span>";
                                 $tags_str = implode(" ", $tags);
-
 
                                 echo "<tr data-review-id='{$row['id']}'>
                                 <td class='center-content'>{$row['name']}</td>
@@ -175,10 +173,10 @@
                                 </td>
                                 <td class='center-content'>{$stars_html}</td>
                                 <td class='center-content'>{$tags_str}</td>
-                                <td class='center-content'><button class='status post' onclick='postData({$row['id']})'>Post</button></td>
+                                <td class='center-content'><button class='status post' data-review-id='{$row['id']}'>Post</button></td>
                                 <td class='center-content'><button class='status delete' onclick='deleteFeedback({$row['id']}, this)'>Delete</button></td>
                                 <input type='hidden' name='id' value='{$row['id']}'>
-                                </tr>";
+                            </tr>";
                             }
                         } else {
                             echo "<tr><td colspan='6'>No feedback available</td></tr>";
@@ -186,7 +184,7 @@
 
                         $conn->close();
                     ?>
-                </tbody>
+                </tbody>    
             </table>
         </section>
     </main>
