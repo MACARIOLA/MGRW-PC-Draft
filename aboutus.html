@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    
+    <!---------------
+           PHP
+    ---------------->
+
+    <?php include "PHP/save_content.php"; ?>
+
+
+
     <!---------------
            TAB
     ---------------->
@@ -53,19 +62,19 @@
 
 
 
-    <!---------------
+   <!---------------
          ABOUT US
     ---------------->
     <section class="about">
         <div class="main">
-            <div class="image-container">
-                <img src="Images/Sulit PC 1.jpg" alt="">
-            </div>
+        <label for="imageInput1">
+                <img id="previewImage" src="<?php echo $abt; ?>" alt="Company Image">
+            </label>
             <div class="all-text">
                 <h4>WHO ARE WE</h4>
                 <h1>MGWR PC</h1>
-                <p>As a dynamic and innovative organization, we focus on providing the best computer and building a long-term relationship with our valued clients.</p>
-                <p>At MGWR PC, we are dedicated with passion to excellence and commitment in delivering premium solutions to meet your specific needs. Our dedicated team works diligently to ensure your satisfaction and success.</p>
+                <p><?php echo $Company['company_info']; ?></p>
+                <p><?php echo $Company['company_details']; ?></p>
                 <div class="btn">
                     <a href="contact.html">
                         <button type="button" class="btn2">Contact Us</button>
