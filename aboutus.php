@@ -65,11 +65,11 @@
    <!---------------
          ABOUT US
     ---------------->
-    <section class="about">
+  <section class="about">
         <div class="main">
-        <label for="imageInput1">
+        <div class="image-container">
                 <img id="previewImage" src="<?php echo $abt; ?>" alt="Company Image">
-            </label>
+                </div>
             <div class="all-text">
                 <h4>WHO ARE WE</h4>
                 <h1>MGWR PC</h1>
