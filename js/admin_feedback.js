@@ -24,20 +24,36 @@ function deleteFeedback(id, button) {
         }
     };
     xhr.send("id=" + id);    
-}   
+}
 
-function postData(reviewId) {
-    $.ajax({
-         url: 'feedback.html', 
-         type: 'POST',
-         data: { reviewId: reviewId },
-         success: function(response) {
-             $('#feedbackDisplay').append(response);
-         },
-         error: function(xhr, status, error) {
-             console.error(error);
-         }
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.status.post').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const reviewId = this.closest('tr').dataset.reviewId;
+            postFeedback(reviewId);
+        });
     });
+});
 
-    console.log("Posting data for review ID: " + reviewId);
+function postFeedback(reviewId) {
+    fetch('PHP/post_feedback.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'id=' + reviewId
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data === 'success') {
+            alert('Feedback posted successfully!');
+        } else {
+            alert('Failed to post feedback.');
+            console.error('Server response:', data);  // Log detailed server response
+        }
+    })
+    .catch(error => {
+        alert('Failed to post feedback due to network error.');
+        console.error('Network error:', error);  // Log network errors
+    });
 }
