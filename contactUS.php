@@ -1,4 +1,4 @@
-    <?php
+<?php
     include 'customer-contactUS.php';
 
     ?>
@@ -60,12 +60,37 @@
         <!---------------
         CONTACT FORM
         ---------------->
-
         <section class="contact-form">
             <h1 class="heading">Get In Touch!</h1>
             <p class="sentence1">We're here to help! Reach out to us with any inquiries or feedback you may have.</p>
             <div class="contactForm">
-            
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $subject = $_POST['subject'];
+                $message = $_POST['message'];
+
+                $conn = new mysqli("localhost", "root", "", "mgwrpcdtb");
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                $stmt = $conn->prepare("INSERT INTO tbl_admin_contacts_us (customer_name, email, subject, message) VALUES (?, ?, ?, ?)");
+                $stmt->bind_param("ssss", $name, $email, $subject, $message);
+
+                if ($stmt->execute()) {
+                    echo "<p>Message sent successfully!</p>";
+                } else {
+                    echo "<p>Error: " . $stmt->error . "</p>";
+                }
+
+                $stmt->close();
+                $conn->close();
+            }
+            ?>
+
+
     <form class="cForm" action="" method="POST">
                     <h1 class="sub-heading">Need Support!</h1>
                     <p class="sentence1 senleft">You Have Any Questions? Problems? Tell Us!</p>
@@ -77,6 +102,8 @@
                 </form>
                 
                 
+                
+        
                 <!---------------
                     MAP
                 ---------------->
