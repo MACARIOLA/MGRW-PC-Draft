@@ -9,6 +9,7 @@
     ---------------->
 
     <?php include "PHP/PROMOTION.php"; ?>
+      <?php include "PHP/save_content.php"; ?>
 
 
     <!---------------
@@ -66,6 +67,39 @@
     #openPopup:hover {
     background-color: darkgreen; /* Change the background color on hover */
     }
+    </style>
+<style>
+           /* foooooor aboutus popup*/
+
+        .non-editable {
+            border: none;
+            resize: none;
+            background-color: transparent;
+            pointer-events: none;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 35%;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+        }
     </style>
 
     <!---------------
@@ -257,98 +291,87 @@
 </section>
 
 
-    <!---------------
+   <!---------------
          ABOUT US
     ---------------->
     <section class="about">
-        <div class="main">
-            <div class="image-container">
-                <label for="imageInput1">
-                    <img id="previewImage" src="Images/SulitPc1.jpg" alt="">
-                </label>
-                <label for="imageInput1" class="upload-button">Choose Photo</label>
-                <input type="file" name="image" id="imageInput1" class="image-input" style="display: none;" required>
-                <button class="submit-Button3" id="submitImage">SUBMIT</button>
-            </div>
-            <div class="all-text">
-                <h4>WHO ARE WE</h4>
-                <h1>MGWR PC</h1>
-                <p id="companyInfo" contenteditable="false">As a dynamic and innovative organization, we focus on providing the best computer and building a long-term relationship with our valued clients.</p>
-                <p id="companyDetails" contenteditable="false">At MGWR PC, we are dedicated with passion to excellence and commitment in delivering premium solutions to meet your specific needs. Our dedicated team works diligently to ensure your satisfaction and success.</p>
-                <button class="button" id="editButton">Edit</button>
-                <button id="saveButton" style="display: none;">Save</button>
-            </div>
+    <div class="main">
+        <div class="image-container">
+            <label for="imageInput1">
+                <img id="previewImage" src="<?php echo $abt; ?>" alt="Company Image">
+            </label>
         </div>
-    </section>
+        <div class="all-text">
+            <h4>WHO ARE WE</h4>
+            <h1>MGWR PC</h1>
+            <p><?php echo $Company['company_info']; ?></p>
+            <p><?php echo $Company['company_details']; ?></p>
+            <button type="button" class="button" id="editButton">Edit</button>
+        </div>
+    </div>
+</section>
+
+
+    <!---------------
+         EDIT POPUP
+    ---------------->
     
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <form id="editForm"  method="POST" enctype="multipart/form-data">
+                <h2>Edit Company Details</h2>
+                <label for="popupCompanyInfo">Company Info:</label>
+                <textarea id="popupCompanyInfo" name="company_info" rows="10" cols="50"></textarea>
+                <br/>
+                <label for="popupCompanyDetails">Company Details:</label>
+                <textarea id="popupCompanyDetails" name="company_details" rows="10" cols="50"></textarea>
+            <!---->
+                    <label for="ABTPHOTO">Choose Photo:</label>
+                     <input type="file" id="ABTPHOTO1" name="ABTPHOTO" accept="image/*" >
+                     <button type="submit" name="ABTPHOTOSUB">Upload</button><br/>
+                     
+                         <div class="btn-container">
+                             <button type="submit" name="saveButton">Save</button>
+                             <button type="button" id="cancelButton">Back</button>
+                        </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const companyInfo = document.getElementById("companyInfo");
-            const companyDetails = document.getElementById("companyDetails");
-            const saveButton = document.getElementById("saveButton");
-            const editButton = document.getElementById("editButton");
-    
-            let originalCompanyInfo;
-            let originalCompanyDetails;
-    
-            editButton.addEventListener("click", function () {
-                if (editButton.textContent === "Edit") {
-                    // Save original content
-                    originalCompanyInfo = companyInfo.textContent;
-                    originalCompanyDetails = companyDetails.textContent;
-                    companyInfo.contentEditable = true;
-                    companyDetails.contentEditable = true;
-                    editButton.textContent = "Back";
-                    saveButton.style.display = "block";
-                } else {
-                    // Revert to original content
-                    companyInfo.textContent = originalCompanyInfo;
-                    companyDetails.textContent = originalCompanyDetails;
-                    companyInfo.contentEditable = false;
-                    companyDetails.contentEditable = false;
-                    editButton.textContent = "Edit";
-                    saveButton.style.display = "none";
-                }
-            });
-    
-            // Event listener for save button
-            saveButton.addEventListener("click", function () {
-                saveContent();
-                saveButton.style.display = "none";
-                editButton.textContent = "Edit";
-                companyInfo.contentEditable = false;
-                companyDetails.contentEditable = false;
-            });
-    
-            function saveContent() {
-                console.log("Company Info: " + companyInfo.textContent);
-                console.log("Company Details: " + companyDetails.textContent);
-            }
-    
-            // Trigger file input when clicking on the image
-            submitImageButton.addEventListener("click", function () {
-                document.getElementById("imageInput1").click();
-            });
-    
-            // Preview selected image
-            document.getElementById("imageInput1").addEventListener("change", function (event) {
-                var preview = document.getElementById('previewImage');
-                var file = event.target.files[0];
-                var reader = new FileReader();
-    
-                reader.onloadend = function () {
-                    preview.src = reader.result;
-                }
-    
-                if (file) {
-                    reader.readAsDataURL(file);
-                } else {
-                    preview.src = "";
-                }
-            });
+    document.addEventListener("DOMContentLoaded", function () {
+        const editButton = document.getElementById("editButton");
+        const editModal = document.getElementById("editModal");
+        const popupCompanyInfo = document.getElementById("popupCompanyInfo");
+        const popupCompanyDetails = document.getElementById("popupCompanyDetails");
+        const editForm = document.getElementById("editForm");
+        const saveButton = document.getElementById("saveButton");
+        const cancelButton = document.getElementById("cancelButton");
+
+        editButton.addEventListener("click", function () {
+            // Populate the edit form with current values
+         
+
+            // Display the edit modal
+            editModal.style.display = "block";
         });
-    </script>
-    
+
+
+        cancelButton.addEventListener("click", function () {
+            // Hide the edit modal
+            editModal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+            // Close the edit modal if clicked outside
+            if (event.target == editModal) {
+                editModal.style.display = "none";
+            }
+        });
+    });
+</script>
     
     
     
