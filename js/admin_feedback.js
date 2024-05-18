@@ -43,17 +43,24 @@ function postFeedback(reviewId) {
         },
         body: 'id=' + reviewId
     })
-    .then(response => response.text())
+    .then(response => {
+        if (response.ok) {
+            return response.text();
+        } else {
+            return response.json().then(data => {
+                throw new Error(data.error);
+            });
+        }
+    })
     .then(data => {
         if (data === 'success') {
             alert('Feedback posted successfully!');
         } else {
-            alert('Failed to post feedback.');
-            console.error('Server response:', data);  // Log detailed server response
+            alert('Failed to post feedback: ' + data);
         }
     })
     .catch(error => {
-        alert('Failed to post feedback due to network error.');
-        console.error('Network error:', error);  // Log network errors
+        alert('Failed to post feedback due to error: ' + error.message);
+        console.error('Error:', error);
     });
 }
