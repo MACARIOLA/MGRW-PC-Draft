@@ -27,13 +27,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `tbl_admin_contacts_us`
 --
 
-CREATE TABLE `tbl_admin_contacts_us` (
-  `id` int(11) NOT NULL,
-  `customer_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `subject` varchar(255) NOT NULL,
-  `message` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE tbl_admin_contacts_us (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    subject VARCHAR(255),
+    message TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ 
 
 --
 -- Indexes for dumped tables
