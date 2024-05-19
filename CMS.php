@@ -304,8 +304,8 @@
         <div class="all-text">
             <h4>WHO ARE WE</h4>
             <h1>MGWR PC</h1>
-            <p><?php echo $Company['company_info']; ?></p>
-            <p><?php echo $Company['company_details']; ?></p>
+           <p><?php echo $compinf; ?></p>
+            <p><?php echo $compdef; ?></p>
             <button type="button" class="button" id="editButton">Edit</button>
         </div>
     </div>
