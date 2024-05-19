@@ -1,3 +1,26 @@
+<?php
+include 'PHP/reserve.php';
+include 'PHP/con_db.php';
+
+// Check if 'id' is passed via GET and set the session variable
+if (isset($_GET['id'])) {
+    $_SESSION['product_id'] = $_GET['id'];
+    // Redirect to avoid resubmission of the GET request
+    header("Location: product.php");
+    exit();
+}
+
+// Retrieve the product ID from the session
+if (isset($_SESSION['product_id'])) {
+    $product_id = $_SESSION['product_id'];
+    $sql = "SELECT * FROM inventory WHERE id = $product_id";
+    $result = mysqli_query($conn, $sql);
+    $product = mysqli_fetch_assoc($result);
+    
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,119 +80,80 @@
     <!---------------
           PRODUCT
     ---------------->
-    <section class="about">
-        <div class="main">
-            <div class="image-container">
-                <div class="hover-image">
-                    <img src="Images/Sulit PC 1.jpg" alt="">
-                </div>
-                <div class="btn">
-                    <button type="button" class="btn2" id="reserveNowBtn">Reserve Now</button>
-                </div>
+   
+<section class="about">
+    <div class="main">
+        <div class="image-container">
+            <div class="hover-image">
+                <img src="data:image;base64,<?php echo base64_encode($product['image']); ?>" alt="">
             </div>
-            <div class="all-text"> 
-                <h4>AMD ATHLON 3000G</h4>
-                <h1>SULIT PC 1</h1>
-                <div class="price">₱10,990</div>
-                <p>Introducing AMD ATHLON 3000G – Discover a powerful computing solution built for speed and efficiency. This PC delivers seamless multitasking, vibrant visuals, ample storage, and sleek design. Experience enhanced productivity and performance in a compact package.</p>
-                <p>High-speed computing solution, bundled with complimentary mouse and keyboard for added convenience.</p>
-                <div class="features">
-                    <div class="row">
-                        <img class="icn" src="Images/icon-cpu.png" alt="">
-                        <div class="column c1">AMD ATHLON 3000G</div>
-                        <img class="icn" src="Images/icon-mb.png" alt="">
-                        <div class="column c2">BIOSTAR A520M H 3.1</div>
-                    </div>
-                    <div class="row">
-                        <img class="icn" src="Images/icon-ram.png" alt="">
-                        <div class="column c3">ADATA 8GB 3200MHZ</div>
-                        <img class="icn" src="Images/icon-mntr.png" alt="">
-                        <div class="column c4">VIEWPLUS MH-20 20</div>
-                    </div>
-                    <div class="row">
-                        <img class="icn" src="Images/icon-ssd.png" alt="">
-                        <div class="column c5">ADATA SU650 256GB SATA</div>
-                        <img class="icn" src="Images/icon-cc.png" alt="">
-                        <div class="column c6">POWERLOGIC V200</div>
-                    </div>
-                    <div class="row">
-                        <img class="icn" src="Images/icon-ps.png" alt="">
-                        <div class="column c7">POWERLOGIC 700W</div>
-                        <img class="icn" src="Images/icon-fan.png" alt="">
-                        <div class="column c8">Not Included</div>
-                    </div>
+            <div class="btn">
+                <button type="button" class="btn2" id="reserveNowBtn">Reserve Now</button>
+            </div>
+        </div>
+        <div class="all-text">
+            <h4><?php echo $product['products_name']; ?></h4>
+            <h1><?php echo $product['products_id']; ?></h1>
+            <div class="price">₱<?php echo $product['unit_price']; ?></div>
+            <p><?php echo $product['description']; ?></p>
+            <div class="features">
+                <div class="row">
+                    <img class="icn" src="Images/icon-cpu.png" alt="">
+                    <div class="column c1"><?php echo $product['specs_cpu']; ?></div>
+                    <img class="icn" src="Images/icon-mb.png" alt="">
+                    <div class="column c2"><?php echo $product['specs_motherboard']; ?></div>
+                </div>
+                <div class="row">
+                    <img class="icn" src="Images/icon-ram.png" alt="">
+                    <div class="column c3"><?php echo $product['specs_ram']; ?></div>
+                    <img class="icn" src="Images/icon-mntr.png" alt="">
+                    <div class="column c4"><?php echo $product['specs_monitor']; ?></div>
+                </div>
+                <div class="row">
+                    <img class="icn" src="Images/icon-ssd.png" alt="">
+                    <div class="column c5"><?php echo $product['specs_ssd']; ?></div>
+                    <img class="icn" src="Images/icon-cc.png" alt="">
+                    <div class="column c6"><?php echo $product['specs_computercase']; ?></div>
+                </div>
+                <div class="row">
+                    <img class="icn" src="Images/icon-ps.png" alt="">
+                    <div class="column c7"><?php echo $product['specs_powersupply']; ?></div>
+                    <img class="icn" src="Images/icon-fan.png" alt="">
+                    <div class="column c8"><?php echo $product['specs_fan']; ?></div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
 
     <!---------------
           POPUP
     ---------------->
+
     <div id="reserveModal" class="modal">
         <div class="modal-content">
             <h2>Reservation Details</h2>
-            <form id="reserveForm">
-                <label for="email">First Name</label>
-                <input type="fname" id="fName" placeholder="Enter First Name" required>
-
-                <label for="email">Last Name</label>
-                <input type="lname" id="lname" placeholder="Enter Last Name" required>
-                
+            <form id="reserveForm" method="POST" action="reserve.php">
+                <label for="fName">First Name</label>
+                <input type="text" id="fName" name="fname" placeholder="Enter First Name" required>
+                <label for="lName">Last Name</label>
+                <input type="text" id="lName" name="lname" placeholder="Enter Last Name" required>
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter Email" required>
-                
+                <input type="email" id="email" name="email" placeholder="Enter Email" required>
                 <label for="contactNum">Contact Number</label>
                 <input type="tel" id="contactNum" name="contactNum" maxlength="11" value="09" required>
-                
-                <script>
-                    document.getElementById("contactNum").addEventListener("input", function(event) {
-                        let inputValue = event.target.value;
-                        // Remove any non-digit characters
-                        inputValue = inputValue.replace(/\D/g, "");
-                        // Ensure the input starts with "09"
-                        if (!inputValue.startsWith("09")) {
-                            // If not, prepend "09" to the input value
-                            inputValue = "09" + inputValue.substring(9);
-                        }
-                        // Limit to 11 characters
-                        inputValue = inputValue.substring(0, 11);
-                        // Update input value
-                        event.target.value = inputValue;
-                    });
-                </script>
-                
                 <label for="quantity">Quantity</label>
                 <input type="number" id="quantity" name="quantity" min="1" max="999" value="1" required>
-
-                <script>
-                    document.getElementById("quantity").addEventListener("input", function(event) {
-                        let inputValue = event.target.value;
-                        // Remove any non-digit characters
-                        inputValue = inputValue.replace(/\D/g, "");
-                        // Ensure the input is not empty and is a valid number
-                        if (!inputValue || isNaN(inputValue)) {
-                            // If empty or not a number, set value to 1
-                            inputValue = "1";
-                        }
-                        // Limit to 3 digits
-                        inputValue = inputValue.substring(0, 3);
-                        // Update input value
-                        event.target.value = inputValue;
-                    });
-                </script>
-
-                
                 <div class="btn-container">
-                    <button type="button" id="confirmBtn">Confirm</button>
+                    <button type="submit" id="confirmBtn">Confirm</button>
                     <button type="button" id="cancelBtn">Cancel</button>
                 </div>
             </form>
         </div>
     </div>
- 
+
     <div id="successModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -177,6 +161,21 @@
             <button type="button" id="goBackBtn">Go Back</button>
         </div>
     </div>
+
+    <script>
+        document.getElementById("reserveNowBtn").addEventListener("click", function() {
+            document.getElementById("reserveModal").style.display = "block";
+        });
+
+        document.getElementById("cancelBtn").addEventListener("click", function() {
+            document.getElementById("reserveModal").style.display = "none";
+        });
+
+        document.getElementById("goBackBtn").addEventListener("click", function() {
+            document.getElementById("successModal").style.display = "none";
+            window.location.href = "home.html";
+        });
+    </script>
 
 
 
