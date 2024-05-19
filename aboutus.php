@@ -73,8 +73,8 @@
             <div class="all-text">
                 <h4>WHO ARE WE</h4>
                 <h1>MGWR PC</h1>
-                <p><?php echo $Company['company_info']; ?></p>
-                <p><?php echo $Company['company_details']; ?></p>
+               <p><?php echo $compinf; ?></p>
+            <p><?php echo $compdef; ?></p>
                 <div class="btn">
                     <a href="contact.html">
                         <button type="button" class="btn2">Contact Us</button>
