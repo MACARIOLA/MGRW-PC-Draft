@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,19 @@
     ---------------->
     <title>MGWR PC | Home</title>
     <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
+
+
+    
+ <!---------------
+           PHP
+    ---------------->
+
+    <?php 
+    include "PHP/PROMOTION.php";
+
+    session_start();
+   
+        ?>
 
     <!---------------
          CSS & JS
@@ -62,21 +76,15 @@
     <section class="slider-container">
         <div class="slider">
             <div class="list">
-                <div class="item">
-                    <img src="Images/Promo1.png" alt="">
-                </div>
-                <div class="item">
-                    <img src="Images/Promo1.png" alt="">
-                </div>
-                <div class="item">
-                    <img src="Images/Promo1.png" alt="">
-                </div>
-                <div class="item">
-                    <img src="Images/Promo1.png" alt="">
-                </div>
-                <div class="item">
-                    <img src="Images/Promo1.png" alt="">
-                </div>
+            <div class="item">
+                <img src="<?php echo $promoImage; ?>" alt="" >
+            </div>
+            <div class="item">
+                <img src="<?php echo $promoImage2; ?>" alt="" >
+            </div>
+            <div class="item">
+                <img src="<?php echo $promoImage3; ?>" alt="" >
+            </div>
             </div>
             <div class="buttons">
                 <button id="prev"><</button>
@@ -95,42 +103,40 @@
 
 
     <!---------------
-        SULIT PCS
-    ---------------->
-    <section class="sulitPc">
-        <div class="text-center">
-            <h2>Sulit PC Sets</h2>
-            <p class="sentence1">Check out our best-selling computers, designed for performance and reliability.</p>
+    SULIT PCS
+---------------->
+<section class="sulitPc">
+    <div class="text-center">
+        <h2>Sulit PC Sets</h2>
+        <p class="sentence1">Check out our best-selling computers, designed for performance and reliability.</p>
+    </div>
+
+    <div class="sulitPcContents">
+        <?php 
+            $sql = "SELECT * FROM inventory LIMIT 3"; // Fetch only the first 3 products
+            $result = mysqli_query($conn, $sql);
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $url = "product.php?id=" . $row['id'];
+        ?>
+        <div class="row">
+            <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
+            <h4><?php echo $row['products_name']; ?></h4>
+            <h5><?php echo $row['products_id']; ?></h5>
+            <h6>₱<?php echo $row['unit_price']; ?></h6>
         </div>
+        <?php
+                }
+            }
+        ?>
+    </div>
 
-        <div class="sulitPcContents">
-            <div class="row">
-                <a href="product.html"><img src="Images/Sulit PC 1.jpg" alt=""></a>
-                <h4>Athlon 3000G</h4>
-                <h5>Sulit PC 1</h5>
-                <h6>₱13,990</h6>
-            </div>
+    <div class="shortcut">
+        <a class="btn-fdbck" href="pricelist.html">Check Our Pricelists</a>
+    </div>
+</section>
 
-            <div class="row">
-                <a href="product.html"><img src="Images/Sulit PC 2.jpg" alt=""></a>
-                <h4>RYZEN 5 4600G</h4>
-                <h5>Sulit PC 2</h5>
-                <h6>₱21,990</h6>
-            </div>
 
-            <div class="row">
-                <a href="product.html"><img src="Images/Sulit PC 3.jpg" alt=""></a>
-                <h4>RYZEN 5 4650G</h4>
-                <h5>Sulit PC 3</h5>
-                <h6>₱22,990</h6>
-
-            </div>
-        </div>
-
-        <div class="shortcut">
-            <a class="btn-fdbck" href="pricelist.html">Check Our Pricelists</a>
-        </div>
-    </section>
 
 
 
