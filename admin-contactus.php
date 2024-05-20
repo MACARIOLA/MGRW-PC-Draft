@@ -1,5 +1,5 @@
 <?php
-include 'customer-contactUS.php';
+include 'PHP/customer-contactUS.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ include 'customer-contactUS.php';
     <link rel="stylesheet" href="css/admin-contactus.css">
 </head>
 <body>
-    <main>
+      <main>
         <section>
             <h1>Contact Messages</h1>
             <table>
