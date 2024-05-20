@@ -15,11 +15,9 @@
         CSS & JS
     ---------------->
     <link rel="stylesheet" href="css/mainstyle.css">
-    <link rel="stylesheet" href="css/admin_feedback.css">
+    <link rel="stylesheet" href="css/admin-feedback.css">
     <script src="js/mainscript.js"></script>
     <script src="js/admin_feedback.js"></script>
-    <script src="js/customer-feedback.js"></script>
-
 
     <!---------------
           FONTS
@@ -87,13 +85,13 @@
                             $stars = "";
                             $rating = floatval($rating);
                             for ($i = 0; $i < $rating; $i++) {
-                                $stars .= "<i class='bx bxs-star' style='font-size: 20px;'></i>";
+                                $stars .= "<i class='bx bxs-star' style='font-size: 26px; color: yellow; filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1))'></i>";
                             }
                             if ($rating - floor($rating) > 0) {
-                                $stars .= "<i class='bx bxs-star-half' style='font-size: 20px;'></i>";
+                                $stars .= "<i class='bx bxs-star-half' style='font-size: 26px; color: yellow; filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1))'></i>";
                             }
                             for ($i = ceil($rating); $i < 5; $i++) {
-                                $stars .= "<i class='bx bx-star' style='font-size: 20px;'></i>";
+                                $stars .= "<i class='bx bx-star' style='font-size: 26px; color: yellow; filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1))'></i>";
                             }
                             return $stars;
                         }
