@@ -41,7 +41,7 @@
                 budget_shopper,
                 brand_loyalist,
                 gift_shopper,
-                not_interested) 
+                window_shopper) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 
             $stmt->bind_param("sssssssss",
@@ -53,7 +53,7 @@
                 $budget_shopper,
                 $brand_loyalist,
                 $gift_shopper,
-                $not_interested);
+                $window_shopper);
 
             $name = $_POST['name'];
             $comment = $_POST['comment'];
@@ -63,7 +63,7 @@
             $budget_shopper = isset($_POST['checkbox3']) ? 1 : 0;
             $brand_loyalist = isset($_POST['checkbox4']) ? 1 : 0;
             $gift_shopper = isset($_POST['checkbox5']) ? 1 : 0;
-            $not_interested = isset($_POST['checkbox6']) ? 1 : 0;
+            $window_shopper = isset($_POST['checkbox6']) ? 1 : 0;
 
             $stmt->execute();
 
@@ -149,7 +149,7 @@
             </div>
             <div class="checkbox-container">
                 <input type="checkbox" id="option12" name="checkbox6" class="checkbox-btn larger">
-                <label for="option12" class="checkbox-text">Not Interested</label>
+                <label for="option12" class="checkbox-text">Window Shopper</label>
             </div>
 
             <button type="submit"><h3>Submit</h3></button>
@@ -187,11 +187,11 @@
                         allowEscapeKey: false 
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "feedback_page.html"; 
+                            window.location.href = "feedback.php"; 
                         } else {
                 
                             setTimeout(function() {
-                                window.location.href = "feedback.html";
+                                window.location.href = "feedback.php";
                             }, 0);
                         }
                     });
