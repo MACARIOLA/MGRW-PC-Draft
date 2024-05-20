@@ -26,7 +26,7 @@
     } else {
         echo "<script>
                 alert('Invalid login credentials');
-                window.location.href = '../admin_login.html';
+                window.location.href = '../admin-login.html';
             </script>";
     }
     $conn->close();
