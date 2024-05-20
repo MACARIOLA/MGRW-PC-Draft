@@ -9,17 +9,15 @@
           TAB
     ---------------->
     <title>MGWR PC | Feedbacks</title>
-    <link rel="icon" href="./Images/Tab Icon.png" type="Images/x-icon">
+    <link rel="icon" href="Images/Tab Icon.png" type="Images/x-icon">
 
     <!---------------
         CSS & JS
     ---------------->
     <link rel="stylesheet" href="css/mainstyle.css">
-    <link rel="stylesheet" href="css/admin_feedback.css">
+    <link rel="stylesheet" href="css/customer-feedback.css">
     <script src="js/mainscript.js"></script>
     <script src="js/admin_feedback.js"></script>
-    <script src="js/customer-feedback.js"></script>
-
 
     <!---------------
           FONTS
@@ -64,11 +62,10 @@
     <!---------------
           TABLES
     ---------------->
-    <main class="table" id="customers_table">
-        <section class="table__header">
-            <h1>Customer's Feedback</h1>
-        </section>
+    <h1 class="heading1" id="question">Customers Feedbacks</h1>
+    <p class="sentence1">Share your thoughts! Help us improve. Your feedback matters!</p>
 
+    <main class="table" id="customers_table">
         <section class="table__body">
             <table>
                 <thead>
@@ -87,15 +84,15 @@
                             $rating = floatval($rating);
 
                             for ($i = 0; $i < $rating; $i++) {
-                                $stars .= "<i class='bx bxs-star' style='font-size: 20px;'></i>";
+                                $stars .= "<i class='bx bxs-star' style='font-size: 26px; color: yellow; filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1));'></i>";
                             }
 
                             if ($rating - floor($rating) > 0) {
-                                $stars .= "<i class='bx bxs-star-half' style='font-size: 20px;'></i>";
+                                $stars .= "<i class='bx bxs-star-half' style='font-size: 26px; color: yellow; filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1));'></i>";
                             }
 
                             for ($i = ceil($rating); $i < 5; $i++) {
-                                $stars .= "<i class='bx bx-star' style='font-size: 20px;'></i>";
+                                $stars .= "<i class='bx bx-star' style='font-size: 26px; color: yellow; filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1));'></i>";
                             }
                             return $stars;
                         }
@@ -189,5 +186,59 @@
             </table>
         </section>
     </main>
+
+
+
+    <!---------------
+       CONTACT US
+    ---------------->
+    <div class="contactus">
+        <p>You Can Always Reach Us Here</p>
+        <a class="btn-fdbck" id="leaveFeedbackBtn" href="contact.html">Contact Us</a>
+    </div>
+
+
+
+    <!---------------
+         FOOTER
+    ---------------->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="logo2">MGWR PC</span>
+            <p>Committed in providing you with the best Computer parts and accessories, with a focus on product quality, best service, and real-time assistance.</p>
+        </div>
+
+        <div class="footer-content">
+            <h4>Company</h4>
+            <ul>    
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-content">
+            <h4>Help</h4>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>                
+                <li><a href="term.html">Terms of Service</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-content">
+            <h4>Connect With Us</h4>
+            <div class="icons2">
+                <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
+                <a href="https://www.instagram.com/mgwrpc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="Images/igicon.png" alt=""></a>
+                <a href="https://www.tiktok.com/@mgwrpctrading?is_from_webapp=1&sender_device=pc"><img src="Images/tticon.png" alt=""></a>
+            </div>
+        </div>
+    </footer>
+
+    <!---------------
+       COPYRIGHTS
+    ---------------->
+    <div class="copyrights">
+        <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
+    </div>
 </body>
 </html>
