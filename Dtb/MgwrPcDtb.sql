@@ -16,6 +16,25 @@ SET time_zone = "+00:00";
 
 
 -- ------------------------------- --
+-- -----------< LOGIN >----------- --
+
+CREATE TABLE `admin_login` (
+  `admin_username` varchar(255) NOT NULL,
+  `admin_password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `admin_login` (`admin_username`, `admin_password`) VALUES
+('MGWRPCAdmin', 'Admin123');
+COMMIT;
+
+-- -----------< LOGIN >----------- --
+-- ------------------------------- --
+
+
+
+
+
+-- ------------------------------- --
 -- ------------< CMS >------------ --
 
 -- PROMOTIONS --
@@ -31,6 +50,23 @@ INSERT INTO `cms_home_promotions` (`ID`, `PHOTO`) VALUES
 
 ALTER TABLE `cms_home_promotions`
   ADD PRIMARY KEY (`ID`);
+COMMIT;
+
+
+
+-- PDF FILES TABLE --
+CREATE TABLE IF NOT EXISTS cms_pricelist_pdfdownloads (
+  PdfID INT,
+  FileName VARCHAR(255) NOT NULL,
+  FilePath VARCHAR(255) NOT NULL,
+  Description TEXT
+);
+
+ALTER TABLE `cms_pricelist_pdfdownloads`
+  ADD PRIMARY KEY (`PdfID`);
+
+ALTER TABLE `cms_pricelist_pdfdownloads`
+  MODIFY `PdfID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 -- ------------< CMS >------------ --
