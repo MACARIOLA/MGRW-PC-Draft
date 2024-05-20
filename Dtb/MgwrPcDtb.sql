@@ -33,23 +33,6 @@ ALTER TABLE `cms_home_promotions`
   ADD PRIMARY KEY (`ID`);
 COMMIT;
 
-
-
--- PDF FILES TABLE --
-CREATE TABLE IF NOT EXISTS cms_pricelist_pdfdownloads (
-  PdfID INT,
-  FileName VARCHAR(255) NOT NULL,
-  FilePath VARCHAR(255) NOT NULL,
-  Description TEXT
-);
-
-ALTER TABLE `cms_pricelist_pdfdownloads`
-  ADD PRIMARY KEY (`PdfID`);
-
-ALTER TABLE `cms_pricelist_pdfdownloads`
-  MODIFY `PdfID` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
 -- ------------< CMS >------------ --
 -- ------------------------------- --
 
