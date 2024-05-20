@@ -17,11 +17,11 @@ if (empty($admin_username) || empty($admin_password)) {
     die("Invalid input data");
 }
 
-$sql = "SELECT * FROM admin_login_tbl WHERE admin_username = '$admin_username' AND admin_password = '$admin_password'";
+$sql = "SELECT * FROM admin_login WHERE admin_username = '$admin_username' AND admin_password = '$admin_password'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    header("Location: ../cms.php");  // Corrected redirection
+    header("Location: ../adminAnalytics.html");  // Corrected redirection
     exit();
 } else {
     // Display popup with JavaScript
