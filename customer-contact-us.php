@@ -83,7 +83,7 @@
                 <div class="map-container">
                 <div class="mapBg"></div>
                 <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3865.683397191603!2d121.07415227591599!3d14.329813983647268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d7485e8057bd%3A0x5b33b4fe692e4d5f!2sMGWR%20PC%20COMPUTER%20PARTS%20AND%20ACCESSORIES%20SHOP!5e0!3m2!1sen!2sph!4v1712210736257!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/d/embed?mid=13sQ_EYgIUgIqghJZe89MJseYKkAAYFw&hl=en&ehbc=2E312F" width="640" height="480"></iframe>
                 </div>
             </div>
         </div>
