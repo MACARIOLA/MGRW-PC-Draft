@@ -20,7 +20,7 @@ $faqId = isset($data['id']) ? intval($data['id']) : 0;
 $response = [];
 if ($faqId > 0) {
     // Prepare and bind
-    $stmt = $conn->prepare("DELETE FROM faqs WHERE id = ?");
+    $stmt = $conn->prepare("DELETE FROM cms_faqs WHERE id = ?");
     $stmt->bind_param("i", $faqId);
 
     // Execute the query

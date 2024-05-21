@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Retrieve FAQs from the database
-$sql = "SELECT * FROM faqs";
+$sql = "SELECT * FROM cms_faqs";
 $result = $conn->query($sql);
 
 // Check if there are FAQs
@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
         echo "</div>";
     }
 } else {
-    echo "No FAQs found.";
+    echo "";
 }
 
 // Close the database connection

@@ -18,7 +18,7 @@ $new_question = $_POST["new_question"];
 $new_answer = $_POST["new_answer"];
 
 // Insert new question and answer into the database
-$sql = "INSERT INTO faqs (question, answer) VALUES ('$new_question', '$new_answer')";
+$sql = "INSERT INTO cms_faqs (question, answer) VALUES ('$new_question', '$new_answer')";
 
 if ($conn->query($sql) === TRUE) {
     // Data inserted successfully, redirect back to cms.php
