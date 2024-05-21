@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Query to retrieve file path from database
-$sql = "SELECT filepath FROM printer_pricelist_tbl";
+$sql = "SELECT filepath FROM cms_pricelist_printer";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

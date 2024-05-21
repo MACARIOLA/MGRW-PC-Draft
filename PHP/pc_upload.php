@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["fileToUpload"])) {
     }
 
     // Remove previous file from database
-    $delete_previous_query = "DELETE FROM pc_pricelist_tbl";
+    $delete_previous_query = "DELETE FROM cms_pricelist_pc";
     $conn->query($delete_previous_query);
 
     // File upload handling
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["fileToUpload"])) {
         // If everything is ok, upload file to the uploads folder
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             // Save details to database
-            $sql = "INSERT INTO pc_pricelist_tbl (filename, filepath) VALUES ('". basename( $_FILES["fileToUpload"]["name"]) ."', '". $target_file ."')";
+            $sql = "INSERT INTO cms_pricelist_pc (filename, filepath) VALUES ('". basename( $_FILES["fileToUpload"]["name"]) ."', '". $target_file ."')";
             if ($conn->query($sql) === TRUE) {
                 // Display alert box
                 echo '<script>alert("The file '. htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). ' has been uploaded and saved to the database.");</script>';
