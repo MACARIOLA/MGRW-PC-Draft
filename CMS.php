@@ -15,7 +15,7 @@
     <!---------------
            TAB
     ---------------->
-    <title>MGWR PC | Home</title>
+    <title>MGWR PC | CMS</title>
     <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
 
     <!---------------
@@ -199,10 +199,10 @@
 
         <nav class="navbar">
                 <a href="adminAnalytics.html" style="--i:0">Analytics</a>
-                <a href="admin-inventory.html" style="--i:1">Inventory</a>
+                <a href="admin-inventory.php" style="--i:1">Inventory</a>
                 <a class="active" href="CMS.php" style="--i:2">CMS</a>
-                <a href="#" style="--i:3">Feedbacks</a>
-                <a href="#" style="--i:4">Contact Us</a>
+                <a href="admin-feedback.php" style="--i:3">Feedbacks</a>
+                <a href="admin-contact-us.php" style="--i:4">Contact Us</a>
         </nav>
     </header>    
 
