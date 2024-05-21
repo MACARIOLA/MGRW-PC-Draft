@@ -25,54 +25,63 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $row = $result->fetch_assoc();
 
     if ($row['count'] > 0) {
-        // Get the row of data from customer_product_reviews sorted by submission_date in descending order
-        $query = "
-            SELECT 
-                id,
-                name,
-                comment,
-                rating,
-                first_time_buyer,
-                regular_customer,
-                budget_shopper,
-                brand_loyalist,
-                gift_shopper,
-                window_shopper
-            FROM customer_product_reviews
-            WHERE id = ?
-            ORDER BY id DESC
-            LIMIT 1
-        ";
-
-        $stmt = $conn->prepare($query);
+        $check_query = "SELECT COUNT(*) as count FROM customer_feedbacks WHERE id = ?";
+        $stmt = $conn->prepare($check_query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
 
-        // Copy the row of data from customer_product_reviews into the customer_feedbacks
-        $query = "
-            INSERT INTO customer_feedbacks (
-                id,
-                name,
-                comment,
-                rating,
-                first_time_buyer,
-                regular_customer,
-                budget_shopper,
-                brand_loyalist,
-                gift_shopper,
-                window_shopper)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ";
+        if ($row['count'] == 0) {
+            $query = "
+                SELECT 
+                    id,
+                    name,
+                    comment,
+                    rating,
+                    first_time_buyer,
+                    regular_customer,
+                    budget_shopper,
+                    brand_loyalist,
+                    gift_shopper,
+                    window_shopper
+                FROM customer_product_reviews
+                WHERE id = ?
+                ORDER BY id DESC
+                LIMIT 1
+            ";
 
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("isssssssss", $row['id'], $row['name'], $row['comment'], $row['rating'], $row['first_time_buyer'], $row['regular_customer'], $row['budget_shopper'], $row['brand_loyalist'], $row['gift_shopper'], $row['window_shopper']);
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
 
-        if ($stmt->execute()) {
-            echo 'success';
+            $query = "
+                INSERT INTO customer_feedbacks (
+                    id,
+                    name,
+                    comment,
+                    rating,
+                    first_time_buyer,
+                    regular_customer,
+                    budget_shopper,
+                    brand_loyalist,
+                    gift_shopper,
+                    window_shopper)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ";
+
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("isssssssss", $row['id'], $row['name'], $row['comment'], $row['rating'], $row['first_time_buyer'], $row['regular_customer'], $row['budget_shopper'], $row['brand_loyalist'], $row['gift_shopper'], $row['window_shopper']);
+
+            if ($stmt->execute()) {
+                echo 'success';
+            } else {
+                echo 'error executing statement: ' . $stmt->error;
+            }
         } else {
-            echo 'error executing statement: ' . $stmt->error;
+            echo 'error: review already posted';
         }
     } else {
         echo 'error: review id does not exist';
@@ -83,4 +92,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else {
     echo 'error: invalid request method';
 }
-?>
+?> 
