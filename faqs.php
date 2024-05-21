@@ -13,7 +13,7 @@
     <!---------------
          CSS & JS
     ---------------->
-    <link rel="stylesheet" href="css/admin-mainstyle.css">
+    <link rel="stylesheet" href="css/mainstyle.css">
     <link rel="stylesheet" href="css/faqs.css">
 
     <!---------------
