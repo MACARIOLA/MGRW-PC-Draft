@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["fileToUpload"])) {
     $conn->query($delete_previous_query);
 
     // File upload handling
-    $target_dir = "uploads/"; // Directory where uploaded files will be stored
+    $target_dir = "../uploads/"; // Directory where uploaded files will be stored
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
