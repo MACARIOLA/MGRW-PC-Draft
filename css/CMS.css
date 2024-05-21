@@ -1067,7 +1067,19 @@
     border: 1px solid var(--black1);
 }
 
+.sentence1 {
+	text-align: center;
+    color: var(--paracolor);
+    font-size: 1.1rem;
+    line-height: 1.5em;
+	max-width: 700px;
+	margin: auto auto 20px;
+    cursor: default;
+}
 
+.hidden {
+    display: none;
+}
 
 
 /* -------------
