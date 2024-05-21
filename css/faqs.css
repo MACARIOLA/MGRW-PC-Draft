@@ -171,6 +171,9 @@
     border: 1px solid var(--black1);
 }
 
+.hidden {
+    display: none;
+}
 
 /* -------------
    BREAKPOINTS
