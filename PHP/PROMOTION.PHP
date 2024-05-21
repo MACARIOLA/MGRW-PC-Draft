@@ -2,7 +2,7 @@
      include "con_db.php";
       
 
-            $sql = "SELECT * FROM promotions WHERE ID = 1";
+            $sql = "SELECT * FROM cms_home_promotions WHERE ID = 1";
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -11,7 +11,7 @@
             }
 
 
-            $sql2 = "SELECT * FROM promotions WHERE ID = 2";
+            $sql2 = "SELECT * FROM cms_home_promotions WHERE ID = 2";
             $result2 = mysqli_query($conn, $sql2);
             if ($result2 && mysqli_num_rows($result2) > 0) {
                 while ($row2 = mysqli_fetch_assoc($result2)) {
@@ -20,14 +20,14 @@
             }
 
 
-            $sql3 = "SELECT * FROM promotions WHERE ID = 3";
+            $sql3 = "SELECT * FROM cms_home_promotions WHERE ID = 3";
             $result3 = mysqli_query($conn, $sql3);
             if ($result3 && mysqli_num_rows($result3) > 0) {
                 while ($row3 = mysqli_fetch_assoc($result3)) {
                     $promoImage3 = "data:image;base64," . base64_encode($row3['PHOTO']);
                 }
             }
-        
+
             //// for inserting photo
 
             if(isset($_POST['submit'])) {
@@ -37,7 +37,7 @@
                 $photo = $_FILES['photo']['tmp_name'];
                 $photoData = addslashes(file_get_contents($photo)); // Addslashes to escape special characters
             
-                $sql = "UPDATE promotions SET PHOTO = '$photoData' WHERE ID = 1";
+                $sql = "UPDATE cms_home_promotions SET PHOTO = '$photoData' WHERE ID = 1";
             
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
@@ -55,7 +55,7 @@
                 // Read the contents of the file
                 $photoData = addslashes(file_get_contents($photo)); // Addslashes to escape special characters
             
-                $sql = "UPDATE promotions SET PHOTO = '$photoData' WHERE ID = 2";
+                $sql = "UPDATE cms_home_promotions SET PHOTO = '$photoData' WHERE ID = 2";
             
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
@@ -71,7 +71,7 @@
                 // Read the contents of the file
                 $photoData = addslashes(file_get_contents($photo)); // Addslashes to escape special characters
             
-                $sql = "UPDATE promotions SET PHOTO = '$photoData' WHERE ID = 3";
+                $sql = "UPDATE cms_home_promotions SET PHOTO = '$photoData' WHERE ID = 3";
             
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
