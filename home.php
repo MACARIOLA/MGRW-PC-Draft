@@ -60,11 +60,11 @@
         </label>
 
         <nav class="navbar">
-            <a class="active" href="home.html" style="--i:0">Home</a>
-            <a href="aboutus.html" style="--i:1">About Us</a>
+            <a class="active" href="home.php" style="--i:0">Home</a>
+            <a href="aboutus.php" style="--i:1">About Us</a>
             <a href="pricelist.html" style="--i:2">Pricelist</a> 
-            <a href="feedback.html" style="--i:3">Feedbacks</a>
-            <a href="faqs.html" style="--i:4">FAQs</a> 
+            <a href="feedback.php" style="--i:3">Feedbacks</a>
+            <a href="faqs.php" style="--i:4">FAQs</a> 
         </nav>
     </header>     
 
