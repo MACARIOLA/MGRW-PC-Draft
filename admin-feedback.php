@@ -9,7 +9,7 @@
           TAB
     ---------------->
     <title>MGWR PC | Feedbacks</title>
-    <link rel="icon" href="./Images/Tab Icon.png" type="Images/x-icon">
+    <link rel="icon" href="Images/Tab Icon.png" type="Images/x-icon">
 
     <!---------------
         CSS & JS
