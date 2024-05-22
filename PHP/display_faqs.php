@@ -1,5 +1,4 @@
 <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -37,23 +36,25 @@ $conn->close();
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all the toggle buttons
-    const toggleButtons = document.querySelectorAll('.toggle-answer');
+    // Get all the faq elements
+    const faqs = document.querySelectorAll('.faq');
 
-    // Loop through each button
-    toggleButtons.forEach(button => {
-        // Add click event listener
-        button.addEventListener('click', function() {
+    // Loop through each faq
+    faqs.forEach(faq => {
+        // Add click event listener to the question
+        const question = faq.querySelector('.faq-question');
+        question.addEventListener('click', function() {
             // Get the corresponding answer wrapper
-            const answerWrapper = this.parentElement.nextElementSibling;
+            const answerWrapper = this.nextElementSibling;
+            const toggleButton = this.querySelector('.toggle-answer');
 
             // Toggle the max-height style of the answer wrapper
             if (answerWrapper.style.maxHeight === '0px' || answerWrapper.style.maxHeight === '') {
                 answerWrapper.style.maxHeight = answerWrapper.scrollHeight + 'px';
-                this.textContent = '-'; // Change button text to "-"
+                toggleButton.textContent = '-'; // Change button text to "-"
             } else {
                 answerWrapper.style.maxHeight = '0px';
-                this.textContent = '+'; // Change button text to "+"
+                toggleButton.textContent = '+'; // Change button text to "+"
             }
         });
     });
