@@ -18,9 +18,9 @@ SET time_zone = "+00:00";
 -- ------------------------------- --
 -- -----------< LOGIN >----------- --
 
-CREATE TABLE `admin_login` (
-  `admin_username` varchar(255) NOT NULL,
-  `admin_password` varchar(255) NOT NULL
+CREATE TABLE IF NOT EXISTS admin_login (
+  admin_username varchar(255) NOT NULL,
+  admin_password varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `admin_login` (`admin_username`, `admin_password`) VALUES
@@ -60,33 +60,33 @@ COMMIT;
 
 
 -- PRICELIST --
-CREATE TABLE `cms_pricelist_pc` (
-  `filename` varchar(255) NOT NULL,
-  `filepath` varchar(255) NOT NULL
+CREATE TABLE IF NOT EXISTS cms_pricelist_pc (
+  filename varchar(255) NOT NULL,
+  filepath varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `cms_pricelist_laptop` (
-  `filename` varchar(255) NOT NULL,
-  `filepath` varchar(255) NOT NULL
+CREATE TABLE IF NOT EXISTS cms_pricelist_laptop (
+  filename varchar(255) NOT NULL,
+  filepath varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `cms_pricelist_printer` (
-  `filename` varchar(255) NOT NULL,
-  `filepath` varchar(255) NOT NULL
+CREATE TABLE IF NOT EXISTS cms_pricelist_printer (
+  filename varchar(255) NOT NULL,
+  filepath varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `cms_pricelist_others` (
-  `filename` varchar(255) NOT NULL,
-  `filepath` varchar(255) NOT NULL
+CREATE TABLE IF NOT EXISTS cms_pricelist_others (
+  filename varchar(255) NOT NULL,
+  filepath varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 
 -- FAQS --
-CREATE TABLE `cms_faqs` (
-  `id` int NOT NULL,
-  `question` varchar(1000) NOT NULL,
-  `answer` varchar(1000) NOT NULL
+CREATE TABLE IF NOT EXISTS cms_faqs (
+  id int NOT NULL,
+  question varchar(1000) NOT NULL,
+  answer varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `cms_faqs` (`id`, `question`, `answer`) VALUES
