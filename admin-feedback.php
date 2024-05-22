@@ -52,11 +52,10 @@
             <a href="admin-inventory.php" style="--i:1">Inventory</a>
             <a href="CMS.php" style="--i:2">CMS</a>
             <a class="active" href="admin-feedback.php" style="--i:0">Feedback</a>
-            <a href="admin-contact-us.php" style="--i:4">Contact Us</a>
+            <a href="#" style="--i:4">Contact Us</a>
         </nav>
     </header> 
 
-    
 
 
     <!---------------
@@ -147,7 +146,7 @@
                         gift_shopper,
                         window_shopper
                     FROM customer_product_reviews
-                    ORDER BY id DESC";  // Assuming 'id' is an auto-incremented primary key
+                    ORDER BY id DESC"; 
                     
                         $result = $conn->query($sql);
 
@@ -179,7 +178,6 @@
                         } else {
                             echo "<tr><td colspan='6'>No feedback available</td></tr>";
                         }
-
                         $conn->close();
                     ?>
                 </tbody>    
