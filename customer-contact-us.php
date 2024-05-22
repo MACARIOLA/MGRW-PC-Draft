@@ -64,7 +64,7 @@
             <p class="sentence1">We're here to help! Reach out to us with any inquiries or feedback you may have.</p>
             <div class="contactForm">
             
-                <form class="cForm" action="" method="POST">
+                <form class="cForm" method="POST">
                     <h1 class="sub-heading">Need Support!</h1>
                     <p class="sentence1 senleft">You Have Any Questions? Problems? Tell Us!</p>
                     <input type="text" class="input" name="name" placeholder="your name" required>
