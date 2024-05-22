@@ -53,14 +53,11 @@ function postFeedback(reviewId) {
         }
     })
     .then(data => {
-        if (data === 'success') {
-            alert('Feedback posted successfully!');
-        } else {
-            alert('Failed to post feedback: ' + data);
+        if (data => 'success') {
+            alert('Feedback Status - ' + data);
         }
     })
     .catch(error => {
-        alert('Failed to post feedback due to error: ' + error.message);
-        console.error('Error:', error);
+        console.error('Review Already Posted');
     });
 }
