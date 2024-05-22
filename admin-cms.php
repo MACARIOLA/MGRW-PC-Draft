@@ -16,7 +16,7 @@
            TAB
     ---------------->
     <title>MGWR PC | CMS</title>
-    <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
+    <link rel="icon" href="Images/Tab Icon.png" type="image/x-icon">
 
     <!---------------
          CSS & JS
