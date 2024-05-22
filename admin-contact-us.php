@@ -12,7 +12,7 @@
            TAB
     ---------------->
     <title>MGWR PC | Contact Us</title>
-    <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
+    <link rel="icon" href="Images/Tab Icon.png" type="image/x-icon">
      
     <!---------------
          CSS & JS
