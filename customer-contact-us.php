@@ -46,20 +46,19 @@
             </label>
 
             <nav class="navbar">
-                <a href="home.html" style="--i:0">Home</a>
-                <a href="aboutus.html" style="--i:1">About Us</a>
+                <a href="home.php" style="--i:0">Home</a>
+                <a href="aboutus.php" style="--i:1">About Us</a>
                 <a href="pricelist.html" style="--i:2">Pricelist</a> 
-                <a href="feedback.html" style="--i:3">Feedbacks</a>
-                <a href="faqs.html" style="--i:4">FAQs</a> 
+                <a href="feedback.php" style="--i:3">Feedbacks</a>
+                <a href="faqs.php" style="--i:4">FAQs</a> 
             </nav>
         </header>        
 
 
         
         <!---------------
-        CONTACT FORM
+          CONTACT FORM
         ---------------->
-
         <section class="contact-form">
             <h1 class="heading">Get In Touch!</h1>
             <p class="sentence1">We're here to help! Reach out to us with any inquiries or feedback you may have.</p>
@@ -117,7 +116,6 @@
 
 
 
-
         <!---------------
               FOOTER
         ---------------->
@@ -130,16 +128,16 @@
             <div class="footer-content">
                 <h4>Company</h4>
                 <ul>    
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="customer-contact-us.php">Contact Us</a></li>
+                    <li><a href="faqs.php">FAQs</a></li>
                 </ul>
             </div>
             
             <div class="footer-content">
                 <h4>Help</h4>
                 <ul>
-                    <li><a href="privacy.html">Privacy Policy</a></li>                
-                    <li><a href="term.html">Terms of Service</a></li>
+                    <li><a href="customer-privacy.html">Privacy Policy</a></li>                
+                    <li><a href="customer-term.html">Terms of Service</a></li>
                 </ul>
             </div>
 
