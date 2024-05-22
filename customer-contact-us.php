@@ -37,7 +37,7 @@
               NAVBAR
         ---------------->
         <header class="header">
-            <a href="home.html"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+            <a href="home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
 
             <input type="checkbox" id="check">
             <label for="check" class="icons">
