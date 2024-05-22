@@ -249,8 +249,10 @@
                 <h2>Pricelist For PCs</h2>
                 <p>Explore our range of high-performance desktop computers. Check our price list to find the perfect fit for your needs.</p>
                 <form action="php/pc_upload.php" method="post" enctype="multipart/form-data">
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <button type="submit" class="btn">Upload</button>
+                    <label for="fileToUpload1">Choose File:</label>
+                    <input type="file" name="fileToUpload" id="fileToUpload1">
+                    <span id="pricelistfileupload1"></span>
+                    <button type="submit" name="prclstbtn1">Upload</button>
                 </form>
             </div>
 
@@ -259,8 +261,10 @@
                 <h2>Pricelist For Laptops</h2>
                 <p>Discover our selection of reliable and portable laptops. Don't forget to check our price list for great deals.</p>
                 <form action="php/laptop_upload.php" method="post" enctype="multipart/form-data">
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <button type="submit" class="btn">Upload</button>
+                    <label for="fileToUpload2">Choose File:</label>
+                    <input type="file" name="fileToUpload" id="fileToUpload2">
+                    <span id="pricelistfileupload2"></span>
+                    <button type="submit" name="prclstbtn2">Upload</button>
                 </form>
             </div>
             
@@ -269,8 +273,10 @@
                 <h2>Pricelist For Printers</h2>
                 <p>Find the ideal printer for your home or office needs among our quality selection. Check out our price list for competitive pricing.</p>     
                 <form action="php/printer_upload.php" method="post" enctype="multipart/form-data">
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <button type="submit" class="btn">Upload</button>
+                    <label label for="fileToUpload3">Choose File:</label>
+                    <input type="file" name="fileToUpload" id="fileToUpload3">
+                    <span id="pricelistfileupload3"></span>
+                    <button type="submit" name="prclstbtn3">Upload</button>
                 </form>
             </div>
 
@@ -279,13 +285,36 @@
                 <h2>Pricelist For Others</h2>
                 <p>Enhance your computing experience with our range of accessories. From cables to peripherals, find what you need in our price list.</p>        
                 <form action="php/others_upload.php" method="post" enctype="multipart/form-data">
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <button type="submit" class="btn">Upload</button>
+                    <label for="fileToUpload4">Choose File:</label>
+                    <input type="file" name="fileToUpload" id="fileToUpload4">
+                    <span id="pricelistfileupload4"></span>
+                    <button type="submit" name="prclstbtn4">Upload</button>
                 </form>
             </div>
         </div>
     </section>
 
+    <script>
+        document.getElementById('fileToUpload1').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : '';
+            document.getElementById('pricelistfileupload1').textContent = fileName;
+        });
+
+        document.getElementById('fileToUpload2').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : '';
+            document.getElementById('pricelistfileupload2').textContent = fileName;
+        });
+
+        document.getElementById('fileToUpload3').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : '';
+            document.getElementById('pricelistfileupload3').textContent = fileName;
+        });
+
+        document.getElementById('fileToUpload4').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : '';
+            document.getElementById('pricelistfileupload4').textContent = fileName;
+        });
+    </script>
 
 
     <!---------------
