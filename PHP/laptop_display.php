@@ -28,7 +28,11 @@ if ($result->num_rows > 0) {
         exit;
     }
 } else {
-    echo "No file found in the database.";
+    // JavaScript to show an alert box and redirect to pricelist.html
+    echo "<script>
+        alert('No file found in the database.');
+        window.location.href = '../pricelist.html';
+    </script>";
 }
 
 $conn->close();
