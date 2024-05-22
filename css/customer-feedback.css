@@ -57,12 +57,12 @@
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .table__body {
     width: 98%;
-    max-height: calc(89% - 1.6rem);
+    max-height: calc(100% - 1.6rem);
     background-color: #fffb;
     margin: .8rem auto;
     border-radius: .6rem;
@@ -89,6 +89,8 @@ thead th {
     text-transform: capitalize;
     text-align: center;
     cursor: default;
+    overflow: hidden;
+    z-index: 2; 
 }
 
 thead th:hover {
@@ -135,6 +137,11 @@ tbody tr.hide {
 
 tbody tr:hover {
     background-color: #fff6 !important;
+}
+
+tbody td {
+    text-align: center;
+    vertical-align: top;
 }
 
 tbody td:first-child {
