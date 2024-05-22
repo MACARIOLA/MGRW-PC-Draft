@@ -9,8 +9,6 @@
     ---------------->
     <?php include "PHP/PROMOTION.php"; ?>
     <?php include "PHP/save_content.php"; ?>
-    <?php include "php/display_faqs.php"; ?>
-
 
     <!---------------
            TAB
@@ -414,6 +412,9 @@
     <section class="faqs">
         <div class="container">
             <div class="list">
+                
+            <?php include "php/display_faqs.php"; ?>
+
                 <button id="toggleFormButton">Add</button>
                 <button id="toggleDeleteButtons">Delete</button>
                     
