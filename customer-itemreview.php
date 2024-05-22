@@ -179,7 +179,8 @@
                     Swal.fire({
                         position: "center",
                         icon: "success",
-                        title: "Your work has been saved",
+                        title: "Your Feedback Has Been Saved Successfully!",
+                        text: "It will be showed later after the administrators review your feedback",
                         showConfirmButton: true, 
                         timer: 5000, 
                         timerProgressBar: true,
@@ -187,11 +188,11 @@
                         allowEscapeKey: false 
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "feedback.php"; 
+                            window.location.href = "customer-feedback.php"; 
                         } else {
                 
                             setTimeout(function() {
-                                window.location.href = "feedback.php";
+                                window.location.href = "customer-feedback.php";
                             }, 0);
                         }
                     });
