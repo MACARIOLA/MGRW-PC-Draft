@@ -78,7 +78,7 @@ thead th {
 }
 
 thead th:hover {
-    color: #6c00bd;
+    color: var(--mgwrpcMain1);
 }
 
 thead th:first-child {
@@ -115,12 +115,17 @@ tbody tr:hover {
     background-color: #fff6 !important;
 }
 
+tbody td {
+    text-align: center;
+    vertical-align: top;
+}
+
 tbody td:first-child {
     cursor: default;
 }
    
 tbody td:nth-child(2) {
-    cursor: pointer;
+    cursor: default;
 }
 
 tbody td:nth-child(3) {
@@ -128,15 +133,8 @@ tbody td:nth-child(3) {
 }
 
 tbody td:nth-child(4) {
-    width: 10%; 
-}
-
-tbody td:nth-child(5) {
-    width: 5%; 
-}
-
-tbody td:nth-child(6) {
-    width: 5%; 
+    cursor: pointer;
+    text-align: justify;
 }
 
 tbody tr td,
@@ -223,11 +221,15 @@ tbody tr.hide td img {
     }
 
     tbody tr td:nth-child(2) {
-        width: 60%;
+        width: 10%;
     }
 
     tbody tr td:nth-child(3) {
-        width: 40%;
+        width: 10%;
+    }
+
+    tbody tr td:nth-child(4) {
+        width: 20%;
     }
 }
 
