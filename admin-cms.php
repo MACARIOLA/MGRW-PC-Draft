@@ -70,17 +70,17 @@
         <div id="popup">
             <h2 id="updatephotohead">Update Photo</h2>
             <form id="updatePhotoForm" enctype="multipart/form-data"  method="POST">
-                <label for="photoInput">Choose Photo:</label>
+                <label for="photoInput">Click Me & Choose A Photo:</label>
                 <input type="file" id="photoInput" name="photo" accept="image/*" >
                 <span id="fileName1"></span>
                 <button type="submit" name="submit">Upload</button><br/>
 
-                <label for="photoInput2">Choose Photo:</label>
+                <label for="photoInput2">Click Me & Choose A Photo:</label>
                 <input type="file" id="photoInput2" name="photo2" accept="image/*" >
                 <span id="fileName2"></span>
                 <button type="submit" name="submit2">Upload</button><br/>
 
-                <label for="photoInput3">Choose Photo:</label>
+                <label for="photoInput3">Click Me & Choose A Photo:</label>
                 <input type="file" id="photoInput3" name="photo3" accept="image/*" >
                 <span id="fileName3"></span>
                 <button type="submit" name="submit3">Upload</button>
@@ -192,7 +192,7 @@
                 <label id="comInfo" for="popupCompanyInfo">Company Info:</label>
                 <textarea id="popupCompanyInfo" name="company_info" rows="10" cols="50"></textarea>
                 
-                <label for="ABTPHOTO">Choose Photo:</label>
+                <label for="ABTPHOTO">Click Me & Choose A Photo:</label>
                 <input type="file" id="ABTPHOTO" name="ABTPHOTO" accept="image/*">
                 <span id="aboutfileName"></span>
                 <button type="submit" name="ABTPHOTOSUB">Upload</button><br/>
@@ -249,7 +249,7 @@
                 <h2>Pricelist For PCs</h2>
                 <p>Explore our range of high-performance desktop computers. Check our price list to find the perfect fit for your needs.</p>
                 <form action="php/pc_upload.php" method="post" enctype="multipart/form-data">
-                    <label for="fileToUpload1">Choose File:</label>
+                    <label for="fileToUpload1">Click Me & Choose A File:</label>
                     <input type="file" name="fileToUpload" id="fileToUpload1">
                     <span id="pricelistfileupload1"></span>
                     <button type="submit" name="prclstbtn1">Upload</button>
@@ -261,7 +261,7 @@
                 <h2>Pricelist For Laptops</h2>
                 <p>Discover our selection of reliable and portable laptops. Don't forget to check our price list for great deals.</p>
                 <form action="php/laptop_upload.php" method="post" enctype="multipart/form-data">
-                    <label for="fileToUpload2">Choose File:</label>
+                    <label for="fileToUpload2">Click Me & Choose A File:</label>
                     <input type="file" name="fileToUpload" id="fileToUpload2">
                     <span id="pricelistfileupload2"></span>
                     <button type="submit" name="prclstbtn2">Upload</button>
@@ -273,7 +273,7 @@
                 <h2>Pricelist For Printers</h2>
                 <p>Find the ideal printer for your home or office needs among our quality selection. Check out our price list for competitive pricing.</p>     
                 <form action="php/printer_upload.php" method="post" enctype="multipart/form-data">
-                    <label label for="fileToUpload3">Choose File:</label>
+                    <label label for="fileToUpload3">Click Me & Choose A File:</label>
                     <input type="file" name="fileToUpload" id="fileToUpload3">
                     <span id="pricelistfileupload3"></span>
                     <button type="submit" name="prclstbtn3">Upload</button>
@@ -285,7 +285,7 @@
                 <h2>Pricelist For Others</h2>
                 <p>Enhance your computing experience with our range of accessories. From cables to peripherals, find what you need in our price list.</p>        
                 <form action="php/others_upload.php" method="post" enctype="multipart/form-data">
-                    <label for="fileToUpload4">Choose File:</label>
+                    <label for="fileToUpload4">Click Me & Choose A File:</label>
                     <input type="file" name="fileToUpload" id="fileToUpload4">
                     <span id="pricelistfileupload4"></span>
                     <button type="submit" name="prclstbtn4">Upload</button>
@@ -321,7 +321,6 @@
           FAQs
     ---------------->
     <h1 class="heading" id="question">FAQs</h1>
-    <p class="sentence1">Got questions? Find answers to commonly asked questions here.</p>
 
     <section class="faqs">
         <div class="container">
@@ -341,33 +340,34 @@
         </div>
     </section>
 
-    <script>
-        const toggleFormButton = document.getElementById('toggleFormButton');
-        const addFaqForm = document.getElementById('addFaqForm');
+<script>
+    const toggleFormButton = document.getElementById('toggleFormButton');
+    const addFaqForm = document.getElementById('addFaqForm');
 
-        toggleFormButton.addEventListener('click', function() {
-            if (addFaqForm.style.display === 'none') {
-                addFaqForm.style.display = 'block';
-                document.getElementById('new_question').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                addFaqForm.style.display = 'none';
-            }
+    toggleFormButton.addEventListener('click', function() {
+        if (addFaqForm.style.display === 'none') {
+            addFaqForm.style.display = 'block';
+            document.getElementById('new_question').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            addFaqForm.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleDeleteButton = document.getElementById('toggleDeleteButtons');
+        const deleteButtons = document.querySelectorAll('.delete-faq');
+
+        deleteButtons.forEach(button => {
+            button.classList.add('hidden');
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleDeleteButton = document.getElementById('toggleDeleteButtons');
-            const deleteButtons = document.querySelectorAll('.delete-faq');
-
+        toggleDeleteButton.addEventListener('click', function() {
             deleteButtons.forEach(button => {
-                button.classList.add('hidden');
-            });
-
-            toggleDeleteButton.addEventListener('click', function() {
-                deleteButtons.forEach(button => {
-                    button.classList.toggle('hidden');
-                });
+                button.classList.toggle('hidden');
             });
         });
-    </script>
+    });
+
+</script>
 </body>
 </html>
