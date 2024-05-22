@@ -8,7 +8,7 @@
            TAB
     ---------------->
     <title>MGWR PC | Item Review</title>
-    <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
+    <link rel="icon" href="Images/Tab Icon.png" type="image/x-icon">
     
     <!---------------
          CSS & JS
@@ -92,7 +92,7 @@
       QUESTIONAIRES 
     ---------------->
     <div class="heading">
-        <a href="home.html"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+        <a href="home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
         <h2 id="subheading">Your answers play a crucial role in our continuous efforts to enhance our offerings and services. Thank you for helping us serve you better!</h2>
     </div>
 
@@ -159,7 +159,7 @@
 
 
     <!---------------
-        INLINE JS
+           JS
     ---------------->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -209,7 +209,5 @@
             });
         });
     </script>
-
-
 </body>
 </html>
