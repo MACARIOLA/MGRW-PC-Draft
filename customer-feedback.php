@@ -192,7 +192,7 @@
     ---------------->
     <div class="contactus">
         <p>Please Rate Your Experience</p>
-        <a class="btn-fdbck" id="leaveFeedbackBtn" href="customer-itemreview.html">Leave a Review</a>
+        <a class="btn-fdbck" id="leaveFeedbackBtn" href="customer-itemreview.php">Leave a Review</a>
     </div>
 
 
