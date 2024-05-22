@@ -8,7 +8,7 @@
            TAB
     ---------------->
     <title>MGWR PC | Survey</title>
-    <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
+    <link rel="icon" href="Images/Tab Icon.png" type="image/x-icon">
     
     <!---------------
          CSS & JS
@@ -98,7 +98,7 @@
       QUESTIONAIRES 
     ---------------->
     <div class="heading">
-        <a href="home.html"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+        <a href="home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
         <h2 id="subheading">Help us, the Developers, in improving our skills in web developing by simply answering our questions and leaving some feedback. Thank you!</h2>
     </div>
 
@@ -313,55 +313,55 @@
 
 
     <!---------------
-        INLINE JS
+           JS
     ---------------->
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("surveyForm").addEventListener("submit", function(event) {
-            event.preventDefault(); 
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("surveyForm").addEventListener("submit", function(event) {
+                event.preventDefault(); 
 
-            var formData = new FormData(this);
+                var formData = new FormData(this);
 
-            fetch("<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data); 
+                fetch("<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data); 
 
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Your work has been saved",
-                    showConfirmButton: true, 
-                    timer: 5000, 
-                    timerProgressBar: true, 
-                    allowOutsideClick: false, 
-                    allowEscapeKey: false 
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = "home.html";
-                    } else {
-
-                        setTimeout(function() {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your work has been saved",
+                        showConfirmButton: true, 
+                        timer: 5000, 
+                        timerProgressBar: true, 
+                        allowOutsideClick: false, 
+                        allowEscapeKey: false 
+                    }).then((result) => {
+                        if (result.isConfirmed) {
                             window.location.href = "home.html";
-                        }, 0); 
-                    }
-                });
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    title: "An error occurred",
-                    showConfirmButton: false,
-                    timer: 1500
+                        } else {
+
+                            setTimeout(function() {
+                                window.location.href = "home.html";
+                            }, 0); 
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "error",
+                        title: "An error occurred",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 });
             });
         });
-    });
     </script>
 </body> 
 </html>
