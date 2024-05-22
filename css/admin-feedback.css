@@ -74,8 +74,9 @@ thead th {
     cursor: pointer;
     text-transform: capitalize;
     text-align: center;
-    z-index: 2;
     cursor: default;
+    overflow: hidden;
+    z-index: 2; 
 }
 
 thead th:hover {
@@ -122,6 +123,11 @@ tbody tr.hide {
 
 tbody tr:hover {
     background-color: #fff6 !important;
+}
+
+tbody td {
+    text-align: center;
+    vertical-align: top;
 }
 
 tbody td:first-child {
