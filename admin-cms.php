@@ -176,7 +176,7 @@
                 <h1>MGWR PC</h1>
                 <p><?php echo $compinf; ?></p>
                 <p><?php echo $compdef; ?></p>
-                <button type="button" class="button" id="editButton">Edit</button>
+                <button type="button" class="abouteditbutton" id="editButton">Edit</button>
             </div>
         </div>
     </section>
