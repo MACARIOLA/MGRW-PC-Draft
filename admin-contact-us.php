@@ -49,12 +49,11 @@
         <nav class="navbar">
             <a href="adminAnalytics.html" style="--i:0">Analytics</a>
             <a href="admin-inventory.php" style="--i:1">Inventory</a>
-            <a href="CMS.php" style="--i:2">CMS</a>
+            <a href="admin-cms.php" style="--i:2">CMS</a>
             <a href="admin-feedback.php" style="--i:0">Feedback</a>
             <a class="active" href="admin-contact-us.php" style="--i:4">Inbox</a>
         </nav>
     </header> 
-
 
 
     
@@ -77,7 +76,6 @@
                     </tr>
                 </thead>
 
-
                 <tbody class="center-align">
                     <?php
                         $servername = "localhost";
@@ -85,15 +83,12 @@
                         $password = "";
                         $dbname = "mgwrpcdtb";
 
-                        // Create connection
                         $conn = new mysqli($servername, $username, $password, $dbname);
 
-                        // Check connection
                         if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
                         }
 
-                        // SQL query to fetch contact messages
                         $sql = "SELECT customer_name, email, subject, message FROM admin_contact_us";
                         $result = $conn->query($sql);
 
@@ -122,7 +117,10 @@
     </main>
 
 
-
+    
+    <!---------------
+            JS
+    ---------------->
     <script>
         function toggleAdmincontactus(element) {
             const shortText = element.querySelector('.short-admincontactus');
