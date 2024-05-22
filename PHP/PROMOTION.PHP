@@ -30,59 +30,53 @@
 
             //// for inserting photo
 
-            if(isset($_POST['submit'])) {
- 
-
-                // Handle photo upload based on photoId
-                $photo = $_FILES['photo']['tmp_name'];
-                $photoData = addslashes(file_get_contents($photo)); // Addslashes to escape special characters
+            function updatePhoto($conn, $photoID, $photoFieldName) {
+                if(isset($_FILES[$photoFieldName]['tmp_name'])) {
+                    $photo = $_FILES[$photoFieldName]['tmp_name'];
+                    $photoSize = filesize($photo); // Get the size of the photo file
             
-                $sql = "UPDATE cms_home_promotions SET PHOTO = '$photoData' WHERE ID = 1";
+                    // Check if photo size exceeds the maximum allowed packet size
+                    $maxAllowedPacket = (int) ini_get('mysqli.max_allowed_packet');
+                    if ($photoSize > $maxAllowedPacket) {
+                        // Display an error message or take appropriate action
+                        echo '<script>alert("The photo size exceeds the maximum allowed packet size. Please try again with a smaller photo.");</script>';
+                        return;
+                    }
             
-                $result = mysqli_query($conn, $sql);
-                if ($result) {
-                    echo '<meta http-equiv="refresh" content="0">';
-                } else {
-                    echo "Error updating profile photo!";
+                    $photoData = addslashes(file_get_contents($photo)); // Addslashes to escape special characters
+            
+                    $sql = "UPDATE cms_home_promotions SET PHOTO = ? WHERE ID = ?";
+                    $stmt = mysqli_prepare($conn, $sql);
+            
+                    // Bind parameters
+                    mysqli_stmt_bind_param($stmt, "si", $photoData, $photoID);
+            
+                    // Execute query
+                    if (mysqli_stmt_execute($stmt)) {
+                        echo '<meta http-equiv="refresh" content="0">';
+                    } else {
+                        echo "Error updating profile photo!";
+                    }
+            
+                    // Close statement
+                    mysqli_stmt_close($stmt);
                 }
             }
-            
-            
-            elseif(isset($_POST['submit2'])) {
-                // Handle photo upload for photo2
-                $photo = $_FILES['photo2']['tmp_name'];
-               
-                // Read the contents of the file
-                $photoData = addslashes(file_get_contents($photo)); // Addslashes to escape special characters
-            
-                $sql = "UPDATE cms_home_promotions SET PHOTO = '$photoData' WHERE ID = 2";
-            
-                $result = mysqli_query($conn, $sql);
-                if ($result) {
-                    echo '<meta http-equiv="refresh" content="0">';
-                } else {
-                    echo "Error updating profile photo!";
-                }
-            }
-             elseif(isset($_POST['submit3'])) {
-                // Handle photo upload for photo3
-                $photo = $_FILES['photo3']['tmp_name'];
-                
-                // Read the contents of the file
-                $photoData = addslashes(file_get_contents($photo)); // Addslashes to escape special characters
-            
-                $sql = "UPDATE cms_home_promotions SET PHOTO = '$photoData' WHERE ID = 3";
-            
-                $result = mysqli_query($conn, $sql);
-                if ($result) {
-                    echo '<meta http-equiv="refresh" content="0">';
-                } else {
-                    echo "Error updating profile photo!";
-                }
-            } else {
-                // Handle error (no submit button clicked)
-            }
 
-
+// Update photo for promotion 1
+if(isset($_POST['submit'])) {
+    updatePhoto($conn, 1, 'photo');
+} 
+// Update photo for promotion 2
+elseif(isset($_POST['submit2'])) {
+    updatePhoto($conn, 2, 'photo2');
+} 
+// Update photo for promotion 3
+elseif(isset($_POST['submit3'])) {
+    updatePhoto($conn, 3, 'photo3');
+} 
+else {
+    // Handle error (no submit button clicked)
+}
             
             ?>
