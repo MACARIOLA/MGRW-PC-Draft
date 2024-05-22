@@ -23,143 +23,6 @@
     <link rel="stylesheet" href="css/cms.css">
     <script src="js/mainscript.js"></script>
 
-    <style>
-        /*---------------
-            PROMOTION
-        ---------------*/
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); 
-            z-index: 1000; 
-            display: none; 
-        }
-
-        .popup {
-            position: fixed;
-            top: 5%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff; 
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
-            z-index: 1001; 
-            max-width: 80%; 
-            max-height: 80%; 
-            overflow-y: auto; 
-            display: none; 
-        }
-
-        #openPopup {
-            background-color: green; 
-            color: white; 
-            padding: 10px 20px; 
-            font-size: 1.2em; 
-            border: none; 
-            cursor: pointer; 
-            border-radius: 5px; 
-        }
-
-        #openPopup:hover {
-            background-color: darkgreen; 
-        }
-
-        .non-editable {
-            border: none;
-            resize: none;
-            background-color: transparent;
-            pointer-events: none;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 35%;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-        }
-            
-        .btn-container {
-            display: flex;
-            justify-content: space-between;
-        }
-
-
-
-        /*---------------
-              FAQS
-        ---------------*/
-        #addFaqForm {
-            display: none; 
-            margin-top: 20px;
-            width: 80%; 
-            max-width: 600px; 
-            margin: 20px auto; 
-            padding: 20px; 
-            background-color: #8C52FF; 
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #toggleFormButton, #toggleDeleteButtons {
-            font-size: 25px; 
-            padding: 10px 20px; 
-            border: none; 
-            background-color: #007bff; 
-            color: white; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            margin: 0 10px; 
-            display: inline-block;
-        }
-
-        #toggleFormButton:hover, #toggleDeleteButtons:hover {
-            background-color: #0056b3;
-        }
-
-        input[type="text"],
-        textarea {
-            width: 100%; 
-            padding: 10px; 
-            margin-bottom: 10px; 
-            border: 1px solid #ccc; 
-            border-radius: 5px; 
-            box-sizing: border-box; 
-            
-        }
-
-        input[type="submit"] {
-            background-color: #17E202; 
-            color: white; 
-            border: none; 
-            border-radius: 5px; 
-            padding: 10px 20px; 
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #11BC00; 
-            transition: color 0.3s ease, background-color 0.3s ease; 
-        }
-    </style>
-
     <!---------------
           FONTS
     ---------------->
@@ -202,27 +65,47 @@
           POPUP
     ---------------->
     <button id="openPopup">UPDATE PHOTO</button>
-    <div class="overlay" id="overlay" style="display: none;">
+    <div id="overlay" style="display: none;">
     
-        <div class="popup" id="popup">
-            <h2>Update Photo</h2>
+        <div id="popup">
+            <h2 id="updatephotohead">Update Photo</h2>
             <form id="updatePhotoForm" enctype="multipart/form-data"  method="POST">
                 <label for="photoInput">Choose Photo:</label>
                 <input type="file" id="photoInput" name="photo" accept="image/*" >
+                <span id="fileName1"></span>
                 <button type="submit" name="submit">Upload</button><br/>
 
                 <label for="photoInput2">Choose Photo:</label>
                 <input type="file" id="photoInput2" name="photo2" accept="image/*" >
+                <span id="fileName2"></span>
                 <button type="submit" name="submit2">Upload</button><br/>
 
                 <label for="photoInput3">Choose Photo:</label>
                 <input type="file" id="photoInput3" name="photo3" accept="image/*" >
+                <span id="fileName3"></span>
                 <button type="submit" name="submit3">Upload</button>
             </form>
  
             <button id="closePopup">Close</button>
         </div>
     </div>
+
+    <script>
+        document.getElementById('photoInput').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : '';
+            document.getElementById('fileName1').textContent = fileName;
+        });
+
+        document.getElementById('photoInput2').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : '';
+            document.getElementById('fileName2').textContent = fileName;
+        });
+
+        document.getElementById('photoInput3').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : '';
+            document.getElementById('fileName3').textContent = fileName;
+        });
+    </script>
 
     <!---------------
         PROMOTIONS
@@ -305,20 +188,18 @@
     <div id="editModal" class="modal">
         <div class="modal-content">
             <form id="editForm"  method="POST" enctype="multipart/form-data">
-                <h2>Edit Company Details</h2>
-                <label for="popupCompanyInfo">Company Info:</label>
+                <h2 id="aboutHead">Edit Company Details</h2>
+                <label id="comInfo" for="popupCompanyInfo">Company Info:</label>
                 <textarea id="popupCompanyInfo" name="company_info" rows="10" cols="50"></textarea>
-                <br/>
-                <label for="popupCompanyDetails">Company Details:</label>
-                <textarea id="popupCompanyDetails" name="company_details" rows="10" cols="50"></textarea>
                 
                 <label for="ABTPHOTO">Choose Photo:</label>
-                <input type="file" id="ABTPHOTO1" name="ABTPHOTO" accept="image/*">
+                <input type="file" id="ABTPHOTO" name="ABTPHOTO" accept="image/*">
+                <span id="aboutfileName"></span>
                 <button type="submit" name="ABTPHOTOSUB">Upload</button><br/>
                 
                 <div class="btn-container">
-                    <button type="submit" name="saveButton">Save</button>
-                    <button type="button" id="cancelButton">Back</button>
+                    <button type="submit" id="aboutSaveButton" name="saveButton">Save</button>
+                    <button type="button" id="aboutBackButton">Back</button>
                 </div>
             </form>
         </div>
@@ -329,10 +210,9 @@
             const editButton = document.getElementById("editButton");
             const editModal = document.getElementById("editModal");
             const popupCompanyInfo = document.getElementById("popupCompanyInfo");
-            const popupCompanyDetails = document.getElementById("popupCompanyDetails");
             const editForm = document.getElementById("editForm");
-            const saveButton = document.getElementById("saveButton");
-            const cancelButton = document.getElementById("cancelButton");
+            const saveButton = document.getElementById("aboutSaveButton");
+            const cancelButton = document.getElementById("aboutBackButton");
 
             editButton.addEventListener("click", function () {
                 editModal.style.display = "block";
@@ -347,6 +227,11 @@
                     editModal.style.display = "none";
                 }
             });
+        });
+
+        document.getElementById('ABTPHOTO').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : '';
+            document.getElementById('aboutfileName').textContent = fileName;
         });
     </script>
     
