@@ -128,16 +128,16 @@
         <div class="footer-content">
             <h4>Company</h4>
             <ul>    
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="customer-contact-us.php">Contact Us</a></li>
+                <li><a href="customer-faqs.php">FAQs</a></li>
             </ul>
         </div>
         
         <div class="footer-content">
             <h4>Help</h4>
             <ul>
-                <li><a href="privacy.html">Privacy Policy</a></li>                
-                <li><a href="term.html">Terms of Service</a></li>
+                <li><a href="customer-privacy.html">Privacy Policy</a></li>                
+                <li><a href="customer-terms.html">Terms of Service</a></li>
             </ul>
         </div>
 
