@@ -14,7 +14,7 @@
     <!---------------
            TAB
     ---------------->
-    <title>MGWR PC | Contact Us</title>
+    <title>MGWR PC | Inbox</title>
     <link rel="icon" href="Images/Tab Icon.png" type="image/x-icon">
      
     <!---------------
