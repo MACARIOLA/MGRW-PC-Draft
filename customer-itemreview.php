@@ -13,11 +13,11 @@
     <!---------------
          CSS & JS
     ---------------->
-    <link rel="stylesheet" href="css/survey.css">
+    <link rel="stylesheet" href="css/customer-survey.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!---------------
-         PHP
+          PHP
     ---------------->
     <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -92,7 +92,7 @@
       QUESTIONAIRES 
     ---------------->
     <div class="heading">
-        <a href="home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+        <a href="customer-home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
         <h2 id="subheading">Your answers play a crucial role in our continuous efforts to enhance our offerings and services. Thank you for helping us serve you better!</h2>
     </div>
 
