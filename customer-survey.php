@@ -13,7 +13,7 @@
     <!---------------
          CSS & JS
     ---------------->
-    <link rel="stylesheet" href="css/survey.css">
+    <link rel="stylesheet" href="css/customer-survey.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!---------------
@@ -98,7 +98,7 @@
       QUESTIONAIRES 
     ---------------->
     <div class="heading">
-        <a href="home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+        <a href="customer-home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
         <h2 id="subheading">Help us, the Developers, in improving our skills in web developing by simply answering our questions and leaving some feedback. Thank you!</h2>
     </div>
 
@@ -134,7 +134,6 @@
                     <input type="radio" id="option5" name="radio1" class="radio-btn" value="Poor">
                     <label for="option5" class="radio-text">Poor</label>
                 </div>
-
 
             <label id="head1">2. What did you like most about the MGWR PC Online website?</label><br><br>
                 <div class="radio-container">
@@ -333,7 +332,8 @@
                     Swal.fire({
                         position: "center",
                         icon: "success",
-                        title: "Your work has been saved",
+                        title: "Your Feedback Has Been Received Successfully!",
+                        text: "Thank you!",
                         showConfirmButton: true, 
                         timer: 5000, 
                         timerProgressBar: true, 
@@ -341,11 +341,11 @@
                         allowEscapeKey: false 
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "home.html";
+                            window.location.href = "customer-home.php";
                         } else {
 
                             setTimeout(function() {
-                                window.location.href = "home.html";
+                                window.location.href = "customer-home.php";
                             }, 0); 
                         }
                     });
