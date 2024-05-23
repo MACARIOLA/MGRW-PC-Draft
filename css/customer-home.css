@@ -175,12 +175,53 @@
 
 @media screen and (max-width: 900px) {
     .slider{
-        height: 400px;
+        height: 460px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .slider{
+        height: 410px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .slider{
+        height: 360px;
     }
 
-    .item img {
-        content: url('Images/bg1.jpg');
+	.slider .buttons button{
+	    width: 40px;
+	    height: 40px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+    .slider{
+        height: 310px;
     }
+
+	.slider .buttons button{
+	    width: 35px;
+	    height: 35px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+    .slider{
+        height: 260px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .slider{
+        height: 210px;
+    }
+
+	.slider .buttons button{
+	    width: 30px;
+	    height: 30px;
+	}
 }
 
 
