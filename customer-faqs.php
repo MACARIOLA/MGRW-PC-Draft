@@ -33,7 +33,7 @@
          CSS & JS
     ---------------->
     <link rel="stylesheet" href="css/mainstyle.css">
-    <link rel="stylesheet" href="css/faqs.css">
+    <link rel="stylesheet" href="css/customer-faqs.css">
 
     <!---------------
           FONTS
