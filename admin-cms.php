@@ -20,7 +20,7 @@
          CSS & JS
     ---------------->
     <link rel="stylesheet" href="css/mainstyle.css">
-    <link rel="stylesheet" href="css/cms.css">
+    <link rel="stylesheet" href="css/admin-cms.css">
     <script src="js/mainscript.js"></script>
 
     <!---------------
@@ -44,7 +44,7 @@
           NAVBAR
     ---------------->
     <header class="header">
-        <a href="adminAnalytics.html"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+        <a href="admin-analytics.html"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
 
         <input type="checkbox" id="check">
         <label for="check" class="icons">
@@ -53,7 +53,7 @@
         </label>
    
         <nav class="navbar">
-            <a href="adminAnalytics.html" style="--i:0">Analytics</a>
+            <a href="admin-analytics.html" style="--i:0">Analytics</a>
             <a href="admin-inventory.php" style="--i:1">Inventory</a>
             <a class="active" href="admin-cms.php" style="--i:2">CMS</a>
             <a href="admin-feedback.php" style="--i:3">Feedbacks</a>
@@ -61,8 +61,10 @@
         </nav>
     </header>    
 
+
+
     <!---------------
-          POPUP
+      UPDATE PROMO
     ---------------->
     <button id="openPopup">UPDATE PHOTO</button>
     <div id="overlay" style="display: none;">
@@ -85,11 +87,13 @@
                 <span id="fileName3"></span>
                 <button type="submit" name="submit3">Upload</button>
             </form>
- 
             <button id="closePopup">Close</button>
         </div>
     </div>
 
+    <!---------------
+        INLINE JS
+    ---------------->
     <script>
         document.getElementById('photoInput').addEventListener('change', function() {
             var fileName = this.files[0] ? this.files[0].name : '';
@@ -137,6 +141,9 @@
         </div>
     </section>
 
+    <!---------------
+        INLINE JS
+    ---------------->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const openButton = document.getElementById('openPopup');
@@ -162,7 +169,7 @@
 
 
    <!---------------
-         ABOUT US
+        ABOUT US
     ---------------->
     <section class="about">
         <div class="main">
@@ -181,9 +188,8 @@
         </div>
     </section>
 
-
     <!---------------
-         EDIT POPUP
+     UPDATE ABOUT US
     ---------------->
     <div id="editModal" class="modal">
         <div class="modal-content">
@@ -205,6 +211,9 @@
         </div>
     </div>
 
+    <!---------------
+        INLINE JS
+    ---------------->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const editButton = document.getElementById("editButton");
@@ -294,6 +303,9 @@
         </div>
     </section>
 
+    <!---------------
+        INLINE JS
+    ---------------->
     <script>
         document.getElementById('fileToUpload1').addEventListener('change', function() {
             var fileName = this.files[0] ? this.files[0].name : '';
@@ -315,6 +327,7 @@
             document.getElementById('pricelistfileupload4').textContent = fileName;
         });
     </script>
+
 
 
     <!---------------
@@ -340,34 +353,36 @@
         </div>
     </section>
 
-<script>
-    const toggleFormButton = document.getElementById('toggleFormButton');
-    const addFaqForm = document.getElementById('addFaqForm');
+    <!---------------
+        INLINE JS
+    ---------------->
+    <script>
+        const toggleFormButton = document.getElementById('toggleFormButton');
+        const addFaqForm = document.getElementById('addFaqForm');
 
-    toggleFormButton.addEventListener('click', function() {
-        if (addFaqForm.style.display === 'none') {
-            addFaqForm.style.display = 'block';
-            document.getElementById('new_question').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            addFaqForm.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggleDeleteButton = document.getElementById('toggleDeleteButtons');
-        const deleteButtons = document.querySelectorAll('.delete-faq');
-
-        deleteButtons.forEach(button => {
-            button.classList.add('hidden');
+        toggleFormButton.addEventListener('click', function() {
+            if (addFaqForm.style.display === 'none') {
+                addFaqForm.style.display = 'block';
+                document.getElementById('new_question').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                addFaqForm.style.display = 'none';
+            }
         });
 
-        toggleDeleteButton.addEventListener('click', function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleDeleteButton = document.getElementById('toggleDeleteButtons');
+            const deleteButtons = document.querySelectorAll('.delete-faq');
+
             deleteButtons.forEach(button => {
-                button.classList.toggle('hidden');
+                button.classList.add('hidden');
+            });
+
+            toggleDeleteButton.addEventListener('click', function() {
+                deleteButtons.forEach(button => {
+                    button.classList.toggle('hidden');
+                });
             });
         });
-    });
-
-</script>
+    </script>
 </body>
 </html>
