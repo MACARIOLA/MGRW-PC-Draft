@@ -1,3 +1,6 @@
+<!---------------
+       PHP
+---------------->
 <?php
     include 'PHP/customer-contact-us.php';
 ?>
@@ -17,7 +20,7 @@
              CSS & JS
         ---------------->
         <link rel="stylesheet" href="css/mainstyle.css">
-        <link rel="stylesheet" href="css/contact.css">
+        <link rel="stylesheet" href="css/customer-contact.css">
 
         <!---------------
               FONTS
@@ -37,7 +40,7 @@
               NAVBAR
         ---------------->
         <header class="header">
-            <a href="home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+            <a href="customer-home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
 
             <input type="checkbox" id="check">
             <label for="check" class="icons">
@@ -46,11 +49,11 @@
             </label>
 
             <nav class="navbar">
-                <a href="home.php" style="--i:0">Home</a>
-                <a href="aboutus.php" style="--i:1">About Us</a>
-                <a href="pricelist.html" style="--i:2">Pricelist</a> 
+                <a href="customer-home.php" style="--i:0">Home</a>
+                <a href="customer-aboutus.php" style="--i:1">About Us</a>
+                <a href="customer-pricelist.html" style="--i:2">Pricelist</a> 
                 <a href="customer-feedback.php" style="--i:3">Feedbacks</a>
-                <a href="faqs.php" style="--i:4">FAQs</a> 
+                <a href="customer-faqs.php" style="--i:4">FAQs</a> 
             </nav>
         </header>        
 
@@ -80,82 +83,82 @@
                        MAP
                 ---------------->
                 <div class="map-container">
-                <div class="mapBg"></div>
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/d/embed?mid=13sQ_EYgIUgIqghJZe89MJseYKkAAYFw&hl=en&ehbc=2E312F" width="640" height="480"></iframe>
+                    <div class="mapBg"></div>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/d/embed?mid=13sQ_EYgIUgIqghJZe89MJseYKkAAYFw&hl=en&ehbc=2E312F" width="640" height="480"></iframe>
+                    </div>
                 </div>
             </div>
+                
+            <div class="contactMethod">
+                <div class="method">
+                    <i class="fa-solid fa-location-dot contactIcon"></i>
+                    <article class="text">
+                        <h1 class="sub-heading">Location</h1>
+                        <p class="sentence2">206 Governors Drive Biñan City Laguna</p>
+                    </article>
+                </div>
+    
+                <div class="method">
+                    <i class="fa-solid fa-envelope contactIcon"></i>
+                    <article class="text">
+                        <h1 class="sub-heading">Email</h1>
+                        <p class="sentence2">Email: mgwr.cp.accs@gmail.com</p>
+                    </article>
+                </div>
+    
+                <div class="method">
+                    <i class="fa-solid fa-phone contactIcon"></i>
+                    <article class="text">
+                        <h1 class="sub-heading">Phone</h1>
+                        <p class="sentence2">+49 5401 581</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+
+    <!---------------
+          FOOTER
+    ---------------->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="logo2">MGWR PC</span>
+            <p>Committed in providing you with the best Computer parts and accessories, with a focus on product quality, best service, and real-time assistance.</p>
         </div>
-    
-        <div class="contactMethod">
-            <div class="method">
-                <i class="fa-solid fa-location-dot contactIcon"></i>
-                <article class="text">
-                    <h1 class="sub-heading">Location</h1>
-                    <p class="sentence2">206 Governors Drive Biñan City Laguna</p>
-                </article>
-            </div>
-    
-            <div class="method">
-                <i class="fa-solid fa-envelope contactIcon"></i>
-                <article class="text">
-                    <h1 class="sub-heading">Email</h1>
-                    <p class="sentence2">Email: mgwr.cp.accs@gmail.com</p>
-                </article>
-            </div>
-    
-            <div class="method">
-                <i class="fa-solid fa-phone contactIcon"></i>
-                <article class="text">
-                    <h1 class="sub-heading">Phone</h1>
-                    <p class="sentence2">+49 5401 581</p>
-                </article>
-            </div>
+
+        <div class="footer-content">
+            <h4>Company</h4>
+            <ul>                        
+                <li><a href="customer-contact-us.php">Contact Us</a></li>
+                <li><a href="faqs.php">FAQs</a></li>
+            </ul>
         </div>
-       </section>
-
-
-
-        <!---------------
-              FOOTER
-        ---------------->
-        <footer class="footer">
-            <div class="footer-content">
-                <span class="logo2">MGWR PC</span>
-                <p>Committed in providing you with the best Computer parts and accessories, with a focus on product quality, best service, and real-time assistance.</p>
-            </div>
-
-            <div class="footer-content">
-                <h4>Company</h4>
-                <ul>    
-                    <li><a href="customer-contact-us.php">Contact Us</a></li>
-                    <li><a href="faqs.php">FAQs</a></li>
-                </ul>
-            </div>
             
-            <div class="footer-content">
-                <h4>Help</h4>
-                <ul>
-                    <li><a href="customer-privacy.html">Privacy Policy</a></li>                
-                    <li><a href="customer-term.html">Terms of Service</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-content">
-                <h4>Connect With Us</h4>
-                <div class="icons2">
-                    <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
-                    <a href="https://www.instagram.com/mgwrpc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="Images/igicon.png" alt=""></a>
-                    <a href="https://www.tiktok.com/@mgwrpctrading?is_from_webapp=1&sender_device=pc"><img src="Images/tticon.png" alt=""></a>
-                </div>
-            </div>
-        </footer>
-
-        <!---------------
-           COPYRIGHTS
-        ---------------->
-        <div class="copyrights">
-            <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
+        <div class="footer-content">
+            <h4>Help</h4>
+            <ul>
+                <li><a href="customer-privacy.html">Privacy Policy</a></li>                
+                <li><a href="customer-term.html">Terms of Service</a></li>
+            </ul>
         </div>
-    </body>
-    </html>
+
+        <div class="footer-content">
+            <h4>Connect With Us</h4>
+            <div class="icons2">
+                <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
+                <a href="https://www.instagram.com/mgwrpc"><img src="Images/igicon.png" alt=""></a>
+                <a href="https://www.tiktok.com/@mgwrpctrading"><img src="Images/tticon.png" alt=""></a>
+            </div>
+        </div>
+    </footer>
+
+    <!---------------
+       COPYRIGHTS
+    ---------------->
+    <div class="copyrights">
+        <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
+    </div>
+</body>
+</html>
