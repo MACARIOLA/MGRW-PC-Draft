@@ -20,14 +20,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!---------------
+           TAB
+    ---------------->
     <title>MGWR PC | FAQs</title>
-    <link rel="icon" href="./Images/Tab Icon.png" type="image/x-icon">
+    <link rel="icon" href="Images/Tab Icon.png" type="image/x-icon">
+
+    <!---------------
+         CSS & JS
+    ---------------->
     <link rel="stylesheet" href="css/mainstyle.css">
     <link rel="stylesheet" href="css/faqs.css">
+
+    <!---------------
+          FONTS
+    ---------------->
     <script src="https://kit.fontawesome.com/aa7454d09f.js" crossorigin="anonymous"></script>
+
+    <!---------------
+          ICONS
+    ---------------->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 </head>
+
+
 
 <body class="contactBg">
     <header class="header">
@@ -38,11 +56,11 @@
             <img src="Images/MenuX.png" alt="" id="close-icon">
         </label>
         <nav class="navbar">
-            <a href="home.html" style="--i:0">Home</a>
-            <a href="aboutus.html" style="--i:1">About Us</a>
+            <a href="home.php" style="--i:0">Home</a>
+            <a href="aboutus.php" style="--i:1">About Us</a>
             <a href="pricelist.html" style="--i:2">Pricelist</a> 
-            <a href="feedback.html" style="--i:3">Feedbacks</a>
-            <a class="active" href="faqs.html" style="--i:4">FAQs</a> 
+            <a href="feedback.php" style="--i:3">Feedbacks</a>
+            <a class="active" href="faqs.php" style="--i:4">FAQs</a> 
         </nav>
     </header>     
 
@@ -54,28 +72,26 @@
             <div class="list">
 
                 <?php
-                include 'db_connection.php';
+                    $sql = "SELECT question, answer FROM cms_faqs";
+                    $result = $conn->query($sql);
 
-                $sql = "SELECT question, answer FROM cms_faqs";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        echo '<div class="list-items">';
-                        echo '<span class="list-link">';
-                        echo htmlspecialchars($row["question"]);
-                        echo '<i class="icon ion-md-add"></i>';
-                        echo '<i class="icon ion-md-remove"></i>';
-                        echo '</span>';
-                        echo '<div class="answer">';
-                        echo '<p>' . nl2br(htmlspecialchars($row["answer"])) . '</p>';
-                        echo '</div>';
-                        echo '</div>';
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo '<div class="list-items">';
+                            echo '<span class="list-link">';
+                            echo htmlspecialchars($row["question"]);
+                            echo '<i class="icon ion-md-add"></i>';
+                            echo '<i class="icon ion-md-remove"></i>';
+                            echo '</span>';
+                            echo '<div class="answer">';
+                            echo '<p>' . nl2br(htmlspecialchars($row["answer"])) . '</p>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo "0 results";
                     }
-                } else {
-                    echo "0 results";
-                }
-                $conn->close();
+                    $conn->close();
                 ?>
             </div>
         </div>
