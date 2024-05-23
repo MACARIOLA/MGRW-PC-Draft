@@ -203,28 +203,48 @@ select:-webkit-autofill:focus {
 /* -------------
    BREAKPOINTS
 -------------- */
-@media screen and (max-width:1000px) {
+@media screen and (max-width: 800px) {
+	.sub-heading, .sentence1 {
+		margin-top: 20px;
+        text-align: center;
+    }
+	
     .sentence2 {
-        font-size: 12px;
+        font-size: 14px;
+		text-align: left;
     }
 
-}
+	.sub-heading {
+		text-align: left;
+	}
 
-@media screen and (max-width:1000px) {
     .input {
         width: 100%;
         min-width: 420px;
         margin-bottom: 1em;
     }
+
+	.map-container {
+	    position: relative;
+	    width: 95%;
+	    height: 100px;
+		margin-left: 35px;
+		margin-bottom: 400px;
+	}
+
+	.contactMethod {
+	    margin-top: 5%;
+	    text-align: left;
+		margin-left: 40px;
+    }
 }
 
 @media screen and (min-width:800px) {
-
     .contactForm{
         grid-template-columns: 1fr 1fr;
         margin-bottom: 0;
-    }   
-
+    }
+	
     .contactMethod{
         flex-direction: row;
         justify-content: space-between;
@@ -235,3 +255,5 @@ select:-webkit-autofill:focus {
         justify-content: center;
     }
 }
+
+   
