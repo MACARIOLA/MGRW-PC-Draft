@@ -52,7 +52,7 @@
             <a href="admin-inventory.php" style="--i:1">Inventory</a>
             <a href="admin-cms.php" style="--i:2">CMS</a>
             <a class="active" href="admin-feedback.php" style="--i:0">Feedback</a>
-            <a href="admin-contact-us.php" style="--i:4">Contact Us</a>
+            <a href="admin-contact-us.php" style="--i:4">Inbox</a>
         </nav>
     </header> 
 
