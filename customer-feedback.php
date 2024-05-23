@@ -39,7 +39,7 @@
           NAVBAR
     ---------------->
     <header class="header">
-        <a href="home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+        <a href="customer-home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
 
         <input type="checkbox" id="check">
         <label for="check" class="icons">
@@ -48,11 +48,11 @@
         </label>
 
         <nav class="navbar">
-            <a href="home.php" style="--i:1">Home</a>
-            <a href="aboutus.php" style="--i:1">About Us</a>
-            <a href="pricelist.html" style="--i:2">Pricelist</a> 
+            <a href="customer-home.php" style="--i:1">Home</a>
+            <a href="customer-aboutus.php" style="--i:1">About Us</a>
+            <a href="customer-pricelist.html" style="--i:2">Pricelist</a> 
             <a class="active" href="customer-feedback.php" style="--i:0">Feedback</a>
-            <a href="faqs.php" style="--i:4">FAQs</a> 
+            <a href="customer-faqs.php" style="--i:4">FAQs</a> 
         </nav>
     </header>     
     
@@ -168,7 +168,7 @@
                                 <td class='center-content'>{$row['name']}</td>
                                 <td class='feedback-cell justify-comment' onclick='toggleFeedback(this)'>
                                     <span class='short-feedback'>" . substr($row['comment'], 0, 50) . "...</span>
-                                    <span class='full-feedback' style='display:none;'>{$row['comment']}</span>
+                                    <span class='full-feedback' style='display:none ;'>{$row['comment']}</span>
                                 </td>
                                 <td class='center-content'>{$stars_html}</td>
                                 <td class='center-content'>{$tags_str}</td>
@@ -210,7 +210,7 @@
             <h4>Company</h4>
             <ul>    
                 <li><a href="customer-contact-us.php">Contact Us</a></li>
-                <li><a href="faqs.php">FAQs</a></li>
+                <li><a href="customer-faqs.php">FAQs</a></li>
             </ul>
         </div>
         
@@ -226,8 +226,8 @@
             <h4>Connect With Us</h4>
             <div class="icons2">
                 <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
-                <a href="https://www.instagram.com/mgwrpc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="Images/igicon.png" alt=""></a>
-                <a href="https://www.tiktok.com/@mgwrpctrading?is_from_webapp=1&sender_device=pc"><img src="Images/tticon.png" alt=""></a>
+                <a href="https://www.instagram.com/mgwrpc"><img src="Images/igicon.png" alt=""></a>
+                <a href="https://www.tiktok.com/@mgwrpctrading"><img src="Images/tticon.png" alt=""></a>
             </div>
         </div>
     </footer>
