@@ -132,7 +132,7 @@
             <h4>Company</h4>
             <ul>                        
                 <li><a href="customer-contact-us.php">Contact Us</a></li>
-                <li><a href="faqs.php">FAQs</a></li>
+                <li><a href="customer-faqs.php">FAQs</a></li>
             </ul>
         </div>
             
