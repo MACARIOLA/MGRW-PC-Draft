@@ -31,7 +31,7 @@ CREATE TABLE `about_us` (
   `id` int(11) NOT NULL,
   `company_info` varchar(200) NOT NULL,
   `company_details` varchar(200) NOT NULL,
-  `image` blob DEFAULT NULL
+  `image` LONGBLOB DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
