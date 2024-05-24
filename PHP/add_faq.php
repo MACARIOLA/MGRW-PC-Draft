@@ -22,7 +22,7 @@ $sql = "INSERT INTO cms_faqs (question, answer) VALUES ('$new_question', '$new_a
 
 if ($conn->query($sql) === TRUE) {
     // Data inserted successfully, redirect back to cms.php
-    header("Location: ../cms.php");
+    header("Location: ../admin-cms.php");
     // Show success message on cms.php
     exit;
 } else {
