@@ -345,8 +345,8 @@
                 <button id="toggleDeleteButtons">Delete</button>
                     
                 <form id="addFaqForm" action="php/add_faq.php" method="post" style="display: none;">
-                    <input type="text" id="new_question" name="new_question" placeholder="Question"><br>
-                    <textarea id="new_answer" name="new_answer" rows="4" cols="50" placeholder="Answer"></textarea><br>
+                    <input type="text" id="new_question" name="new_question" placeholder="Question" required><br>
+                    <textarea id="new_answer" name="new_answer" rows="4" cols="50" placeholder="Answer" required></textarea><br>
                     <input type="submit" value="Submit">
                 </form>
             </div>
@@ -357,6 +357,49 @@
         INLINE JS
     ---------------->
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const listLinks = document.querySelectorAll('.list-link');
+
+        listLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                const answer = this.nextElementSibling;
+                const allAnswers = document.querySelectorAll('.answer');
+                const allIconsAdd = document.querySelectorAll('.ion-md-add');
+                const allIconsRemove = document.querySelectorAll('.ion-md-remove');
+
+                allAnswers.forEach(ans => {
+                    ans.style.maxHeight = null;
+                });
+
+                allIconsAdd.forEach(icon => {
+                    icon.style.display = 'inline';
+                });
+
+                allIconsRemove.forEach(icon => {
+                    icon.style.display = 'none';
+                });
+
+                if (answer.classList.contains('expanded')) {
+                    answer.classList.remove('expanded');
+                    this.querySelector('.ion-md-add').style.display = 'inline';
+                    this.querySelector('.ion-md-remove').style.display = 'none';
+                } else {
+                    allAnswers.forEach(ans => {
+                        ans.classList.remove('expanded');
+                        ans.style.maxHeight = null;
+                    });
+
+                    answer.classList.add('expanded');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    this.querySelector('.ion-md-add').style.display = 'none';
+                    this.querySelector('.ion-md-remove').style.display = 'inline';
+                }
+            });
+        });
+
         const toggleFormButton = document.getElementById('toggleFormButton');
         const addFaqForm = document.getElementById('addFaqForm');
 
@@ -369,20 +412,40 @@
             }
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleDeleteButton = document.getElementById('toggleDeleteButtons');
-            const deleteButtons = document.querySelectorAll('.delete-faq');
+        const toggleDeleteButtons = document.getElementById('toggleDeleteButtons');
+        const deleteFaqButtons = document.querySelectorAll('.delete-faq');
 
-            deleteButtons.forEach(button => {
-                button.classList.add('hidden');
-            });
-
-            toggleDeleteButton.addEventListener('click', function() {
-                deleteButtons.forEach(button => {
-                    button.classList.toggle('hidden');
-                });
+        toggleDeleteButtons.addEventListener('click', function() {
+            deleteFaqButtons.forEach(button => {
+                button.style.display = button.style.display === 'none' ? 'block' : 'none';
             });
         });
+
+            deleteFaqButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const faqId = this.parentElement.getAttribute('data-id');
+            
+            if (confirm('Are you sure you want to delete this FAQ?')) {
+                fetch('php/delete_faq.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', // Specify content type as JSON
+                    },
+                    body: JSON.stringify({ id: faqId }) // Convert data to JSON format
+                })
+                .then(response => response.json()) // Parse response as JSON
+                .then(data => {
+                    if (data.success) {
+                        this.parentElement.remove();
+                    } else {
+                        alert('Failed to delete FAQ: ' + data.error);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        });
+    });
+    });
     </script>
 </body>
 </html>
