@@ -20,11 +20,16 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // Output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<div class='faq' data-id='" . $row["id"] . "' style='background-color: var(--black2); border-radius: 10px; margin-bottom: 1rem; padding: 1.3rem; box-shadow: .5rem 2px .5rem rgba(0, 0, 0, .1); cursor: pointer;'>";
-        echo "<h3 class='faq-question' style='font-size: 20px; color: var(--white1); display: flex; justify-content: space-between; align-items: center;'>" . $row["question"] . "<button class='toggle-answer' style='background: none; border: none; color: var(--white1); font-size: 24px; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; border-radius: 50%; cursor: pointer;'>+</button></h3>";
-        echo "<div class='faq-answer-wrapper' style='max-height: 0; overflow: hidden; transition: max-height 0.5s ease;'><p class='faq-answer' style='font-size: 18px; color: var(--mgwrpcMain2);'>" . $row["answer"] . "</p></div>";
-        echo "<button class='delete-faq hidden' style='background-color: red; color: white; border: none; padding: 5px 10px; margin-top: 10px; cursor: pointer;'>Delete</button>"; // Initially hidden
-        echo "</div>";
+        echo '<div class="list-items" data-id="' . $row["id"] . '" style="background-color: var(--black2); border-radius: 10px; margin-bottom: 1rem; padding: 1.3rem; box-shadow: .5rem 2px .5rem rgba(0, 0, 0, .1); cursor: pointer;">';
+                        echo '<span class="list-link" style="font-size: 20px; color: var(--white1); display: flex; justify-content: space-between; align-items: center;">' . htmlspecialchars($row["question"]);
+                        echo '<i class="icon ion-md-add" style="color: var(--white1);"></i>';
+                        echo '<i class="icon ion-md-remove" style="display: none; color: var(--white1);"></i>';
+                        echo '</span>';
+                        echo '<div class="answer" style="max-height: 0; overflow: hidden; transition: max-height 0.5s ease;">';
+                        echo '<p style="font-size: 18px; color: var(--mgwrpcMain2);">' . nl2br(htmlspecialchars($row["answer"])) . '</p>';
+                        echo '</div>';
+                        echo '<button class="delete-faq hidden" style="background-color: red; color: white; border: none; padding: 5px 10px; margin-top: 10px; cursor: pointer; display: none;">Delete</button>'; // Initially hidden
+                        echo '</div>';
     }
 } else {
     echo "";
