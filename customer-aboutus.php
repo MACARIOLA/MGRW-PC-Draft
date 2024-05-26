@@ -70,9 +70,8 @@
             <div class="all-text">
                 <h4>WHO ARE WE</h4>
                 <h1>MGWR PC</h1>
-                 <p><?= htmlspecialchars($Company['company_info']) ?></p>
-                <p><?= htmlspecialchars($Company['company_details']) ?></p>
-               <div class="btn">
+               <p><?php echo $compinf; ?></p>
+                <div class="btn">
                     <a href="customer-contact-us.php">
                         <button type="button" class="btn2">Contact Us</button>
                     </a>
