@@ -1,8 +1,6 @@
 //search for inventoryTable
 
 function searchTable() {
-
-
         var input, filter, table, tbody, tr, td, i, j, txtValue;
         input = document.getElementById("inventorySearchInput"); 
         filter = input.value.toUpperCase();
@@ -35,10 +33,7 @@ function searchTable() {
     
     
 //search for reservation
-
 function searchTable2() {
-
-        
         var input, filter, table, tbody, tr, td, i, j, txtValue;
         input = document.getElementById("reservationSearchInput"); 
         filter = input.value.toUpperCase();
@@ -67,13 +62,6 @@ function searchTable2() {
         }
     }
     
-
-
-
-
-
-
-
         function showPreview() {
             document.getElementById("preview").style.display = "block";
         }
@@ -81,8 +69,7 @@ function searchTable2() {
         function hidePreview() {
             document.getElementById("preview").style.display = "none";
         }
-
-        
+ 
 function toggleClick() {
   const navContainer = document.getElementById("nav-container");
   if (navContainer.style.left === '-800px') {
@@ -91,3 +78,10 @@ function toggleClick() {
     navContainer.style.left = '-800px';
   }
 }
+
+// ADD POPUP
+$(document).ready(function() {
+    $('.add').click(function() {
+        $('#addModal').modal('show');
+    });
+});
