@@ -1,9 +1,3 @@
-<?php
-    @include 'PHP/admin-config.php';
-    @include 'PHP/admin-update.php';
-    @include 'PHP/admin-update-reservation.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +18,14 @@
     <script src="js/admin-inventory.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
+    <!---------------
+         PHP
+    ---------------->
+    <?php
+        @include 'PHP/admin-config.php';
+        @include 'PHP/admin-update.php';
+        @include 'PHP/admin-update-reservation.php';
+    ?>
     <!---------------
           FONTS
     ---------------->
@@ -82,6 +84,8 @@
         <input type="search" placeholder="Search Data..." id="inventorySearchInput" onkeyup="searchTable()">
         <img src="images/search.png" alt="">
     </div>
+<button class='add' data-toggle="modal" data-target="#addModal">ADD</button>
+
 </section>
 
 <section class="table__body">
@@ -175,6 +179,91 @@
         </div>
     </div>
 </div>
+
+
+    <!---------------
+        ADD POPUP
+    ---------------->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data" action="PHP/insert_product.php">
+                        <input type="hidden" name="id" id="product_id">
+                        <div class="form-group">
+                            <label for="product_products_id">Product ID</label>
+                            <input type="text" class="form-control" id="product_products_id" name="product_products_id" placeholder="Enter product ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_name">Product Name</label>
+                            <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_image">Product Image</label>
+                            <input type="file" class="form-control" id="product_image" name="product_image" accept="image/png, image/jpeg, image/jpg">
+                        </div>
+                        <div class="form-group">
+                            <label for="product_description">Description</label>
+                            <textarea class="form-control" id="product_description" name="product_description" placeholder="Enter product description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_unit_price">Unit Price</label>
+                            <input type="number" class="form-control" id="product_unit_price" name="product_unit_price" placeholder="Enter unit price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_total_units">Total Units</label>
+                            <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_reserved_units">Reserved Units</label>
+                            <input type="number" min="0" class="form-control" id="product_reserved_units" name="product_reserved_units" placeholder="Enter reserved units" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_cpu">CPU Specs</label>
+                            <input type="text" class="form-control" id="specs_cpu" name="specs_cpu" placeholder="Enter CPU specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_motherboard">Motherboard Specs</label>
+                            <input type="text" class="form-control" id="specs_motherboard" name="specs_motherboard" placeholder="Enter motherboard specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_ram">RAM Specs</label>
+                            <input type="text" class="form-control" id="specs_ram" name="specs_ram" placeholder="Enter RAM specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_ssd">SSD Specs</label>
+                            <input type="text" class="form-control" id="specs_ssd" name="specs_ssd" placeholder="Enter SSD specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_monitor">Monitor Specs</label>
+                            <input type="text" class="form-control" id="specs_monitor" name="specs_monitor" placeholder="Enter monitor specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_computercase">Computer Case Specs</label>
+                            <input type="text" class="form-control" id="specs_computercase" name="specs_computercase" placeholder="Enter computer case specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_powersupply">Power Supply Specs</label>
+                            <input type="text" class="form-control" id="specs_powersupply" name="specs_powersupply" placeholder="Enter power supply specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_fan">Fan Specs</label>
+                            <input type="text" class="form-control" id="specs_fan" name="specs_fan" placeholder="Enter fan specs" required>
+                        </div>
+            
+                        <button type="submit" name="update_product" class="btn btn-primary">SAVE</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
 
 
 <script>
