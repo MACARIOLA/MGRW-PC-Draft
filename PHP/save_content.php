@@ -1,61 +1,74 @@
 <?php
 include 'con_db.php';
 
-// Fetch current company details and image
-$sql = "SELECT * FROM about_us WHERE ID = 1";
-$result = mysqli_query($conn, $sql);
-if ($result && mysqli_num_rows($result) > 0) {
-    $Company = mysqli_fetch_assoc($result);
-    $abt = "data:image;base64," . base64_encode($Company['image']);
-} else {
-    echo "Error fetching company details.";
-}
+$compinf = ""; // Initialize with default value
 
-$sql = "SELECT * FROM about_us WHERE id = 1";
-$result = mysqli_query($conn, $sql);
-$Company = mysqli_fetch_assoc($result);
-
-// Update company details if the save button is clicked
-if (isset($_POST['saveButton'])) {
-    $updates = [];
-    if (isset($_POST['company_info'])) {
-        $company_info = $_POST['company_info'];
-        $updates[] = "company_info='$company_info'";
-    }
-    if (isset($_POST['company_details'])) {
-        $company_details = $_POST['company_details'];
-        $updates[] = "company_details='$company_details'";
-    }
-
-    if (!empty($updates)) {
-        $sql = "UPDATE about_us SET " . implode(", ", $updates) . " WHERE ID=1";
-        if ($conn->query($sql) === TRUE) {
-            echo '<meta http-equiv="refresh" content="0">';
-        } else {
-            echo "Error updating company details: " . $conn->error;
+// Check if the database connection is established
+if ($conn) {
+    // Retrieve about_us data
+    $sql = "SELECT * FROM about_us WHERE ID = 1";
+    $result = mysqli_query($conn, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $abt = "data:image;base64," . base64_encode($row['image']);
+            $compinf = nl2br($row['company_info']); // Apply nl2br to company info
         }
     }
-}
 
-// Update company photo if the photo submit button is clicked
-if (isset($_POST['ABTPHOTOSUB'])) {
-    if (isset($_FILES['ABTPHOTO']['tmp_name'])) {
-        $photo = $_FILES['ABTPHOTO']['tmp_name'];
-        $photoSize = $_FILES['ABTPHOTO']['size'];
+    // Update company info if new data is inserted
+    if (isset($_POST['saveButton'])) {
+        // Check if the form field is set and not empty
+        if (isset($_POST['company_info'])) {
+            $company_info = htmlspecialchars($conn->real_escape_string($_POST['company_info']));
 
-        if ($photoSize > 0 && $photoSize <= 1048576) { // 1MB = 1048576 bytes
+            // Ensure company_info does not exceed 1000 characters
+            if (strlen($company_info) > 1000) {
+                echo "Error: Company info must be 1000 characters or less.";
+            } else {
+                // Update company info in the database
+                $sql = "UPDATE about_us SET company_info='$company_info' WHERE id=1";
+                if ($conn->query($sql) === TRUE) {
+                    echo "Company info updated successfully.";
+                    echo '<meta http-equiv="refresh" content="0">';
+                } else {
+                    echo "Error updating company info: " . $conn->error;
+                }
+            }
+        }
+
+        // Handle photo upload as part of the save operation
+        if (isset($_FILES['ABTPHOTO']) && $_FILES['ABTPHOTO']['error'] == UPLOAD_ERR_OK) {
+            $photo = $_FILES['ABTPHOTO']['tmp_name'];
             $photoData = addslashes(file_get_contents($photo));
 
+            // Update profile photo in the database
             $sql = "UPDATE about_us SET image = '$photoData' WHERE ID = 1";
-            $result = mysqli_query($conn, $sql);
-            if ($result) {
+            if ($conn->query($sql) === TRUE) {
+                echo "Profile photo updated successfully.";
                 echo '<meta http-equiv="refresh" content="0">';
             } else {
-                echo "Error updating profile photo!";
+                echo "Error updating profile photo: " . $conn->error;
             }
-        } elseif ($photoSize > 1048576) {
-            echo '<script>alert("Error: The image size must be 1MB or less.");</script>';
         }
     }
+
+    // Handle photo upload separately
+    if (isset($_POST['ABTPHOTOSUB']) && !isset($_POST['saveButton'])) {
+        if (isset($_FILES['ABTPHOTO']) && $_FILES['ABTPHOTO']['error'] == UPLOAD_ERR_OK) {
+            $photo = $_FILES['ABTPHOTO']['tmp_name'];
+            $photoData = addslashes(file_get_contents($photo));
+
+            // Update profile photo in the database
+            $sql = "UPDATE about_us SET image = '$photoData' WHERE ID = 1";
+            if ($conn->query($sql) === TRUE) {
+                echo "Profile photo updated successfully.";
+                echo '<meta http-equiv="refresh" content="0">';
+            } else {
+                echo "Error updating profile photo: " . $conn->error;
+            }
+        }
+    }
+} else {
+    echo "Database connection is not established!";
 }
 ?>
