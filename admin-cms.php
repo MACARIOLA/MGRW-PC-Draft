@@ -247,12 +247,12 @@
             editForm.addEventListener('submit', function(event) {
                 if (abtPhoto.files.length > 0) {
                     const file = abtPhoto.files[0];
-                    const fileSize = file.size; // Size in bytes
-                    const maxSize = 1024 * 1024; // 1 MB in bytes
+                    const fileSize = file.size; 
+                    const maxSize = 1024 * 1024; 
     
                     if (fileSize > maxSize) {
                         alert("Image size cannot exceed 1 MB. Try to compress your file.");
-                        event.preventDefault(); // Prevent form submission
+                        event.preventDefault(); 
                     }
                 }
             });
@@ -260,7 +260,7 @@
             abtPhotoSub.addEventListener('click', function(event) {
                 if (abtPhoto.files.length === 0) {
                     alert("Please select a file to upload.");
-                    event.preventDefault(); // Prevent form submission
+                    event.preventDefault(); 
                 } else {
                     const file = abtPhoto.files[0];
                     const fileType = file.type;
@@ -268,7 +268,7 @@
     
                     if (!validImageTypes.includes(fileType)) {
                         alert("Please upload a valid image file (JPEG, PNG, GIF, BMP).");
-                        event.preventDefault(); // Prevent form submission
+                        event.preventDefault(); 
                     }
                 }
             });
