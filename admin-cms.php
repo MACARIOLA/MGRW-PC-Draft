@@ -171,7 +171,7 @@
    <!---------------
         ABOUT US
     ---------------->
-    <section class="about">
+        <section class="about">
         <div class="main">
             <div class="image-container">
                 <label for="imageInput1">
@@ -182,21 +182,20 @@
                 <h4>WHO ARE WE</h4>
                 <h1>MGWR PC</h1>
                 <p><?php echo $compinf; ?></p>
-                <p><?php echo $compdef; ?></p>
                 <button type="button" class="abouteditbutton" id="editButton">Edit</button>
             </div>
         </div>
     </section>
-
+    
     <!---------------
-     UPDATE ABOUT US
+    UPDATE ABOUT US
     ---------------->
     <div id="editModal" class="modal">
         <div class="modal-content">
-            <form id="editForm"  method="POST" enctype="multipart/form-data">
-                <h2 id="aboutHead">Edit Company Details</h2>
+            <form id="editForm" method="POST" enctype="multipart/form-data">
+                <h2 id="aboutHead">Edit Company Info</h2>
                 <label id="comInfo" for="popupCompanyInfo">Company Info:</label>
-                <textarea id="popupCompanyInfo" name="company_info" rows="10" cols="50"></textarea>
+                <textarea id="popupCompanyInfo" name="company_info" rows="10" cols="50" maxlength="1000"></textarea>
                 
                 <label for="ABTPHOTO">Click Me & Choose A Photo:</label>
                 <input type="file" id="ABTPHOTO" name="ABTPHOTO" accept="image/*">
@@ -210,7 +209,7 @@
             </form>
         </div>
     </div>
-
+    
     <!---------------
         INLINE JS
     ---------------->
@@ -219,28 +218,59 @@
             const editButton = document.getElementById("editButton");
             const editModal = document.getElementById("editModal");
             const popupCompanyInfo = document.getElementById("popupCompanyInfo");
-            const editForm = document.getElementById("editForm");
             const saveButton = document.getElementById("aboutSaveButton");
             const cancelButton = document.getElementById("aboutBackButton");
-
+            const abtPhoto = document.getElementById("ABTPHOTO");
+            const abtPhotoSub = document.getElementsByName("ABTPHOTOSUB")[0];
+            const editForm = document.getElementById("editForm");
+    
             editButton.addEventListener("click", function () {
                 editModal.style.display = "block";
             });
-
+    
             cancelButton.addEventListener("click", function () {
                 editModal.style.display = "none";
             });
-
+    
             window.addEventListener("click", function (event) {
                 if (event.target == editModal) {
                     editModal.style.display = "none";
                 }
             });
-        });
-
-        document.getElementById('ABTPHOTO').addEventListener('change', function() {
-            var fileName = this.files[0] ? this.files[0].name : '';
-            document.getElementById('aboutfileName').textContent = fileName;
+    
+            abtPhoto.addEventListener('change', function() {
+                var fileName = this.files[0] ? this.files[0].name : '';
+                document.getElementById('aboutfileName').textContent = fileName;
+            });
+    
+            editForm.addEventListener('submit', function(event) {
+                if (abtPhoto.files.length > 0) {
+                    const file = abtPhoto.files[0];
+                    const fileType = file.type;
+                    const validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
+    
+                    if (!validImageTypes.includes(fileType)) {
+                        alert("Please upload a valid image file (JPEG, PNG, GIF, BMP).");
+                        event.preventDefault();
+                    }
+                }
+            });
+    
+            abtPhotoSub.addEventListener('click', function(event) {
+                if (abtPhoto.files.length === 0) {
+                    alert("Please select a file to upload.");
+                    event.preventDefault();
+                } else {
+                    const file = abtPhoto.files[0];
+                    const fileType = file.type;
+                    const validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
+    
+                    if (!validImageTypes.includes(fileType)) {
+                        alert("Please upload a valid image file (JPEG, PNG, GIF, BMP).");
+                        event.preventDefault();
+                    }
+                }
+            });
         });
     </script>
     
