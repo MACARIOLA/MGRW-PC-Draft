@@ -213,7 +213,8 @@
     <!---------------
         INLINE JS
     ---------------->
-    <script>
+        <script>
+            <script>
         document.addEventListener("DOMContentLoaded", function () {
             const editButton = document.getElementById("editButton");
             const editModal = document.getElementById("editModal");
@@ -246,12 +247,12 @@
             editForm.addEventListener('submit', function(event) {
                 if (abtPhoto.files.length > 0) {
                     const file = abtPhoto.files[0];
-                    const fileType = file.type;
-                    const validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
+                    const fileSize = file.size; // Size in bytes
+                    const maxSize = 1024 * 1024; // 1 MB in bytes
     
-                    if (!validImageTypes.includes(fileType)) {
-                        alert("Please upload a valid image file (JPEG, PNG, GIF, BMP).");
-                        event.preventDefault();
+                    if (fileSize > maxSize) {
+                        alert("Image size cannot exceed 1 MB. Try to compress your file.");
+                        event.preventDefault(); // Prevent form submission
                     }
                 }
             });
@@ -259,7 +260,7 @@
             abtPhotoSub.addEventListener('click', function(event) {
                 if (abtPhoto.files.length === 0) {
                     alert("Please select a file to upload.");
-                    event.preventDefault();
+                    event.preventDefault(); // Prevent form submission
                 } else {
                     const file = abtPhoto.files[0];
                     const fileType = file.type;
@@ -267,7 +268,7 @@
     
                     if (!validImageTypes.includes(fileType)) {
                         alert("Please upload a valid image file (JPEG, PNG, GIF, BMP).");
-                        event.preventDefault();
+                        event.preventDefault(); // Prevent form submission
                     }
                 }
             });
