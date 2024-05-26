@@ -16,6 +16,21 @@
     --paracolor: #5e6c79;
 }
 
+/* --------------
+    ADD BUTTON
+-------------- */
+.add {
+    background-color: #86e49d;
+    color: #006b21;
+    width: 100px;
+    padding: .4rem 0;
+    border-radius: 2rem;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid black;
+    font-size: 16px;
+    font-weight: 600;
+}
 
 /* --------------
     INVENTORY
@@ -240,31 +255,6 @@ tbody tr.hide td img {
     box-shadow: 0 0 10px rgba(126, 106, 106, 0.3); 
 }
 
-
-/* -- Dito Ka Mag Sisimula mag edit Vnew -- */
-.status {
-    padding: .4rem 0;
-    border-radius: 2rem;
-    text-align: center;
-}
-
-.status.delivered {
-    background-color: #86e49d;
-    color: #006b21;
-}
-
-.status.cancelled {
-    background-color: #d893a3;
-    color: #b30021;
-}
-
-.status.pending {
-    background-color: #ebc474;
-}
-
-.status.shipped {
-    background-color: #6fcaea;
-}
 
 /* -------------
    BREAKPOINTS
