@@ -57,7 +57,21 @@ COMMIT;
 
 
 -- ABOUT US --
+CREATE TABLE IF NOT EXISTS cms_about_us (
+  id int(11) NOT NULL,
+  company_info varchar(1000) DEFAULT NULL,
+  image longblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `about_us` (`id`, `company_info`, `image`) VALUES
+(1, 'As a dynamic and innovative organization, we focus on providing the best computer and building a long-term relationship with our valued clients.\r\n\r\nAt MGWR PC, we are dedicated with passion to excellence and commitment in delivering premium solutions to meet your specific needs. Our dedicated team works diligently to ensure your satisfaction and success.', Null);
+
+ALTER TABLE `about_us`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `about_us`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
 
 
 
@@ -113,6 +127,33 @@ COMMIT;
 
 -- ------------------------------- --
 -- ---------< INVENTORY >--------- --
+
+-- INVENTORY --
+CREATE TABLE IF NOT EXISTS inventory (
+  id int(11) NOT NULL,
+  products_id varchar(50) NOT NULL,
+  products_name varchar(50) NOT NULL,
+  image longblob DEFAULT NULL,
+  description varchar(1000) NOT NULL,
+  unit_price int(11) NOT NULL,
+  total_units int(11) NOT NULL,
+  reserved_units int(11) NOT NULL,
+  specs_cpu varchar(100) NOT NULL,
+  specs_motherboard varchar(100) NOT NULL,
+  specs_ram varchar(100) NOT NULL,
+  specs_ssd varchar(100) NOT NULL,
+  specs_monitor varchar(100) NOT NULL,
+  specs_computercase varchar(100) NOT NULL,
+  specs_powersupply varchar(100) NOT NULL,
+  specs_fan varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+ALTER TABLE `inventory`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `inventory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
 
 -- ---------< INVENTORY >--------- --
 -- ------------------------------- --
