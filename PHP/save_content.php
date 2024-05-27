@@ -6,7 +6,7 @@ $compinf = ""; // Initialize with default value
 // Check if the database connection is established
 if ($conn) {
     // Retrieve about_us data
-    $sql = "SELECT * FROM about_us WHERE ID = 1";
+    $sql = "SELECT * FROM cms_about_us WHERE ID = 1";
     $result = mysqli_query($conn, $sql);
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -26,7 +26,7 @@ if ($conn) {
                 echo "Error: Company info must be 1000 characters or less.";
             } else {
                 // Update company info in the database
-                $sql = "UPDATE about_us SET company_info='$company_info' WHERE id=1";
+                $sql = "UPDATE cms_about_us SET company_info='$company_info' WHERE id=1";
                 if ($conn->query($sql) === TRUE) {
                     echo "Company info updated successfully.";
                     echo '<meta http-equiv="refresh" content="0">';
@@ -42,7 +42,7 @@ if ($conn) {
             $photoData = addslashes(file_get_contents($photo));
 
             // Update profile photo in the database
-            $sql = "UPDATE about_us SET image = '$photoData' WHERE ID = 1";
+            $sql = "UPDATE cms_about_us SET image = '$photoData' WHERE ID = 1";
             if ($conn->query($sql) === TRUE) {
                 echo "Profile photo updated successfully.";
                 echo '<meta http-equiv="refresh" content="0">';
@@ -59,7 +59,7 @@ if ($conn) {
             $photoData = addslashes(file_get_contents($photo));
 
             // Update profile photo in the database
-            $sql = "UPDATE about_us SET image = '$photoData' WHERE ID = 1";
+            $sql = "UPDATE cms_about_us SET image = '$photoData' WHERE ID = 1";
             if ($conn->query($sql) === TRUE) {
                 echo "Profile photo updated successfully.";
                 echo '<meta http-equiv="refresh" content="0">';
