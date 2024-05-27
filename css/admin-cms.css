@@ -176,7 +176,7 @@
 }
 
 #popup {
-	width: 30%;
+	width: 35%;
 	height: 12%;
     position: fixed;
     top: 10%;
@@ -227,7 +227,9 @@
 
 label[for="photoInput"],
 label[for="photoInput2"],
-label[for="photoInput3"] {
+label[for="photoInput3"],
+label[for="photoInput4"],
+label[for="photoInput5"] {
     font-size: 16px;
     color: #333;
     margin-right: 10px;
@@ -237,13 +239,17 @@ label[for="photoInput3"] {
 
 #photoInput,
 #photoInput2,
-#photoInput3 {
+#photoInput3,
+#photoInput4,
+#photoInput5 {
     display: none; 
 }
 
 #fileName1,
 #fileName2,
-#fileName3 {
+#fileName3,
+#fileName4,
+#fileName5 {
     font-size: 16px;
     color: var(--mgwrpcMain1);
     margin-right: 20px;
@@ -251,7 +257,9 @@ label[for="photoInput3"] {
 
 button[name="submit"],
 button[name="submit2"],
-button[name="submit3"] {
+button[name="submit3"],
+button[name="submit4"],
+button[name="submit5"] {
     font-size: 14px;
 	background-color: var(--black2);
 	color: var(--white1);
@@ -266,7 +274,9 @@ button[name="submit3"] {
 
 button[name="submit"]:hover,
 button[name="submit2"]:hover,
-button[name="submit3"]:hover {
+button[name="submit3"]:hover,
+button[name="submit4"]:hover,
+button[name="submit5"]:hover {
     background-color: transparent;
 	border: 2px solid var(--black3);
     color: var(--black1);
