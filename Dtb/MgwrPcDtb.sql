@@ -155,6 +155,21 @@ ALTER TABLE `inventory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
+
+
+-- RESERVATION --
+CREATE TABLE IF NOT EXISTS reservation (
+  Prod_categ varchar(50) NOT NULL,
+  Date varchar(50) NOT NULL,
+  IDreservation varchar(50) NOT NULL,
+  customer varchar(50) NOT NULL,
+  product varchar(50) NOT NULL,
+  email varchar(50) NOT NULL,
+  num varchar(15) NOT NULL,
+  reserved_units int(11) NOT NULL,
+  status varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 -- ---------< INVENTORY >--------- --
 -- ------------------------------- --
 
