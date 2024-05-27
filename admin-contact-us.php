@@ -91,7 +91,7 @@
                                             <span class='short-admincontactus'>" . htmlspecialchars(substr($row['message'], 0, 50), ENT_QUOTES, 'UTF-8') . "...</span>
                                             <span class='full-admincontactus' style='display:none;'>" . htmlspecialchars($row['message'], ENT_QUOTES, 'UTF-8') . "</span>
                                         </td>
-                                        <td><button class='delete-button' onclick='deleteFeedback({$row['id']})'>Delete</button></td>
+                                        <td><button class='status delete' onclick='deleteFeedback({$row['id']})'>Delete</button></td>
                                     </tr>";
                             }
                         } else {
