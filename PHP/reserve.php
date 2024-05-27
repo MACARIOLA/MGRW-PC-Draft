@@ -1,13 +1,16 @@
 <?php
 session_start();
-include 'PHP/con_db.php';
+include 'con_db.php'; // Ensure the path is correct
 
-// Check if 'id' is passed via GET and set the session variable
-if (isset($_GET['id'])) {
-    $_SESSION['product_id'] = $_GET['id'];
-    // Redirect to avoid resubmission of the GET request
-    header("Location: product.php");
-    exit();
+// Function to generate a random 6-letter string
+function generateRandomID($length = 6) {
+    $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }
 
 // Retrieve the product ID from the session
@@ -16,31 +19,28 @@ if (isset($_SESSION['product_id'])) {
     $sql = "SELECT * FROM inventory WHERE id = $product_id";
     $result = mysqli_query($conn, $sql);
     $product = mysqli_fetch_assoc($result);
-    
 }
 
+// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $firstName = $_POST['fname'];
     $lastName = $_POST['lname'];
     $email = $_POST['email'];
     $contactNum = $_POST['contactNum'];
-    $product = $_POST['product'];
     $quantity = $_POST['quantity'];
+    $product_name = $product['products_name'];
 
-    // Simple query construction
-    $sql = "INSERT INTO reservations (Prod_categ, Date, reservation_name, customer, product, reserved_units, status) 
-            VALUES ('$product', NOW(), '$firstName $lastName', '$email', '$contactNum', '$quantity', 'Pending')";
+    // Generate a random reservation ID
+    $reservationID = generateRandomID();
+
+    // SQL query to insert the reservation details
+    $sql = "INSERT INTO reservation (Prod_categ, Date, IDreservation, customer, product,email, num, reserved_units, status) 
+            VALUES ('$product_id', NOW(), '$reservationID', '$firstName $lastName','$product_name', '$email', '$contactNum', '$quantity', 'Pending')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script>
-                alert('Reservation successful!');
-                window.location.href='product.php';
-              </script>";
+        $successMessage = "Reservation successful!";
     } else {
-        echo "<script>
-                alert('Error: " . mysqli_error($conn) . "');
-                window.location.href='product.php';
-              </script>";
+        $errorMessage = "Error: " . mysqli_error($conn);
     }
 
     mysqli_close($conn);
