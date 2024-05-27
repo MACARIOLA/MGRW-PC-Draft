@@ -396,15 +396,15 @@ $(document).ready(function() {
                     </table>
                 </section>
 
-                <!---------------
+                 <!---------------
                    RESERVATION
                 ---------------->
                 <section class="table__header">
                     <h2>RESERVATION</h2>
-                    <div class="input-group">
+                  <!--  <div class="input-group">
                         <input type="search" placeholder="Search Data..." id="reservationSearchInput" onkeyup="searchTable2()">
                         <img src="images/search.png">
-                    </div>
+                    </div> -->
                 </section>
 
                 <section class="table__body">
@@ -414,88 +414,168 @@ $(document).ready(function() {
                                 <th> RESERVATION ID </th>
                                 <th> CUSTOMER ID </th>
                                 <th> PRODUCT ID </th>
+                                <th> EMAIL</th>
+                                <th> CONTACT#</th>
                                 <th> QUANTITY </th>
                                 <th> STATUS </th>
                                 <th> UPDATE </th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <?php 
-                                $select = mysqli_query($conn, "SELECT * FROM reservation");
+                                $select = mysqli_query($conn, "SELECT * FROM reservation ");
                                 while($row = mysqli_fetch_assoc($select)){ 
                             ?>
                             <tr>
-                                <td><?php echo $row['reservation_name']; ?></td>
+                                <td><?php echo $row['IDreservation']; ?></td>
                                 <td><?php echo $row['customer']; ?></td>
                                 <td><?php echo $row['product']; ?></td>
+                                <td><?php echo $row['email']; ?></td>
+                                <td><?php echo $row['num']; ?></td>
                                 <td><?php echo $row['reserved_units']; ?></td>
                                 <td>
                                     <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
                                 </td>
                                 <td>
-                                    <button style="background:none;border:none;" class="btn btn-info edit-btn" data-toggle="modal" data-target="#reservationmodal" data-id="<?php echo $row['id']; ?>" data-reservation="<?php echo $row['reservation_name']; ?>" data-customer="<?php echo $row['customer']; ?>" data-product="<?php echo $row['product']; ?>" data-reserved_units="<?php echo $row['reserved_units']; ?>" 
+                                <button style="background:none;border:none;" class="btn btn-info edit-btn" data-toggle="modal" data-target="#reservationmodal" data-id="<?php echo $row['Prod_categ']; ?>" data-reservation="<?php echo $row['IDreservation']; ?>" data-customer="<?php echo $row['customer']; ?>"  data-product="<?php echo $row['product']; ?>" data-reserved_units="<?php echo $row['reserved_units']; ?>" 
                                     data-status="<?php echo $row['status']; ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/></svg> 
                                     </button>
                                 </td>
                             </tr>
-                            <?php } ?> 
+                            <?php } ?>
                         </tbody>
                     </table>
                 </section>
+
+                <!---------------
+                 CONFIRMED
+                ---------------->
+                <section class="table__header">
+                    <h2>CONFIRMED RESERVATIONS</h2>
+             
+                </section>
+
+                <section class="table__body">
+                    <table id="confirmedTable">
+                        <thead class="thead">
+                            <tr>
+                                <th> RESERVATION ID </th>
+                                <th> CUSTOMER ID </th>
+                                <th> PRODUCT ID </th>
+                                <th> EMAIL</th>
+                                <th> CONTACT#</th>
+                                <th> QUANTITY </th>
+                                <th> STATUS </th>
+                         
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                                $select = mysqli_query($conn, "SELECT * FROM reservation WHERE status = 'Confirmed'");
+                                while($row = mysqli_fetch_assoc($select)){ 
+                            ?>
+                            <tr>
+                                <td><?php echo $row['IDreservation']; ?></td>
+                                <td><?php echo $row['customer']; ?></td>
+                                <td><?php echo $row['product']; ?></td>
+                                <td><?php echo $row['email']; ?></td>
+                                <td><?php echo $row['num']; ?></td>
+                                <td><?php echo $row['reserved_units']; ?></td>
+                                <td>
+                                    <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
+                                </td>
+                              
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!---------------
+                  CANCELED
+                ---------------->
+                <section class="table__header">
+                    <h2>CANCELED RESERVATIONS</h2>
+                   
+                </section>
+
+                <section class="table__body">
+                    <table id="canceledTable">
+                        <thead class="thead">
+                            <tr>
+                                <th> RESERVATION ID </th>
+                                <th> CUSTOMER ID </th>
+                                <th> PRODUCT ID </th>
+                                <th> EMAIL</th>
+                                <th> CONTACT#</th>
+                                <th> QUANTITY </th>
+                                <th> STATUS </th>
+                             
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                                $select = mysqli_query($conn, "SELECT * FROM reservation WHERE status = 'cancelled'");
+                                while($row = mysqli_fetch_assoc($select)){ 
+                            ?>
+                            <tr>
+                                <td><?php echo $row['IDreservation']; ?></td>
+                                <td><?php echo $row['customer']; ?></td>
+                                <td><?php echo $row['product']; ?></td>
+                                <td><?php echo $row['email']; ?></td>
+                                <td><?php echo $row['num']; ?></td>
+                                <td><?php echo $row['reserved_units']; ?></td>
+                                <td>
+                                    <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
+                                </td>
+                              
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </section>
+
             </main>
         </div>
     </div>
 
-    <!---------------
+   <!---------------
     RESERVATION POPUP
     ---------------->
-    <div class="modal fade" id="reservationmodal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="reservationModalLabel">Update Reservation</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form  method="post">
-                        <input type="hidden" name="id" id="id">
-
-                        <div class="form-group">
-                            <label for="reservation_name">Reservation Name</label>
-                            <input type="text" class="form-control" id="reservation_name" name="reservation" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="customer">Customer</label>
-                            <input type="text" class="form-control" id="customer" name="customer">
-                        </div>
-                        <div class="form-group">
-                            <label for="product">Product</label>
-                            <input type="text"class="form-control" id="product" name="product" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="quantity">Quantity</label>
-                            <input type="number" min="0" class="form-control" id="quantity" name="reserved_units" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="status">Status</label>
-                            <select class="form-control" id="status" name="status">
-                                <option value="delivered">Delivered</option>
-                                <option value="cancelled">Cancelled</option>
-                                <option value="pending">Pending</option>
-                                <option value="shipped">Shipped</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary" name="update_reservation">Update Reservation</button>
-                    </form>
-                </div>
+    <div class="modal fade" id="reservationmodal" tabindex="-1" role="dialog" aria-labelledby="reservationmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reservationmodalLabel">Update Reservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <form id="reservationForm" method="post">
+                    <div class="form-group">
+                        <label for="reservation_id">Reservation ID</label>
+                        <input type="text" class="form-control" id="reservation_id" name="reservation_id" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select class="form-control" id="status" name="status">
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="cancelled">Cancelled</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
+              
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="$('#reservationForm').submit();">Save changes</button>
+            </div>
+         </form>
         </div>
     </div>
-    
+</div>
 
 
     <!---------------
@@ -565,31 +645,25 @@ $(document).ready(function() {
 });
 
 
-        function showPreview() {
-            document.getElementById("preview").style.display = "block";
-        }
-
-        function hidePreview() {
-            document.getElementById("preview").style.display = "none";
-        }
+          function showPreview(element) {
+    var preview = element.querySelector(".preview");
+    preview.style.display = "block";
+}
+  
+function hidePreview(element) {
+    var preview = element.querySelector(".preview");
+    preview.style.display = "none";
+}
         
-        $(document).ready(function() {
-            $('button.btn-info').click(function() {
-                var id = $(this).data('id');
-                var reservation = $(this).data('reservation');
-                var customer = $(this).data('customer');
-                var product = $(this).data('product');
-                var quantity = $(this).data('reserved_units'); 
-                var status = $(this).data('status');
-                    
-                $('#id').val(id);
-                $('#reservation_name').val(reservation);
-                $('#customer').val(customer);
-                $('#product').val(product);
-                $('#quantity').val(quantity);
-                $('#status').val(status);
-            });
-        });
+$(document).ready(function() {
+    $('button.btn-info').click(function() {
+        var reservation = $(this).data('reservation');
+        var status = $(this).data('status');
+
+        $('#reservation_id').val(reservation); // Set reservation ID
+        $('#status').val(status); // Set status
+    });
+});
     </script>
 </body>
 </html>
