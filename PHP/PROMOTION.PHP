@@ -20,6 +20,8 @@ function fetchImage($conn, $id) {
 $promoImage = fetchImage($conn, 1);
 $promoImage2 = fetchImage($conn, 2);
 $promoImage3 = fetchImage($conn, 3);
+$promoImage4 = fetchImage($conn, 4);
+$promoImage5 = fetchImage($conn, 5);
 
 // Function to handle photo uploads
 function updatePhoto($conn, $photoField, $id) {
@@ -40,7 +42,7 @@ function updatePhoto($conn, $photoField, $id) {
                 echo "Error updating profile photo!";
             }
         } elseif ($photoSize > 1048576) {
-            echo '<script>alert("Error: The image size must be 1MB or less.");</script>';
+            echo '<script>alert("Compress the image into 1MB or less.");</script>';
         }
     }
 }
@@ -52,6 +54,10 @@ if (isset($_POST['submit'])) {
     updatePhoto($conn, 'photo2', 2);
 } elseif (isset($_POST['submit3'])) {
     updatePhoto($conn, 'photo3', 3);
+} elseif (isset($_POST['submit4'])) {
+    updatePhoto($conn, 'photo4', 4);
+} elseif (isset($_POST['submit5'])) {
+    updatePhoto($conn, 'photo5', 5);
 } else {
     // Handle error (no submit button clicked)
 }
