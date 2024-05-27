@@ -42,7 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_product'])) {
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "New product inserted successfully";
+        // Redirect to admin-inventory.php
+        header("Location: ../admin-inventory.php");
+        exit();
     } else {
         echo "Error: " . $stmt->error;
     }
