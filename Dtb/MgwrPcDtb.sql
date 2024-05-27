@@ -47,6 +47,8 @@ INSERT INTO `cms_home_promotions` (`ID`, `PHOTO`) VALUES
 (1, NULL),
 (2, NULL),
 (3, NULL);
+(4, NULL);
+(5, NULL);
 
 ALTER TABLE `cms_home_promotions`
   ADD PRIMARY KEY (`ID`);
