@@ -101,39 +101,50 @@
             </tr>
         </thead>
         <tbody>
-            <?php 
-                $sql = "SELECT * FROM inventory";
-                $result = mysqli_query($conn, $sql);
-                if ($result && mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                        <tr>
-                            <td><?php echo $row['products_id']; ?></td>
-                            <td><?php echo $row['products_name']; ?></td>
-                            <td>
-                                <div class="image-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
-                                    <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="Product Image">
-                                    <img id="preview-<?php echo htmlspecialchars($row['id']); ?>" class="preview" src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="Preview" style="display: none;">
-                                </div>
-                            </td>
-                            <td><?php echo htmlspecialchars($row['total_units']); ?></td>
-                            <td><?php echo htmlspecialchars($row['reserved_units']); ?></td>
-                            <td>
-                                <button style="background:none;border:none;" class="btn btn-secondary edit-btn" data-toggle="modal" data-target="#updateModal" 
-                                    data-id="<?php echo htmlspecialchars($row['id']); ?>" 
-                                    data-products_id="<?php echo htmlspecialchars($row['products_id']); ?>" 
-                                    data-products_name="<?php echo htmlspecialchars($row['products_name']); ?>" 
-                                    data-image="<?php echo htmlspecialchars($row['image']); ?>" 
-                                    data-total_units="<?php echo htmlspecialchars($row['total_units']); ?>" 
-                                    data-reserved_units="<?php echo htmlspecialchars($row['reserved_units']); ?>">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/></svg> 
-                                </button>
-                            </td>
-                        </tr>
-                        <?php
-                    }
-                }
-            ?>
+        <?php 
+$sql = "SELECT * FROM inventory";
+$result = mysqli_query($conn, $sql);
+if ($result && mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <tr>
+            <td><?php echo $row['products_id']; ?></td>
+            <td><?php echo $row['products_name']; ?></td>
+            <td>
+                <div class="image-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
+                    <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="Product Image">
+                    <img id="preview-<?php echo htmlspecialchars($row['id']); ?>" class="preview" src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="Preview" style="display: none;">
+                </div>
+            </td>
+            <td><?php echo htmlspecialchars($row['total_units']); ?></td>
+            <td><?php echo htmlspecialchars($row['reserved_units']); ?></td>
+            <td>
+                <button style="background:none;border:none;" class="btn btn-secondary edit-btn" data-toggle="modal" data-target="#updateModal" 
+                    data-id="<?php echo htmlspecialchars($row['id']); ?>" 
+                    data-products_id="<?php echo htmlspecialchars($row['products_id']); ?>" 
+                    data-products_name="<?php echo htmlspecialchars($row['products_name']); ?>" 
+                    data-image="<?php echo base64_encode($row['image']); ?>" 
+                    data-total_units="<?php echo htmlspecialchars($row['total_units']); ?>" 
+                    data-reserved_units="<?php echo htmlspecialchars($row['reserved_units']); ?>"
+                    data-description="<?php echo htmlspecialchars($row['description']); ?>"
+                    data-unit_price="<?php echo htmlspecialchars($row['unit_price']); ?>"
+                    data-specs_cpu="<?php echo htmlspecialchars($row['specs_cpu']); ?>"
+                    data-specs_motherboard="<?php echo htmlspecialchars($row['specs_motherboard']); ?>"
+                    data-specs_ram="<?php echo htmlspecialchars($row['specs_ram']); ?>"
+                    data-specs_ssd="<?php echo htmlspecialchars($row['specs_ssd']); ?>"
+                    data-specs_monitor="<?php echo htmlspecialchars($row['specs_monitor']); ?>"
+                    data-specs_computercase="<?php echo htmlspecialchars($row['specs_computercase']); ?>"
+                    data-specs_powersupply="<?php echo htmlspecialchars($row['specs_powersupply']); ?>"
+                    data-specs_fan="<?php echo htmlspecialchars($row['specs_fan']); ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/></svg> 
+                </button>
+            </td>
+        </tr>
+        <?php
+    }
+}
+?>
+
         </tbody>
     </table>
 </section>
@@ -141,7 +152,7 @@
     <!---------------
      INVENTORY POPUP
     ---------------->
-<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -166,12 +177,52 @@
                         <input type="file" class="form-control" id="product_image" name="product_image" accept="image/png, image/jpeg, image/jpg">
                     </div>
                     <div class="form-group">
+                        <label for="product_description">Description</label>
+                        <textarea class="form-control" id="product_description" name="product_description" placeholder="Enter product description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="product_unit_price">Unit Price</label>
+                        <input type="number" class="form-control" id="product_unit_price" name="product_unit_price" placeholder="Enter unit price" required>
+                    </div>
+                    <div class="form-group">
                         <label for="product_total_units">Total Units</label>
                         <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required>
                     </div>
                     <div class="form-group">
                         <label for="product_reserved_units">Reserved Units</label>
                         <input type="number" min="0" class="form-control" id="product_reserved_units" name="product_reserved_units" placeholder="Enter reserved units" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specs_cpu">CPU Specs</label>
+                        <input type="text" class="form-control" id="specs_cpu" name="specs_cpu" placeholder="Enter CPU specs" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specs_motherboard">Motherboard Specs</label>
+                        <input type="text" class="form-control" id="specs_motherboard" name="specs_motherboard" placeholder="Enter motherboard specs" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specs_ram">RAM Specs</label>
+                        <input type="text" class="form-control" id="specs_ram" name="specs_ram" placeholder="Enter RAM specs" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specs_ssd">SSD Specs</label>
+                        <input type="text" class="form-control" id="specs_ssd" name="specs_ssd" placeholder="Enter SSD specs" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specs_monitor">Monitor Specs</label>
+                        <input type="text" class="form-control" id="specs_monitor" name="specs_monitor" placeholder="Enter monitor specs" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specs_computercase">Computer Case Specs</label>
+                        <input type="text" class="form-control" id="specs_computercase" name="specs_computercase" placeholder="Enter computer case specs" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specs_powersupply">Power Supply Specs</label>
+                        <input type="text" class="form-control" id="specs_powersupply" name="specs_powersupply" placeholder="Enter power supply specs" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specs_fan">Fan Specs</label>
+                        <input type="text" class="form-control" id="specs_fan" name="specs_fan" placeholder="Enter fan specs" required>
                     </div>
                     <button type="submit" name="update_product" class="btn btn-primary">Update Product</button>
                 </form>
@@ -266,14 +317,14 @@
     </div>
 
 
-<script>
+    <script>
 function showPreview(element) {
-    const preview = element.querySelector('#preview');
+    const preview = element.querySelector('.preview');
     preview.style.display = 'block';
 }
 
 function hidePreview(element) {
-    const preview = element.querySelector('#preview');
+    const preview = element.querySelector('.preview');
     preview.style.display = 'none';
 }
 
@@ -281,11 +332,21 @@ $(document).ready(function() {
     $('#updateModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');
-        var product_products_id = button.data('product_products_id');
-        var product_name = button.data('product_name');
-        var product_image = button.data('product_image');
-        var product_total_units = button.data('product_total_units');
-        var product_reserved_units = button.data('product_reserved_units');
+        var product_products_id = button.data('products_id');
+        var product_name = button.data('products_name');
+        var product_image = button.data('image');
+        var product_total_units = button.data('total_units');
+        var product_reserved_units = button.data('reserved_units');       
+        var product_description = button.data('description');
+        var product_unit_price = button.data('unit_price');
+        var specs_cpu = button.data('specs_cpu');
+        var specs_motherboard = button.data('specs_motherboard');
+        var specs_ram = button.data('specs_ram');
+        var specs_ssd = button.data('specs_ssd');
+        var specs_monitor = button.data('specs_monitor');
+        var specs_computercase = button.data('specs_computercase');
+        var specs_powersupply = button.data('specs_powersupply');
+        var specs_fan = button.data('specs_fan');
         
         var modal = $(this);
         modal.find('#product_id').val(id);
@@ -293,9 +354,20 @@ $(document).ready(function() {
         modal.find('#product_name').val(product_name);
         modal.find('#product_total_units').val(product_total_units);
         modal.find('#product_reserved_units').val(product_reserved_units);
+        modal.find('#product_description').val(product_description);
+        modal.find('#product_unit_price').val(product_unit_price);
+        modal.find('#specs_cpu').val(specs_cpu);
+        modal.find('#specs_motherboard').val(specs_motherboard);
+        modal.find('#specs_ram').val(specs_ram);
+        modal.find('#specs_ssd').val(specs_ssd);
+        modal.find('#specs_monitor').val(specs_monitor);
+        modal.find('#specs_computercase').val(specs_computercase);
+        modal.find('#specs_powersupply').val(specs_powersupply);
+        modal.find('#specs_fan').val(specs_fan);
     });
 });
 </script>
+
 
                     </table>
                 </section>
