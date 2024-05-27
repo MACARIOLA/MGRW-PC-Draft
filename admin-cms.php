@@ -63,7 +63,7 @@
 
 
 
-       <!---------------
+    <!---------------
           POPUP
     ---------------->
     <button id="openPopup">UPDATE PHOTO</button>
@@ -86,7 +86,6 @@
                 <input type="file" id="photoInput3" name="photo3" accept="image/*" >
                 <span id="fileName3"></span>
                 <button type="submit" name="submit3">Upload</button>
-                
 
                 <label for="photoInput4">Choose Photo:</label>
                 <input type="file" id="photoInput4" name="photo4" accept="image/*" >
@@ -97,7 +96,6 @@
                 <input type="file" id="photoInput5" name="photo5" accept="image/*" >
                 <span id="fileName5"></span>
                 <button type="submit" name="submit5">Upload</button>
-
             </form>
  
             <button id="closePopup">Close</button>
@@ -147,10 +145,10 @@
                     <img src="<?php echo $promoImage3; ?>" alt="" value="3">
                 </div>
                 <div class="item">
-                    <img src="<?php echo $promoImage4; ?>" alt="" value="3">
+                    <img src="<?php echo $promoImage4; ?>" alt="" value="4">
                 </div>
                 <div class="item">
-                    <img src="<?php echo $promoImage5; ?>" alt="" value="3">
+                    <img src="<?php echo $promoImage5; ?>" alt="" value="5">
                 </div>
             </div>
             <div class="buttons">
@@ -166,10 +164,10 @@
             </ul>
         </div>
     </section>
+
      <!---------------
         INLINE JS
     ---------------->
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const openButton = document.getElementById('openPopup');
@@ -194,8 +192,6 @@
 
 
 
-
-
    <!---------------
         ABOUT US
     ---------------->
@@ -216,7 +212,7 @@
     </section>
     
     <!---------------
-    UPDATE ABOUT US
+     UPDATE ABOUT US
     ---------------->
     <div id="editModal" class="modal">
         <div class="modal-content">
@@ -241,70 +237,70 @@
     <!---------------
         INLINE JS
     ---------------->
-        <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const editButton = document.getElementById("editButton");
-        const editModal = document.getElementById("editModal");
-        const popupCompanyInfo = document.getElementById("popupCompanyInfo");
-        const saveButton = document.getElementById("aboutSaveButton");
-        const cancelButton = document.getElementById("aboutBackButton");
-        const abtPhoto = document.getElementById("ABTPHOTO");
-        const abtPhotoSub = document.getElementsByName("ABTPHOTOSUB")[0];
-        const editForm = document.getElementById("editForm");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const editButton = document.getElementById("editButton");
+            const editModal = document.getElementById("editModal");
+            const popupCompanyInfo = document.getElementById("popupCompanyInfo");
+            const saveButton = document.getElementById("aboutSaveButton");
+            const cancelButton = document.getElementById("aboutBackButton");
+            const abtPhoto = document.getElementById("ABTPHOTO");
+            const abtPhotoSub = document.getElementsByName("ABTPHOTOSUB")[0];
+            const editForm = document.getElementById("editForm");
 
-        editButton.addEventListener("click", function () {
-            editModal.style.display = "block";
-        });
+            editButton.addEventListener("click", function () {
+                editModal.style.display = "block";
+            });
 
-        cancelButton.addEventListener("click", function () {
-            editModal.style.display = "none";
-        });
-
-        window.addEventListener("click", function (event) {
-            if (event.target == editModal) {
+            cancelButton.addEventListener("click", function () {
                 editModal.style.display = "none";
-            }
-        });
+            });
 
-        abtPhoto.addEventListener('change', function() {
-            var fileName = this.files[0] ? this.files[0].name : '';
-            document.getElementById('aboutfileName').textContent = fileName;
-        });
+            window.addEventListener("click", function (event) {
+                if (event.target == editModal) {
+                    editModal.style.display = "none";
+                }
+            });
 
-        editForm.addEventListener('submit', function(event) {
-            if (abtPhoto.files.length > 0) {
-                const file = abtPhoto.files[0];
-                const fileSize = file.size; 
-                const maxSize = 1024 * 1024; 
+            abtPhoto.addEventListener('change', function() {
+                var fileName = this.files[0] ? this.files[0].name : '';
+                document.getElementById('aboutfileName').textContent = fileName;
+            });
 
-                if (fileSize > maxSize) {
-                    alert("Image size cannot exceed 1 MB. Try to compress your file.");
+            editForm.addEventListener('submit', function(event) {
+                if (abtPhoto.files.length > 0) {
+                    const file = abtPhoto.files[0];
+                    const fileSize = file.size; 
+                    const maxSize = 1024 * 1024; 
+
+                    if (fileSize > maxSize) {
+                        alert("Image size cannot exceed 1 MB. Try to compress your file.");
+                        event.preventDefault(); 
+                    }
+                }
+            });
+
+            abtPhotoSub.addEventListener('click', function(event) {
+                if (abtPhoto.files.length === 0) {
+                    alert("Please select a file to upload.");
                     event.preventDefault(); 
-                }
-            }
-        });
+                } else {
+                    const file = abtPhoto.files[0];
+                    const fileType = file.type;
+                    const validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
 
-        abtPhotoSub.addEventListener('click', function(event) {
-            if (abtPhoto.files.length === 0) {
-                alert("Please select a file to upload.");
-                event.preventDefault(); 
-            } else {
-                const file = abtPhoto.files[0];
-                const fileType = file.type;
-                const validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
-
-                if (!validImageTypes.includes(fileType)) {
-                    alert("Please upload a valid image file (JPEG, PNG, GIF, BMP).");
-                    event.preventDefault(); // Prevent form submission
+                    if (!validImageTypes.includes(fileType)) {
+                        alert("Please upload a valid image file (JPEG, PNG, GIF, BMP).");
+                        event.preventDefault(); // Prevent form submission
+                    }
                 }
-            }
+            });
         });
-    });
-</script>
+    </script>
     
     
     
-   <!---------------
+    <!---------------
         PRICELIST
     ---------------->
     <section class="wrapper">
@@ -418,92 +414,92 @@
         document.addEventListener('DOMContentLoaded', function() {
         const listLinks = document.querySelectorAll('.list-link');
 
-        listLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                
-                const answer = this.nextElementSibling;
-                const allAnswers = document.querySelectorAll('.answer');
-                const allIconsAdd = document.querySelectorAll('.ion-md-add');
-                const allIconsRemove = document.querySelectorAll('.ion-md-remove');
+            listLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
+                    const answer = this.nextElementSibling;
+                    const allAnswers = document.querySelectorAll('.answer');
+                    const allIconsAdd = document.querySelectorAll('.ion-md-add');
+                    const allIconsRemove = document.querySelectorAll('.ion-md-remove');
 
-                allAnswers.forEach(ans => {
-                    ans.style.maxHeight = null;
-                });
-
-                allIconsAdd.forEach(icon => {
-                    icon.style.display = 'inline';
-                });
-
-                allIconsRemove.forEach(icon => {
-                    icon.style.display = 'none';
-                });
-
-                if (answer.classList.contains('expanded')) {
-                    answer.classList.remove('expanded');
-                    this.querySelector('.ion-md-add').style.display = 'inline';
-                    this.querySelector('.ion-md-remove').style.display = 'none';
-                } else {
                     allAnswers.forEach(ans => {
-                        ans.classList.remove('expanded');
                         ans.style.maxHeight = null;
                     });
 
-                    answer.classList.add('expanded');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    this.querySelector('.ion-md-add').style.display = 'none';
-                    this.querySelector('.ion-md-remove').style.display = 'inline';
+                    allIconsAdd.forEach(icon => {
+                        icon.style.display = 'inline';
+                    });
+
+                    allIconsRemove.forEach(icon => {
+                        icon.style.display = 'none';
+                    });
+
+                    if (answer.classList.contains('expanded')) {
+                        answer.classList.remove('expanded');
+                        this.querySelector('.ion-md-add').style.display = 'inline';
+                        this.querySelector('.ion-md-remove').style.display = 'none';
+                    } else {
+                        allAnswers.forEach(ans => {
+                            ans.classList.remove('expanded');
+                            ans.style.maxHeight = null;
+                        });
+
+                        answer.classList.add('expanded');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        this.querySelector('.ion-md-add').style.display = 'none';
+                        this.querySelector('.ion-md-remove').style.display = 'inline';
+                    }
+                });
+            });
+            
+            const toggleFormButton = document.getElementById('toggleFormButton');
+            const addFaqForm = document.getElementById('addFaqForm');
+
+            toggleFormButton.addEventListener('click', function() {
+                if (addFaqForm.style.display === 'none') {
+                    addFaqForm.style.display = 'block';
+                    document.getElementById('new_question').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    addFaqForm.style.display = 'none';
                 }
             });
-        });
 
-        const toggleFormButton = document.getElementById('toggleFormButton');
-        const addFaqForm = document.getElementById('addFaqForm');
+            const toggleDeleteButtons = document.getElementById('toggleDeleteButtons');
+            const deleteFaqButtons = document.querySelectorAll('.delete-faq');
+            
+            toggleDeleteButtons.addEventListener('click', function() {
+                deleteFaqButtons.forEach(button => {
+                    button.style.display = button.style.display === 'none' ? 'block' : 'none';
+                });
+            });
 
-        toggleFormButton.addEventListener('click', function() {
-            if (addFaqForm.style.display === 'none') {
-                addFaqForm.style.display = 'block';
-                document.getElementById('new_question').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                addFaqForm.style.display = 'none';
-            }
-        });
-
-        const toggleDeleteButtons = document.getElementById('toggleDeleteButtons');
-        const deleteFaqButtons = document.querySelectorAll('.delete-faq');
-
-        toggleDeleteButtons.addEventListener('click', function() {
             deleteFaqButtons.forEach(button => {
-                button.style.display = button.style.display === 'none' ? 'block' : 'none';
+                button.addEventListener('click', function() {
+                    const faqId = this.parentElement.getAttribute('data-id');
+                    
+                    if (confirm('Are you sure you want to delete this FAQ?')) {
+                        fetch('php/delete_faq.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json', 
+                            },
+                            body: JSON.stringify({ id: faqId }) 
+                        })
+                        .then(response => response.json()) 
+                        .then(data => {
+                            if (data.success) {
+                                this.parentElement.remove();
+                            } else {
+                                alert('Failed to delete FAQ: ' + data.error);
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                    }
+                });
             });
         });
-
-            deleteFaqButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const faqId = this.parentElement.getAttribute('data-id');
-            
-            if (confirm('Are you sure you want to delete this FAQ?')) {
-                fetch('php/delete_faq.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json', // Specify content type as JSON
-                    },
-                    body: JSON.stringify({ id: faqId }) // Convert data to JSON format
-                })
-                .then(response => response.json()) // Parse response as JSON
-                .then(data => {
-                    if (data.success) {
-                        this.parentElement.remove();
-                    } else {
-                        alert('Failed to delete FAQ: ' + data.error);
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-            }
-        });
-    });
-    });
     </script>
 </body>
 </html>
