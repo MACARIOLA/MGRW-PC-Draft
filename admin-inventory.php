@@ -139,6 +139,9 @@ if ($result && mysqli_num_rows($result) > 0) {
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/></svg> 
                 </button>
             </td>
+            <td>
+                <button class="btn btn-danger delete-btn" onclick="deleteProduct(<?php echo $row['id']; ?>)">Delete</button>
+            </td>
         </tr>
         <?php
     }
@@ -257,10 +260,6 @@ if ($result && mysqli_num_rows($result) > 0) {
                             <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" required>
                         </div>
                         <div class="form-group">
-                            <label for="product_image">Product Image</label>
-                            <input type="file" class="form-control" id="product_image" name="product_image" accept="image/png, image/jpeg, image/jpg">
-                        </div>
-                        <div class="form-group">
                             <label for="product_description">Description</label>
                             <textarea class="form-control" id="product_description" name="product_description" placeholder="Enter product description" required></textarea>
                         </div>
@@ -318,6 +317,31 @@ if ($result && mysqli_num_rows($result) > 0) {
 
 
     <script>
+
+function deleteProduct(id) {
+    if (confirm('Are you sure you want to delete this product?')) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'PHP/delete_product.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                if (xhr.responseText.includes('Product deleted successfully')) {
+                    // Reload the page after deletion
+                    location.reload();
+                } else {
+                    alert('Error: ' + xhr.responseText);
+                }
+            } else {
+                alert('Request failed. Returned status of ' + xhr.status);
+            }
+        };
+
+        xhr.send('id=' + id);
+    }
+}
+
+
 function showPreview(element) {
     const preview = element.querySelector('.preview');
     preview.style.display = 'block';
@@ -503,23 +527,44 @@ $(document).ready(function() {
         }
         
         $(document).ready(function() {
-            $('button.btn-secondary').click(function() {
-                var id = $(this).data('id');
-                var products_id = $(this).data('products_id');
-                var products_name = $(this).data('products_name');
-                var image = $(this).data('image');
-                var total_units = $(this).data('total_units');
-                var reserved_units = $(this).data('reserved_units');
-                
-                $('#product_id').val(id);
-                $('#product_products_id').val(products_id);
-                $('#product_name').val(products_name);
-                $('#product_image').attr('src', 'Images/' + image);
-                $('#product_total_units').val(total_units);
-                $('#product_reserved_units').val(reserved_units);
-            });
-        });
-        
+    $('button.btn-secondary').click(function() {
+        var id = $(this).data('id');
+        var products_id = $(this).data('products_id');
+        var products_name = $(this).data('products_name');
+        var image = $(this).data('image');
+        var total_units = $(this).data('total_units');
+        var reserved_units = $(this).data('reserved_units');
+        var description = $(this).data('description'); // Adding description
+        var unit_price = $(this).data('unit_price'); // Adding unit price
+        var specs_cpu = $(this).data('specs_cpu'); // Adding CPU specs
+        var specs_motherboard = $(this).data('specs_motherboard'); // Adding motherboard specs
+        var specs_ram = $(this).data('specs_ram'); // Adding RAM specs
+        var specs_ssd = $(this).data('specs_ssd'); // Adding SSD specs
+        var specs_monitor = $(this).data('specs_monitor'); // Adding monitor specs
+        var specs_computercase = $(this).data('specs_computercase'); // Adding computer case specs
+        var specs_powersupply = $(this).data('specs_powersupply'); // Adding power supply specs
+        var specs_fan = $(this).data('specs_fan'); // Adding fan specs
+
+        $('#product_id').val(id);
+        $('#product_products_id').val(products_id);
+        $('#product_name').val(products_name);
+        $('#product_image').attr('src', 'Images/' + image);
+        $('#product_total_units').val(total_units);
+        $('#product_reserved_units').val(reserved_units);
+        $('#product_description').val(description); // Populating description
+        $('#product_unit_price').val(unit_price); // Populating unit price
+        $('#specs_cpu').val(specs_cpu); // Populating CPU specs
+        $('#specs_motherboard').val(specs_motherboard); // Populating motherboard specs
+        $('#specs_ram').val(specs_ram); // Populating RAM specs
+        $('#specs_ssd').val(specs_ssd); // Populating SSD specs
+        $('#specs_monitor').val(specs_monitor); // Populating monitor specs
+        $('#specs_computercase').val(specs_computercase); // Populating computer case specs
+        $('#specs_powersupply').val(specs_powersupply); // Populating power supply specs
+        $('#specs_fan').val(specs_fan); // Populating fan specs
+    });
+});
+
+
         function showPreview() {
             document.getElementById("preview").style.display = "block";
         }
