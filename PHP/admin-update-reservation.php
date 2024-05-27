@@ -1,29 +1,31 @@
 <?php
-@include 'PHP/admin-config.php';
+@include 'admin-config.php';
 
-if(isset($_POST['update_reservation'])){
-  $id = $_POST['id'];
-  $reservation_name = $_POST['reservation'];
-  $customer = $_POST['customer'];
-  $product = $_POST['product'];
-  $reserve_units = $_POST['reserved_units'];
-  $status = $_POST['status']; 
-  
-  $sql = "UPDATE `reservation` SET `reservation_name`='$reservation_name',`customer`='$customer',`product`='$product',`reserved_units`='$reserve_units', `status`='$status' WHERE id = $id";
-  
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $IDreserve = $_POST['reservation_id'];
+    $Status = $_POST['status'];
 
-  $update = mysqli_query($conn, $sql);
+
+    // SQL update query
+    $sql = "UPDATE `reservation` SET status='$Status' WHERE IDreservation='$IDreserve'";
+
+
+
+    $update = mysqli_query($conn, $sql);
+
+    if ($update) {
+       
+        error_log("Update successful");
+        echo "<script>alert('Update data successfully.');</script>";
+        header("Location: admin-inventory.php");
+        exit();
+    } else {
+     
+        error_log("Update failed: " . mysqli_error($conn));
+        echo "<script>alert('Failed to update data.');</script>";
+    }
+} else {
   
-  if($update){
-    echo "
-    <script>alert('Update data successfully.')</script>
-    ";
-    header("Location: admin-inventory.php");
-  }
-  
+    error_log("Missing reservation_id or status in POST data");
 }
-
-
-
-
 ?>
