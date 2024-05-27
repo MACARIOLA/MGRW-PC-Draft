@@ -74,7 +74,7 @@
                         <th>Feedback</th>
                         <th>Rating</th>
                         <th>Tags</th>
-                        <th colspan="2">Status</th>
+                        <th colspan="2">Action</th>
                     </tr>
                 </thead>
                     
