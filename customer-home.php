@@ -133,7 +133,7 @@
     </div>
 
     <div class="shortcut">
-        <a class="btn-fdbck" href="customerpricelist.html">Check Our Pricelists</a>
+        <a class="btn-fdbck" href="customer-pricelist.html">Check Our Pricelists</a>
     </div>
 </section>
 
