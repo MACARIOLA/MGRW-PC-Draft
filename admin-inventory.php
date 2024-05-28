@@ -549,17 +549,6 @@
                 $('#specs_fan').val(specs_fan); 
             });
         });
-
-
-        function showPreview(element) {
-            var preview = element.querySelector(".preview");
-            preview.style.display = "block";
-        }
-  
-        function hidePreview(element) {
-            var preview = element.querySelector(".preview");
-            preview.style.display = "none";
-        }
         
         $(document).ready(function() {
             $('button.btn-info').click(function() {
