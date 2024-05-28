@@ -394,7 +394,7 @@
                             <input type="search" placeholder="Search Data..." id="reservationSearchInput" onkeyup="searchTable2()">
                             <img src="images/search.png">
                         </div>
-                    <button class='add' data-toggle="modal" data-target="#addModal">ADD</button>
+                    <button class='add'> ADD </button>
                 </section>
 
                 <section class="table__body">
