@@ -37,7 +37,7 @@ if (isset($_SESSION['product_id'])) {
          CSS & JS
     ---------------->
     <link rel="stylesheet" href="css/mainstyle.css">
-    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/customer-product.css">
     <script type="text/javascript" src="js/mainscript.js"></script>
 
     <!---------------
