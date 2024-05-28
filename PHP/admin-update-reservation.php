@@ -95,12 +95,16 @@ function updateInventoryBasedOnReservations($conn, $IDreserve) {
                 $sumReservedUnitsRow = $sumReservedUnitsResult->fetch_assoc();
                 $total_reserved_units = $sumReservedUnitsRow['total_reserved_units'];
                 
-                // Step 4: Update the reserved units in the inventory
                 $updateReservedUnitsSQL = "
-                    UPDATE inventory
-                    SET reserved_units = $total_reserved_units;
-                ";
-
+    UPDATE inventory i
+    JOIN (
+        SELECT Prod_categ, SUM(reserved_units) AS total_reserved_units
+        FROM reservation
+        WHERE status = 'Confirmed'
+        GROUP BY Prod_categ
+    ) AS tr ON i.id = tr.Prod_categ
+    SET i.reserved_units = tr.total_reserved_units;
+";
                 if ($conn->query($updateReservedUnitsSQL) === TRUE) {
                     echo "<script>alert('Inventory updated successfully. Total reserved units: $total_reserved_units');</script>";
                 } else {
