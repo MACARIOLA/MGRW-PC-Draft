@@ -72,27 +72,27 @@
         <div id="popup">
             <h2 id="updatephotohead">Update Photo</h2>
             <form id="updatePhotoForm" enctype="multipart/form-data"  method="POST">
-                <label for="photoInput">Choose Photo:</label>
+                <label for="photoInput">Click Me & Choose A Photo:</label>
                 <input type="file" id="photoInput" name="photo" accept="image/*" >
                 <span id="fileName1"></span>
                 <button type="submit" name="submit">Upload</button><br/>
 
-                <label for="photoInput2">Choose Photo:</label>
+                <label for="photoInput2">Click Me & Choose A Photo:</label>
                 <input type="file" id="photoInput2" name="photo2" accept="image/*" >
                 <span id="fileName2"></span>
                 <button type="submit" name="submit2">Upload</button><br/>
 
-                <label for="photoInput3">Choose Photo:</label>
+                <label for="photoInput3">Click Me & Choose A Photo:</label>
                 <input type="file" id="photoInput3" name="photo3" accept="image/*" > 
                 <span id="fileName3"></span>
                 <button type="submit" name="submit3">Upload</button><br/>
 
-                <label for="photoInput4">Choose Photo:</label>
+                <label for="photoInput4">Click Me & Choose A Photo:</label>
                 <input type="file" id="photoInput4" name="photo4" accept="image/*" >
                 <span id="fileName4"></span>
                 <button type="submit" name="submit4">Upload</button><br/>
 
-                <label for="photoInput5">Choose Photo:</label>
+                <label for="photoInput5">Click Me & Choose A Photo:</label>
                 <input type="file" id="photoInput5" name="photo5" accept="image/*" >
                 <span id="fileName5"></span>
                 <button type="submit" name="submit5">Upload</button>
