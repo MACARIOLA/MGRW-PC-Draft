@@ -14,7 +14,7 @@
          CSS & JS
     ---------------->
     <link rel="stylesheet" href="css/admin-inventory.css">
-      <link rel="stylesheet" href="css/admin-mainstyle.css">
+    <link rel="stylesheet" href="css/admin-mainstyle.css">
     <script src="js/admin-inventory.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -394,6 +394,7 @@
                             <input type="search" placeholder="Search Data..." id="reservationSearchInput" onkeyup="searchTable2()">
                             <img src="images/search.png">
                         </div>
+                    <button class='add' data-toggle="modal" data-target="#addModal">ADD</button>
                 </section>
 
                 <section class="table__body">
@@ -443,93 +444,6 @@
         </div>
     </div>
 
-    <!---------------
-        CONFIRMED
-    ---------------->
-    <section class="table__header">
-        <h2>CONFIRMED RESERVATIONS</h2>
-    </section>
-
-    <section class="table__body">
-        <table id="confirmedTable">
-            <thead class="thead">
-                <tr>
-                    <th> RESERVATION ID </th>
-                    <th> CUSTOMER ID </th>
-                    <th> PRODUCT ID </th>
-                    <th> EMAIL</th>
-                    <th> CONTACT#</th>
-                    <th> QUANTITY </th>
-                    <th> STATUS </th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php 
-                    $select = mysqli_query($conn, "SELECT * FROM reservation WHERE status = 'Confirmed'");
-                    while($row = mysqli_fetch_assoc($select)){
-                ?>
-                <tr>
-                    <td><?php echo $row['IDreservation']; ?></td>
-                    <td><?php echo $row['customer']; ?></td>
-                    <td><?php echo $row['product']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['num']; ?></td>
-                    <td><?php echo $row['reserved_units']; ?></td>
-                    <td>
-                        <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
-                    </td>
-                </tr>
-                <?php 
-                    } 
-                ?>
-            </tbody>
-        </table>
-    </section>
-
-    <!---------------
-        CANCELED
-    ---------------->
-    <section class="table__header">
-        <h2>CANCELED RESERVATIONS</h2>
-    </section>
-
-    <section class="table__body">
-        <table id="canceledTable">
-            <thead class="thead">
-                <tr>
-                    <th> RESERVATION ID </th>
-                    <th> CUSTOMER ID </th>
-                    <th> PRODUCT ID </th>
-                    <th> EMAIL</th>
-                    <th> CONTACT#</th>
-                    <th> QUANTITY </th>
-                    <th> STATUS </th> 
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php 
-                    $select = mysqli_query($conn, "SELECT * FROM reservation WHERE status = 'cancelled'");
-                    while($row = mysqli_fetch_assoc($select)){ 
-                ?>
-                <tr>
-                    <td><?php echo $row['IDreservation']; ?></td>
-                    <td><?php echo $row['customer']; ?></td>
-                    <td><?php echo $row['product']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['num']; ?></td>
-                    <td><?php echo $row['reserved_units']; ?></td>
-                    <td>
-                        <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
-                    </td>
-                </tr>
-                <?php 
-                    } 
-                ?>
-            </tbody>
-        </table>
-    </section>
 
    <!---------------
     RESERVATION POPUP
