@@ -140,7 +140,7 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-danger delete-btn" onclick="deleteProduct(<?php echo $row['id']; ?>)">Delete</button>
+                                                    <button class="status delete" onclick="deleteProduct(<?php echo $row['id']; ?>)">Delete</button>
                                                 </td>
                                             </tr>
                                         <?php
