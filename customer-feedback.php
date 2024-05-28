@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/mainstyle.css">
     <link rel="stylesheet" href="css/customer-feedback.css">
     <script src="js/mainscript.js"></script>
-    <script src="js/admin_feedback.js"></script>
+    <script src="js/admin-feedback.js"></script>
 
     <!---------------
           FONTS
