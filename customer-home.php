@@ -70,15 +70,21 @@
     <section class="slider-container">
         <div class="slider">
             <div class="list">
-            <div class="item">
-                <img src="<?php echo $promoImage; ?>" alt="" >
-            </div>
-            <div class="item">
-                <img src="<?php echo $promoImage2; ?>" alt="" >
-            </div>
-            <div class="item">
-                <img src="<?php echo $promoImage3; ?>" alt="" >
-            </div>
+                <div class="item">
+                    <img src="<?php echo $promoImage; ?>" alt="" >
+                </div>
+                <div class="item">
+                    <img src="<?php echo $promoImage2; ?>" alt="" >
+                </div>
+                <div class="item">
+                    <img src="<?php echo $promoImage3; ?>" alt="" >
+                </div>
+                <div class="item">
+                    <img src="<?php echo $promoImage4; ?>" alt="" >
+                </div>
+                <div class="item">
+                    <img src="<?php echo $promoImage5; ?>" alt="" >
+                </div>
             </div>
             <div class="buttons">
                 <button id="prev"><</button>
@@ -127,7 +133,7 @@
     </div>
 
     <div class="shortcut">
-        <a class="btn-fdbck" href="pricelist.html">Check Our Pricelists</a>
+        <a class="btn-fdbck" href="customerpricelist.html">Check Our Pricelists</a>
     </div>
 </section>
 
@@ -165,7 +171,7 @@
         </div>
 
         <div class="shortcut">
-            <a class="btn-fdbck2" href="pricelist.html">Check Our Pricelists</a>
+            <a class="btn-fdbck2" href="customer-pricelist.html">Check Our Pricelists</a>
         </div>
     </section>
 
@@ -201,7 +207,7 @@
         </div>
 
         <div class="shortcut">
-            <a class="btn-fdbck" href="pricelist.html">Check Our Pricelists</a>
+            <a class="btn-fdbck" href="customer-pricelist.html">Check Our Pricelists</a>
         </div>
     </section>
 
@@ -221,6 +227,7 @@
             <ul>    
                 <li><a href="customer-contact-us.php">Contact Us</a></li>
                 <li><a href="customer-faqs.php">FAQs</a></li>
+                <li><a href="customer-survey.php">Feedback-Survey</a></li>
             </ul>
         </div>
         
