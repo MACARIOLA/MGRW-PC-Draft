@@ -51,7 +51,7 @@
             <a href="customer-home.php" style="--i:1">Home</a>
             <a href="customer-aboutus.php" style="--i:1">About Us</a>
             <a href="customer-pricelist.html" style="--i:2">Pricelist</a> 
-            <a class="active" href="customer-feedback.php" style="--i:0">Feedback</a>
+            <a class="active" href="customer-feedback.php" style="--i:0">Feedbacks</a>
             <a href="customer-faqs.php" style="--i:4">FAQs</a> 
         </nav>
     </header>     
