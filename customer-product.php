@@ -67,11 +67,11 @@ if (isset($_SESSION['product_id'])) {
         </label>
 
         <nav class="navbar">
-            <a href="home.html" style="--i:0">Home</a>
-            <a href="aboutus.html" style="--i:1">About Us</a>
-            <a href="pricelist.html" style="--i:2">Pricelist</a> 
-            <a href="feedback.html" style="--i:3">Feedbacks</a>
-            <a href="faqs.html" style="--i:4">FAQs</a> 
+            <a href="customer-home.php" style="--i:0">Home</a>
+            <a href="customer-aboutus.php" style="--i:1">About Us</a>
+            <a href="customer-pricelist.php" style="--i:2">Pricelist</a> 
+            <a href="customer-feedback.php" style="--i:3">Feedbacks</a>
+            <a href="customer-faqs.php" style="--i:4">FAQs</a> 
         </nav>
     </header>     
 
@@ -178,7 +178,7 @@ if (isset($_SESSION['product_id'])) {
 
         document.getElementById("goBackBtn").addEventListener("click", function() {
             document.getElementById("successModal").style.display = "none";
-            window.location.href = "home.php";
+            window.location.href = "customer-home.php";
         });
 
         document.querySelectorAll(".close-btn").forEach(btn => {
@@ -210,16 +210,16 @@ if (isset($_SESSION['product_id'])) {
         <div class="footer-content">
             <h4>Company</h4>
             <ul>    
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="customer-contact-us.php">Contact Us</a></li>
+                <li><a href="customer-faqs.php">FAQs</a></li>
             </ul>
         </div>
         
         <div class="footer-content">
             <h4>Help</h4>
             <ul>
-                <li><a href="privacy.html">Privacy Policy</a></li>                
-                <li><a href="term.html">Terms of Service</a></li>
+                <li><a href="customer-privacy.html">Privacy Policy</a></li>                
+                <li><a href="customer-term.html">Terms of Service</a></li>
             </ul>
         </div>
  
@@ -227,8 +227,8 @@ if (isset($_SESSION['product_id'])) {
             <h4>Connect With Us</h4>
             <div class="icons2">
                 <a href="https://www.facebook.com/mgwrpc"><img src="Images/fbicon.png" alt=""></a>
-                <a href="https://www.instagram.com/mgwrpc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="Images/igicon.png" alt=""></a>
-                <a href="https://www.tiktok.com/@mgwrpctrading?is_from_webapp=1&sender_device=pc"><img src="Images/tticon.png" alt=""></a>
+                <a href="https://www.instagram.com/mgwrpc"><img src="Images/igicon.png" alt=""></a>
+                <a href="https://www.tiktok.com/@mgwrpctrading"><img src="Images/tticon.png" alt=""></a>
             </div>
         </div>
     </footer>
