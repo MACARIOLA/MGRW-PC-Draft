@@ -177,7 +177,7 @@
 
 #popup {
 	width: 35%;
-	height: 12%;
+	height: 15%;
     position: fixed;
     top: 10%;
     left: 50%;
@@ -231,11 +231,27 @@ label[for="photoInput3"],
 label[for="photoInput4"],
 label[for="photoInput5"] {
     font-size: 16px;
-    color: #333;
+    color: var(--black1);
     margin-right: 10px;
     text-decoration: none;
     cursor: pointer;
+	border: 1px solid var(--black1);
+	padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+	border-radius: 10px;
+    transition: 0.3s ease;
 }
+
+label[for="photoInput"]:hover,
+label[for="photoInput2"]:hover,
+label[for="photoInput3"]:hover,
+label[for="photoInput4"]:hover,
+label[for="photoInput5"]:hover {
+    background-color: var(--mgwrpcMain1);
+    color: var(--white1);
+}
+	
 
 #photoInput,
 #photoInput2,
@@ -243,6 +259,7 @@ label[for="photoInput5"] {
 #photoInput4,
 #photoInput5 {
     display: none; 
+	
 }
 
 #fileName1,
@@ -253,6 +270,7 @@ label[for="photoInput5"] {
     font-size: 16px;
     color: var(--mgwrpcMain1);
     margin-right: 20px;
+	
 }
 
 button[name="submit"],
@@ -270,6 +288,7 @@ button[name="submit5"] {
 	border-radius: 10px;
 	transition: 0.3s;
     margin-top: 20px;
+	
 }
 
 button[name="submit"]:hover,
@@ -509,6 +528,17 @@ label[for="ABTPHOTO"] {
     margin-right: 10px;
     text-decoration: none;
     cursor: pointer;
+    border: 1px solid var(--black1);
+	padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+	border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+label[for="ABTPHOTO"]:hover {
+    background-color: var(--mgwrpcMain1);
+    color: var(--white1);
 }
 
 #ABTPHOTO {
