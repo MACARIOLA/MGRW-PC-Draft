@@ -151,7 +151,6 @@
 
         <div id="successModal" class="modal">
             <div class="modal-content">
-                <span class="close-btn">&times;</span>
                 <h2>Reservation Completed!</h2>
                 <button type="button" id="goBackBtn">Go Back</button>
             </div>
@@ -182,7 +181,7 @@
 
         document.getElementById("goBackBtn").addEventListener("click", function() {
             document.getElementById("successModal").style.display = "none";
-            window.location.href = "home.php";
+            window.location.href = "customer-home.php";
         });
 
         document.querySelectorAll(".close-btn").forEach(btn => {
@@ -247,4 +246,4 @@
         <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
     </div>
 </body>
-</html>
+</html> 
