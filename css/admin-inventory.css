@@ -235,25 +235,6 @@ tbody tr.hide td img {
     display: inline-block;
 }
 
-#preview {
-    position: absolute;
-    display: none;
-    height: auto; 
-    top: -2px;
-    left: calc(100% + 10px); 
-    margin-top: -10px; 
-}
-
-.image-container:hover #preview {
-    display: block;
-    width: 300px;
-    border: 2px solid var(--black1);
-    border-radius: 5px; 
-    background-color: var(--black1); 
-    box-shadow: 0 0 10px rgba(126, 106, 106, 0.3); 
-}
-
-
 /* -------------
    BREAKPOINTS
 -------------- */
