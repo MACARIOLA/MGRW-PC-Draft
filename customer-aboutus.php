@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
     <!---------------
            PHP
     ---------------->
@@ -129,6 +128,7 @@
             <ul>    
                 <li><a href="customer-contact-us.php">Contact Us</a></li>
                 <li><a href="customer-faqs.php">FAQs</a></li>
+                <li><a href="customer-survey.php">Feedback-Survey</a></li>
             </ul>
         </div>
         
