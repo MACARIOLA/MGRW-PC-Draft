@@ -96,10 +96,11 @@
 
 
 
+   
     <!---------------
-       SULIT PCS
-    ---------------->
-    <section class="sulitPc">
+    SULIT PCS
+---------------->
+<section class="sulitPc">
     <div class="text-center">
         <h2>Sulit PC Sets</h2>
         <p class="sentence1">Check out our best-selling computers, designed for performance and reliability.</p>
@@ -107,12 +108,11 @@
 
     <div class="sulitPcContents">
         <?php 
-            // Modify the query to fetch random products
-            $sql = "SELECT * FROM inventory ORDER BY RAND() LIMIT 3"; // Fetch only 3 random products
+            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PC%'  ORDER BY RAND()  LIMIT 3"; // Fetch only the first 3 products
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $url = "customer-product.php?id=" . $row['id'];
+                    $url = "product.php?id=" . $row['id'];
         ?>
         <div class="row">
             <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
@@ -127,9 +127,12 @@
     </div>
 
     <div class="shortcut">
-        <a class="btn-fdbck" href="customer-pricelist.html">Check Our Pricelists</a>
+        <a class="btn-fdbck" href="pricelist.html">Check Our Pricelists</a>
     </div>
 </section>
+
+
+
 
 
     <!---------------
@@ -142,30 +145,27 @@
         </div>
 
         <div class="sulitLaptopContents">
-            <div class="row">
-                <a href="customer-product.php"><img src="Images/Sulit Laptop 1.jpg" alt=""></a>
-                <h4>Lenovo Thinkpad X250 Used</h4>
-                <h5>Sulit Laptop 1</h5>
-                <h6>₱10,990</h6>
-            </div>
-
-            <div class="row">
-                <a href="customer-product.php"><img src="Images/Sulit Laptop 2.jpg" alt=""></a>
-                <h4>Lenovo Thinkpad L580 Used</h4>
-                <h5>Sulit Laptop 2</h5>
-                <h6>₱11,200</h6>
-            </div>
-
-            <div class="row">
-                <a href="customer-product.php"><img src="Images/Sulit Laptop 3.jpg" alt=""></a>
-                <h4>Lenovo Thinkpad L480 Used</h4>
-                <h5>Sulit Laptop 3</h5>
-                <h6>₱11,200</h6>
-            </div>
+        <?php 
+            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT LAPTOP%'  ORDER BY RAND()  LIMIT 3"; // Fetch only the first 3 products
+            $result = mysqli_query($conn, $sql);
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $url = "product.php?id=" . $row['id'];
+        ?>
+        <div class="row">
+            <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
+            <h4><?php echo $row['products_name']; ?></h4>
+            <h5><?php echo $row['products_id']; ?></h5>
+            <h6>₱<?php echo $row['unit_price']; ?></h6>
+        </div>
+        <?php
+                }
+            }
+        ?>
         </div>
 
         <div class="shortcut">
-            <a class="btn-fdbck2" href="customer-pricelist.html">Check Our Pricelists</a>
+            <a class="btn-fdbck2" href="pricelist.html">Check Our Pricelists</a>
         </div>
     </section>
 
@@ -181,30 +181,27 @@
         </div>
 
         <div class="sulitPrinterContents">
-            <div class="row">
-                <a href="customer-product.php"><img src="Images/sulitPrinter3.jpg" alt=""></a>
-                <h4>L121 PRINTER</h4>
-                <h5>Sulit Printer 1</h5>
-                <h6>₱5,595</h6>
-            </div>
-
-            <div class="row">
-                <a href="customer-product.php"><img src="Images/sulitPrinter3.jpg" alt=""></a>
-                <h4>L3210 3IN PRINTER</h4>
-                <h5>Sulit Printer 2</h5>
-                <h6>₱8,795</h6>
-            </div>
-
-            <div class="row">
-                <a href="customer-product.php"><img src="Images/sulitPrinter3.jpg" alt=""></a>
-                <h4>L3250 4IN1 PRINTER</h4>
-                <h5>Sulit Printer 3</h5>
-                <h6>₱10,225</h6>
-            </div>
+        <?php 
+            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PRINTER%'  ORDER BY RAND()  LIMIT 3"; // Fetch only the first 3 products
+            $result = mysqli_query($conn, $sql);
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $url = "product.php?id=" . $row['id'];
+        ?>
+        <div class="row">
+            <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
+            <h4><?php echo $row['products_name']; ?></h4>
+            <h5><?php echo $row['products_id']; ?></h5>
+            <h6>₱<?php echo $row['unit_price']; ?></h6>
+        </div>
+        <?php
+                }
+            }
+        ?>
         </div>
 
         <div class="shortcut">
-            <a class="btn-fdbck" href="customer-pricelist.html">Check Our Pricelists</a>
+            <a class="btn-fdbck" href="pricelist.html">Check Our Pricelists</a>
         </div>
     </section>
 
