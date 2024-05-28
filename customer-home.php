@@ -112,7 +112,7 @@
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $url = "product.php?id=" . $row['id'];
+                    $url = "customer-product.php.php?id=" . $row['id'];
         ?>
         <div class="row">
             <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
@@ -150,7 +150,7 @@
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $url = "product.php?id=" . $row['id'];
+                    $url = "customer-product.php.php?id=" . $row['id'];
         ?>
         <div class="row">
             <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
@@ -186,7 +186,7 @@
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $url = "product.php?id=" . $row['id'];
+                    $url = "customer-product.php.php?id=" . $row['id'];
         ?>
         <div class="row">
             <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
