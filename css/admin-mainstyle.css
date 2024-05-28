@@ -80,7 +80,7 @@ body {
 }
 
 .logo {
-    width: 240px;
+    width: 220px;
     height: auto;
     transition: 0.3s ease;
     cursor: pointer;
@@ -134,69 +134,73 @@ body {
     z-index: -1; 
 }
 
-
 #menu{
     display: none;
 }
+
 /* -------------
    BREAKPOINTS
 -------------- */
 @media only screen and (max-width:768px){
-.nav-container{
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  right: 0;
-  left: -800px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items:flex-start;
-  background: #000;
-  z-index: 10000;
-  transition: left 0.3s ease;
+    .nav-container{
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        right: 0;
+        left: -800px;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items:flex-start;
+        background: #000;
+        z-index: 10000;
+        transition: left 0.3s ease;
+        }
 
-  
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        }
+
+    .navbar a {
+        margin: 1rem 0 !important;
+        }
+
+    .navbar a {
+        margin: 0;
+        }
+    
+    .header a img {
+        width: 100px;
+    }
+    
+    .fa-solid {
+        display: block;
+        font-size: 2rem;
+        color: white;
+    }
+
+    #menu {
+        display: block;
+    }
+
+    .table__header .input-group input {
+        padding: 20px 15px !important;
+    }
+
+    .table__header {
+        display: flex !important;
+        justify-content: space-between !important;
+    }
+
+    .table__header h2{
+        font-size: 18px;
+
+    }
 }
 
-.navbar {
-  display: flex;
-  flex-direction: column;
 
 
-}
-
-.navbar a {
-  margin: 1rem 0 !important;
-}
- .navbar a{
-  margin: 0;
-
-}
-  .header a img{
-    width: 100px;
-  }
-  .fa-solid{
-    display: block;
-    font-size: 2rem;
-    color: white;
-  }
-  #menu{
-    display: block;
-}
-.table__header .input-group input{
-    padding: 20px 15px !important;
-}
-.table__header {
-    display: flex !important;
-    justify-content: space-between !important;
-}
-
-.table__header h2{
-    font-size: 18px;
-
-}
-}
 /* -------------
      FOOTER
 -------------- */
@@ -399,9 +403,6 @@ footer {
 
 
 @media(max-width: 767px){
-  .helloworld{
-    
-  }
     .copyrights p {
         font-size: 16px;
         padding: 8px 0 8px 0;
