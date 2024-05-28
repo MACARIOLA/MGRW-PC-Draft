@@ -273,10 +273,6 @@
                             <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required>
                         </div>
                         <div class="form-group">
-                            <label for="product_reserved_units">Reserved Units</label>
-                            <input type="number" min="0" class="form-control" id="product_reserved_units" name="product_reserved_units" placeholder="Enter reserved units" required>
-                        </div>
-                        <div class="form-group">
                             <label for="specs_cpu">CPU Specs</label>
                             <input type="text" class="form-control" id="specs_cpu" name="specs_cpu" placeholder="Enter CPU specs" required>
                         </div>
