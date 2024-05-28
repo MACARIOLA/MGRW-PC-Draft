@@ -6,7 +6,7 @@ include 'PHP/con_db.php';
 if (isset($_GET['id'])) {
     $_SESSION['product_id'] = $_GET['id'];
     // Redirect to avoid resubmission of the GET request
-    header("Location: admin-product.php");
+    header("Location: customer-product.php");
     exit();
 }
 
