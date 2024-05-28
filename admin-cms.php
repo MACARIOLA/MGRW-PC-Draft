@@ -44,7 +44,7 @@
           NAVBAR
     ---------------->
     <header class="header">
-        <a href="admin-analytics.html"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+        <a href="admin-analytics.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
 
         <input type="checkbox" id="check">
         <label for="check" class="icons">
@@ -53,7 +53,7 @@
         </label>
    
         <nav class="navbar">
-            <a href="admin-analytics.html" style="--i:0">Analytics</a>
+            <a href="admin-analytics.php" style="--i:0">Analytics</a>
             <a href="admin-inventory.php" style="--i:1">Inventory</a>
             <a class="active" href="admin-cms.php" style="--i:2">CMS</a>
             <a href="admin-feedback.php" style="--i:3">Feedbacks</a>
