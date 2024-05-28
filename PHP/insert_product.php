@@ -9,7 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_product'])) {
     $product_description = mysqli_real_escape_string($conn, $_POST['product_description']);
     $product_unit_price = mysqli_real_escape_string($conn, $_POST['product_unit_price']);
     $product_total_units = intval($_POST['product_total_units']);
-    $product_reserved_units = intval($_POST['product_reserved_units']);
     $specs_cpu = mysqli_real_escape_string($conn, $_POST['specs_cpu']);
     $specs_motherboard = mysqli_real_escape_string($conn, $_POST['specs_motherboard']);
     $specs_ram = mysqli_real_escape_string($conn, $_POST['specs_ram']);
@@ -38,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_product'])) {
         die("Prepare failed: " . $conn->error);
     }
     
-    $stmt->bind_param("ssssdiissssssss", $product_products_id, $product_name, $product_image, $product_description, $product_unit_price, $product_total_units, $product_reserved_units, $specs_cpu, $specs_motherboard, $specs_ram, $specs_ssd, $specs_monitor, $specs_computercase, $specs_powersupply, $specs_fan);
+    $stmt->bind_param("ssssdiissssssss", $product_products_id, $product_name, $product_image, $product_description, $product_unit_price, $product_total_units, $specs_cpu, $specs_motherboard, $specs_ram, $specs_ssd, $specs_monitor, $specs_computercase, $specs_powersupply, $specs_fan);
 
     // Execute the statement
     if ($stmt->execute()) {
