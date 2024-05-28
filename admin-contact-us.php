@@ -35,14 +35,14 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"></head>
 <body>
     <header class="header">
-        <a href="adminAnalytics.html"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+        <a href="admin-analytics.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
         <input type="checkbox" id="check">
         <label for="check" class="icons">
             <img src="Images/Menu.png" alt="" id="menu-icon">
             <img src="Images/MenuX.png" alt="" id="close-icon">
         </label>
         <nav class="navbar">
-            <a href="admin-analytics.html" style="--i:0">Analytics</a>
+            <a href="admin-analytics.php" style="--i:0">Analytics</a>
             <a href="admin-inventory.php" style="--i:1">Inventory</a>
             <a href="admin-cms.php" style="--i:2">CMS</a>
             <a href="admin-feedback.php" style="--i:0">Feedback</a>
