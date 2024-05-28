@@ -132,9 +132,9 @@
                 <h2>Reservation Details</h2>
                 <form id="reserveForm" method="POST">
                     <label for="fName">First Name</label>
-                    <input type="text" id="fName" name="fname" placeholder="Enter First Name" required>
+                    <input type="fname" id="fName" name="fname" placeholder="Enter First Name" required>
                     <label for="lName">Last Name</label>
-                    <input type="text" id="lName" name="lname" placeholder="Enter Last Name" required>
+                    <input type="lname" id="lName" name="lname" placeholder="Enter Last Name" required>
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter Email" required>
                     <label for="contactNum">Contact Number</label>
@@ -247,4 +247,4 @@
         <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
     </div>
 </body>
-</html> 
+</html>
