@@ -21,7 +21,7 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        header("Location: ../admin-analytics.html");  
+        header("Location: ../admin-analytics.php");  
         exit();
     } else {
         echo "<script>
