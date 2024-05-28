@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,38 +100,36 @@
        SULIT PCS
     ---------------->
     <section class="sulitPc">
-        <div class="text-center">
-            <h2>Sulit PC Sets</h2>
-            <p class="sentence1">Check out our best-selling computers, designed for performance and reliability.</p>
-        </div>
+    <div class="text-center">
+        <h2>Sulit PC Sets</h2>
+        <p class="sentence1">Check out our best-selling computers, designed for performance and reliability.</p>
+    </div>
 
-        <div class="sulitPcContents">
-            <?php 
-                $sql = "SELECT * FROM inventory LIMIT 3"; // Fetch only the first 3 products
-                $result = mysqli_query($conn, $sql);
-                if ($result && mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $url = "customer-product.php?id=" . $row['id'];
-            ?>
-            <div class="row">
-                <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
-                <h4><?php echo $row['products_name']; ?></h4>
-                <h5><?php echo $row['products_id']; ?></h5>
-                <h6>₱<?php echo $row['unit_price']; ?></h6>
-            </div>
-            <?php
-                    }
+    <div class="sulitPcContents">
+        <?php 
+            // Modify the query to fetch random products
+            $sql = "SELECT * FROM inventory ORDER BY RAND() LIMIT 3"; // Fetch only 3 random products
+            $result = mysqli_query($conn, $sql);
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $url = "customer-product.php?id=" . $row['id'];
+        ?>
+        <div class="row">
+            <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
+            <h4><?php echo $row['products_name']; ?></h4>
+            <h5><?php echo $row['products_id']; ?></h5>
+            <h6>₱<?php echo $row['unit_price']; ?></h6>
+        </div>
+        <?php
                 }
-            ?>
-        </div>
+            }
+        ?>
+    </div>
 
-        <div class="shortcut">
-            <a class="btn-fdbck" href="customer-pricelist.html">Check Our Pricelists</a>
-        </div>
-    </section>
-
-
-
+    <div class="shortcut">
+        <a class="btn-fdbck" href="customer-pricelist.html">Check Our Pricelists</a>
+    </div>
+</section>
 
 
     <!---------------
