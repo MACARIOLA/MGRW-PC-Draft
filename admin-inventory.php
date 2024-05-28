@@ -84,7 +84,7 @@
                         <input type="search" placeholder="Search Data..." id="inventorySearchInput" onkeyup="searchTable()">
                         <img src="images/search.png" alt="">
                     </div>
-                    <button class='add' data-toggle="modal" data-target="#addModal">ADD</button>
+                    <button class='add' data-toggle="modal" data-target="#addModalInventory">ADD</button>
                 </section>
 
                 <section class="table__body">
@@ -236,10 +236,10 @@
         </div>
     </div>
 
-    <!---------------
-        ADD POPUP
-    ---------------->
-    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <!------------------
+        ADD INVENTORY
+    ------------------->
+    <div class="modal fade" id="addModalInventory" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -382,183 +382,221 @@
         });
     </script>
 
-    <!---------------
-       RESERVATION
-    ---------------->
-    <div class="container-main">
-        <div class="container1">
-            <main class="table" id="customers_table">
-                <section class="table__header">
-                    <h2>RESERVATION</h2>
-                        <div class="input-group">
-                            <input type="search" placeholder="Search Data..." id="reservationSearchInput" onkeyup="searchTable2()">
-                            <img src="images/search.png">
-                        </div>
-                    <button class='add'> ADD </button>
-                </section>
+<!---------------
+   RESERVATION
+---------------->
+<div class="container-main">
+    <div class="container1">
+        <main class="table" id="customers_table">
+            <section class="table__header">
+                <h2>RESERVATION</h2>
+                <div class="input-group">
+                    <input type="search" placeholder="Search Data..." id="reservationSearchInput" onkeyup="searchTable2()">
+                    <img src="images/search.png">
+                </div>
+                <button class="add" data-toggle="modal" data-target="#addModalReservation">ADD</button>
+            </section>
 
-                <section class="table__body">
-                    <table id="reservationTable">
-                        <thead class="thead">
-                            <tr>
-                                <th> RESERVATION ID </th>
-                                <th> CUSTOMER ID </th>
-                                <th> PRODUCT ID </th>
-                                <th> EMAIL</th>
-                                <th> CONTACT#</th>
-                                <th> QUANTITY </th>
-                                <th> STATUS </th>
-                                <th> UPDATE </th>
-                            </tr>
-                        </thead>
+            <section class="table__body">
+                <table id="reservationTable">
+                    <thead class="thead">
+                        <tr>
+                            <th> RESERVATION ID </th>
+                            <th> CUSTOMER ID </th>
+                            <th> PRODUCT ID </th>
+                            <th> EMAIL</th>
+                            <th> CONTACT#</th>
+                            <th> QUANTITY </th>
+                            <th> STATUS </th>
+                            <th> UPDATE </th>
+                        </tr>
+                    </thead>
 
-                        <tbody>
+                    <tbody>
+                        <?php 
+                            $select = mysqli_query($conn, "SELECT * FROM reservation");
+                            while($row = mysqli_fetch_assoc($select)){ 
+                                ?>
+                                <tr>
+                                    <td><?php echo $row['IDreservation']; ?></td>
+                                    <td><?php echo $row['customer']; ?></td>
+                                    <td><?php echo $row['product']; ?></td>
+                                    <td><?php echo $row['email']; ?></td>
+                                    <td><?php echo $row['num']; ?></td>
+                                    <td><?php echo $row['reserved_units']; ?></td>
+                                    <td>
+                                        <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
+                                    </td>
+                                    <td>
+                                        <button style="background:none;border:none;" class="btn btn-info edit-btn" data-toggle="modal" data-target="#reservationmodal" data-id="<?php echo $row['Prod_categ']; ?>" data-reservation="<?php echo $row['IDreservation']; ?>" data-customer="<?php echo $row['customer']; ?>" data-product="<?php echo $row['product']; ?>" data-reserved_units="<?php echo $row['reserved_units']; ?>" data-status="<?php echo $row['status']; ?>">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/></svg> 
+                                        </button>
+                                    </td>
+                                </tr>
                             <?php 
-                                $select = mysqli_query($conn, "SELECT * FROM reservation ");
-                                while($row = mysqli_fetch_assoc($select)){ 
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $row['IDreservation']; ?></td>
-                                            <td><?php echo $row['customer']; ?></td>
-                                            <td><?php echo $row['product']; ?></td>
-                                            <td><?php echo $row['email']; ?></td>
-                                            <td><?php echo $row['num']; ?></td>
-                                            <td><?php echo $row['reserved_units']; ?></td>
-                                            <td>
-                                                <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
-                                            </td>
-                                            <td>
-                                            <button style="background:none;border:none;" class="btn btn-info edit-btn" data-toggle="modal" data-target="#reservationmodal" data-id="<?php echo $row['Prod_categ']; ?>" data-reservation="<?php echo $row['IDreservation']; ?>" data-customer="<?php echo $row['customer']; ?>"  data-product="<?php echo $row['product']; ?>" data-reserved_units="<?php echo $row['reserved_units']; ?>" 
-                                                data-status="<?php echo $row['status']; ?>">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/></svg> 
-                                            </button>
-                                            </td>
-                                        </tr>
-                                    <?php 
-                                } 
-                            ?>
-                        </tbody>
-                    </table>
-                </section>
-            </main>
+                            } 
+                        ?>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</div>
+
+<!---------------
+RESERVATION POPUP
+---------------->
+<div class="modal fade" id="reservationmodal" tabindex="-1" role="dialog" aria-labelledby="reservationmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reservationmodalLabel">Update Reservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="reservationForm" method="post">
+                    <div class="form-group">
+                        <label for="reservation_id">Reservation ID</label>
+                        <input type="text" class="form-control" id="reservation_id" name="reservation_id" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select class="form-control" id="status" name="status">
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="cancelled">Cancelled</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="$('#reservationForm').submit();">Save changes</button>
+            </div>
+        </form>
         </div>
     </div>
+</div>
 
+<!------------------
+ADD RESERVATION
+------------------->
+<div class="modal fade" id="addModalReservation" tabindex="-1" role="dialog" aria-labelledby="addModalReservationLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalReservationLabel">Add Reservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-   <!---------------
-    RESERVATION POPUP
-    ---------------->
-    <div class="modal fade" id="reservationmodal" tabindex="-1" role="dialog" aria-labelledby="reservationmodalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="reservationmodalLabel">Update Reservation</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="reservationForm" method="post">
-                        <div class="form-group">
-                            <label for="reservation_id">Reservation ID</label>
-                            <input type="text" class="form-control" id="reservation_id" name="reservation_id" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="status">Status</label>
-                            <select class="form-control" id="status" name="status">
-                                <option value="Confirmed">Confirmed</option>
-                                <option value="cancelled">Cancelled</option>
-                                <option value="pending">Pending</option>
-                            </select>
-                        </div>
-                
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="$('#reservationForm').submit();">Save changes</button>
-                </div>
-            </form>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data" action="PHP/---.php">
+                    <div class="form-group">
+                        <label for="---">First Name</label>
+                        <input type="text" class="form-control" id="---" name="---" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="---">Last Name</label>
+                        <input type="text" class="form-control" id="---" name="---" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="---">Email</label>
+                        <textarea class="form-control" id="---" name="---" placeholder="Email" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="---">Contact Number</label>
+                        <input type="number" class="form-control" id="---" name="---" placeholder="Contact Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="---">PRODUCT ID</label>
+                        <input type="number" min="0" class="form-control" id="---" name="---" placeholder="Product ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="---">Quantity</label>
+                        <input type="number" min="0" class="form-control" id="---" name="---" placeholder="Quantity" required>
+                    </div>
+        
+                    <button type="submit" name="update_product" class="btn btn-primary">SAVE</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
+<!---------------
+   JS
+---------------->
+<script src="admin-inventory.js"></script>
+<script src="https://kit.fontawesome.com/865faf11ce.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-    <!---------------
-           JS
-    ---------------->
-    <script src="admin-inventory.js"></script>
-    <script src="https://kit.fontawesome.com/865faf11ce.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-        let navVisible = false;
+<script>
+    let navVisible = false;
+    
+    function toggleClick() {
+        const body = $('body');
+        const navContainer = $('#nav-container');
         
-        function toggleClick() {
-            const body = $('body');
-            const navContainer = $('#nav-container');
-            
-            if (!navVisible) {
-                navContainer.css('left', '0');
-                body.css('overflow', 'hidden');
-            } 
-            
-            else {
-                navContainer.css('left', '-800px');
-                body.css('overflow', 'auto');
-            }
-            
-            navVisible = !navVisible;
+        if (!navVisible) {
+            navContainer.css('left', '0');
+            body.css('overflow', 'hidden');
+        } else {
+            navContainer.css('left', '-800px');
+            body.css('overflow', 'auto');
         }
         
-        $(document).ready(function() {
-            $('button.btn-secondary').click(function() {
-                var id = $(this).data('id');
-                var products_id = $(this).data('products_id');
-                var products_name = $(this).data('products_name');
-                var image = $(this).data('image');
-                var total_units = $(this).data('total_units');
-                var reserved_units = $(this).data('reserved_units');
-                var description = $(this).data('description'); 
-                var unit_price = $(this).data('unit_price'); 
-                var specs_cpu = $(this).data('specs_cpu');
-                var specs_motherboard = $(this).data('specs_motherboard'); 
-                var specs_ram = $(this).data('specs_ram');
-                var specs_ssd = $(this).data('specs_ssd');
-                var specs_monitor = $(this).data('specs_monitor'); 
-                var specs_computercase = $(this).data('specs_computercase'); 
-                var specs_powersupply = $(this).data('specs_powersupply'); 
-                var specs_fan = $(this).data('specs_fan'); 
+        navVisible = !navVisible;
+    }
+    
+    $(document).ready(function() {
+        $('button.btn-secondary').click(function() {
+            var id = $(this).data('id');
+            var products_id = $(this).data('products_id');
+            var products_name = $(this).data('products_name');
+            var image = $(this).data('image');
+            var total_units = $(this).data('total_units');
+            var reserved_units = $(this).data('reserved_units');
+            var description = $(this).data('description'); 
+            var unit_price = $(this).data('unit_price'); 
+            var specs_cpu = $(this).data('specs_cpu');
+            var specs_motherboard = $(this).data('specs_motherboard'); 
+            var specs_ram = $(this).data('specs_ram');
+            var specs_ssd = $(this).data('specs_ssd');
+            var specs_monitor = $(this).data('specs_monitor'); 
+            var specs_computercase = $(this).data('specs_computercase'); 
+            var specs_powersupply = $(this).data('specs_powersupply'); 
+            var specs_fan = $(this).data('specs_fan'); 
 
-                $('#product_id').val(id);
-                $('#product_products_id').val(products_id);
-                $('#product_name').val(products_name);
-                $('#product_image').attr('src', 'Images/' + image);
-                $('#product_total_units').val(total_units);
-                $('#product_reserved_units').val(reserved_units);
-                $('#product_description').val(description); 
-                $('#product_unit_price').val(unit_price); 
-                $('#specs_cpu').val(specs_cpu); 
-                $('#specs_motherboard').val(specs_motherboard); 
-                $('#specs_ram').val(specs_ram); 
-                $('#specs_ssd').val(specs_ssd); 
-                $('#specs_monitor').val(specs_monitor);
-                $('#specs_computercase').val(specs_computercase); 
-                $('#specs_powersupply').val(specs_powersupply); 
-                $('#specs_fan').val(specs_fan); 
-            });
+            $('#product_id').val(id);
+            $('#product_products_id').val(products_id);
+            $('#product_name').val(products_name);
+            $('#product_image').attr('src', 'Images/' + image);
+            $('#product_total_units').val(total_units);
+            $('#product_reserved_units').val(reserved_units);
+            $('#product_description').val(description); 
+            $('#product_unit_price').val(unit_price); 
+            $('#specs_cpu').val(specs_cpu); 
+            $('#specs_motherboard').val(specs_motherboard); 
+            $('#specs_ram').val(specs_ram); 
+            $('#specs_ssd').val(specs_ssd); 
+            $('#specs_monitor').val(specs_monitor);
+            $('#specs_computercase').val(specs_computercase); 
+            $('#specs_powersupply').val(specs_powersupply); 
+            $('#specs_fan').val(specs_fan); 
         });
-        
-        $(document).ready(function() {
-            $('button.btn-info').click(function() {
-                var reservation = $(this).data('reservation');
-                var status = $(this).data('status');
 
-                $('#reservation_id').val(reservation);
-                $('#status').val(status); 
-            });
+        $('button.btn-info').click(function() {
+            var reservation = $(this).data('reservation');
+            var status = $(this).data('status');
+
+            $('#reservation_id').val(reservation);
+            $('#status').val(status); 
         });
-    </script>
+    });
+</script>
 </body>
 </html>
