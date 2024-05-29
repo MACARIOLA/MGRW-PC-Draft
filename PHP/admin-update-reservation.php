@@ -124,16 +124,18 @@ function updateInventoryBasedOnReservations($conn, $IDreserve) {
 // Function to update inventory based on cancelled reservations
 function updateInventoryBasedOnCancellations($conn, $IDreserve) {
     // Step 1: Fetch the reserved units for the cancelled reservation
-    $fetchReservedUnitsSQL = "SELECT reserved_units FROM reservation WHERE IDreservation='$IDreserve'";
+    $fetchReservedUnitsSQL = "SELECT reserved_units, Prod_categ FROM reservation WHERE IDreservation='$IDreserve'";
     $result = mysqli_query($conn, $fetchReservedUnitsSQL);
     $row = mysqli_fetch_assoc($result);
     $cancelledUnits = $row['reserved_units'];
+    $cancelledProd_categ = $row['Prod_categ'];
 
-    // Step 2: Update the inventory table
+    // Step 2: Update the inventory table for the specific product category
     $updateInventorySQL = "
-        UPDATE inventory i
-        SET i.reserved_units = GREATEST(i.reserved_units - $cancelledUnits, 0),
-            i.total_units = i.total_units + $cancelledUnits;
+        UPDATE inventory
+        SET reserved_units = GREATEST(reserved_units - $cancelledUnits, 0),
+            total_units = total_units + $cancelledUnits
+        WHERE id = '$cancelledProd_categ';
     ";
 
     if ($conn->query($updateInventorySQL) === TRUE) {
