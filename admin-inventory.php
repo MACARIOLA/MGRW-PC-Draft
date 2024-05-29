@@ -84,7 +84,7 @@
                         <input type="search" placeholder="Search Data..." id="inventorySearchInput" onkeyup="searchTable()">
                         <img src="images/search.png" alt="">
                     </div>
-                    <button class='add' data-toggle="modal" data-target="#addModalInventory">ADD</button>
+                    <button type="dropdown" class='add' data-toggle="modal" data-target="#openInventoryTypes">ADD</button>
                 </section>
 
                 <section class="table__body">
@@ -119,7 +119,7 @@
                                                 <td><?php echo htmlspecialchars($row['total_units']); ?></td>
                                                 <td><?php echo htmlspecialchars($row['reserved_units']); ?></td>
                                                 <td>
-                                                    <button style="background:none;border:none;" class="btn btn-secondary edit-btn" data-toggle="modal" data-target="#updateModal" 
+                                                    <button class="status edit" data-toggle="modal" data-target="#updateModal" 
                                                         data-id="<?php echo htmlspecialchars($row['id']); ?>" 
                                                         data-products_id="<?php echo htmlspecialchars($row['products_id']); ?>" 
                                                         data-products_name="<?php echo htmlspecialchars($row['products_name']); ?>" 
@@ -136,7 +136,7 @@
                                                         data-specs_computercase="<?php echo htmlspecialchars($row['specs_computercase']); ?>"
                                                         data-specs_powersupply="<?php echo htmlspecialchars($row['specs_powersupply']); ?>"
                                                         data-specs_fan="<?php echo htmlspecialchars($row['specs_fan']); ?>">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/></svg> 
+                                                        Edit
                                                     </button>
                                                 </td>
                                                 <td>
@@ -154,8 +154,31 @@
         </div>
     </div>
 
+    <!------------------
+    WHAT TYPE OF PRODUCT
+    ------------------->
+    <div class="modal fade" id="openInventoryTypes">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">What Kind of Product Will Be stored?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body1">
+                    <button class='action sulitbuttons' data-toggle="modal" data-target="#addSulitPC">Sulit PC</button>
+                    <button class='action sulitbuttons' data-toggle="modal" data-target="#addSulitLaptop">Sulit Laptop</button>
+                    <button class='action sulitbuttons' data-toggle="modal" data-target="#addSulitPrinter">Sulit Printer</button>
+                    <button class='action sulitbuttons' data-toggle="modal" data-target="#addOthers">Other Accesories</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!---------------
-     INVENTORY POPUP
+    UPDATE INVENTORY
     ---------------->
     <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -229,17 +252,19 @@
                             <label for="specs_fan">Fan Specs</label>
                             <input type="text" class="form-control" id="specs_fan" name="specs_fan" placeholder="Enter fan specs" required>
                         </div>
-                        <button type="submit" name="update_product" class="btn btn-primary">Update Product</button>
+                        <button type="submit" name="update_product" class="action updateproduct">Update Product</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+    
+
     <!------------------
-        ADD INVENTORY
+        ADD SULIT PC
     ------------------->
-    <div class="modal fade" id="addModalInventory" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addSulitPC" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -305,12 +330,168 @@
                             <input type="text" class="form-control" id="specs_fan" name="specs_fan" placeholder="Enter fan specs" required>
                         </div>
             
-                        <button type="submit" name="update_product" class="btn btn-primary">SAVE</button>
+                        <button type="submit" name="update_product" class="action updateproduct">SAVE</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+    <!------------------
+      ADD SULIT LAPTOP
+    ------------------->
+    <div class="modal fade" id="addSulitLaptop" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data" action="PHP/insert_product.php">
+                        <input type="hidden" name="id" id="product_id">
+                        <div class="form-group">
+                            <label for="product_products_id">Product ID</label>
+                            <input type="text" class="form-control" id="product_products_id" name="product_products_id" placeholder="Enter product ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_name">Product Name</label>
+                            <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_description">Description</label>
+                            <textarea class="form-control" id="product_description" name="product_description" placeholder="Enter product description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_unit_price">Unit Price</label>
+                            <input type="number" class="form-control" id="product_unit_price" name="product_unit_price" placeholder="Enter unit price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_total_units">Total Units</label>
+                            <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_cpu">CPU Specs</label>
+                            <input type="text" class="form-control" id="specs_cpu" name="specs_cpu" placeholder="Enter CPU specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_ram">RAM Specs</label>
+                            <input type="text" class="form-control" id="specs_ram" name="specs_ram" placeholder="Enter RAM specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_ssd">SSD Specs</label>
+                            <input type="text" class="form-control" id="specs_ssd" name="specs_ssd" placeholder="Enter SSD specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_monitor">Monitor Specs</label>
+                            <input type="text" class="form-control" id="specs_monitor" name="specs_monitor" placeholder="Enter monitor specs" required>
+                        </div>
+            
+                        <button type="submit" name="update_product" class="action updateproduct">SAVE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!------------------
+      ADD SULIT PRINTER
+    ------------------->
+    <div class="modal fade" id="addSulitPrinter" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data" action="PHP/insert_product.php">
+                        <input type="hidden" name="id" id="product_id">
+                        <div class="form-group">
+                            <label for="product_products_id">Product ID</label>
+                            <input type="text" class="form-control" id="product_products_id" name="product_products_id" placeholder="Enter product ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_name">Product Name</label>
+                            <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_description">Description</label>
+                            <textarea class="form-control" id="product_description" name="product_description" placeholder="Enter product description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_unit_price">Unit Price</label>
+                            <input type="number" class="form-control" id="product_unit_price" name="product_unit_price" placeholder="Enter unit price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_total_units">Total Units</label>
+                            <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required>
+                        </div>
+            
+                        <button type="submit" name="update_product" class="action updateproduct">SAVE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!------------------
+         ADD OTHERS
+    ------------------->
+    <div class="modal fade" id="addOthers" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data" action="PHP/insert_product.php">
+                        <input type="hidden" name="id" id="product_id">
+                        <div class="form-group">
+                            <label for="product_products_id">Product ID</label>
+                            <input type="text" class="form-control" id="product_products_id" name="product_products_id" placeholder="Enter product ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_name">Product Name</label>
+                            <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_description">Description</label>
+                            <textarea class="form-control" id="product_description" name="product_description" placeholder="Enter product description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_unit_price">Unit Price</label>
+                            <input type="number" class="form-control" id="product_unit_price" name="product_unit_price" placeholder="Enter unit price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_total_units">Total Units</label>
+                            <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required>
+                        </div>
+            
+                        <button type="submit" name="update_product" class="action updateproduct">SAVE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <!---------------
            JS
@@ -424,8 +605,8 @@
                                         <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
                                     </td>
                                     <td>
-                                        <button style="background:none;border:none;" class="btn btn-info edit-btn" data-toggle="modal" data-target="#reservationmodal" data-id="<?php echo $row['Prod_categ']; ?>" data-reservation="<?php echo $row['IDreservation']; ?>" data-customer="<?php echo $row['customer']; ?>" data-product="<?php echo $row['product']; ?>" data-reserved_units="<?php echo $row['reserved_units']; ?>" data-status="<?php echo $row['status']; ?>">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/></svg> 
+                                        <button class="status edit" data-toggle="modal" data-target="#reservationmodal" data-id="<?php echo $row['Prod_categ']; ?>" data-reservation="<?php echo $row['IDreservation']; ?>" data-customer="<?php echo $row['customer']; ?>" data-product="<?php echo $row['product']; ?>" data-reserved_units="<?php echo $row['reserved_units']; ?>" data-status="<?php echo $row['status']; ?>">
+                                            Edit
                                         </button>
                                     </td>
                                 </tr>
@@ -467,8 +648,8 @@ RESERVATION POPUP
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="$('#reservationForm').submit();">Save changes</button>
+                <button type="button" class="action closebtn" data-dismiss="modal">Close</button>
+                <button type="button" class="action save" onclick="$('#reservationForm').submit();">Save changes</button>
             </div>
         </form>
         </div>
@@ -476,7 +657,7 @@ RESERVATION POPUP
 </div>
 
 <!------------------
-ADD RESERVATION
+  ADD RESERVATION
 ------------------->
 <div class="modal fade" id="addModalReservation" tabindex="-1" role="dialog" aria-labelledby="addModalReservationLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
