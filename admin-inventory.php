@@ -696,7 +696,7 @@ RESERVATION POPUP
                         <input type="number" min="0" class="form-control" id="---" name="---" placeholder="Quantity" required>
                     </div>
         
-                    <button type="submit" name="update_product" class="btn btn-primary">SAVE</button>
+                    <button type="submit" name="update_product" class="action updateproduct">SAVE</button>
                 </form>
             </div>
         </div>
