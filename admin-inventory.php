@@ -461,7 +461,7 @@ RESERVATION POPUP
                         <label for="status">Status</label>
                         <select class="form-control" id="status" name="status">
                             <option value="Confirmed">Confirmed</option>
-                            <option value="cancelled">Cancelled</option>
+                            <option value="Cancelled">Cancelled</option>
                             <option value="pending">Pending</option>
                         </select>
                     </div>
