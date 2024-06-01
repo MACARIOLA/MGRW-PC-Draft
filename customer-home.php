@@ -101,7 +101,6 @@
     </section>
 
 
-
    
     <!---------------
         SULIT PCS
@@ -114,7 +113,7 @@
 
         <div class="sulitPcContents">
             <?php 
-                $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PC%'  ORDER BY RAND()  LIMIT 3"; // Fetch only the first 3 products
+                $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PC%'  ORDER BY RAND()  LIMIT 3";
                 $result = mysqli_query($conn, $sql);
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -133,11 +132,147 @@
         </div>
 
         <div class="shortcut">
-            <a class="btn-fdbck" href="customer-pricelist.html">Check Our Pricelists</a>
+            <a class="btn-fdbck" href="customer-pricelist.html">Sulit PC Pricelists</a>
+            <button class="btn-fdbck reserve1">Reserve</button>
         </div>
     </section>
 
 
+
+    <!---------------
+         PC MODAL
+    ---------------->
+    <div id="reservepcModal" class="modal">
+        <div class="modal-content pcmodal">
+            <h2>Reservation For Sulit PCs</h2>
+            <form id="reserveForm" method="POST">
+                <label for="pName">Product Name</label>
+                <input type="pname" id="pName" name="pname" placeholder="Enter Product Name" required>
+                <label for="fName">First Name</label>
+                <input type="fname" id="fName" name="fname" placeholder="Enter First Name" required>
+                <label for="lName">Last Name</label>
+                <input type="lname" id="lName" name="lname" placeholder="Enter Last Name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                <label for="contactNum">Contact Number</label>
+                <input type="tel" id="contactNum" name="contactNum" maxlength="11" value="09" required>
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="999" value="1" required>
+                <div class="btn-container">
+                    <button type="submit" id="confirmBtn">Confirm</button>
+                    <button type="button" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="successpcModal" class="modal">
+        <div class="modal-content">
+            <h2>Reservation Completed!</h2>
+            <button type="button" id="goBackBtn">Go Back</button>
+        </div>
+    </div>
+
+    <!---------------
+        JS FOR PC
+    ---------------->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var reserveButtons = document.querySelectorAll(".reserve1");
+
+            reserveButtons.forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault(); 
+
+                    var reserveModal = document.getElementById("reservepcModal");
+
+                    reserveModal.style.display = "block";
+                });
+            });
+
+            var cancelButton = document.getElementById("cancelBtn");
+
+            cancelButton.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var reserveModal = document.getElementById("reservepcModal");
+
+                reserveModal.style.display = "none";
+            });
+
+            var pNameInput = document.getElementById("pName");
+
+            pNameInput.value = "Sulit PC ";
+
+            pNameInput.addEventListener("input", function() {
+                var enteredValue = this.value.replace("Sulit PC ", "");
+                this.value = "Sulit PC " + enteredValue.replace(/[^0-9]/g, '');
+            });
+
+            var firstNameInput = document.getElementById("fName");
+            var lastNameInput = document.getElementById("lName");
+
+            firstNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            lastNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            var contactNumInput = document.getElementById("contactNum");
+
+            contactNumInput.addEventListener("input", function() {
+                if (!this.value.startsWith("09")) {
+                    this.value = "09" + this.value.slice(2);
+                }
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 11) {
+                    this.value = this.value.slice(0, 11);
+                }
+            });
+
+            var emailInput = document.getElementById("email");
+
+            emailInput.addEventListener("input", function() {
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(this.value)) {
+                    this.setCustomValidity("Please enter a valid email address.");
+                } else {
+                    this.setCustomValidity("");
+                }
+            });
+
+            var quantityInput = document.getElementById("quantity");
+
+            quantityInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+
+                if (this.value.length > 3) {
+                    this.value = this.value.slice(0, 3);
+                }
+
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                } else if (parseInt(this.value) > 999) {
+                    this.value = "999";
+                }
+            });
+
+            quantityInput.addEventListener("blur", function() {
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                }
+            });
+
+            quantityInput.value = "1";
+            quantityInput.addEventListener("keydown", function(e) {
+                if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 
 
 
@@ -152,7 +287,7 @@
 
         <div class="sulitLaptopContents">
         <?php 
-            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT LAPTOP%'  ORDER BY RAND()  LIMIT 3"; // Fetch only the first 3 products
+            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT LAPTOP%'  ORDER BY RAND()  LIMIT 3"; 
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -171,14 +306,154 @@
         </div>
 
         <div class="shortcut">
-            <a class="btn-fdbck2" href="customer-pricelist.html">Check Our Pricelists</a>
+            <a class="btn-fdbck2" href="customer-pricelist.html">Sulit Laptop Pricelists</a>
+            <button class="btn-fdbck reserve2">Reserve</button>
         </div>
     </section>
 
 
 
     <!---------------
-      SULIT LAPTOPS
+       LAPTOP MODAL
+    ---------------->
+    <div id="reservelaptopModal" class="modal">
+        <div class="modal-content laptopmodal">
+            <h2>Reservation For Sulit Laptops</h2>
+            <form id="reserveForm" method="POST">
+                <label for="pName2">Product Name</label>
+                <input type="pname" id="pName2" name="pname" placeholder="Enter Product Name" required>
+                <label for="fName">First Name</label>
+                <input type="fname" id="fName2" name="fname" placeholder="Enter First Name" required>
+                <label for="lName">Last Name</label>
+                <input type="lname" id="lName2" name="lname" placeholder="Enter Last Name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email2" name="email" placeholder="Enter Email" required>
+                <label for="contactNum">Contact Number</label>
+                <input type="tel" id="contactNum2" name="contactNum" maxlength="11" value="09" required>
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity2" name="quantity" min="1" max="999" value="1" required>
+                <div class="btn-container">
+                    <button type="submit" id="confirmBtn">Confirm</button>
+                    <button type="button" id="cancelBtn2">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="successlaptopModal" class="modal">
+        <div class="modal-content">
+            <h2>Reservation Completed!</h2>
+            <button type="button" id="goBackBtn">Go Back</button>
+        </div>
+    </div>
+
+    <!---------------
+      JS FOR LAPTOP
+    ---------------->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var reserveButtons = document.querySelectorAll(".reserve2");
+
+            reserveButtons.forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault(); 
+
+                    var reserveModal = document.getElementById("reservelaptopModal");
+
+                    reserveModal.style.display = "block";
+                });
+            });
+
+            var cancelButton = document.getElementById("cancelBtn2");
+
+            cancelButton.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var reserveModal = document.getElementById("reservelaptopModal");
+
+                reserveModal.style.display = "none";
+            });
+
+            var pNameInput = document.getElementById("pName2");
+
+            pNameInput.value = "Sulit Laptop ";
+
+            pNameInput.addEventListener("input", function() {
+                var enteredValue = this.value.replace("Sulit Laptop ", "");
+                this.value = "Sulit Laptop " + enteredValue.replace(/[^0-9]/g, '');
+            });
+
+
+            var firstNameInput = document.getElementById("fName2");
+            var lastNameInput = document.getElementById("lName2");
+
+            firstNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            lastNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            var contactNumInput = document.getElementById("contactNum2");
+
+            contactNumInput.addEventListener("input", function() {
+                if (!this.value.startsWith("09")) {
+                    this.value = "09" + this.value.slice(2);
+                }
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 11) {
+                    this.value = this.value.slice(0, 11);
+                }
+            });
+
+            var emailInput = document.getElementById("email2");
+
+            emailInput.addEventListener("input", function() {
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(this.value)) {
+                    this.setCustomValidity("Please enter a valid email address.");
+                } else {
+                    this.setCustomValidity("");
+                }
+            });
+
+            var quantityInput = document.getElementById("quantity2");
+
+            quantityInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+
+                // Limit to 3 characters
+                if (this.value.length > 3) {
+                    this.value = this.value.slice(0, 3);
+                }
+
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                } else if (parseInt(this.value) > 999) {
+                    this.value = "999";
+                }
+            });
+
+            quantityInput.addEventListener("blur", function() {
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                }
+            });
+
+            quantityInput.value = "1";
+            quantityInput.addEventListener("keydown", function(e) {
+                if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+
+
+
+    <!---------------
+      SULIT PRINTER
     ---------------->
     <section class="sulitPrinter">
         <div class="text-center">
@@ -188,7 +463,7 @@
 
         <div class="sulitPrinterContents">
         <?php 
-            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PRINTER%'  ORDER BY RAND()  LIMIT 3"; // Fetch only the first 3 products
+            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PRINTER%'  ORDER BY RAND()  LIMIT 3"; 
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -207,9 +482,149 @@
         </div>
 
         <div class="shortcut">
-            <a class="btn-fdbck" href="customer-pricelist.html">Check Our Pricelists</a>
+            <a class="btn-fdbck" href="customer-pricelist.html">Sulit Printer Pricelists</a>
+            <a class="btn-fdbck reserve3" href="customer-pricelist.html">Reserve</a>
         </div>
     </section>
+
+
+
+    <!---------------
+      PRINTER MODAL
+    ---------------->
+    <div id="reserveprinterModal" class="modal">
+        <div class="modal-content printermodal">
+            <h2>Reservation For Sulit Printers</h2>
+            <form id="reserveForm" method="POST">
+                <label for="pName3">Product Name</label>
+                <input type="pname" id="pName3" name="pname" placeholder="Enter Product Name" required>
+                <label for="fName">First Name</label>
+                <input type="fname" id="fName3" name="fname" placeholder="Enter First Name" required>
+                <label for="lName">Last Name</label>
+                <input type="lname" id="lName3" name="lname" placeholder="Enter Last Name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email3" name="email" placeholder="Enter Email" required>
+                <label for="contactNum">Contact Number</label>
+                <input type="tel" id="contactNum3" name="contactNum" maxlength="11" value="09" required>
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity3" name="quantity" min="1" max="999" value="1" required>
+                <div class="btn-container">
+                    <button type="submit" id="confirmBtn">Confirm</button>
+                    <button type="button" id="cancelBtn3">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="successprinterModal" class="modal">
+        <div class="modal-content">
+            <h2>Reservation Completed!</h2>
+            <button type="button" id="goBackBtn">Go Back</button>
+        </div>
+    </div>
+
+    <!---------------
+      JS FOR PRINTER
+    ---------------->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var reserveButtons = document.querySelectorAll(".reserve3");
+
+            reserveButtons.forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault(); 
+
+                    var reserveModal = document.getElementById("reserveprinterModal");
+
+                    reserveModal.style.display = "block";
+                });
+            });
+
+            var cancelButton = document.getElementById("cancelBtn3");
+
+            cancelButton.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var reserveModal = document.getElementById("reserveprinterModal");
+
+                reserveModal.style.display = "none";
+            });
+
+            var pNameInput = document.getElementById("pName3");
+
+            pNameInput.value = "Sulit Printer ";
+
+            pNameInput.addEventListener("input", function() {
+                var enteredValue = this.value.replace("Sulit Printer ", "");
+                this.value = "Sulit Printer " + enteredValue.replace(/[^0-9]/g, '');
+            });
+
+
+            var firstNameInput = document.getElementById("fName3");
+            var lastNameInput = document.getElementById("lName3");
+
+            firstNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            lastNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            var contactNumInput = document.getElementById("contactNum3");
+
+            contactNumInput.addEventListener("input", function() {
+                if (!this.value.startsWith("09")) {
+                    this.value = "09" + this.value.slice(2);
+                }
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 11) {
+                    this.value = this.value.slice(0, 11);
+                }
+            });
+
+            var emailInput = document.getElementById("email3");
+
+            emailInput.addEventListener("input", function() {
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(this.value)) {
+                    this.setCustomValidity("Please enter a valid email address.");
+                } else {
+                    this.setCustomValidity("");
+                }
+            });
+
+            var quantityInput = document.getElementById("quantity3");
+
+            quantityInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+
+                // Limit to 3 characters
+                if (this.value.length > 3) {
+                    this.value = this.value.slice(0, 3);
+                }
+
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                } else if (parseInt(this.value) > 999) {
+                    this.value = "999";
+                }
+            });
+
+            quantityInput.addEventListener("blur", function() {
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                }
+            });
+
+            quantityInput.value = "1";
+            quantityInput.addEventListener("keydown", function(e) {
+                if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 
 
 
