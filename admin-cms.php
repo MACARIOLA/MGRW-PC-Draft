@@ -54,7 +54,8 @@
    
         <nav class="navbar">
             <a href="admin-analytics.php" style="--i:0">Analytics</a>
-            <a href="admin-inventory.php" style="--i:1">Inventory</a>
+          <a href="admin-inventory.php" style="--i:1">Inventory</a>
+            <a href="admin-reservation.php" style="--i:1">Reservation</a>
             <a class="active" href="admin-cms.php" style="--i:2">CMS</a>
             <a href="admin-feedback.php" style="--i:3">Feedbacks</a>
             <a href="admin-contact-us.php" style="--i:4">Inbox</a>
