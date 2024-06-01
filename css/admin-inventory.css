@@ -417,6 +417,11 @@ tbody tr.hide td img {
     color: var(--black1);
 }
 
+.status.confirmed {
+    background-color: #d893a3;
+    color: #b30021;
+}
+
 /* -------------
    BREAKPOINTS
 -------------- */
