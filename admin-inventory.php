@@ -60,6 +60,7 @@
         <nav class="navbar">
             <a href="admin-analytics.php" style="--i:0">Analytics</a>
             <a class="active" href="admin-inventory.php" style="--i:1">Inventory</a>
+            <a href="admin-reservation.php" style="--i:2">Reservation</a>
             <a href="admin-cms.php" style="--i:2">CMS</a>
             <a href="admin-feedback.php" style="--i:3">Feedbacks</a>
             <a href="admin-contact-us.php" style="--i:4">Inbox</a>
@@ -261,82 +262,81 @@
 
     
 
-<!------------------
-    ADD SULIT PC
-------------------->
-<div class="modal fade" id="addSulitPC" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">Add Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="post" enctype="multipart/form-data" action="PHP/insert_sulit-pc.php">
-                    <div class="form-group">
-                        <label for="product_products_id">Product ID</label>
-                        <input type="text" class="form-control" id="product_products_id" name="product_products_id" placeholder="Enter product ID" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="product_name">Product Name</label>
-                        <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="product_description">Description</label>
-                        <textarea class="form-control" id="product_description" name="product_description" placeholder="Enter product description" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="product_unit_price">Unit Price</label>
-                        <input type="number" class="form-control" id="product_unit_price" name="product_unit_price" placeholder="Enter unit price" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="product_total_units">Total Units</label>
-                        <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="specs_cpu">CPU Specs</label>
-                        <input type="text" class="form-control" id="specs_cpu" name="specs_cpu" placeholder="Enter CPU specs" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="specs_motherboard">Motherboard Specs</label>
-                        <input type="text" class="form-control" id="specs_motherboard" name="specs_motherboard" placeholder="Enter motherboard specs" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="specs_ram">RAM Specs</label>
-                        <input type="text" class="form-control" id="specs_ram" name="specs_ram" placeholder="Enter RAM specs" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="specs_ssd">SSD Specs</label>
-                        <input type="text" class="form-control" id="specs_ssd" name="specs_ssd" placeholder="Enter SSD specs" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="specs_monitor">Monitor Specs</label>
-                        <input type="text" class="form-control" id="specs_monitor" name="specs_monitor" placeholder="Enter monitor specs" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="specs_computercase">Computer Case Specs</label>
-                        <input type="text" class="form-control" id="specs_computercase" name="specs_computercase" placeholder="Enter computer case specs" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="specs_powersupply">Power Supply Specs</label>
-                        <input type="text" class="form-control" id="specs_powersupply" name="specs_powersupply" placeholder="Enter power supply specs" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="specs_fan">Fan Specs</label>
-                        <input type="text" class="form-control" id="specs_fan" name="specs_fan" placeholder="Enter fan specs" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="product_image">Product Image</label>
-                        <input type="file" class="form-control" id="product_image" name="product_image">
-                    </div>
-                    <button type="submit" name="update_product" class="btn btn-primary">SAVE</button>
-                </form>
+    <!------------------
+        ADD SULIT PC
+    ------------------->
+    <div class="modal fade" id="addSulitPC" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data" action="PHP/insert_product.php">
+                        <input type="hidden" name="id" id="product_id">
+                        <div class="form-group">
+                            <label for="product_products_id">Product ID</label>
+                            <input type="text" class="form-control" id="product_products_id" name="product_products_id" placeholder="Enter product ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_name">Product Name</label>
+                            <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_description">Description</label>
+                            <textarea class="form-control" id="product_description" name="product_description" placeholder="Enter product description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_unit_price">Unit Price</label>
+                            <input type="number" class="form-control" id="product_unit_price" name="product_unit_price" placeholder="Enter unit price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_total_units">Total Units</label>
+                            <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_cpu">CPU Specs</label>
+                            <input type="text" class="form-control" id="specs_cpu" name="specs_cpu" placeholder="Enter CPU specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_motherboard">Motherboard Specs</label>
+                            <input type="text" class="form-control" id="specs_motherboard" name="specs_motherboard" placeholder="Enter motherboard specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_ram">RAM Specs</label>
+                            <input type="text" class="form-control" id="specs_ram" name="specs_ram" placeholder="Enter RAM specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_ssd">SSD Specs</label>
+                            <input type="text" class="form-control" id="specs_ssd" name="specs_ssd" placeholder="Enter SSD specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_monitor">Monitor Specs</label>
+                            <input type="text" class="form-control" id="specs_monitor" name="specs_monitor" placeholder="Enter monitor specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_computercase">Computer Case Specs</label>
+                            <input type="text" class="form-control" id="specs_computercase" name="specs_computercase" placeholder="Enter computer case specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_powersupply">Power Supply Specs</label>
+                            <input type="text" class="form-control" id="specs_powersupply" name="specs_powersupply" placeholder="Enter power supply specs" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specs_fan">Fan Specs</label>
+                            <input type="text" class="form-control" id="specs_fan" name="specs_fan" placeholder="Enter fan specs" required>
+                        </div>
+            
+                        <button type="submit" name="update_product" class="action updateproduct">SAVE</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
@@ -560,149 +560,6 @@
         });
     </script>
 
-<!---------------
-   RESERVATION
----------------->
-<div class="container-main">
-    <div class="container1">
-        <main class="table" id="customers_table">
-            <section class="table__header">
-                <h2>RESERVATION</h2>
-                <div class="input-group">
-                    <input type="search" placeholder="Search Data..." id="reservationSearchInput" onkeyup="searchTable2()">
-                    <img src="images/search.png">
-                </div>
-                <button class="add" data-toggle="modal" data-target="#addModalReservation">ADD</button>
-            </section>
-
-            <section class="table__body">
-                <table id="reservationTable">
-                    <thead class="thead">
-                        <tr>
-                            <th> RESERVATION ID </th>
-                            <th> CUSTOMER ID </th>
-                            <th> PRODUCT ID </th>
-                            <th> EMAIL</th>
-                            <th> CONTACT#</th>
-                            <th> QUANTITY </th>
-                            <th> STATUS </th>
-                            <th> UPDATE </th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php 
-                            $select = mysqli_query($conn, "SELECT * FROM reservation");
-                            while($row = mysqli_fetch_assoc($select)){ 
-                                ?>
-                                <tr>
-                                    <td><?php echo $row['IDreservation']; ?></td>
-                                    <td><?php echo $row['customer']; ?></td>
-                                    <td><?php echo $row['product']; ?></td>
-                                    <td><?php echo $row['email']; ?></td>
-                                    <td><?php echo $row['num']; ?></td>
-                                    <td><?php echo $row['reserved_units']; ?></td>
-                                    <td>
-                                        <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
-                                    </td>
-                                    <td>
-                                        <button class="status edit" data-toggle="modal" data-target="#reservationmodal" data-id="<?php echo $row['Prod_categ']; ?>" data-reservation="<?php echo $row['IDreservation']; ?>" data-customer="<?php echo $row['customer']; ?>" data-product="<?php echo $row['product']; ?>" data-reserved_units="<?php echo $row['reserved_units']; ?>" data-status="<?php echo $row['status']; ?>">
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
-                            <?php 
-                            } 
-                        ?>
-                    </tbody>
-                </table>
-            </section>
-        </main>
-    </div>
-</div>
-
-<!---------------
-RESERVATION POPUP
----------------->
-<div class="modal fade" id="reservationmodal" tabindex="-1" role="dialog" aria-labelledby="reservationmodalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="reservationmodalLabel">Update Reservation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="reservationForm" method="post">
-                    <div class="form-group">
-                        <label for="reservation_id">Reservation ID</label>
-                        <input type="text" class="form-control" id="reservation_id" name="reservation_id" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select class="form-control" id="status" name="status">
-                            <option value="Confirmed">Confirmed</option>
-                            <option value="Cancelled">Cancelled</option>
-                            <option value="pending">Pending</option>
-                        </select>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="action closebtn" data-dismiss="modal">Close</button>
-                <button type="button" class="action save" onclick="$('#reservationForm').submit();">Save changes</button>
-            </div>
-        </form>
-        </div>
-    </div>
-</div>
-
-<!------------------
-  ADD RESERVATION
-------------------->
-<div class="modal fade" id="addModalReservation" tabindex="-1" role="dialog" aria-labelledby="addModalReservationLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addModalReservationLabel">Add Reservation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <div class="modal-body">
-                <form method="post" enctype="multipart/form-data" action="PHP/---.php">
-                    <div class="form-group">
-                        <label for="---">First Name</label>
-                        <input type="text" class="form-control" id="---" name="---" placeholder="First Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="---">Last Name</label>
-                        <input type="text" class="form-control" id="---" name="---" placeholder="Last Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="---">Email</label>
-                        <textarea class="form-control" id="---" name="---" placeholder="Email" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="---">Contact Number</label>
-                        <input type="number" class="form-control" id="---" name="---" placeholder="Contact Number" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="---">PRODUCT ID</label>
-                        <input type="number" min="0" class="form-control" id="---" name="---" placeholder="Product ID" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="---">Quantity</label>
-                        <input type="number" min="0" class="form-control" id="---" name="---" placeholder="Quantity" required>
-                    </div>
-        
-                    <button type="submit" name="update_product" class="action updateproduct">SAVE</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!---------------
    JS
@@ -731,6 +588,16 @@ RESERVATION POPUP
     }
     
     $(document).ready(function() {
+        // Edit Reservation Button Click
+        $('button.status.edit').click(function() {
+            var reservationId = $(this).data('id');
+            var status = $(this).data('status');
+
+            $('#reservation_id').val(reservationId);
+            $('#status').val(status); 
+        });
+
+        // Example for Product Edit Button Click
         $('button.btn-secondary').click(function() {
             var id = $(this).data('id');
             var products_id = $(this).data('products_id');
@@ -765,14 +632,6 @@ RESERVATION POPUP
             $('#specs_computercase').val(specs_computercase); 
             $('#specs_powersupply').val(specs_powersupply); 
             $('#specs_fan').val(specs_fan); 
-        });
-
-        $('button.btn-info').click(function() {
-            var reservation = $(this).data('reservation');
-            var status = $(this).data('status');
-
-            $('#reservation_id').val(reservation);
-            $('#status').val(status); 
         });
     });
 </script>
