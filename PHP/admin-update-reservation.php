@@ -1,23 +1,115 @@
 <?php
 @include 'admin-config.php';
 
+//add on reservation
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Include your database configuration file
+    include 'admin-config.php';
+
+    // Function to generate a random ID
+    function generateRandomID($length = 6) {
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    // Check if all required fields are set
+    if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['contact_number']) && isset($_POST['product_id']) && isset($_POST['quantity'])) {
+        // Extract form data
+        $firstName = $_POST['first_name'];
+        $lastName = $_POST['last_name'];
+        $email = $_POST['email'];
+        $contactNumber = $_POST['contact_number'];
+        $productID = $_POST['product_id'];
+        $quantity = $_POST['quantity'];
+
+        // Perform any necessary validation here...
+
+        // Check if the product ID exists in the inventory
+        $checkProductQuery = "SELECT * FROM inventory WHERE products_id = ?";
+        $checkStmt = $conn->prepare($checkProductQuery);
+        $checkStmt->bind_param("i", $productID);
+        $checkStmt->execute();
+        $result = $checkStmt->get_result();
+
+        if ($result->num_rows > 0) {
+            // Generate a random reservation ID
+            $reservationID = generateRandomID();
+
+            // Insert data into the database
+            $insertQuery = "INSERT INTO reservation (Prod_categ, Date, IDreservation, customer, product, email, num, reserved_units, status) VALUES (?, NOW(), ?, ?, ?, ?, ?, ?, 'Pending')";
+            $insertStmt = $conn->prepare($insertQuery);
+            $insertStmt->bind_param("sssssis", $productID, $reservationID, $firstName, $lastName, $email, $contactNumber, $quantity);
+
+            if ($insertStmt->execute()) {
+                // Reservation added successfully
+                echo "<script>alert('Reservation added successfully.');</script>";
+            } else {
+                // Failed to add reservation
+                echo "<script>alert('Failed to add reservation.');</script>";
+            }
+
+            // Close the prepared statement
+            $insertStmt->close();
+        } else {
+            // Product ID does not exist in the inventory
+            echo "<script>alert('Product ID does not exist in the inventory.');</script>";
+        }
+
+        // Close the prepared statement and database connection
+
+    } else {
+        // Required fields are missing
+        echo "<script>alert('Please fill in all required fields.');</script>";
+    }
+}
+
+
+
+
 // Edit reservation status
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $IDreserve = $_POST['reservation_id'];
     $Status = $_POST['status'];
 
-    if ($Status == 'Confirmed') {
-        confirmReservation($conn, $IDreserve);
-    } elseif ($Status == 'Cancelled') {
-        cancelReservation($conn, $IDreserve);
-    } else {
-        echo "<script>alert('Invalid reservation status.');</script>";
-    }
+     // Get the current reservation status
+     $currentStatus = checkReservationStatus($conn, $IDreserve);
 
-    // Call function to update reservation status and inventory after update
-    updateReservationStatusAndInventory($conn, $IDreserve);
-} else {
-    error_log("Missing reservation_id or status in POST data");
+     // Proceed only if the new status is different from the current status
+     if ($currentStatus !== $Status) {
+         if ($Status == 'Confirmed') {
+             confirmReservation($conn, $IDreserve);
+         } elseif ($Status == 'Cancelled') {
+             cancelReservation($conn, $IDreserve);
+         }
+ 
+         // Call function to update reservation status and inventory after update
+         updateReservationStatusAndInventory($conn, $IDreserve);
+         echo "<script>alert('Reservation status updated successfully.');</script>";
+     } else {
+         echo "<script>alert('The reservation is already $currentStatus. No changes applied.');</script>";
+     }
+ 
+     // Close the database connection
+     echo '<meta http-equiv="refresh" content="0">';
+ } else {
+     error_log("Missing reservation_id or status in POST data");
+ }
+ 
+
+// Function to check reservation status
+function checkReservationStatus($conn, $IDreserve) {
+    $sql = "SELECT status FROM reservation WHERE IDreservation='$IDreserve'";
+    $result = mysqli_query($conn, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['status'];
+    }
+    return false;
 }
 
 // Function to update reservation status and inventory
@@ -40,11 +132,8 @@ function confirmReservation($conn, $IDreserve) {
 
     if ($update) {
         error_log("Reservation confirmed successfully");
-        echo "<script>alert('Reservation confirmed successfully.');</script>";
-        // No header redirection here as it's assumed the page doesn't reload
     } else {
         error_log("Failed to confirm reservation: " . mysqli_error($conn));
-        echo "<script>alert('Failed to confirm reservation.');</script>";
     }
 }
 
@@ -58,16 +147,12 @@ function cancelReservation($conn, $IDreserve) {
     if ($update) {
         // Call function to update inventory based on cancelled reservations
         updateInventoryBasedOnCancellations($conn, $IDreserve);
-        
         error_log("Reservation cancelled successfully");
-        echo "<script>alert('Reservation cancelled successfully.');</script>";
-        // No header redirection here as it's assumed the page doesn't reload
     } else {
         error_log("Failed to cancel reservation: " . mysqli_error($conn));
-        echo "<script>alert('Failed to cancel reservation.');</script>";
     }
 }
-// Function to update inventory based on confirmed reservations for a specific reservation ID
+
 // Function to update inventory based on confirmed reservations for a specific reservation ID
 function updateInventoryBasedOnReservations($conn, $IDreserve) {
     // Step 1: Get the reserved quantity for the specific reservation ID
@@ -96,15 +181,15 @@ function updateInventoryBasedOnReservations($conn, $IDreserve) {
                 $total_reserved_units = $sumReservedUnitsRow['total_reserved_units'];
                 
                 $updateReservedUnitsSQL = "
-    UPDATE inventory i
-    JOIN (
-        SELECT Prod_categ, SUM(reserved_units) AS total_reserved_units
-        FROM reservation
-        WHERE status = 'Confirmed'
-        GROUP BY Prod_categ
-    ) AS tr ON i.id = tr.Prod_categ
-    SET i.reserved_units = tr.total_reserved_units;
-";
+                    UPDATE inventory i
+                    JOIN (
+                        SELECT Prod_categ, SUM(reserved_units) AS total_reserved_units
+                        FROM reservation
+                        WHERE status = 'Confirmed'
+                        GROUP BY Prod_categ
+                    ) AS tr ON i.id = tr.Prod_categ
+                    SET i.reserved_units = tr.total_reserved_units;
+                ";
                 if ($conn->query($updateReservedUnitsSQL) === TRUE) {
                     echo "<script>alert('Inventory updated successfully. Total reserved units: $total_reserved_units');</script>";
                 } else {
