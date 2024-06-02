@@ -66,16 +66,37 @@
             <h1 class="heading">Get In Touch!</h1>
             <p class="sentence1">We're here to help! Reach out to us with any inquiries or feedback you may have.</p>
             <div class="contactForm">
-            
+                
                 <form class="cForm" method="POST">
                     <h1 class="sub-heading">Need Support!</h1>
                     <p class="sentence1 senleft">You Have Any Questions? Problems? Tell Us!</p>
-                    <input type="text" class="input" name="name" placeholder="your name" required>
-                    <input type="text" class="input" name="email" placeholder="your email" required>
-                    <input type="text" class="input" name="subject" placeholder="your Subject" required>
-                    <textarea class="input" name="message" cols="30" rows="5" placeholder="Your message..." required></textarea>
+                    <input type="text" class="input" id="name" name="name" placeholder="Your name" required>
+                    <input type="text" class="input" id="email" name="email" placeholder="Your email" required>
+                    <input type="text" class="input" id="subject" name="subject" placeholder="Your subject" required>
+                    <textarea class="input" id="message" name="message" cols="30" rows="5" placeholder="Your message..." required></textarea>
                     <input type="submit" class="inputbtn submitbtn" value="Send Message">
                 </form>
+
+                <!---------------
+                   RESTRICTIONS
+                ---------------->
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        document.getElementById("name").addEventListener("input", function() {
+                            this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                        });
+
+                        // Email validation
+                        document.getElementById("email").addEventListener("input", function() {
+                            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            if (!emailPattern.test(this.value)) {
+                                this.setCustomValidity("Please enter a valid email address.");
+                            } else {
+                                this.setCustomValidity("");
+                            }
+                        });
+                    });
+                </script>
                 
                 
 
