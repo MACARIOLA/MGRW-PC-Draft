@@ -1,5 +1,5 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -132,7 +132,7 @@
             </div>
 
             <div class="shortcut">
-                <a href="customer-pricelist.html"><button class="btn-fdbck">Sulit PC Pricelists</button></a>
+                <button class="btn-fdbck">Sulit PC Pricelists</button>
                 <button class="btn-fdbck reserve1">Reserve</button>
             </div>
         </section>
@@ -300,8 +300,10 @@
             });
         </script>
 
+
+
         <!---------------
-        SULIT LAPTOPS
+          SULIT LAPTOPS
         ---------------->
         <section class="sulitLaptop">
             <div class="text-center">
@@ -329,7 +331,7 @@
             </div>
 
             <div class="shortcut">
-                <a href="customer-pricelist.html"><button class="btn-fdbck2">Sulit Laptop Pricelists</button></a>
+                <button class="btn-fdbck2">Sulit Laptop Pricelists</button>
                 <button class="btn-fdbck reserve2">Reserve</button>
             </div>
         </section>
@@ -337,7 +339,7 @@
 
 
         <!---------------
-        LAPTOP MODAL
+          LAPTOP MODAL
         ---------------->
         <div id="reservelaptopModal" class="modal">
             <div class="modal-content laptopmodal">
@@ -371,7 +373,7 @@
         </div>
 
         <!---------------
-        JS FOR LAPTOP
+          JS FOR LAPTOP
         ---------------->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
@@ -501,7 +503,7 @@
 
 
         <!---------------
-        SULIT PRINTER
+          SULIT PRINTER
         ---------------->
         <section class="sulitPrinter">
             <div class="text-center">
@@ -529,15 +531,15 @@
             </div>
 
             <div class="shortcut">
-                <a href="customer-pricelist.html"><button class="btn-fdbck">Sulit Printer Pricelists</button></a>
-                <button class="btn-fdbck reserve3" href="customer-pricelist.html">Reserve</button>
+                <button class="btn-fdbck">Sulit Printer Pricelists</button>
+                <button class="btn-fdbck reserve3">Reserve</button>
             </div>
         </section>
 
 
 
         <!---------------
-        PRINTER MODAL
+          PRINTER MODAL
         ---------------->
         <div id="reserveprinterModal" class="modal">
             <div class="modal-content printermodal">
@@ -571,7 +573,7 @@
         </div>
 
         <!---------------
-        JS FOR PRINTER
+          JS FOR PRINTER
         ---------------->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
@@ -699,6 +701,170 @@
         </script>
 
 
+        <section class="otherAcc">
+            <div class="text-center">
+                <h2>Other Accessories</h2>
+                <p class="sentence1">You can also check our other offers.</p>
+            </div>
+            
+            <div class="shortcut2">
+                <button class="btn-fdbck-other">Others Pricelists</button>
+                <button class="btn-fdbck-other reserve4">Reserve</button>
+            </div>
+        </section>
+
+
+
+        <div id="reserveothersModal" class="modal">
+            <div class="modal-content othersmodal">
+                <h2>Reservation For Sulit Printers</h2>
+                <form id="reserveForm4" method="POST">
+                    <label for="pName4">Product Name</label>
+                    <input type="pname" id="pName4" name="pname" placeholder="Enter Product Name" required>
+                    <label for="fName">First Name</label>
+                    <input type="fname" id="fName4" name="fname" placeholder="Enter First Name" required>
+                    <label for="lName">Last Name</label>
+                    <input type="lname" id="lName4" name="lname" placeholder="Enter Last Name" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email4" name="email" placeholder="Enter Email" required>
+                    <label for="contactNum">Contact Number</label>
+                    <input type="tel" id="contactNum4" name="contactNum" maxlength="11" value="09" required>
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity4" name="quantity" min="1" max="999" value="1" required>
+                    <div class="btn-container">
+                        <button type="submit" id="confirmBtn4">Confirm</button>
+                        <button type="button" id="cancelBtn4">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="successothersModal" class="modal">
+            <div class="modal-content othersmodal2">
+                <h2>Reservation Completed!</h2>
+                <button type="button" id="goBackBtn">Go Back</button>
+            </div>
+        </div>
+
+        <!---------------
+          JS FOR PRINTER
+        ---------------->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var reserveButtons = document.querySelectorAll(".reserve4");
+
+                reserveButtons.forEach(function(button) {
+                    button.addEventListener("click", function(event) {
+                        event.preventDefault(); 
+
+                        var reserveModal = document.getElementById("reserveothersModal");
+
+                        reserveModal.style.display = "block";
+                    });
+                });
+
+                var cancelButton = document.getElementById("cancelBtn4");
+
+                cancelButton.addEventListener("click", function(event) {
+                    event.preventDefault();
+
+                    var reserveModal = document.getElementById("reserveothersModal");
+
+                    reserveModal.style.display = "none";
+                });
+
+                var firstNameInput = document.getElementById("fName4");
+                var lastNameInput = document.getElementById("lName4");
+
+                firstNameInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                });
+
+                lastNameInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                });
+
+                var contactNumInput = document.getElementById("contactNum4");
+
+                contactNumInput.addEventListener("input", function() {
+                    if (!this.value.startsWith("09")) {
+                        this.value = "09" + this.value.slice(2);
+                    }
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    if (this.value.length > 11) {
+                        this.value = this.value.slice(0, 11);
+                    }
+                });
+
+                var emailInput = document.getElementById("email4");
+
+                emailInput.addEventListener("input", function() {
+                    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(this.value)) {
+                        this.setCustomValidity("Please enter a valid email address.");
+                    } else {
+                        this.setCustomValidity("");
+                    }
+                });
+
+                var quantityInput = document.getElementById("quantity4");
+
+                quantityInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+
+                    if (this.value.length > 3) {
+                        this.value = this.value.slice(0, 3);
+                    }
+
+                    if (this.value === "" || parseInt(this.value) < 1) {
+                        this.value = "1";
+                    } else if (parseInt(this.value) > 999) {
+                        this.value = "999";
+                    }
+                });
+
+                quantityInput.addEventListener("blur", function() {
+                    if (this.value === "" || parseInt(this.value) < 1) {
+                        this.value = "1";
+                    }
+                });
+
+                quantityInput.value = "1";
+                quantityInput.addEventListener("keydown", function(e) {
+                    if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                        e.preventDefault();
+                    }
+                });
+
+                var confirmButton = document.getElementById("confirmBtn4");
+
+                confirmButton.addEventListener("click", function(event) {
+                    event.preventDefault();
+
+                    var form = document.getElementById("reserveForm4");
+                    if (form.checkValidity()) {
+                        var successModal = document.getElementById("successothersModal");
+                        successModal.style.display = "block";
+                    } else {
+                        form.reportValidity();
+                    }
+                });
+
+                var goBackButtons = document.querySelectorAll("#successothersModal #goBackBtn");
+
+                goBackButtons.forEach(function(button) {
+                    button.addEventListener("click", function() {
+                        var modal = button.closest(".modal");
+                        var reserveModal = document.getElementById("reserveothersModal");
+
+                        modal.style.display = "none";
+                        reserveModal.style.display = "none";
+                    });
+                });
+            });
+        </script>
+
+
 
         <!---------------
             FOOTER
@@ -743,4 +909,4 @@
             <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
         </div>
     </body>
-    </html>
+</html>
