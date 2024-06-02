@@ -458,3 +458,7 @@ tbody tr.hide td img {
         min-width: 12.1rem;
     }
 }
+
+select#sulitcategory {
+    background-color: #ff0000;
+}
