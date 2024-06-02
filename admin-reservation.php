@@ -22,10 +22,20 @@
          PHP
     ---------------->
     <?php
-        @include 'PHP/admin-config.php';
-        @include 'PHP/admin-update.php';
-        @include 'PHP/admin-update-reservation.php';
-    ?>
+
+
+if (isset($_POST['update_product'])) {
+    @include 'PHP/admin-config.php';
+   
+    @include 'PHP/admin-update-add-reservation.php';
+}
+else{
+    @include 'PHP/admin-config.php';
+ @include 'PHP/admin-update-reservation.php';
+
+}
+?>
+
 
     <!---------------
           FONTS
@@ -159,7 +169,7 @@ RESERVATION POPUP
             </div>
             <div class="modal-footer">
                 <button type="button" class="action closebtn" data-dismiss="modal">Close</button>
-                <button type="button" class="action save" onclick="$('#reservationForm').submit();">Save changes</button>
+                <button type="button" class="action save" onclick="$('#reservationForm').submit();" name="Save_content">Save changes</button>
             </div>
         </form>
         </div>
@@ -180,7 +190,7 @@ RESERVATION POPUP
             </div>
 
             <div class="modal-body">
-                <form method="post" enctype="multipart/form-data" action="PHP/---.php">
+                <form method="post" enctype="multipart/form-data" >
                     <div class="form-group">
                         <label for="first_name">First Name</label>
                         <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required>
@@ -190,16 +200,8 @@ RESERVATION POPUP
                         <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <textarea class="form-control" id="email" name="email" placeholder="Email" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact_number">Contact Number</label>
-                        <input type="number" class="form-control" id="contact_number" name="contact_number" placeholder="Contact Number" required>
-                    </div>
-                    <div class="form-group">
                         <label for="product_id">PRODUCT ID</label>
-                        <input type="number" min="0" class="form-control" id="product_id" name="product_id" placeholder="Product ID" required>
+                        <input type="text"  class="form-control" id="product_id" name="product_id" placeholder="Product ID" required>
                     </div>
                     <div class="form-group">
                         <label for="quantity">Quantity</label>
@@ -240,6 +242,18 @@ RESERVATION POPUP
     }
     
     $(document).ready(function() {
+        // Function to show preview
+        function showPreview(element) {
+            var preview = element.querySelector(".preview");
+            preview.style.display = "block";
+        }
+
+        // Function to hide preview
+        function hidePreview(element) {
+            var preview = element.querySelector(".preview");
+            preview.style.display = "none";
+        }
+        
         // Edit Reservation Button Click
         $('button.status.edit').click(function() {
             var reservationId = $(this).data('id');
@@ -287,5 +301,6 @@ RESERVATION POPUP
         });
     });
 </script>
+
 </body>
 </html>
