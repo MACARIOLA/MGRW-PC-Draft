@@ -132,7 +132,7 @@
             </div>
 
             <div class="shortcut">
-                <button class="btn-fdbck">Sulit PC Pricelists</button>
+                <a href="customer-pricelist.html"><button class="btn-fdbck">Sulit PC Pricelists</button></a>
                 <button class="btn-fdbck reserve1">Reserve</button>
             </div>
         </section>
@@ -329,7 +329,7 @@
             </div>
 
             <div class="shortcut">
-                <button class="btn-fdbck2">Sulit Laptop Pricelists</button>
+                <a href="customer-pricelist.html"><button class="btn-fdbck2">Sulit Laptop Pricelists</button></a>
                 <button class="btn-fdbck reserve2">Reserve</button>
             </div>
         </section>
@@ -529,7 +529,7 @@
             </div>
 
             <div class="shortcut">
-                <button class="btn-fdbck">Sulit Printer Pricelists</button>
+                <a href="customer-pricelist.html"><button class="btn-fdbck">Sulit Printer Pricelists</button></a>
                 <button class="btn-fdbck reserve3" href="customer-pricelist.html">Reserve</button>
             </div>
         </section>
