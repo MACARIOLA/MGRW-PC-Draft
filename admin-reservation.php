@@ -22,19 +22,17 @@
          PHP
     ---------------->
     <?php
+        if (isset($_POST['update_product'])) {
+            @include 'PHP/admin-config.php';
+        
+            @include 'PHP/admin-update-add-reservation.php';
+        }
+        else{
+            @include 'PHP/admin-config.php';
+        @include 'PHP/admin-update-reservation.php';
 
-
-if (isset($_POST['update_product'])) {
-    @include 'PHP/admin-config.php';
-   
-    @include 'PHP/admin-update-add-reservation.php';
-}
-else{
-    @include 'PHP/admin-config.php';
- @include 'PHP/admin-update-reservation.php';
-
-}
-?>
+        }
+    ?>
 
 
     <!---------------
@@ -163,15 +161,14 @@ RESERVATION POPUP
                         <select class="form-control" id="status" name="status">
                             <option value="Confirmed">Confirmed</option>
                             <option value="Cancelled">Cancelled</option>
-                            <option value="pending">Pending</option>
                         </select>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="action closebtn" data-dismiss="modal">Close</button>
+                        <button type="button" class="action save" onclick="$('#reservationForm').submit();" name="Save_content">Save changes</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="action closebtn" data-dismiss="modal">Close</button>
-                <button type="button" class="action save" onclick="$('#reservationForm').submit();" name="Save_content">Save changes</button>
-            </div>
-        </form>
         </div>
     </div>
 </div>
@@ -200,6 +197,14 @@ RESERVATION POPUP
                         <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" required>
                     </div>
                     <div class="form-group">
+                        <label for="sulitcategory">Category</label>
+                        <select class="form-control" id="sulitcategory" name="sulitcategory">
+                            <option value="sulitpcoption">Sulit PC</option>
+                            <option value="sulitlaptopoption">Sulit Laptop</option>
+                            <option value="sulitprinteroption">Sulit Printer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="product_id">PRODUCT ID</label>
                         <input type="text"  class="form-control" id="product_id" name="product_id" placeholder="Product ID" required>
                     </div>
@@ -224,37 +229,8 @@ RESERVATION POPUP
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
-    let navVisible = false;
-    
-    function toggleClick() {
-        const body = $('body');
-        const navContainer = $('#nav-container');
-        
-        if (!navVisible) {
-            navContainer.css('left', '0');
-            body.css('overflow', 'hidden');
-        } else {
-            navContainer.css('left', '-800px');
-            body.css('overflow', 'auto');
-        }
-        
-        navVisible = !navVisible;
-    }
-    
-    $(document).ready(function() {
-        // Function to show preview
-        function showPreview(element) {
-            var preview = element.querySelector(".preview");
-            preview.style.display = "block";
-        }
 
-        // Function to hide preview
-        function hidePreview(element) {
-            var preview = element.querySelector(".preview");
-            preview.style.display = "none";
-        }
-        
-        // Edit Reservation Button Click
+    $(document).ready(function() {
         $('button.status.edit').click(function() {
             var reservationId = $(this).data('id');
             var status = $(this).data('status');
@@ -263,42 +239,65 @@ RESERVATION POPUP
             $('#status').val(status); 
         });
 
-        // Example for Product Edit Button Click
-        $('button.btn-secondary').click(function() {
-            var id = $(this).data('id');
-            var products_id = $(this).data('products_id');
-            var products_name = $(this).data('products_name');
-            var image = $(this).data('image');
-            var total_units = $(this).data('total_units');
-            var reserved_units = $(this).data('reserved_units');
-            var description = $(this).data('description'); 
-            var unit_price = $(this).data('unit_price'); 
-            var specs_cpu = $(this).data('specs_cpu');
-            var specs_motherboard = $(this).data('specs_motherboard'); 
-            var specs_ram = $(this).data('specs_ram');
-            var specs_ssd = $(this).data('specs_ssd');
-            var specs_monitor = $(this).data('specs_monitor'); 
-            var specs_computercase = $(this).data('specs_computercase'); 
-            var specs_powersupply = $(this).data('specs_powersupply'); 
-            var specs_fan = $(this).data('specs_fan'); 
+        var firstNameInput = document.getElementById("first_name");
+        var lastNameInput = document.getElementById("last_name");
 
-            $('#product_id').val(id);
-            $('#product_products_id').val(products_id);
-            $('#product_name').val(products_name);
-            $('#product_image').attr('src', 'Images/' + image);
-            $('#product_total_units').val(total_units);
-            $('#product_reserved_units').val(reserved_units);
-            $('#product_description').val(description); 
-            $('#product_unit_price').val(unit_price); 
-            $('#specs_cpu').val(specs_cpu); 
-            $('#specs_motherboard').val(specs_motherboard); 
-            $('#specs_ram').val(specs_ram); 
-            $('#specs_ssd').val(specs_ssd); 
-            $('#specs_monitor').val(specs_monitor);
-            $('#specs_computercase').val(specs_computercase); 
-            $('#specs_powersupply').val(specs_powersupply); 
-            $('#specs_fan').val(specs_fan); 
+        firstNameInput.addEventListener("input", function() {
+            this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
         });
+
+        lastNameInput.addEventListener("input", function() {
+            this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+        });
+
+        var quantityInput = document.getElementById("quantity");
+
+        quantityInput.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+
+            if (this.value.length > 3) {
+                this.value = this.value.slice(0, 3);
+            }
+
+            if (this.value === "" || parseInt(this.value) < 1) {
+                this.value = "1";
+            } else if (parseInt(this.value) > 999) {
+                this.value = "999";
+            }
+        });
+
+        quantityInput.addEventListener("blur", function() {
+            if (this.value === "" || parseInt(this.value) < 1) {
+                this.value = "1";
+            }
+        });
+
+        quantityInput.value = "1";
+        quantityInput.addEventListener("keydown", function(e) {
+            if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                e.preventDefault();
+            }
+        });
+
+        var productIDInput = document.getElementById("product_id");
+        var sulitCategorySelect = document.getElementById("sulitcategory");
+
+        sulitCategorySelect.addEventListener("change", function() {
+            updateProductID();
+        });
+
+        productIDInput.addEventListener("input", function() {
+            updateProductID();
+        });
+
+        function updateProductID() {
+            var selectedCategory = sulitCategorySelect.options[sulitCategorySelect.selectedIndex].text;
+            var prefix = selectedCategory + " ";
+            var enteredValue = productIDInput.value.replace(prefix, "").replace(/[^0-9]/g, '').slice(0, 2);
+            productIDInput.value = prefix + enteredValue;
+        }
+
+        updateProductID();
     });
 </script>
 
