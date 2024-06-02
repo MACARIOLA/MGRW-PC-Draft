@@ -7,7 +7,7 @@
     <!---------------
            TAB
     ---------------->
-    <title>MGWR PC | Inventory</title>
+    <title>MGWR PC | Reservation</title>
     <link rel="icon" href="Images/Tab Icon.png" type="image/x-icon">
 
     <!---------------
@@ -19,21 +19,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!---------------
-         PHP
+           PHP
     ---------------->
     <?php
         if (isset($_POST['update_product'])) {
             @include 'PHP/admin-config.php';
-        
             @include 'PHP/admin-update-add-reservation.php';
         }
         else{
             @include 'PHP/admin-config.php';
-        @include 'PHP/admin-update-reservation.php';
-
+            @include 'PHP/admin-update-reservation.php';
         }
     ?>
-
 
     <!---------------
           FONTS
@@ -68,238 +65,263 @@
         <nav class="navbar">
             <a href="admin-analytics.php" style="--i:0">Analytics</a>
             <a href="admin-inventory.php" style="--i:0">Inventory</a>
-            <a class="active" href="admin-inventory.php" style="--i:1">Reservation</a>
+            <a class="active" href="admin-reservation.php" style="--i:1">Reservation</a>
             <a href="admin-cms.php" style="--i:2">CMS</a>
             <a href="admin-feedback.php" style="--i:3">Feedbacks</a>
             <a href="admin-contact-us.php" style="--i:4">Inbox</a>
         </nav>
     </header> 
 
-<!---------------
-   RESERVATION
----------------->
-<div class="container-main">
-    <div class="container1">
-        <main class="table" id="customers_table">
-            <section class="table__header">
-                <h2>RESERVATION</h2>
-                <div class="input-group">
-                    <input type="search" placeholder="Search Data..." id="reservationSearchInput" onkeyup="searchTable2()">
-                    <img src="images/search.png">
-                </div>
-                <button class="add" data-toggle="modal" data-target="#addModalReservation">ADD</button>
-            </section>
 
-            <section class="table__body">
-                <table id="reservationTable">
-                    <thead class="thead">
-                        <tr>
-                            <th> RESERVATION ID </th>
-                            <th> CUSTOMER ID </th>
-                            <th> PRODUCT ID </th>
-                            <th> EMAIL</th>
-                            <th> CONTACT#</th>
-                            <th> QUANTITY </th>
-                            <th> STATUS </th>
-                            <th> UPDATE </th>
-                        </tr>
-                    </thead>
+    
+    <!---------------
+       RESERVATION
+    ---------------->
+    <div class="container-main">
+        <div class="container1">
+            <main class="table" id="customers_table">
+                <section class="table__header">
+                    <h2>RESERVATION</h2>
+                    <div class="input-group">
+                        <input type="search" placeholder="Search Data..." id="reservationSearchInput" onkeyup="searchTable2()">
+                        <img src="images/search.png">
+                    </div>
+                    <button class="add" data-toggle="modal" data-target="#addModalReservation">ADD</button>
+                </section>
 
-                    <tbody>
-                        <?php 
-                            $select = mysqli_query($conn, "SELECT * FROM reservation");
-                            while($row = mysqli_fetch_assoc($select)){ 
-                                ?>
-                                <tr>
-                                    <td><?php echo $row['IDreservation']; ?></td>
-                                    <td><?php echo $row['customer']; ?></td>
-                                    <td><?php echo $row['product']; ?></td>
-                                    <td><?php echo $row['email']; ?></td>
-                                    <td><?php echo $row['num']; ?></td>
-                                    <td><?php echo $row['reserved_units']; ?></td>
-                                    <td>
-                                        <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
-                                    </td>
-                                    <td>
-                                        <button class="status edit" data-toggle="modal" data-target="#reservationmodal" 
-                                                data-id="<?php echo $row['IDreservation']; ?>" 
-                                                data-status="<?php echo $row['status']; ?>">
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
+                <section class="table__body">
+                    <table id="reservationTable">
+                        <thead class="thead">
+                            <tr>
+                                <th> RESERVATION ID </th>
+                                <th> CUSTOMER ID </th>
+                                <th> PRODUCT ID </th>
+                                <th> EMAIL</th>
+                                <th> CONTACT#</th>
+                                <th> QUANTITY </th>
+                                <th> STATUS </th>
+                                <th> UPDATE </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
                             <?php 
-                            } 
-                        ?>
-                    </tbody>
-                </table>
-            </section>
-        </main>
+                                $select = mysqli_query($conn, "SELECT * FROM reservation");
+                                while($row = mysqli_fetch_assoc($select)){ 
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row['IDreservation']; ?></td>
+                                        <td><?php echo $row['customer']; ?></td>
+                                        <td><?php echo $row['product']; ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['num']; ?></td>
+                                        <td><?php echo $row['reserved_units']; ?></td>
+                                        <td>
+                                            <p class="status <?php echo $row['status']; ?>"><?php echo strtoupper($row['status']); ?></p>
+                                        </td>
+                                        <td>
+                                            <button class="status edit" data-toggle="modal" data-target="#reservationmodal" 
+                                                    data-id="<?php echo $row['IDreservation']; ?>" 
+                                                    data-status="<?php echo $row['status']; ?>">
+                                                Edit
+                                            </button>
+                                        </td>
+                                    </tr>
+                                <?php 
+                                } 
+                            ?>
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+        </div>
     </div>
-</div>
 
-<!---------------
-RESERVATION POPUP
----------------->
-<div class="modal fade" id="reservationmodal" tabindex="-1" role="dialog" aria-labelledby="reservationmodalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="reservationmodalLabel">Update Reservation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="reservationForm" method="post" >
-                    <div class="form-group">
-                        <label for="reservation_id">Reservation ID</label>
-                        <input type="text" class="form-control" id="reservation_id" name="reservation_id" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select class="form-control" id="status" name="status">
-                            <option value="Confirmed">Confirmed</option>
-                            <option value="Cancelled">Cancelled</option>
-                        </select>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="action closebtn" data-dismiss="modal">Close</button>
-                        <button type="button" class="action save" onclick="$('#reservationForm').submit();" name="Save_content">Save changes</button>
-                    </div>
-                </form>
+
+
+    <!---------------
+    RESERVATION POPUP
+    ---------------->
+    <div class="modal fade" id="reservationmodal" tabindex="-1" role="dialog" aria-labelledby="reservationmodalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reservationmodalLabel">Update Reservation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="reservationForm" method="post" >
+                        <div class="form-group">
+                            <label for="reservation_id">Reservation ID</label>
+                            <input type="text" class="form-control" id="reservation_id" name="reservation_id" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select class="form-control" id="status" name="status">
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="action closebtn" data-dismiss="modal">Close</button>
+                            <button type="button" class="action save" onclick="$('#reservationForm').submit();" name="Save_content">Save changes</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!------------------
-  ADD RESERVATION
-------------------->
-<div class="modal fade" id="addModalReservation" tabindex="-1" role="dialog" aria-labelledby="addModalReservationLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addModalReservationLabel">Add Reservation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
 
-            <div class="modal-body">
-                <form method="post" enctype="multipart/form-data" >
-                    <div class="form-group">
-                        <label for="first_name">First Name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="last_name">Last Name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sulitcategory">Category</label>
-                        <select class="form-control" id="sulitcategory" name="sulitcategory">
-                            <option value="sulitpcoption">Sulit PC</option>
-                            <option value="sulitlaptopoption">Sulit Laptop</option>
-                            <option value="sulitprinteroption">Sulit Printer</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="product_id">PRODUCT ID</label>
-                        <input type="text"  class="form-control" id="product_id" name="product_id" placeholder="Product ID" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Quantity</label>
-                        <input type="number" min="0" class="form-control" id="quantity" name="quantity" placeholder="Quantity" required>
-                    </div>
-        
-                    <button type="submit" name="update_product" class="action updateproduct">SAVE</button>
-                </form>
+
+    <!------------------
+      ADD RESERVATION
+    ------------------->
+    <div class="modal fade" id="addModalReservation" tabindex="-1" role="dialog" aria-labelledby="addModalReservationLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalReservationLabel">Add Reservation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data" >
+                        <div class="form-group">
+                            <label for="first_name">First Name</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sulitcategory">Category</label>
+                            <select class="form-control" id="sulitcategory" name="sulitcategory">
+                                <option value="sulitpcoption">Sulit PC</option>
+                                <option value="sulitlaptopoption">Sulit Laptop</option>
+                                <option value="sulitprinteroption">Sulit Printer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="product_id">PRODUCT ID</label>
+                            <input type="text"  class="form-control" id="product_id" name="product_id" placeholder="Product ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" min="0" class="form-control" id="quantity" name="quantity" placeholder="Quantity" required>
+                        </div>
+            
+                        <button type="submit" name="update_product" class="action updateproduct">SAVE</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!---------------
-   JS
----------------->
-<script src="admin-inventory.js"></script>
-<script src="https://kit.fontawesome.com/865faf11ce.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!---------------
+           JS
+    ---------------->
+    <script src="admin-inventory.js"></script>
+    <script src="https://kit.fontawesome.com/865faf11ce.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script>
+    <script>
+        $(document).ready(function() {
+            $('button.status.edit').click(function() {
+                var reservationId = $(this).data('id');
+                var status = $(this).data('status');
 
-    $(document).ready(function() {
-        $('button.status.edit').click(function() {
-            var reservationId = $(this).data('id');
-            var status = $(this).data('status');
+                $('#reservation_id').val(reservationId);
+                $('#status').val(status); 
+            });
 
-            $('#reservation_id').val(reservationId);
-            $('#status').val(status); 
-        });
+            var firstNameInput = document.getElementById("first_name");
+            var lastNameInput = document.getElementById("last_name");
 
-        var firstNameInput = document.getElementById("first_name");
-        var lastNameInput = document.getElementById("last_name");
+            firstNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
 
-        firstNameInput.addEventListener("input", function() {
-            this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-        });
+            lastNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
 
-        lastNameInput.addEventListener("input", function() {
-            this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-        });
+            var quantityInput = document.getElementById("quantity");
 
-        var quantityInput = document.getElementById("quantity");
+            quantityInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
 
-        quantityInput.addEventListener("input", function() {
-            this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 3) {
+                    this.value = this.value.slice(0, 3);
+                }
 
-            if (this.value.length > 3) {
-                this.value = this.value.slice(0, 3);
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                } else if (parseInt(this.value) > 999) {
+                    this.value = "999";
+                }
+            });
+
+            quantityInput.addEventListener("blur", function() {
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                }
+            });
+
+            quantityInput.value = "1";
+            quantityInput.addEventListener("keydown", function(e) {
+                if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                    e.preventDefault();
+                }
+            });
+
+            var productIDInput = document.getElementById("product_id");
+            var sulitCategorySelect = document.getElementById("sulitcategory");
+
+            sulitCategorySelect.addEventListener("change", function() {
+                updateProductID();
+            });
+
+            productIDInput.addEventListener("input", function() {
+                updateProductID();
+            });
+
+            function updateProductID() {
+                var selectedCategory = sulitCategorySelect.options[sulitCategorySelect.selectedIndex].text;
+                var prefix = selectedCategory + " ";
+                var enteredValue = productIDInput.value.replace(prefix, "").replace(/[^0-9]/g, '').slice(0, 2);
+                productIDInput.value = prefix + enteredValue;
             }
 
-            if (this.value === "" || parseInt(this.value) < 1) {
-                this.value = "1";
-            } else if (parseInt(this.value) > 999) {
-                this.value = "999";
-            }
-        });
-
-        quantityInput.addEventListener("blur", function() {
-            if (this.value === "" || parseInt(this.value) < 1) {
-                this.value = "1";
-            }
-        });
-
-        quantityInput.value = "1";
-        quantityInput.addEventListener("keydown", function(e) {
-            if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
-                e.preventDefault();
-            }
-        });
-
-        var productIDInput = document.getElementById("product_id");
-        var sulitCategorySelect = document.getElementById("sulitcategory");
-
-        sulitCategorySelect.addEventListener("change", function() {
             updateProductID();
+
+            document.getElementById("sulitcategory").addEventListener("change", function() {
+                var select = document.getElementById("sulitcategory");
+                var selectedValue = select.options[select.selectedIndex].value;
+
+                switch(selectedValue) {
+                    case "sulitpcoption":
+                        select.style.backgroundColor = "#ffcccc";
+                        break;
+                    case "sulitlaptopoption":
+                        select.style.backgroundColor = "#ccffcc";
+                        break;
+                    case "sulitprinteroption":
+                        select.style.backgroundColor = "#ccccff";
+                        break;
+                    default:
+                        select.style.backgroundColor = "#ffcccc";
+                        break;
+                }
+            });
+            document.getElementById("sulitcategory").dispatchEvent(new Event('change'));
         });
-
-        productIDInput.addEventListener("input", function() {
-            updateProductID();
-        });
-
-        function updateProductID() {
-            var selectedCategory = sulitCategorySelect.options[sulitCategorySelect.selectedIndex].text;
-            var prefix = selectedCategory + " ";
-            var enteredValue = productIDInput.value.replace(prefix, "").replace(/[^0-9]/g, '').slice(0, 2);
-            productIDInput.value = prefix + enteredValue;
-        }
-
-        updateProductID();
-    });
-</script>
-
+    </script>
 </body>
 </html>
