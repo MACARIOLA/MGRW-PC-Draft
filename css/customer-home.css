@@ -340,6 +340,7 @@
 	color: var(--white1);
 	text-decoration: none;
 	border: 2px solid transparent;
+    font-size: 16px;
 	font-weight: bold;
 	padding: 13px 30px;
 	border-radius: 10px;
@@ -362,6 +363,7 @@
 	color: var(--white1);
 	text-decoration: none;
 	border: 2px solid transparent;
+    font-size: 16px;
 	font-weight: bold;
 	padding: 13px 30px;
 	border-radius: 10px;
@@ -461,6 +463,47 @@
 	.row img{
 		width: 60%;
 		margin-top: -30px;
+	}
+
+	.btn-fdbck {
+		width: 350px;
+	    font-size: 14px;
+		padding: 10px;
+	    margin-bottom: 100px;
+	}
+
+	.btn-fdbck2 {
+		width: 350px;
+	    font-size: 14px;
+		padding: 10px;
+	    margin-bottom: 100px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.row h4 {
+	    font-size: 16px;
+	}
+	
+	.row h5 {
+	    font-size: 20px;
+	}
+	
+	.row h6 {
+	    font-size: 20px;
+		margin-bottom: 20px;
+	}
+}
+
+@media screen and (max-width: 560px) {
+	.btn-fdbck {
+		width: 400px;
+		height: 70px;
+	}
+
+	.btn-fdbck2 {
+		width: 400px;
+		height: 70px;
 	}
 }
 
@@ -588,8 +631,49 @@
     margin-top: 20px; 
 }
 
-#successModal .modal-content .btnfrFeed {
-    margin-bottom:10px;
+.modal-content.pcmodal2 {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 480px;
+    height: 300px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+    text-align: center;
+	align-content: center;
+}
+
+.modal-content.laptopmodal2 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 480px;
+    height: 300px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+    text-align: center;
+	align-content: center;
+}
+
+.modal-content.printermodal2 {
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 480px;
+    height: 300px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+    text-align: center;
+	align-content: center;
 }
 
 #successModal .modal-content {
@@ -612,32 +696,382 @@
 /* -------------
    BREAKPOINTS
 -------------- */
-@media screen and (max-width: 1700px) {
-    .modal-content {
-		margin-top: -200px;
+@media screen and (max-width: 1115px) {
+	.modal-content.pcmodal {
+        margin-top: -26%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 30%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 53%;
     }
 }
 
-@media screen and (max-width: 1250px) {
-    .modal-content {
-		margin-top: -700px;
+@media screen and (max-width: 800px) {
+	.modal-content.pcmodal {
+        margin-top: -50%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 23%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 52%;
+    }
+}
+
+@media screen and (max-width: 705px) {
+	.modal-content.pcmodal {
+        margin-top: -73%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: -7%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 12%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+	.modal-content.pcmodal {
+        margin-top: -63%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 14%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 41%;
+    }
+
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		width: 80%;
+		height: 9.8%;
+	}
+
+	.modal-content h2 {
+		font-size: 28px;
+	}
+
+	.modal-content label {
+		font-size: 16px;
+	}
+	
+	.modal-content input[name="email"],
+	.modal-content input[name="contactNum"],
+	.modal-content input[name="fname"],
+	.modal-content input[name="lname"],
+	.modal-content input[name="quantity"],
+	.modal-content input[name="pname"],
+	.modal-content button {
+	    padding: 8px;
+	    margin-bottom: 10px;
+	    font-size: 14px;
+	}
+	
+	.modal-content button {
+	    width: 45%;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.modal-content.pcmodal {
+        margin-top: -62%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 14%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 41%;
+    }
+
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		height: 10.5%;
+	}
+
+	.modal-content h2 {
+		margin-bottom: 2px;
+	}
+
+	.modal-content label {
+		font-size: 18px;
+	}
+	
+	.modal-content input[name="email"],
+	.modal-content input[name="contactNum"],
+	.modal-content input[name="fname"],
+	.modal-content input[name="lname"],
+	.modal-content input[name="quantity"],
+	.modal-content input[name="pname"],
+	.modal-content button {
+	    font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.modal-content.pcmodal {
+        margin-top: -78%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: -6%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 23%;
+    }
+
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		width: 90%;
+		height: 11%;
+	}
+	
+	.modal-content input[name="email"],
+	.modal-content input[name="contactNum"],
+	.modal-content input[name="fname"],
+	.modal-content input[name="lname"],
+	.modal-content input[name="quantity"],
+	.modal-content input[name="pname"],
+	.modal-content button {
+	    font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 591px) {
+	.modal-content.pcmodal {
+        margin-top: -81%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: -9%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 18%;
+    }
+
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		width: 90%;
+	}
+	
+	.modal-content button {
+	    width: 40%;
+	}
+}
+
+@media screen and (max-width: 589px) {
+	.modal-content.pcmodal {
+        margin-top: -87%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: -19%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 5%;
+    }
+}
+
+@media screen and (max-width: 588px) {
+	.modal-content.pcmodal {
+        margin-top: -65%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 12%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 47%;
+    }
+
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		height: 11.4%;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.modal-content.pcmodal {
+        margin-top: -71%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 8%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 43%;
     }
 }
 
 @media screen and (max-width: 560px) {
-    .modal {
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
+	.modal-content.pcmodal {
+        margin-top: -74%;
     }
 
-    .modal-content {
-        width: 90%;
+	.modal-content.laptopmodal {
+        margin-top: 5%;
     }
-    
-    #successModal .modal-content {
-        width: 90%; 
-        height: 400px;
+
+	.modal-content.printermodal {
+        margin-top: 40%;
     }
-} 
+
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		height: 11.4%;
+	}
+
+	.modal-content button {
+		font-size: 14px;
+	    width: 40%;
+	}
+}
+
+@media screen and (max-width: 518px) {
+	.modal-content.pcmodal {
+        margin-top: -79%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 0%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 34%;
+    }
+
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		height: 11.8%;
+	}
+}
+
+@media screen and (max-width: 507px) {
+	.modal-content.pcmodal {
+        margin-top: -84%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: -3%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 34%;
+    }
+
+	.modal-content h2 {
+		font-size: 20px;
+		margin-bottom: 5px;
+	}
+
+	.modal-content label {
+		font-size: 16px;
+	}
+	
+	.modal-content input[name="email"],
+	.modal-content input[name="contactNum"],
+	.modal-content input[name="fname"],
+	.modal-content input[name="lname"],
+	.modal-content input[name="quantity"],
+	.modal-content input[name="pname"],
+	.modal-content button {
+	    font-size: 14px;
+	}
+
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		width: 80%;
+		height: 11%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.modal-content.pcmodal {
+        margin-top: -88%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: -8%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 28%;
+    }
+
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		width: 90%;
+		height: 11.4%;
+	}
+}
+
+@media screen and (max-width: 476px) {
+	.modal-content.pcmodal {
+        margin-top: -88%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: -8%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 28%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		height: 11.8%;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		height: 12.2%;
+	}
+}
+
+@media screen and (max-width: 380px) {
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		height: 12.8%;
+	}
+}
+
+@media screen and (max-width: 330px) {
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal {
+		height: 13%;
+	}
+}
