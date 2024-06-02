@@ -99,10 +99,10 @@
     <form id="surveyForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="showSuccessModal(event)">
         <div id="content1">
             <label>Name</label><br><br>
-            <input type="text" name="name" placeholder="Enter your name" class="box" required><br><br>
+            <input type="text" id="name" name="name" placeholder="Enter your name" class="box" required><br><br>
 
             <label id="head2">Please leave a comment for the product:</label><br><br>
-            <textarea name="comment" placeholder="Enter your comment here..." required></textarea><br><br>
+            <textarea id="comment" name="comment" placeholder="Enter your comment here..." required></textarea><br><br>
 
             <label id="head1">Please rate the product you received.</label><br><br>
             <div class="radio-container">
@@ -208,6 +208,17 @@
                     });
                 });
             });
+        });
+
+        document.getElementById("name").addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+        });
+
+        document.getElementById("comment").addEventListener("input", function() {
+            const maxLength = 900;
+            if (this.value.length > maxLength) {
+                this.value = this.value.slice(0, maxLength);
+            }
         });
     </script>
 </body>
