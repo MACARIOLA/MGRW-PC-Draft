@@ -101,7 +101,7 @@
     </section>
 
 
-   
+
     <!---------------
         SULIT PCS
     ---------------->
@@ -117,10 +117,10 @@
                 $result = mysqli_query($conn, $sql);
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        $url = "customer-product-sulitpc.php?id=" . $row['id'];
+                       
             ?>
             <div class="row">
-                <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
+                <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>">
                 <h4><?php echo $row['products_name']; ?></h4>
                 <h5><?php echo $row['products_id']; ?></h5>
                 <h6>₱<?php echo $row['unit_price']; ?></h6>
@@ -132,7 +132,7 @@
         </div>
 
         <div class="shortcut">
-            <a class="btn-fdbck" href="customer-pricelist.html">Sulit PC Pricelists</a>
+            <button class="btn-fdbck">Sulit PC Pricelists</button>
             <button class="btn-fdbck reserve1">Reserve</button>
         </div>
     </section>
@@ -167,7 +167,7 @@
     </div>
 
     <div id="successpcModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content pcmodal2">
             <h2>Reservation Completed!</h2>
             <button type="button" id="goBackBtn">Go Back</button>
         </div>
@@ -205,8 +205,8 @@
             pNameInput.value = "Sulit PC ";
 
             pNameInput.addEventListener("input", function() {
-                var enteredValue = this.value.replace("Sulit PC ", "");
-                this.value = "Sulit PC " + enteredValue.replace(/[^0-9]/g, '');
+                var enteredValue = this.value.replace("Sulit PC ", "").replace(/[^0-9]/g, '').slice(0, 2);
+                this.value = "Sulit PC " + enteredValue;
             });
 
             var firstNameInput = document.getElementById("fName");
@@ -271,10 +271,34 @@
                     e.preventDefault();
                 }
             });
+
+            var confirmButton = document.getElementById("confirmBtn");
+
+            confirmButton.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var form = document.getElementById("reserveForm");
+                if (form.checkValidity()) {
+                    var successModal = document.getElementById("successpcModal");
+                    successModal.style.display = "block";
+                } else {
+                    form.reportValidity();
+                }
+            });
+
+            var goBackButtons = document.querySelectorAll("#successpcModal #goBackBtn");
+
+            goBackButtons.forEach(function(button) {
+                button.addEventListener("click", function() {
+                    var modal = button.closest(".modal");
+                    var reserveModal = document.getElementById("reservepcModal");
+
+                    modal.style.display = "none";
+                    reserveModal.style.display = "none";
+                });
+            });
         });
     </script>
-
-
 
     <!---------------
       SULIT LAPTOPS
@@ -291,10 +315,9 @@
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $url = "customer-product-sulitlaptop.php?id=" . $row['id'];
         ?>
         <div class="row">
-            <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
+            <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>">
             <h4><?php echo $row['products_name']; ?></h4>
             <h5><?php echo $row['products_id']; ?></h5>
             <h6>₱<?php echo $row['unit_price']; ?></h6>
@@ -306,7 +329,7 @@
         </div>
 
         <div class="shortcut">
-            <a class="btn-fdbck2" href="customer-pricelist.html">Sulit Laptop Pricelists</a>
+            <button class="btn-fdbck2">Sulit Laptop Pricelists</button>
             <button class="btn-fdbck reserve2">Reserve</button>
         </div>
     </section>
@@ -319,7 +342,7 @@
     <div id="reservelaptopModal" class="modal">
         <div class="modal-content laptopmodal">
             <h2>Reservation For Sulit Laptops</h2>
-            <form id="reserveForm" method="POST">
+            <form id="reserveForm2" method="POST">
                 <label for="pName2">Product Name</label>
                 <input type="pname" id="pName2" name="pname" placeholder="Enter Product Name" required>
                 <label for="fName">First Name</label>
@@ -333,7 +356,7 @@
                 <label for="quantity">Quantity</label>
                 <input type="number" id="quantity2" name="quantity" min="1" max="999" value="1" required>
                 <div class="btn-container">
-                    <button type="submit" id="confirmBtn">Confirm</button>
+                    <button type="submit" id="confirmBtn2">Confirm</button>
                     <button type="button" id="cancelBtn2">Cancel</button>
                 </div>
             </form>
@@ -341,7 +364,7 @@
     </div>
 
     <div id="successlaptopModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content laptopmodal2">
             <h2>Reservation Completed!</h2>
             <button type="button" id="goBackBtn">Go Back</button>
         </div>
@@ -379,8 +402,8 @@
             pNameInput.value = "Sulit Laptop ";
 
             pNameInput.addEventListener("input", function() {
-                var enteredValue = this.value.replace("Sulit Laptop ", "");
-                this.value = "Sulit Laptop " + enteredValue.replace(/[^0-9]/g, '');
+                var enteredValue = this.value.replace("Sulit Laptop ", "").replace(/[^0-9]/g, '').slice(0, 2);
+                this.value = "Sulit Laptop " + enteredValue;
             });
 
 
@@ -423,7 +446,6 @@
             quantityInput.addEventListener("input", function() {
                 this.value = this.value.replace(/[^0-9]/g, '');
 
-                // Limit to 3 characters
                 if (this.value.length > 3) {
                     this.value = this.value.slice(0, 3);
                 }
@@ -447,6 +469,32 @@
                     e.preventDefault();
                 }
             });
+
+            var confirmButton = document.getElementById("confirmBtn2");
+
+            confirmButton.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var form = document.getElementById("reserveForm2");
+                if (form.checkValidity()) {
+                    var successModal = document.getElementById("successlaptopModal");
+                    successModal.style.display = "block";
+                } else {
+                    form.reportValidity();
+                }
+            });
+
+            var goBackButtons = document.querySelectorAll("#successlaptopModal #goBackBtn");
+
+            goBackButtons.forEach(function(button) {
+                button.addEventListener("click", function() {
+                    var modal = button.closest(".modal");
+                    var reserveModal = document.getElementById("reservelaptopModal");
+
+                    modal.style.display = "none";
+                    reserveModal.style.display = "none";
+                });
+            });
         });
     </script>
 
@@ -467,10 +515,9 @@
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $url = "customer-product-sulitprinter.php?id=" . $row['id'];
         ?>
         <div class="row">
-            <a href="<?php echo $url; ?>"><img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>"></a>
+            <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>">
             <h4><?php echo $row['products_name']; ?></h4>
             <h5><?php echo $row['products_id']; ?></h5>
             <h6>₱<?php echo $row['unit_price']; ?></h6>
@@ -482,8 +529,8 @@
         </div>
 
         <div class="shortcut">
-            <a class="btn-fdbck" href="customer-pricelist.html">Sulit Printer Pricelists</a>
-            <a class="btn-fdbck reserve3" href="customer-pricelist.html">Reserve</a>
+            <button class="btn-fdbck">Sulit Printer Pricelists</button>
+            <button class="btn-fdbck reserve3" href="customer-pricelist.html">Reserve</button>
         </div>
     </section>
 
@@ -495,7 +542,7 @@
     <div id="reserveprinterModal" class="modal">
         <div class="modal-content printermodal">
             <h2>Reservation For Sulit Printers</h2>
-            <form id="reserveForm" method="POST">
+            <form id="reserveForm3" method="POST">
                 <label for="pName3">Product Name</label>
                 <input type="pname" id="pName3" name="pname" placeholder="Enter Product Name" required>
                 <label for="fName">First Name</label>
@@ -509,7 +556,7 @@
                 <label for="quantity">Quantity</label>
                 <input type="number" id="quantity3" name="quantity" min="1" max="999" value="1" required>
                 <div class="btn-container">
-                    <button type="submit" id="confirmBtn">Confirm</button>
+                    <button type="submit" id="confirmBtn3">Confirm</button>
                     <button type="button" id="cancelBtn3">Cancel</button>
                 </div>
             </form>
@@ -517,7 +564,7 @@
     </div>
 
     <div id="successprinterModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content printermodal2">
             <h2>Reservation Completed!</h2>
             <button type="button" id="goBackBtn">Go Back</button>
         </div>
@@ -555,8 +602,8 @@
             pNameInput.value = "Sulit Printer ";
 
             pNameInput.addEventListener("input", function() {
-                var enteredValue = this.value.replace("Sulit Printer ", "");
-                this.value = "Sulit Printer " + enteredValue.replace(/[^0-9]/g, '');
+                var enteredValue = this.value.replace("Sulit Printer ", "").replace(/[^0-9]/g, '').slice(0, 2);
+                this.value = "Sulit Printer " + enteredValue;
             });
 
 
@@ -599,7 +646,6 @@
             quantityInput.addEventListener("input", function() {
                 this.value = this.value.replace(/[^0-9]/g, '');
 
-                // Limit to 3 characters
                 if (this.value.length > 3) {
                     this.value = this.value.slice(0, 3);
                 }
@@ -622,6 +668,32 @@
                 if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
                     e.preventDefault();
                 }
+            });
+
+            var confirmButton = document.getElementById("confirmBtn3");
+
+            confirmButton.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var form = document.getElementById("reserveForm3");
+                if (form.checkValidity()) {
+                    var successModal = document.getElementById("successprinterModal");
+                    successModal.style.display = "block";
+                } else {
+                    form.reportValidity();
+                }
+            });
+
+            var goBackButtons = document.querySelectorAll("#successprinterModal #goBackBtn");
+
+            goBackButtons.forEach(function(button) {
+                button.addEventListener("click", function() {
+                    var modal = button.closest(".modal");
+                    var reserveModal = document.getElementById("reserveprinterModal");
+
+                    modal.style.display = "none";
+                    reserveModal.style.display = "none";
+                });
             });
         });
     </script>
