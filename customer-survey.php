@@ -105,13 +105,13 @@
     <form id="surveyForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="showSuccessModal(event)">
         <div id="content1">
             <label>Name</label><br><br>
-            <input type="text" name="name" placeholder="Enter Your Name" class="box" required><br><br>
+            <input type="text" id="name" name="name" placeholder="Enter your name" class="box" required><br><br>
 
             <label>Email</label><br><br>
-            <input type="text" name="email" placeholder="Enter Your Email" class="box" required><br><br>
+            <input type="text" id="email" name="email" placeholder="Enter Your Email" class="box" required><br><br>
 
             <label>Age (Optional)</label><br><br>
-            <input type="text" name="age" placeholder="Enter Your Age" class="box" required><br><br>
+            <input type="text" id="age" name="age" placeholder="Enter Your Age" class="box" required><br><br>
 
             <label id="head1">1. How was your experience with the MGWR PC Online website?</label><br><br>
                 <div class="radio-container">
@@ -304,7 +304,7 @@
                 </div>
 
                 <label id="head2">10. Did you encounter any technical issues while using the MGWR PC Online website? If yes, please specify.</label><br><br>
-                <textarea name="comment" placeholder="Enter your comment here..." required></textarea>
+                <textarea id="comment" name="comment" placeholder="Enter your comment here..." required></textarea>
 
             <button type="submit">Submit</button>
         </div>
@@ -316,6 +316,34 @@
     ---------------->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("name").addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            document.getElementById("email").addEventListener("input", function() {
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if (!emailPattern.test(this.value)) {
+                    this.setCustomValidity("Please enter a valid email address.");
+                } else {
+                    this.setCustomValidity("");
+                }
+            });
+
+            document.getElementById("age").addEventListener("input", function() {
+                const maxAge = 150;
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (parseInt(this.value, 10) > maxAge) {
+                    this.value = maxAge;
+                }
+            });
+
+            document.getElementById("comment").addEventListener("input", function() {
+                const maxLength = 900;
+                if (this.value.length > maxLength) {
+                    this.value = this.value.slice(0, maxLength);
+                }
+            });
+
             document.getElementById("surveyForm").addEventListener("submit", function(event) {
                 event.preventDefault(); 
 
@@ -343,7 +371,6 @@
                         if (result.isConfirmed) {
                             window.location.href = "customer-home.php";
                         } else {
-
                             setTimeout(function() {
                                 window.location.href = "customer-home.php";
                             }, 0); 
@@ -363,5 +390,6 @@
             });
         });
     </script>
+
 </body> 
 </html>
