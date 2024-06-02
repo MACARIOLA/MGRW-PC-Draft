@@ -107,7 +107,7 @@
     ---------------->
     <section class="sulitPc">
         <div class="text-center">
-            <h2>Sulit PC Sets</h2>
+            <h2>SULIT PC Sets</h2>
             <p class="sentence1">Check out our best-selling computers, designed for performance and reliability.</p>
         </div>
 
@@ -117,10 +117,10 @@
                 $result = mysqli_query($conn, $sql);
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                       
+                     
             ?>
             <div class="row">
-                <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>">
+               <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_id']; ?>">
                 <h4><?php echo $row['products_name']; ?></h4>
                 <h5><?php echo $row['products_id']; ?></h5>
                 <h6>₱<?php echo $row['unit_price']; ?></h6>
@@ -132,7 +132,7 @@
         </div>
 
         <div class="shortcut">
-            <button class="btn-fdbck">Sulit PC Pricelists</button>
+            <a class="btn-fdbck" href="customer-pricelist.html">SULIT PC Pricelists</a>
             <button class="btn-fdbck reserve1">Reserve</button>
         </div>
     </section>
@@ -144,7 +144,7 @@
     ---------------->
     <div id="reservepcModal" class="modal">
         <div class="modal-content pcmodal">
-            <h2>Reservation For Sulit PCs</h2>
+            <h2>Reservation For SULIT PCs</h2>
             <form id="reserveForm" method="POST">
                 <label for="pName">Product Name</label>
                 <input type="pname" id="pName" name="pname" placeholder="Enter Product Name" required>
@@ -167,7 +167,7 @@
     </div>
 
     <div id="successpcModal" class="modal">
-        <div class="modal-content pcmodal2">
+        <div class="modal-content">
             <h2>Reservation Completed!</h2>
             <button type="button" id="goBackBtn">Go Back</button>
         </div>
@@ -177,37 +177,62 @@
         JS FOR PC
     ---------------->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var reserveButtons = document.querySelectorAll(".reserve1");
+    document.addEventListener("DOMContentLoaded", function() {
+    var photos = document.querySelectorAll(".sulitPcContents img");
 
-            reserveButtons.forEach(function(button) {
-                button.addEventListener("click", function(event) {
-                    event.preventDefault(); 
+    photos.forEach(function(photo) {
+        photo.addEventListener("click", function(event) {
+            event.preventDefault();
 
-                    var reserveModal = document.getElementById("reservepcModal");
+            // Get product ID from image's alt attribute
+            var productId = this.getAttribute("alt");
 
-                    reserveModal.style.display = "block";
-                });
-            });
-
-            var cancelButton = document.getElementById("cancelBtn");
-
-            cancelButton.addEventListener("click", function(event) {
-                event.preventDefault();
-
-                var reserveModal = document.getElementById("reservepcModal");
-
-                reserveModal.style.display = "none";
-            });
-
+            // Set product ID in the product name input field
             var pNameInput = document.getElementById("pName");
+            pNameInput.value = productId;
+            
+            // Open the reservation modal
+            var reserveModal = document.getElementById("reservepcModal");
+            reserveModal.style.display = "block";
+        });
+    });
 
-            pNameInput.value = "Sulit PC ";
+    var reserveButtons = document.querySelectorAll(".reserve1");
 
-            pNameInput.addEventListener("input", function() {
-                var enteredValue = this.value.replace("Sulit PC ", "").replace(/[^0-9]/g, '').slice(0, 2);
-                this.value = "Sulit PC " + enteredValue;
-            });
+    reserveButtons.forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault(); 
+
+            var reserveModal = document.getElementById("reservepcModal");
+
+            reserveModal.style.display = "block";
+
+            // Set "SULIT PC" prefix in the product name input field
+            var pNameInput = document.getElementById("pName");
+            pNameInput.value = "SULIT PC ";
+        });
+    });
+
+    var cancelButton = document.getElementById("cancelBtn");
+
+    cancelButton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var reserveModal = document.getElementById("reservepcModal");
+
+        reserveModal.style.display = "none";
+    });
+
+    // Input modification for "SULIT PC" prefix
+    var pNameInput = document.getElementById("pName");
+
+    pNameInput.addEventListener("input", function() {
+        var enteredValue = this.value.replace("SULIT PC ", "");
+        this.value = "SULIT PC " + enteredValue.replace(/[^0-9]/g, '');
+    });
+
+
+
 
             var firstNameInput = document.getElementById("fName");
             var lastNameInput = document.getElementById("lName");
@@ -271,41 +296,17 @@
                     e.preventDefault();
                 }
             });
-
-            var confirmButton = document.getElementById("confirmBtn");
-
-            confirmButton.addEventListener("click", function(event) {
-                event.preventDefault();
-
-                var form = document.getElementById("reserveForm");
-                if (form.checkValidity()) {
-                    var successModal = document.getElementById("successpcModal");
-                    successModal.style.display = "block";
-                } else {
-                    form.reportValidity();
-                }
-            });
-
-            var goBackButtons = document.querySelectorAll("#successpcModal #goBackBtn");
-
-            goBackButtons.forEach(function(button) {
-                button.addEventListener("click", function() {
-                    var modal = button.closest(".modal");
-                    var reserveModal = document.getElementById("reservepcModal");
-
-                    modal.style.display = "none";
-                    reserveModal.style.display = "none";
-                });
-            });
         });
     </script>
+
+
 
     <!---------------
       SULIT LAPTOPS
     ---------------->
     <section class="sulitLaptop">
         <div class="text-center">
-            <h2>Sulit Laptop Sets</h2>
+            <h2>SULIT LAPTOP Sets</h2>
             <p class="sentence1">Discover our best-selling laptops, offering portability and power for your needs.</p>
         </div>
 
@@ -315,9 +316,10 @@
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
+                    
         ?>
         <div class="row">
-            <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>">
+         <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt2="<?php echo $row['products_id']; ?>">
             <h4><?php echo $row['products_name']; ?></h4>
             <h5><?php echo $row['products_id']; ?></h5>
             <h6>₱<?php echo $row['unit_price']; ?></h6>
@@ -329,7 +331,7 @@
         </div>
 
         <div class="shortcut">
-            <button class="btn-fdbck2">Sulit Laptop Pricelists</button>
+            <a class="btn-fdbck2" href="customer-pricelist.html">SULIT LAPTOP Pricelists</a>
             <button class="btn-fdbck reserve2">Reserve</button>
         </div>
     </section>
@@ -341,8 +343,8 @@
     ---------------->
     <div id="reservelaptopModal" class="modal">
         <div class="modal-content laptopmodal">
-            <h2>Reservation For Sulit Laptops</h2>
-            <form id="reserveForm2" method="POST">
+            <h2>Reservation For SULIT LAPTOPs</h2>
+            <form id="reserveForm" method="POST">
                 <label for="pName2">Product Name</label>
                 <input type="pname" id="pName2" name="pname" placeholder="Enter Product Name" required>
                 <label for="fName">First Name</label>
@@ -356,7 +358,7 @@
                 <label for="quantity">Quantity</label>
                 <input type="number" id="quantity2" name="quantity" min="1" max="999" value="1" required>
                 <div class="btn-container">
-                    <button type="submit" id="confirmBtn2">Confirm</button>
+                    <button type="submit" id="confirmBtn">Confirm</button>
                     <button type="button" id="cancelBtn2">Cancel</button>
                 </div>
             </form>
@@ -364,7 +366,7 @@
     </div>
 
     <div id="successlaptopModal" class="modal">
-        <div class="modal-content laptopmodal2">
+        <div class="modal-content">
             <h2>Reservation Completed!</h2>
             <button type="button" id="goBackBtn">Go Back</button>
         </div>
@@ -374,38 +376,59 @@
       JS FOR LAPTOP
     ---------------->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var reserveButtons = document.querySelectorAll(".reserve2");
+         document.addEventListener("DOMContentLoaded", function() {
+    var photos = document.querySelectorAll(".sulitLaptopContents img");
 
-            reserveButtons.forEach(function(button) {
-                button.addEventListener("click", function(event) {
-                    event.preventDefault(); 
+    photos.forEach(function(photo) {
+        photo.addEventListener("click", function(event) {
+            event.preventDefault();
 
-                    var reserveModal = document.getElementById("reservelaptopModal");
+            // Get product ID from image's alt attribute
+            var productId = this.getAttribute("alt2");
 
-                    reserveModal.style.display = "block";
-                });
-            });
-
-            var cancelButton = document.getElementById("cancelBtn2");
-
-            cancelButton.addEventListener("click", function(event) {
-                event.preventDefault();
-
-                var reserveModal = document.getElementById("reservelaptopModal");
-
-                reserveModal.style.display = "none";
-            });
-
+            // Set product ID in the product name input field
             var pNameInput = document.getElementById("pName2");
+            pNameInput.value = productId;
+            
+            // Open the reservation modal
+            var reserveModal = document.getElementById("reservelaptopModal");
+            reserveModal.style.display = "block";
+        });
+    });
 
-            pNameInput.value = "Sulit Laptop ";
+    var reserveButtons = document.querySelectorAll(".reserve2");
 
-            pNameInput.addEventListener("input", function() {
-                var enteredValue = this.value.replace("Sulit Laptop ", "").replace(/[^0-9]/g, '').slice(0, 2);
-                this.value = "Sulit Laptop " + enteredValue;
-            });
+    reserveButtons.forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault(); 
 
+            var reserveModal = document.getElementById("reservelaptopModal");
+
+            reserveModal.style.display = "block";
+
+            // Set "SULIT PC" prefix in the product name input field
+            var pNameInput = document.getElementById("pName2");
+            pNameInput.value = "SULIT LAPTOP ";
+        });
+    });
+
+    var cancelButton = document.getElementById("cancelBtn2");
+
+    cancelButton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var reserveModal = document.getElementById("reservelaptopModal");
+
+        reserveModal.style.display = "none";
+    });
+
+    // Input modification for "SULIT PC" prefix
+    var pNameInput = document.getElementById("pName2");
+
+    pNameInput.addEventListener("input", function() {
+        var enteredValue = this.value.replace("SULIT LAPTOP ", "");
+        this.value = "SULIT LAPTOP " + enteredValue.replace(/[^0-9]/g, '');
+    });
 
             var firstNameInput = document.getElementById("fName2");
             var lastNameInput = document.getElementById("lName2");
@@ -446,6 +469,7 @@
             quantityInput.addEventListener("input", function() {
                 this.value = this.value.replace(/[^0-9]/g, '');
 
+                // Limit to 3 characters
                 if (this.value.length > 3) {
                     this.value = this.value.slice(0, 3);
                 }
@@ -469,32 +493,6 @@
                     e.preventDefault();
                 }
             });
-
-            var confirmButton = document.getElementById("confirmBtn2");
-
-            confirmButton.addEventListener("click", function(event) {
-                event.preventDefault();
-
-                var form = document.getElementById("reserveForm2");
-                if (form.checkValidity()) {
-                    var successModal = document.getElementById("successlaptopModal");
-                    successModal.style.display = "block";
-                } else {
-                    form.reportValidity();
-                }
-            });
-
-            var goBackButtons = document.querySelectorAll("#successlaptopModal #goBackBtn");
-
-            goBackButtons.forEach(function(button) {
-                button.addEventListener("click", function() {
-                    var modal = button.closest(".modal");
-                    var reserveModal = document.getElementById("reservelaptopModal");
-
-                    modal.style.display = "none";
-                    reserveModal.style.display = "none";
-                });
-            });
         });
     </script>
 
@@ -505,7 +503,7 @@
     ---------------->
     <section class="sulitPrinter">
         <div class="text-center">
-            <h2>Sulit Printer Sets</h2>
+            <h2>SULIT PRINTER Sets</h2>
             <p class="sentence1">Explore our best-selling printers, known for their quality and efficiency.</p>
         </div>
 
@@ -515,9 +513,10 @@
             $result = mysqli_query($conn, $sql);
             if ($result && mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
+                  
         ?>
         <div class="row">
-            <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>">
+           <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt3="<?php echo $row['products_id']; ?>">
             <h4><?php echo $row['products_name']; ?></h4>
             <h5><?php echo $row['products_id']; ?></h5>
             <h6>₱<?php echo $row['unit_price']; ?></h6>
@@ -529,8 +528,8 @@
         </div>
 
         <div class="shortcut">
-            <button class="btn-fdbck">Sulit Printer Pricelists</button>
-            <button class="btn-fdbck reserve3" href="customer-pricelist.html">Reserve</button>
+            <a class="btn-fdbck" href="customer-pricelist.html">SULIT PRINTER Pricelists</a>
+            <a class="btn-fdbck reserve3" href="customer-pricelist.html">Reserve</a>
         </div>
     </section>
 
@@ -541,8 +540,8 @@
     ---------------->
     <div id="reserveprinterModal" class="modal">
         <div class="modal-content printermodal">
-            <h2>Reservation For Sulit Printers</h2>
-            <form id="reserveForm3" method="POST">
+            <h2>Reservation For SULIT PRINTERs</h2>
+            <form id="reserveForm" method="POST">
                 <label for="pName3">Product Name</label>
                 <input type="pname" id="pName3" name="pname" placeholder="Enter Product Name" required>
                 <label for="fName">First Name</label>
@@ -556,7 +555,7 @@
                 <label for="quantity">Quantity</label>
                 <input type="number" id="quantity3" name="quantity" min="1" max="999" value="1" required>
                 <div class="btn-container">
-                    <button type="submit" id="confirmBtn3">Confirm</button>
+                    <button type="submit" id="confirmBtn">Confirm</button>
                     <button type="button" id="cancelBtn3">Cancel</button>
                 </div>
             </form>
@@ -564,7 +563,7 @@
     </div>
 
     <div id="successprinterModal" class="modal">
-        <div class="modal-content printermodal2">
+        <div class="modal-content">
             <h2>Reservation Completed!</h2>
             <button type="button" id="goBackBtn">Go Back</button>
         </div>
@@ -574,37 +573,59 @@
       JS FOR PRINTER
     ---------------->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var reserveButtons = document.querySelectorAll(".reserve3");
+          document.addEventListener("DOMContentLoaded", function() {
+    var photos = document.querySelectorAll(".sulitPrinterContents img");
 
-            reserveButtons.forEach(function(button) {
-                button.addEventListener("click", function(event) {
-                    event.preventDefault(); 
+    photos.forEach(function(photo) {
+        photo.addEventListener("click", function(event) {
+            event.preventDefault();
 
-                    var reserveModal = document.getElementById("reserveprinterModal");
+            // Get product ID from image's alt attribute
+            var productId = this.getAttribute("alt3");
 
-                    reserveModal.style.display = "block";
-                });
-            });
-
-            var cancelButton = document.getElementById("cancelBtn3");
-
-            cancelButton.addEventListener("click", function(event) {
-                event.preventDefault();
-
-                var reserveModal = document.getElementById("reserveprinterModal");
-
-                reserveModal.style.display = "none";
-            });
-
+            // Set product ID in the product name input field
             var pNameInput = document.getElementById("pName3");
+            pNameInput.value = productId;
+            
+            // Open the reservation modal
+            var reserveModal = document.getElementById("reserveprinterModal");
+            reserveModal.style.display = "block";
+        });
+    });
 
-            pNameInput.value = "Sulit Printer ";
+    var reserveButtons = document.querySelectorAll(".reserve3");
 
-            pNameInput.addEventListener("input", function() {
-                var enteredValue = this.value.replace("Sulit Printer ", "").replace(/[^0-9]/g, '').slice(0, 2);
-                this.value = "Sulit Printer " + enteredValue;
-            });
+    reserveButtons.forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault(); 
+
+            var reserveModal = document.getElementById("reserveprinterModal");
+
+            reserveModal.style.display = "block";
+
+     
+            var pNameInput = document.getElementById("pName3");
+            pNameInput.value = "SULIT PRINTER ";
+        });
+    });
+
+    var cancelButton = document.getElementById("cancelBtn3");
+
+    cancelButton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var reserveModal = document.getElementById("reserveprinterModal");
+
+        reserveModal.style.display = "none";
+    });
+
+    // Input modification for "SULIT PC" prefix
+    var pNameInput = document.getElementById("pName3");
+
+    pNameInput.addEventListener("input", function() {
+        var enteredValue = this.value.replace("SULIT PRINTER ", "");
+        this.value = "SULIT PRINTER " + enteredValue.replace(/[^0-9]/g, '');
+    });
 
 
             var firstNameInput = document.getElementById("fName3");
@@ -646,6 +667,7 @@
             quantityInput.addEventListener("input", function() {
                 this.value = this.value.replace(/[^0-9]/g, '');
 
+                // Limit to 3 characters
                 if (this.value.length > 3) {
                     this.value = this.value.slice(0, 3);
                 }
@@ -669,34 +691,9 @@
                     e.preventDefault();
                 }
             });
-
-            var confirmButton = document.getElementById("confirmBtn3");
-
-            confirmButton.addEventListener("click", function(event) {
-                event.preventDefault();
-
-                var form = document.getElementById("reserveForm3");
-                if (form.checkValidity()) {
-                    var successModal = document.getElementById("successprinterModal");
-                    successModal.style.display = "block";
-                } else {
-                    form.reportValidity();
-                }
-            });
-
-            var goBackButtons = document.querySelectorAll("#successprinterModal #goBackBtn");
-
-            goBackButtons.forEach(function(button) {
-                button.addEventListener("click", function() {
-                    var modal = button.closest(".modal");
-                    var reserveModal = document.getElementById("reserveprinterModal");
-
-                    modal.style.display = "none";
-                    reserveModal.style.display = "none";
-                });
-            });
         });
     </script>
+
 
 
 
