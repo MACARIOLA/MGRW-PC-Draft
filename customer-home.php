@@ -704,7 +704,7 @@
             </div>
             
             <div class="shortcut2">
-                <button class="btn-fdbck-other">Others Pricelists</button>
+                <a href="customer-pricelist.html" class="btn-fdbck-other">Others Pricelists</a>
                 <button class="btn-fdbck-other reserve4">Reserve</button>
             </div>
         </section>
