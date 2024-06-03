@@ -88,13 +88,15 @@
                 </section>
 
              <section class="table__body">
-                    <table id="inventoryTable">
+                    <table id="inventoryTable" class="sticky-header">
                         <thead>
                             <tr>
                                 <th> PRODUCT ID </th>
                                 <th> PRODUCT NAME </th>
                                 <th> IMAGE </th>
-                                <th> TOTAL UNITS </th>
+                                <th>
+                                    <button type="button" id="sortTotalUnitsButton">TOTAL UNITS</button>
+                                </th>                                
                                 <th> RESERVED UNITS </th>
                                 <th colspan="2">Action</th>
                             </tr>
@@ -258,6 +260,38 @@
            JS
     ---------------->
     <script>
+    document.getElementById('sortTotalUnitsButton').addEventListener('click', function() {
+        sortTableByTotalUnits();
+    });
+
+    function sortTableByTotalUnits() {
+        let table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById("inventoryTable");
+        switching = true;
+        
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                
+                x = rows[i].getElementsByTagName("TD")[3];
+                y = rows[i + 1].getElementsByTagName("TD")[3];
+                
+                if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+            if (shouldSwitch) {
+                
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+
         function deleteProduct(id) {
             if (confirm('Are you sure you want to delete this product?')) {
                 const xhr = new XMLHttpRequest();
