@@ -112,7 +112,6 @@
                                                 <td>
                                                     <div class="image-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
                                                         <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="Product Image">
-                                                        <img id="preview-<?php echo htmlspecialchars($row['id']); ?>" class="preview" src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="Preview" style="display: none;">
                                                     </div>
                                                 </td>
                                                 <td><?php echo htmlspecialchars($row['total_units']); ?></td>
@@ -318,16 +317,7 @@
                 var image = $(this).data('image');
                 var total_units = $(this).data('total_units');
                 var reserved_units = $(this).data('reserved_units');
-                var description = $(this).data('description'); 
                 var unit_price = $(this).data('unit_price'); 
-                var specs_cpu = $(this).data('specs_cpu');
-                var specs_motherboard = $(this).data('specs_motherboard'); 
-                var specs_ram = $(this).data('specs_ram');
-                var specs_ssd = $(this).data('specs_ssd');
-                var specs_monitor = $(this).data('specs_monitor'); 
-                var specs_computercase = $(this).data('specs_computercase'); 
-                var specs_powersupply = $(this).data('specs_powersupply'); 
-                var specs_fan = $(this).data('specs_fan'); 
 
                 $('#product_id').val(id);
                 $('#product_products_id').val(products_id);
@@ -335,29 +325,10 @@
                 $('#product_image').attr('src', 'Images/' + image);
                 $('#product_total_units').val(total_units);
                 $('#product_reserved_units').val(reserved_units);
-                $('#product_description').val(description); 
                 $('#product_unit_price').val(unit_price); 
-                $('#specs_cpu').val(specs_cpu); 
-                $('#specs_motherboard').val(specs_motherboard); 
-                $('#specs_ram').val(specs_ram); 
-                $('#specs_ssd').val(specs_ssd); 
-                $('#specs_monitor').val(specs_monitor);
-                $('#specs_computercase').val(specs_computercase); 
-                $('#specs_powersupply').val(specs_powersupply); 
-                $('#specs_fan').val(specs_fan); 
+
             });
         });
-
-
-        function showPreview(element) {
-            var preview = element.querySelector(".preview");
-            preview.style.display = "block";
-        }
-  
-        function hidePreview(element) {
-            var preview = element.querySelector(".preview");
-            preview.style.display = "none";
-        }
         
     </script>
 </body>
