@@ -695,7 +695,9 @@
         });
     </script>
 
-
+  <!---------------
+          SULIT ACCESSORY
+        ---------------->
 
         <section class="otherAcc">
             <div class="text-center">
@@ -710,6 +712,9 @@
         </section>
 
 
+        <!---------------
+          ACCESSORY MODAL
+        ---------------->
 
         <div id="reserveothersModal" class="modal">
             <div class="modal-content othersmodal">
@@ -743,21 +748,25 @@
         </div>
 
         <!---------------
-          JS FOR PRINTER
+          JS FOR ACCESSORY 
         ---------------->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 var reserveButtons = document.querySelectorAll(".reserve4");
 
                 reserveButtons.forEach(function(button) {
-                    button.addEventListener("click", function(event) {
-                        event.preventDefault(); 
+                button.addEventListener("click", function(event) {
+                 event.preventDefault(); 
 
-                        var reserveModal = document.getElementById("reserveothersModal");
+                 var reserveModal = document.getElementById("reserveothersModal");
 
-                        reserveModal.style.display = "block";
-                    });
-                });
+                reserveModal.style.display = "block";
+
+        
+                var pNameInput = document.getElementById("pName4");
+                pNameInput.value = "SULIT ACCESSORY ";
+            });
+        });
 
                 var cancelButton = document.getElementById("cancelBtn4");
 
@@ -832,31 +841,7 @@
                     }
                 });
 
-                var confirmButton = document.getElementById("confirmBtn4");
-
-                confirmButton.addEventListener("click", function(event) {
-                    event.preventDefault();
-
-                    var form = document.getElementById("reserveForm4");
-                    if (form.checkValidity()) {
-                        var successModal = document.getElementById("successothersModal");
-                        successModal.style.display = "block";
-                    } else {
-                        form.reportValidity();
-                    }
-                });
-
-                var goBackButtons = document.querySelectorAll("#successothersModal #goBackBtn");
-
-                goBackButtons.forEach(function(button) {
-                    button.addEventListener("click", function() {
-                        var modal = button.closest(".modal");
-                        var reserveModal = document.getElementById("reserveothersModal");
-
-                        modal.style.display = "none";
-                        reserveModal.style.display = "none";
-                    });
-                });
+              
             });
         </script>
 
