@@ -195,7 +195,6 @@ else if (isset($_POST['confirmBtn3'])) {
 }
 
 
-// Function to handle form submission for SULIT SCANNER
 else if (isset($_POST['confirmBtn4'])) {
     $productID = $_POST['pname4']; // Assuming 'pname4' is the name attribute of the product input field in your HTML form
     $firstName = $_POST['fname4'];
@@ -204,6 +203,7 @@ else if (isset($_POST['confirmBtn4'])) {
     $contactNumber = $_POST['contactNum4'];
     $quantity = $_POST['quantity4'];
 
+    // Prepare SQL statement to retrieve total units available for the product from inventory
     // Retrieve total units available for the product from inventory
     $stmt = $conn->prepare("SELECT total_units FROM inventory WHERE products_id = ?");
     $stmt->bind_param("s", $productID);
