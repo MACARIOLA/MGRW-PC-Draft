@@ -205,6 +205,7 @@
                                 <option value="sulitpcoption">Sulit PC</option>
                                 <option value="sulitlaptopoption">Sulit Laptop</option>
                                 <option value="sulitprinteroption">Sulit Printer</option>
+                                <option value="sulitaccessoryoption">Sulit Accessory</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -295,7 +296,7 @@
             function updateProductID() {
                 var selectedCategory = sulitCategorySelect.options[sulitCategorySelect.selectedIndex].text;
                 var prefix = selectedCategory + " ";
-                var enteredValue = productIDInput.value.replace(prefix, "").replace(/[^0-9]/g, '').slice(0, 2);
+                var enteredValue = productIDInput.value.replace(prefix, "").replace(/[^0-9]/g, '').slice(0, 5);
                 productIDInput.value = prefix + enteredValue;
             }
 
@@ -314,6 +315,9 @@
                         break;
                     case "sulitprinteroption":
                         select.style.backgroundColor = "#ccccff";
+                        break;
+                    case "sulitaccessoryoption":
+                        select.style.backgroundColor = "#cfcfcf";
                         break;
                     default:
                         select.style.backgroundColor = "#ffcccc";
