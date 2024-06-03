@@ -400,6 +400,7 @@
                 <button id="toggleDeleteButtons">Delete</button>
                     
                 <form id="addFaqForm" action="php/add_faq.php" method="post" style="display: none;">
+                <span id="closeFormButton" style="position: absolute; top: 5px; right: 20px; cursor: pointer; font-size: 40px;">&times;</span>
                     <input type="text" id="new_question" name="new_question" placeholder="Question" required><br>
                     <textarea id="new_answer" name="new_answer" rows="4" cols="50" placeholder="Answer" required></textarea><br>
                     <input type="submit" value="Submit">
@@ -457,6 +458,7 @@
             
             const toggleFormButton = document.getElementById('toggleFormButton');
             const addFaqForm = document.getElementById('addFaqForm');
+            const closeFormButton = document.getElementById('closeFormButton');
 
             toggleFormButton.addEventListener('click', function() {
                 if (addFaqForm.style.display === 'none') {
@@ -465,6 +467,10 @@
                 } else {
                     addFaqForm.style.display = 'none';
                 }
+            });
+
+            closeFormButton.addEventListener('click', function() {
+                addFaqForm.style.display = 'none';
             });
 
             const toggleDeleteButtons = document.getElementById('toggleDeleteButtons');
