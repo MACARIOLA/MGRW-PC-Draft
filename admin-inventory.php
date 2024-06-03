@@ -222,10 +222,6 @@
                             <label for="product_total_units">Total Units</label>
                             <input type="number" min="0" class="form-control" id="product_total_units" name="product_total_units" placeholder="Enter total units" required>
                         </div>
-                        <div class="form-group">
-                            <label for="product_reserved_units">Reserved Units</label>
-                            <input type="number" min="0" class="form-control" id="product_reserved_units" name="product_reserved_units" placeholder="Enter reserved units" required>
-                        </div>
             
                         <button type="submit" name="update_product" class="btn btn-primary">SAVE</button>
                     </form>
