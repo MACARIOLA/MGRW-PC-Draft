@@ -176,130 +176,128 @@
         <!---------------
             JS FOR PC
         ---------------->
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var reserveButtons = document.querySelectorAll(".reserve1");
+       <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var photos = document.querySelectorAll(".sulitPcContents img");
 
-                reserveButtons.forEach(function(button) {
-                    button.addEventListener("click", function(event) {
-                        event.preventDefault(); 
+    photos.forEach(function(photo) {
+        photo.addEventListener("click", function(event) {
+            event.preventDefault();
 
-                        var reserveModal = document.getElementById("reservepcModal");
+            // Get product ID from image's alt attribute
+            var productId = this.getAttribute("alt");
 
-                        reserveModal.style.display = "block";
-                    });
-                });
+            // Set product ID in the product name input field
+            var pNameInput = document.getElementById("pName");
+            pNameInput.value = productId;
+            
+            // Open the reservation modal
+            var reserveModal = document.getElementById("reservepcModal");
+            reserveModal.style.display = "block";
+        });
+    });
 
-                var cancelButton = document.getElementById("cancelBtn");
+    var reserveButtons = document.querySelectorAll(".reserve1");
 
-                cancelButton.addEventListener("click", function(event) {
-                    event.preventDefault();
+    reserveButtons.forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault(); 
 
-                    var reserveModal = document.getElementById("reservepcModal");
+            var reserveModal = document.getElementById("reservepcModal");
 
-                    reserveModal.style.display = "none";
-                });
+            reserveModal.style.display = "block";
 
-                var pNameInput = document.getElementById("pName");
+            // Set "SULIT PC" prefix in the product name input field
+            var pNameInput = document.getElementById("pName");
+            pNameInput.value = "SULIT PC ";
+        });
+    });
 
-                pNameInput.value = "Sulit PC ";
+    var cancelButton = document.getElementById("cancelBtn");
 
-                pNameInput.addEventListener("input", function() {
-                    var enteredValue = this.value.replace("Sulit PC ", "").replace(/[^0-9]/g, '').slice(0, 2);
-                    this.value = "Sulit PC " + enteredValue;
-                });
+    cancelButton.addEventListener("click", function(event) {
+        event.preventDefault();
 
-                var firstNameInput = document.getElementById("fName");
-                var lastNameInput = document.getElementById("lName");
+        var reserveModal = document.getElementById("reservepcModal");
 
-                firstNameInput.addEventListener("input", function() {
-                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-                });
+        reserveModal.style.display = "none";
+    });
 
-                lastNameInput.addEventListener("input", function() {
-                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-                });
+    // Input modification for "SULIT PC" prefix
+    var pNameInput = document.getElementById("pName");
 
-                var contactNumInput = document.getElementById("contactNum");
+    pNameInput.addEventListener("input", function() {
+        var enteredValue = this.value.replace("SULIT PC ", "");
+        this.value = "SULIT PC " + enteredValue.replace(/[^0-9]/g, '');
+    });
 
-                contactNumInput.addEventListener("input", function() {
-                    if (!this.value.startsWith("09")) {
-                        this.value = "09" + this.value.slice(2);
-                    }
-                    this.value = this.value.replace(/[^0-9]/g, '');
-                    if (this.value.length > 11) {
-                        this.value = this.value.slice(0, 11);
-                    }
-                });
 
-                var emailInput = document.getElementById("email");
 
-                emailInput.addEventListener("input", function() {
-                    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailPattern.test(this.value)) {
-                        this.setCustomValidity("Please enter a valid email address.");
-                    } else {
-                        this.setCustomValidity("");
-                    }
-                });
 
-                var quantityInput = document.getElementById("quantity");
+            var firstNameInput = document.getElementById("fName");
+            var lastNameInput = document.getElementById("lName");
 
-                quantityInput.addEventListener("input", function() {
-                    this.value = this.value.replace(/[^0-9]/g, '');
-
-                    if (this.value.length > 3) {
-                        this.value = this.value.slice(0, 3);
-                    }
-
-                    if (this.value === "" || parseInt(this.value) < 1) {
-                        this.value = "1";
-                    } else if (parseInt(this.value) > 999) {
-                        this.value = "999";
-                    }
-                });
-
-                quantityInput.addEventListener("blur", function() {
-                    if (this.value === "" || parseInt(this.value) < 1) {
-                        this.value = "1";
-                    }
-                });
-
-                quantityInput.value = "1";
-                quantityInput.addEventListener("keydown", function(e) {
-                    if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
-                        e.preventDefault();
-                    }
-                });
-
-                var confirmButton = document.getElementById("confirmBtn");
-
-                confirmButton.addEventListener("click", function(event) {
-                    event.preventDefault();
-
-                    var form = document.getElementById("reserveForm");
-                    if (form.checkValidity()) {
-                        var successModal = document.getElementById("successpcModal");
-                        successModal.style.display = "block";
-                    } else {
-                        form.reportValidity();
-                    }
-                });
-
-                var goBackButtons = document.querySelectorAll("#successpcModal #goBackBtn");
-
-                goBackButtons.forEach(function(button) {
-                    button.addEventListener("click", function() {
-                        var modal = button.closest(".modal");
-                        var reserveModal = document.getElementById("reservepcModal");
-
-                        modal.style.display = "none";
-                        reserveModal.style.display = "none";
-                    });
-                });
+            firstNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
             });
-        </script>
 
+            lastNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            var contactNumInput = document.getElementById("contactNum");
+
+            contactNumInput.addEventListener("input", function() {
+                if (!this.value.startsWith("09")) {
+                    this.value = "09" + this.value.slice(2);
+                }
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 11) {
+                    this.value = this.value.slice(0, 11);
+                }
+            });
+
+            var emailInput = document.getElementById("email");
+
+            emailInput.addEventListener("input", function() {
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(this.value)) {
+                    this.setCustomValidity("Please enter a valid email address.");
+                } else {
+                    this.setCustomValidity("");
+                }
+            });
+
+            var quantityInput = document.getElementById("quantity");
+
+            quantityInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+
+                if (this.value.length > 3) {
+                    this.value = this.value.slice(0, 3);
+                }
+
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                } else if (parseInt(this.value) > 999) {
+                    this.value = "999";
+                }
+            });
+
+            quantityInput.addEventListener("blur", function() {
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                }
+            });
+
+            quantityInput.value = "1";
+            quantityInput.addEventListener("keydown", function(e) {
+                if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 
 
         <!---------------
@@ -375,130 +373,126 @@
         <!---------------
           JS FOR LAPTOP
         ---------------->
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var reserveButtons = document.querySelectorAll(".reserve2");
+       <script>
+         document.addEventListener("DOMContentLoaded", function() {
+    var photos = document.querySelectorAll(".sulitLaptopContents img");
 
-                reserveButtons.forEach(function(button) {
-                    button.addEventListener("click", function(event) {
-                        event.preventDefault(); 
+    photos.forEach(function(photo) {
+        photo.addEventListener("click", function(event) {
+            event.preventDefault();
 
-                        var reserveModal = document.getElementById("reservelaptopModal");
+            // Get product ID from image's alt attribute
+            var productId = this.getAttribute("alt2");
 
-                        reserveModal.style.display = "block";
-                    });
-                });
+            // Set product ID in the product name input field
+            var pNameInput = document.getElementById("pName2");
+            pNameInput.value = productId;
+            
+            // Open the reservation modal
+            var reserveModal = document.getElementById("reservelaptopModal");
+            reserveModal.style.display = "block";
+        });
+    });
 
-                var cancelButton = document.getElementById("cancelBtn2");
+    var reserveButtons = document.querySelectorAll(".reserve2");
 
-                cancelButton.addEventListener("click", function(event) {
-                    event.preventDefault();
+    reserveButtons.forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault(); 
 
-                    var reserveModal = document.getElementById("reservelaptopModal");
+            var reserveModal = document.getElementById("reservelaptopModal");
 
-                    reserveModal.style.display = "none";
-                });
+            reserveModal.style.display = "block";
 
-                var pNameInput = document.getElementById("pName2");
+            // Set "SULIT PC" prefix in the product name input field
+            var pNameInput = document.getElementById("pName2");
+            pNameInput.value = "SULIT LAPTOP ";
+        });
+    });
 
-                pNameInput.value = "Sulit Laptop ";
+    var cancelButton = document.getElementById("cancelBtn2");
 
-                pNameInput.addEventListener("input", function() {
-                    var enteredValue = this.value.replace("Sulit Laptop ", "").replace(/[^0-9]/g, '').slice(0, 2);
-                    this.value = "Sulit Laptop " + enteredValue;
-                });
+    cancelButton.addEventListener("click", function(event) {
+        event.preventDefault();
 
+        var reserveModal = document.getElementById("reservelaptopModal");
 
-                var firstNameInput = document.getElementById("fName2");
-                var lastNameInput = document.getElementById("lName2");
+        reserveModal.style.display = "none";
+    });
 
-                firstNameInput.addEventListener("input", function() {
-                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-                });
+    // Input modification for "SULIT PC" prefix
+    var pNameInput = document.getElementById("pName2");
 
-                lastNameInput.addEventListener("input", function() {
-                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-                });
+    pNameInput.addEventListener("input", function() {
+        var enteredValue = this.value.replace("SULIT LAPTOP ", "");
+        this.value = "SULIT LAPTOP " + enteredValue.replace(/[^0-9]/g, '');
+    });
 
-                var contactNumInput = document.getElementById("contactNum2");
+            var firstNameInput = document.getElementById("fName2");
+            var lastNameInput = document.getElementById("lName2");
 
-                contactNumInput.addEventListener("input", function() {
-                    if (!this.value.startsWith("09")) {
-                        this.value = "09" + this.value.slice(2);
-                    }
-                    this.value = this.value.replace(/[^0-9]/g, '');
-                    if (this.value.length > 11) {
-                        this.value = this.value.slice(0, 11);
-                    }
-                });
-
-                var emailInput = document.getElementById("email2");
-
-                emailInput.addEventListener("input", function() {
-                    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailPattern.test(this.value)) {
-                        this.setCustomValidity("Please enter a valid email address.");
-                    } else {
-                        this.setCustomValidity("");
-                    }
-                });
-
-                var quantityInput = document.getElementById("quantity2");
-
-                quantityInput.addEventListener("input", function() {
-                    this.value = this.value.replace(/[^0-9]/g, '');
-
-                    if (this.value.length > 3) {
-                        this.value = this.value.slice(0, 3);
-                    }
-
-                    if (this.value === "" || parseInt(this.value) < 1) {
-                        this.value = "1";
-                    } else if (parseInt(this.value) > 999) {
-                        this.value = "999";
-                    }
-                });
-
-                quantityInput.addEventListener("blur", function() {
-                    if (this.value === "" || parseInt(this.value) < 1) {
-                        this.value = "1";
-                    }
-                });
-
-                quantityInput.value = "1";
-                quantityInput.addEventListener("keydown", function(e) {
-                    if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
-                        e.preventDefault();
-                    }
-                });
-
-                var confirmButton = document.getElementById("confirmBtn2");
-
-                confirmButton.addEventListener("click", function(event) {
-                    event.preventDefault();
-
-                    var form = document.getElementById("reserveForm2");
-                    if (form.checkValidity()) {
-                        var successModal = document.getElementById("successlaptopModal");
-                        successModal.style.display = "block";
-                    } else {
-                        form.reportValidity();
-                    }
-                });
-
-                var goBackButtons = document.querySelectorAll("#successlaptopModal #goBackBtn");
-
-                goBackButtons.forEach(function(button) {
-                    button.addEventListener("click", function() {
-                        var modal = button.closest(".modal");
-                        var reserveModal = document.getElementById("reservelaptopModal");
-
-                        modal.style.display = "none";
-                        reserveModal.style.display = "none";
-                    });
-                });
+            firstNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
             });
-        </script>
+
+            lastNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            var contactNumInput = document.getElementById("contactNum2");
+
+            contactNumInput.addEventListener("input", function() {
+                if (!this.value.startsWith("09")) {
+                    this.value = "09" + this.value.slice(2);
+                }
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 11) {
+                    this.value = this.value.slice(0, 11);
+                }
+            });
+
+            var emailInput = document.getElementById("email2");
+
+            emailInput.addEventListener("input", function() {
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(this.value)) {
+                    this.setCustomValidity("Please enter a valid email address.");
+                } else {
+                    this.setCustomValidity("");
+                }
+            });
+
+            var quantityInput = document.getElementById("quantity2");
+
+            quantityInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+
+                // Limit to 3 characters
+                if (this.value.length > 3) {
+                    this.value = this.value.slice(0, 3);
+                }
+
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                } else if (parseInt(this.value) > 999) {
+                    this.value = "999";
+                }
+            });
+
+            quantityInput.addEventListener("blur", function() {
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                }
+            });
+
+            quantityInput.value = "1";
+            quantityInput.addEventListener("keydown", function(e) {
+                if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 
 
 
@@ -575,130 +569,128 @@
         <!---------------
           JS FOR PRINTER
         ---------------->
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var reserveButtons = document.querySelectorAll(".reserve3");
+       <script>
+          document.addEventListener("DOMContentLoaded", function() {
+    var photos = document.querySelectorAll(".sulitPrinterContents img");
 
-                reserveButtons.forEach(function(button) {
-                    button.addEventListener("click", function(event) {
-                        event.preventDefault(); 
+    photos.forEach(function(photo) {
+        photo.addEventListener("click", function(event) {
+            event.preventDefault();
 
-                        var reserveModal = document.getElementById("reserveprinterModal");
+            // Get product ID from image's alt attribute
+            var productId = this.getAttribute("alt3");
 
-                        reserveModal.style.display = "block";
-                    });
-                });
+            // Set product ID in the product name input field
+            var pNameInput = document.getElementById("pName3");
+            pNameInput.value = productId;
+            
+            // Open the reservation modal
+            var reserveModal = document.getElementById("reserveprinterModal");
+            reserveModal.style.display = "block";
+        });
+    });
 
-                var cancelButton = document.getElementById("cancelBtn3");
+    var reserveButtons = document.querySelectorAll(".reserve3");
 
-                cancelButton.addEventListener("click", function(event) {
-                    event.preventDefault();
+    reserveButtons.forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault(); 
 
-                    var reserveModal = document.getElementById("reserveprinterModal");
+            var reserveModal = document.getElementById("reserveprinterModal");
 
-                    reserveModal.style.display = "none";
-                });
+            reserveModal.style.display = "block";
 
-                var pNameInput = document.getElementById("pName3");
+     
+            var pNameInput = document.getElementById("pName3");
+            pNameInput.value = "SULIT PRINTER ";
+        });
+    });
 
-                pNameInput.value = "Sulit Printer ";
+    var cancelButton = document.getElementById("cancelBtn3");
 
-                pNameInput.addEventListener("input", function() {
-                    var enteredValue = this.value.replace("Sulit Printer ", "").replace(/[^0-9]/g, '').slice(0, 2);
-                    this.value = "Sulit Printer " + enteredValue;
-                });
+    cancelButton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var reserveModal = document.getElementById("reserveprinterModal");
+
+        reserveModal.style.display = "none";
+    });
+
+    // Input modification for "SULIT PC" prefix
+    var pNameInput = document.getElementById("pName3");
+
+    pNameInput.addEventListener("input", function() {
+        var enteredValue = this.value.replace("SULIT PRINTER ", "");
+        this.value = "SULIT PRINTER " + enteredValue.replace(/[^0-9]/g, '');
+    });
 
 
-                var firstNameInput = document.getElementById("fName3");
-                var lastNameInput = document.getElementById("lName3");
+            var firstNameInput = document.getElementById("fName3");
+            var lastNameInput = document.getElementById("lName3");
 
-                firstNameInput.addEventListener("input", function() {
-                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-                });
-
-                lastNameInput.addEventListener("input", function() {
-                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-                });
-
-                var contactNumInput = document.getElementById("contactNum3");
-
-                contactNumInput.addEventListener("input", function() {
-                    if (!this.value.startsWith("09")) {
-                        this.value = "09" + this.value.slice(2);
-                    }
-                    this.value = this.value.replace(/[^0-9]/g, '');
-                    if (this.value.length > 11) {
-                        this.value = this.value.slice(0, 11);
-                    }
-                });
-
-                var emailInput = document.getElementById("email3");
-
-                emailInput.addEventListener("input", function() {
-                    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailPattern.test(this.value)) {
-                        this.setCustomValidity("Please enter a valid email address.");
-                    } else {
-                        this.setCustomValidity("");
-                    }
-                });
-
-                var quantityInput = document.getElementById("quantity3");
-
-                quantityInput.addEventListener("input", function() {
-                    this.value = this.value.replace(/[^0-9]/g, '');
-
-                    if (this.value.length > 3) {
-                        this.value = this.value.slice(0, 3);
-                    }
-
-                    if (this.value === "" || parseInt(this.value) < 1) {
-                        this.value = "1";
-                    } else if (parseInt(this.value) > 999) {
-                        this.value = "999";
-                    }
-                });
-
-                quantityInput.addEventListener("blur", function() {
-                    if (this.value === "" || parseInt(this.value) < 1) {
-                        this.value = "1";
-                    }
-                });
-
-                quantityInput.value = "1";
-                quantityInput.addEventListener("keydown", function(e) {
-                    if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
-                        e.preventDefault();
-                    }
-                });
-
-                var confirmButton = document.getElementById("confirmBtn3");
-
-                confirmButton.addEventListener("click", function(event) {
-                    event.preventDefault();
-
-                    var form = document.getElementById("reserveForm3");
-                    if (form.checkValidity()) {
-                        var successModal = document.getElementById("successprinterModal");
-                        successModal.style.display = "block";
-                    } else {
-                        form.reportValidity();
-                    }
-                });
-
-                var goBackButtons = document.querySelectorAll("#successprinterModal #goBackBtn");
-
-                goBackButtons.forEach(function(button) {
-                    button.addEventListener("click", function() {
-                        var modal = button.closest(".modal");
-                        var reserveModal = document.getElementById("reserveprinterModal");
-
-                        modal.style.display = "none";
-                        reserveModal.style.display = "none";
-                    });
-                });
+            firstNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
             });
-        </script>
+
+            lastNameInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            var contactNumInput = document.getElementById("contactNum3");
+
+            contactNumInput.addEventListener("input", function() {
+                if (!this.value.startsWith("09")) {
+                    this.value = "09" + this.value.slice(2);
+                }
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 11) {
+                    this.value = this.value.slice(0, 11);
+                }
+            });
+
+            var emailInput = document.getElementById("email3");
+
+            emailInput.addEventListener("input", function() {
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(this.value)) {
+                    this.setCustomValidity("Please enter a valid email address.");
+                } else {
+                    this.setCustomValidity("");
+                }
+            });
+
+            var quantityInput = document.getElementById("quantity3");
+
+            quantityInput.addEventListener("input", function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+
+                // Limit to 3 characters
+                if (this.value.length > 3) {
+                    this.value = this.value.slice(0, 3);
+                }
+
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                } else if (parseInt(this.value) > 999) {
+                    this.value = "999";
+                }
+            });
+
+            quantityInput.addEventListener("blur", function() {
+                if (this.value === "" || parseInt(this.value) < 1) {
+                    this.value = "1";
+                }
+            });
+
+            quantityInput.value = "1";
+            quantityInput.addEventListener("keydown", function(e) {
+                if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+
 
 
         <section class="otherAcc">
