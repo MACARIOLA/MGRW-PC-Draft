@@ -187,26 +187,6 @@ tr.medium-stock {
     background-color: #EE964B;
 }
 
-.status.post {
-    background-color: #86e49d;
-    color: #006b21;
-}
-
-.status.delete {
-    background-color: #d893a3;
-    color: #b30021;
-}
-
-.status.post:hover {
-    background-color: var(--white3);
-    color: var(--black1);
-}
-
-.status.delete:hover {
-    background-color: var(--white3);
-    color: var(--black1);
-}
-
 /* --------------
       MODALS
 -------------- */
@@ -384,6 +364,31 @@ tr.medium-stock {
     text-align: center;
     align-content: center;
 }
+
+.status.post {
+    background-color: #86e49d;
+    color: #006b21;
+	border: 2px solid var(--black1);
+}
+
+.status.delete {
+    background-color: #d893a3;
+    color: #b30021;
+	border: 2px solid var(--black1);
+}
+
+.status.post:hover {
+    background-color: var(--white3);
+    color: var(--black1);
+	border: 2px solid var(--black1);
+}
+
+.status.delete:hover {
+    background-color: var(--white3);
+    color: var(--black1);
+	border: 2px solid var(--black1);
+}
+
 
 /* -------------
    BREAKPOINTS
