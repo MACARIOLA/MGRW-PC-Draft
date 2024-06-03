@@ -876,7 +876,7 @@
                 <ul>    
                     <li><a href="customer-contact-us.php">Contact Us</a></li>
                     <li><a href="customer-faqs.php">FAQs</a></li>
-                    <li><a href="admin-login.html">Admin-Panel</a></li>
+                    <li><a href="customer-survey.php">Feedback-Survey</a></li>
                 </ul>
             </div>
             
@@ -885,7 +885,7 @@
                 <ul>
                     <li><a href="customer-privacy.html">Privacy Policy</a></li>                
                     <li><a href="customer-terms.html">Terms of Service</a></li>
-                    <li><a href="customer-survey.php">Feedback-Survey</a></li>
+                    <li><a href="admin-login.html">Admin-Panel</a></li>
                 </ul>
             </div>
 
