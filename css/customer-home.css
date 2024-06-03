@@ -369,6 +369,7 @@
 	transition: 0.3s;
 	margin-left: 50px;
 	margin-right: 50px;
+	align-content: center;
 }
 
 .btn-fdbck-other:hover {
@@ -392,6 +393,7 @@
     margin-bottom: 90px;
 	margin-left: 50px;
 	margin-right: 50px;
+	align-content: center;
 }
 
 .btn-fdbck:hover {
@@ -415,6 +417,7 @@
     margin-bottom: 90px;
 	margin-left: 50px;
 	margin-right: 50px;
+	align-content: center;
 }
 
 .btn-fdbck2:hover {
@@ -484,6 +487,13 @@
 	    font-size: 24px;
 		margin-bottom: 20px;
 	}
+
+    .btn-fdbck-other {
+		margin-left: 5px;
+		margin-right: 5px;
+		width: 350px;
+		height: 80px;
+	}
 }
 
 @media screen and (max-width: 900px) {
@@ -522,6 +532,14 @@
 		padding: 10px;
 	    margin-bottom: 100px;
 	}
+
+    .btn-fdbck-other {
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top: 100px;
+		width: 400px;
+		height: 80px;
+	}
 }
 
 @media screen and (max-width: 600px) {
@@ -537,18 +555,38 @@
 	    font-size: 20px;
 		margin-bottom: 20px;
 	}
+
+	.btn-fdbck {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+	.btn-fdbck2 {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
 }
 
 @media screen and (max-width: 560px) {
 	.btn-fdbck {
 		width: 400px;
-		height: 70px;
+		height: 80px;
 	}
 
 	.btn-fdbck2 {
 		width: 400px;
-		height: 70px;
+		height: 80px;
 	}
+
+	.btn-fdbck-other {
+		width: 400px;
+		height: 80px;
+	}
+
+    .otherAcc {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 }
 
 
@@ -569,7 +607,7 @@
 
 .modal-content.pcmodal {
     position: absolute;
-    top: 38%;
+    top: 33.25%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--white1);
@@ -582,7 +620,7 @@
 
 .modal-content.laptopmodal {
     position: absolute;
-    top: 60%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--white1);
@@ -595,7 +633,7 @@
 
 .modal-content.printermodal {
     position: absolute;
-    top: 82%;
+    top: 74%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--white1);
@@ -771,66 +809,389 @@
 /* -------------
    BREAKPOINTS
 -------------- */
-@media screen and (max-width: 1115px) {
+@media screen and (max-width: 1750px) {
 	.modal-content.pcmodal {
-        margin-top: -26%;
+        margin-top: 2.5%;
     }
 
 	.modal-content.laptopmodal {
-        margin-top: 30%;
+        margin-top: 0.5%;
     }
 
 	.modal-content.printermodal {
-        margin-top: 53%;
+        margin-top: -0.5%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 1.8%;
+    }
+}
+
+@media screen and (max-width: 1690px) {
+	.modal-content.pcmodal {
+        margin-top: 3.8%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 2.5%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 1.8%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 4.7%;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+	.modal-content.pcmodal {
+        margin-top: 3%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 1.2%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 0.7%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 4.3%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+	.modal-content.pcmodal {
+        margin-top: 1%;
+    }
+	
+	.modal-content.laptopmodal {
+        margin-top: 1.1%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 0.1%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 3%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+	.modal-content.pcmodal {
+        margin-top: 0.5%;
+    }
+	
+	.modal-content.laptopmodal {
+        margin-top: -2%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: -2%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 2%;
+    }
+}
+
+@media screen and (max-width: 1362px) {
+	.modal-content.pcmodal {
+        margin-top: -1.8%;
+    }
+	
+	.modal-content.laptopmodal {
+        margin-top: -4.7%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: -5.8%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 0.2%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+	.modal-content.pcmodal {
+        margin-top: -3.5%;
+    }
+	
+	.modal-content.laptopmodal {
+        margin-top: -6.7%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: -7.5%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: -3%;
+    }
+}
+
+@media screen and (max-width: 1298px) {
+	.modal-content.pcmodal {
+        margin-top: -5.2%;
+    }
+	
+	.modal-content.laptopmodal {
+        margin-top: -8.5%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: -9.5%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: -3%;
+    }
+}
+
+@media screen and (max-width: 1297px) {
+	.modal-content.pcmodal {
+        margin-top: -8%;
+    }
+	
+	.modal-content.laptopmodal {
+        margin-top: -12.9%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: -15.2%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: -9.5%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+	.modal-content.pcmodal {
+        margin-top: -11.5%;
+    }
+	
+	.modal-content.laptopmodal {
+        margin-top: -16.9%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: -19.2%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: -12.5%;
+    }
+}
+
+@media screen and (max-width: 1220px) {
+	.modal-content.pcmodal {
+        margin-top: -8.9%;
+    }
+	
+	.modal-content.laptopmodal {
+        margin-top: -14.4%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: -17.5%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: -11%;
+    }
+}
+
+@media screen and (max-width: 1115px) {
+	.modal-content.pcmodal {
+        margin-top: -2.9%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 48.2%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 85%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 59.5%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+	.modal-content.pcmodal {
+        margin-top: -3.9%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 47.5%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 84.4%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 58.9%;
+    }
+}
+
+@media screen and (max-width: 1079px) {
+	.modal-content.pcmodal {
+        margin-top: -6.9%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 45.9%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 82.4%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 56.9%;
+    }
+}
+
+@media screen and (max-width: 1065px) {
+	.modal-content.pcmodal {
+        margin-top: -9%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 41.9%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 77%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 58%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+	.modal-content.pcmodal {
+        margin-top: -14%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 37.5%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 73.8%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 56%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+	.modal-content.pcmodal {
+        margin-top: -19.9%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 31.9%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 69.7%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 51.5%;
     }
 }
 
 @media screen and (max-width: 800px) {
 	.modal-content.pcmodal {
-        margin-top: -50%;
+        margin-top: -28%;
     }
 
 	.modal-content.laptopmodal {
-        margin-top: 23%;
+        margin-top: 35%;
     }
 
 	.modal-content.printermodal {
-        margin-top: 52%;
+        margin-top: 80%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 63%;
     }
 }
 
-@media screen and (max-width: 705px) {
+@media screen and (max-width: 801px) {
 	.modal-content.pcmodal {
-        margin-top: -73%;
+        margin-top: -28%;
     }
 
 	.modal-content.laptopmodal {
-        margin-top: -7%;
+        margin-top: 35%;
     }
 
 	.modal-content.printermodal {
-        margin-top: 12%;
+        margin-top: 80%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 49%;
+    }
+}
+
+@media screen and (max-width: 702px) {
+	.modal-content.pcmodal {
+        margin-top: -47%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 7.7%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 43.8%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 10%;
     }
 }
 
 @media screen and (max-width: 700px) {
 	.modal-content.pcmodal {
-        margin-top: -63%;
+        margin-top: -31%;
     }
 
 	.modal-content.laptopmodal {
-        margin-top: 14%;
+        margin-top: 34%;
     }
 
 	.modal-content.printermodal {
-        margin-top: 41%;
+        margin-top: 80%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 61%;
     }
 
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
+	.modal-content.printermodal,
+	.modal-content.othersmodal {
 		width: 80%;
-		height: 9.8%;
+		height: 9.5%;
 	}
 
 	.modal-content h2 {
@@ -841,12 +1202,13 @@
 		font-size: 16px;
 	}
 	
-	.modal-content input[name="email"],
-	.modal-content input[name="contactNum"],
-	.modal-content input[name="fname"],
-	.modal-content input[name="lname"],
-	.modal-content input[name="quantity"],
-	.modal-content input[name="pname"],
+	.modal-content input[type="email"],
+	.modal-content input[type="contactNum"],
+	.modal-content input[type="fname"],
+	.modal-content input[type="lname"],
+	.modal-content input[type="number"],
+	.modal-content input[type="tel"],
+	.modal-content input[type="pname"],
 	.modal-content button {
 	    padding: 8px;
 	    margin-bottom: 10px;
@@ -860,21 +1222,26 @@
 
 @media screen and (max-width: 650px) {
 	.modal-content.pcmodal {
-        margin-top: -62%;
+        margin-top: -36%;
     }
 
 	.modal-content.laptopmodal {
-        margin-top: 14%;
+        margin-top: 28%;
     }
 
 	.modal-content.printermodal {
-        margin-top: 41%;
+        margin-top: 74%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 56%;
     }
 
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
-		height: 10.5%;
+	.modal-content.printermodal,
+	.modal-content.othersmodal {
+		height: 9.8%;
 	}
 
 	.modal-content h2 {
@@ -885,12 +1252,13 @@
 		font-size: 18px;
 	}
 	
-	.modal-content input[name="email"],
-	.modal-content input[name="contactNum"],
-	.modal-content input[name="fname"],
-	.modal-content input[name="lname"],
-	.modal-content input[name="quantity"],
-	.modal-content input[name="pname"],
+	.modal-content input[type="email"],
+	.modal-content input[type="contactNum"],
+	.modal-content input[type="fname"],
+	.modal-content input[type="lname"],
+	.modal-content input[type="number"],
+	.modal-content input[type="tel"],
+	.modal-content input[type="pname"],
 	.modal-content button {
 	    font-size: 16px;
 	}
@@ -898,30 +1266,36 @@
 
 @media screen and (max-width: 600px) {
 	.modal-content.pcmodal {
-        margin-top: -78%;
+        margin-top: -53%;
     }
 
 	.modal-content.laptopmodal {
-        margin-top: -6%;
+        margin-top: 5%;
     }
 
 	.modal-content.printermodal {
-        margin-top: 23%;
+        margin-top: 50%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 33%;
     }
 
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
+	.modal-content.printermodal,
+	.modal-content.othersmodal {
 		width: 90%;
-		height: 11%;
+		height: 10.3%;
 	}
 	
-	.modal-content input[name="email"],
-	.modal-content input[name="contactNum"],
-	.modal-content input[name="fname"],
-	.modal-content input[name="lname"],
-	.modal-content input[name="quantity"],
-	.modal-content input[name="pname"],
+	.modal-content input[type="email"],
+	.modal-content input[type="contactNum"],
+	.modal-content input[type="fname"],
+	.modal-content input[type="lname"],
+	.modal-content input[type="number"],
+	.modal-content input[type="tel"],
+	.modal-content input[type="pname"],
 	.modal-content button {
 	    font-size: 16px;
 	}
@@ -929,20 +1303,25 @@
 
 @media screen and (max-width: 591px) {
 	.modal-content.pcmodal {
-        margin-top: -81%;
+        margin-top: -55%;
     }
 
 	.modal-content.laptopmodal {
-        margin-top: -9%;
+        margin-top: 0%;
     }
 
 	.modal-content.printermodal {
-        margin-top: 18%;
+        margin-top: 45%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 30%;
     }
 
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
+	.modal-content.printermodal,
+	.modal-content.othersmodal {
 		width: 90%;
 	}
 	
@@ -953,21 +1332,50 @@
 
 @media screen and (max-width: 589px) {
 	.modal-content.pcmodal {
-        margin-top: -87%;
+        margin-top: -63%;
     }
 
 	.modal-content.laptopmodal {
-        margin-top: -19%;
+        margin-top: -9%;
     }
 
 	.modal-content.printermodal {
-        margin-top: 5%;
+        margin-top: 35%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 15%;
     }
 }
 
 @media screen and (max-width: 588px) {
 	.modal-content.pcmodal {
-        margin-top: -65%;
+        margin-top: -49%;
+    }
+
+	.modal-content.laptopmodal {
+        margin-top: 15%;
+    }
+
+	.modal-content.printermodal {
+        margin-top: 65%;
+    }
+
+	.modal-content.othersmodal {
+        margin-top: 38%;
+    }
+
+	.modal-content.pcmodal,
+	.modal-content.laptopmodal,
+	.modal-content.printermodal,
+	.modal-content.othersmodal{
+		height: 11%;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.modal-content.pcmodal {
+        margin-top: -51%;
     }
 
 	.modal-content.laptopmodal {
@@ -975,27 +1383,11 @@
     }
 
 	.modal-content.printermodal {
-        margin-top: 47%;
+        margin-top: 59%;
     }
 
-	.modal-content.pcmodal,
-	.modal-content.laptopmodal,
-	.modal-content.printermodal {
-		height: 11.4%;
-	}
-}
-
-@media screen and (max-width: 576px) {
-	.modal-content.pcmodal {
-        margin-top: -71%;
-    }
-
-	.modal-content.laptopmodal {
-        margin-top: 8%;
-    }
-
-	.modal-content.printermodal {
-        margin-top: 43%;
+	.modal-content.othersmodal {
+        margin-top: 49%;
     }
 }
 
@@ -1012,9 +1404,14 @@
         margin-top: 40%;
     }
 
+	.modal-content.othersmodal {
+        margin-top: 49%;
+    }
+
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
+	.modal-content.printermodal,
+	.modal-content.othersmodal{
 		height: 11.4%;
 	}
 
@@ -1039,8 +1436,9 @@
 
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
-		height: 11.8%;
+	.modal-content.printermodal,
+	.modal-content.othersmodal{
+		height: 12%;
 	}
 }
 
@@ -1066,21 +1464,23 @@
 		font-size: 16px;
 	}
 	
-	.modal-content input[name="email"],
-	.modal-content input[name="contactNum"],
-	.modal-content input[name="fname"],
-	.modal-content input[name="lname"],
-	.modal-content input[name="quantity"],
-	.modal-content input[name="pname"],
+	.modal-content input[type="email"],
+	.modal-content input[type="contactNum"],
+	.modal-content input[type="fname"],
+	.modal-content input[type="lname"],
+	.modal-content input[type="number"],
+	.modal-content input[type="tel"],
+	.modal-content input[type="pname"],
 	.modal-content button {
 	    font-size: 14px;
 	}
 
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
+	.modal-content.printermodal,
+	.modal-content.othersmodal{
 		width: 80%;
-		height: 11%;
+		height: 12%;
 	}
 }
 
@@ -1099,9 +1499,10 @@
 
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
+	.modal-content.printermodal,
+	.modal-content.othersmodal{
 		width: 90%;
-		height: 11.4%;
+		height: 11%;
 	}
 }
 
@@ -1122,31 +1523,35 @@
 @media screen and (max-width: 450px) {
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
-		height: 11.8%;
+	.modal-content.printermodal,
+	.modal-content.othersmodal{
+		height: 11%;
 	}
 }
 
 @media screen and (max-width: 400px) {
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
-		height: 12.2%;
+	.modal-content.printermodal,
+	.modal-content.othersmodal{
+		height: 12%;
 	}
 }
 
 @media screen and (max-width: 380px) {
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
-		height: 12.8%;
+	.modal-content.printermodal,
+	.modal-content.othersmodal{
+		height: 12%;
 	}
 }
 
 @media screen and (max-width: 330px) {
 	.modal-content.pcmodal,
 	.modal-content.laptopmodal,
-	.modal-content.printermodal {
-		height: 13%;
+	.modal-content.printermodal,
+	.modal-content.othersmodal{
+		height: 12%;
 	}
 }
