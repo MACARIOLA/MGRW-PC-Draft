@@ -86,7 +86,7 @@
                     <button class='add' data-toggle="modal" data-target="#addModal">ADD</button>
                 </section>
 
-                            <section class="table__body">
+             <section class="table__body">
                     <table id="inventoryTable">
                         <thead>
                             <tr>
@@ -100,17 +100,32 @@
                         </thead>
 
                         <tbody>
-
                         <?php 
-                        $sql = "SELECT * FROM inventory  ";
+                        $sql = "SELECT *,
+                        CAST(SUBSTRING_INDEX(products_id, ' ', -1) AS UNSIGNED) AS product_id_numeric
+                        FROM inventory WHERE
+                        products_id LIKE '%sulit pc%' 
+                        OR products_id LIKE '%sulit laptop%' 
+                        OR products_id LIKE '%sulit printer%'
+                        OR products_id LIKE '%sulit accessory%'
+                        ORDER BY 
+                        CASE 
+                            WHEN UPPER(products_id) LIKE '%SULIT PC%' THEN 1 
+                            WHEN UPPER(products_id) LIKE '%SULIT Laptop%' THEN 2 
+                            WHEN UPPER(products_id) LIKE '%SULIT Printer%' THEN 3 
+                            WHEN UPPER(products_id) LIKE '%SULIT Accessory%' THEN 4
+                            ELSE 5
+                        END ASC,
+                        product_id_numeric ASC";
+                    
                         $result = mysqli_query($conn, $sql);
                         if ($result && mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
-                                $total_units = intval($row['total_units']); // Convert total_units to integer
+                                $total_units = intval($row['total_units']); 
                                 $row_class = '';
                                 if ($total_units < 6) {
                                     $row_class = 'low-stock';
-                                } elseif ($total_units >= 6 && $total_units <= 20) {
+                                } elseif ($total_units >= 5 && $total_units <= 10) {
                                     $row_class = 'medium-stock';
                                 }
                                 ?>
@@ -125,7 +140,7 @@
                                                 <td><?php echo htmlspecialchars($row['total_units']); ?></td>
                                                 <td><?php echo htmlspecialchars($row['reserved_units']); ?></td>
                                                 <td>
-                                                    <button style="background:none;border:none;" class="btn btn-secondary edit-btn" data-toggle="modal" data-target="#updateModal" 
+                                                    <button class="status post btn-secondary" data-toggle="modal" data-target="#updateModal" 
                                                         data-id="<?php echo htmlspecialchars($row['id']); ?>" 
                                                         data-products_id="<?php echo htmlspecialchars($row['products_id']); ?>" 
                                                         data-products_name="<?php echo htmlspecialchars($row['products_name']); ?>" 
@@ -133,11 +148,11 @@
                                                         data-total_units="<?php echo htmlspecialchars($row['total_units']); ?>" 
                                                         data-reserved_units="<?php echo htmlspecialchars($row['reserved_units']); ?>"
                                                         data-unit_price="<?php echo htmlspecialchars($row['unit_price']); ?>">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"/><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/></svg> 
+                                                        Edit
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-danger delete-btn" onclick="deleteProduct(<?php echo $row['id']; ?>)">Delete</button>
+                                                    <button class="status delete" onclick="deleteProduct(<?php echo $row['id']; ?>)">Delete</button>
                                                 </td>
                                             </tr>
                                         <?php
