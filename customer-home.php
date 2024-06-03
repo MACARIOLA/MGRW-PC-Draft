@@ -105,37 +105,38 @@
         <!---------------
             SULIT PCS
         ---------------->
-        <section class="sulitPc">
-            <div class="text-center">
-                <h2>Sulit PC Sets</h2>
-                <p class="sentence1">Check out our best-selling computers, designed for performance and reliability.</p>
-            </div>
+       <section class="sulitPc">
+        <div class="text-center">
+            <h2>SULIT PC Sets</h2>
+            <p class="sentence1">Check out our best-selling computers, designed for performance and reliability.</p>
+        </div>
 
-            <div class="sulitPcContents">
-                <?php 
-                    $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PC%'  ORDER BY RAND()  LIMIT 3";
-                    $result = mysqli_query($conn, $sql);
-                    if ($result && mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                        
-                ?>
-                <div class="row">
-                    <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>">
-                    <h4><?php echo $row['products_name']; ?></h4>
-                    <h5><?php echo $row['products_id']; ?></h5>
-                    <h6>₱<?php echo $row['unit_price']; ?></h6>
-                </div>
-                <?php
-                        }
+        <div class="sulitPcContents">
+            <?php 
+                $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PC%'  ORDER BY RAND()  LIMIT 3";
+                $result = mysqli_query($conn, $sql);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                     
+            ?>
+            <div class="row">
+               <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_id']; ?>">
+                <h4><?php echo $row['products_name']; ?></h4>
+                <h5><?php echo $row['products_id']; ?></h5>
+                <h6>₱<?php echo $row['unit_price']; ?></h6>
+            </div>
+            <?php
                     }
-                ?>
-            </div>
+                }
+            ?>
+        </div>
 
-            <div class="shortcut">
-                <button class="btn-fdbck">Sulit PC Pricelists</button>
-                <button class="btn-fdbck reserve1">Reserve</button>
-            </div>
-        </section>
+        <div class="shortcut">
+            <a class="btn-fdbck" href="customer-pricelist.html">SULIT PC Pricelists</a>
+            <button class="btn-fdbck reserve1">Reserve</button>
+        </div>
+    </section>
+
 
 
 
@@ -303,37 +304,37 @@
         <!---------------
           SULIT LAPTOPS
         ---------------->
-        <section class="sulitLaptop">
-            <div class="text-center">
-                <h2>Sulit Laptop Sets</h2>
-                <p class="sentence1">Discover our best-selling laptops, offering portability and power for your needs.</p>
-            </div>
+       <section class="sulitLaptop">
+        <div class="text-center">
+            <h2>SULIT LAPTOP Sets</h2>
+            <p class="sentence1">Discover our best-selling laptops, offering portability and power for your needs.</p>
+        </div>
 
-            <div class="sulitLaptopContents">
-            <?php 
-                $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT LAPTOP%'  ORDER BY RAND()  LIMIT 3"; 
-                $result = mysqli_query($conn, $sql);
-                if ($result && mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-            ?>
-            <div class="row">
-                <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>">
-                <h4><?php echo $row['products_name']; ?></h4>
-                <h5><?php echo $row['products_id']; ?></h5>
-                <h6>₱<?php echo $row['unit_price']; ?></h6>
-            </div>
-            <?php
-                    }
+        <div class="sulitLaptopContents">
+        <?php 
+            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT LAPTOP%'  ORDER BY RAND()  LIMIT 3"; 
+            $result = mysqli_query($conn, $sql);
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    
+        ?>
+        <div class="row">
+         <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt2="<?php echo $row['products_id']; ?>">
+            <h4><?php echo $row['products_name']; ?></h4>
+            <h5><?php echo $row['products_id']; ?></h5>
+            <h6>₱<?php echo $row['unit_price']; ?></h6>
+        </div>
+        <?php
                 }
-            ?>
-            </div>
+            }
+        ?>
+        </div>
 
-            <div class="shortcut">
-                <button class="btn-fdbck2">Sulit Laptop Pricelists</button>
-                <button class="btn-fdbck reserve2">Reserve</button>
-            </div>
-        </section>
-
+        <div class="shortcut">
+            <a class="btn-fdbck2" href="customer-pricelist.html">SULIT LAPTOP Pricelists</a>
+            <button class="btn-fdbck reserve2">Reserve</button>
+        </div>
+    </section>
 
 
         <!---------------
@@ -499,36 +500,37 @@
         <!---------------
           SULIT PRINTER
         ---------------->
-        <section class="sulitPrinter">
-            <div class="text-center">
-                <h2>Sulit Printer Sets</h2>
-                <p class="sentence1">Explore our best-selling printers, known for their quality and efficiency.</p>
-            </div>
+         <section class="sulitPrinter">
+        <div class="text-center">
+            <h2>SULIT PRINTER Sets</h2>
+            <p class="sentence1">Explore our best-selling printers, known for their quality and efficiency.</p>
+        </div>
 
-            <div class="sulitPrinterContents">
-            <?php 
-                $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PRINTER%'  ORDER BY RAND()  LIMIT 3"; 
-                $result = mysqli_query($conn, $sql);
-                if ($result && mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-            ?>
-            <div class="row">
-                <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_name']; ?>">
-                <h4><?php echo $row['products_name']; ?></h4>
-                <h5><?php echo $row['products_id']; ?></h5>
-                <h6>₱<?php echo $row['unit_price']; ?></h6>
-            </div>
-            <?php
-                    }
+        <div class="sulitPrinterContents">
+        <?php 
+            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PRINTER%'  ORDER BY RAND()  LIMIT 3"; 
+            $result = mysqli_query($conn, $sql);
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                  
+        ?>
+        <div class="row">
+           <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt3="<?php echo $row['products_id']; ?>">
+            <h4><?php echo $row['products_name']; ?></h4>
+            <h5><?php echo $row['products_id']; ?></h5>
+            <h6>₱<?php echo $row['unit_price']; ?></h6>
+        </div>
+        <?php
                 }
-            ?>
-            </div>
+            }
+        ?>
+        </div>
 
-            <div class="shortcut">
-                <button class="btn-fdbck">Sulit Printer Pricelists</button>
-                <button class="btn-fdbck reserve3">Reserve</button>
-            </div>
-        </section>
+        <div class="shortcut">
+            <a class="btn-fdbck" href="customer-pricelist.html">SULIT PRINTER Pricelists</a>
+            <a class="btn-fdbck reserve3" href="customer-pricelist.html">Reserve</a>
+        </div>
+    </section>
 
 
 
