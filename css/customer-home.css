@@ -632,12 +632,13 @@
     margin-bottom: 5px;
 }
 
-.modal-content input[name="email"],
-.modal-content input[name="contactNum"],
-.modal-content input[name="fname"],
-.modal-content input[name="lname"],
-.modal-content input[name="quantity"],
-.modal-content input[name="pname"],
+.modal-content input[type="email"],
+.modal-content input[type="contactNum"],
+.modal-content input[type="fname"],
+.modal-content input[type="lname"],
+.modal-content input[type="number"],
+.modal-content input[type="tel"],
+.modal-content input[type="pname"],
 .modal-content button {
     width: 100%;
     padding: 10px;
@@ -647,22 +648,24 @@
     font-size: 16px;
 }
 
-.modal-content input[name="email"]::placeholder,
-.modal-content input[name="contactNum"]::placeholder,
-.modal-content input[name="fname"]::placeholder,
-.modal-content input[name="lname"]::placeholder,
-.modal-content input[name="quantity"]::placeholder,
-.modal-content input[name="pname"]::placeholder {
+.modal-content input[type="email"]::placeholder,
+.modal-content input[type="contactNum"]::placeholder,
+.modal-content input[type="fname"]::placeholder,
+.modal-content input[type="lname"]::placeholder,
+.modal-content input[type="number"]::placeholder,
+.modal-content input[type="tel"]::placeholder,
+.modal-content input[type="pname"] {
     color: var(--black3);
     opacity: 0.6;
 }
 
-.modal-content input[name="email"],
-.modal-content input[name="contactNum"],
-.modal-content input[name="fname"],
-.modal-content input[name="lname"],
-.modal-content input[name="quantity"],
-.modal-content input[name="pname"] {
+.modal-content input[type="email"],
+.modal-content input[type="contactNum"],
+.modal-content input[type="fname"],
+.modal-content input[type="lname"],
+.modal-content input[type="number"],
+.modal-content input[type="tel"],
+.modal-content input[type="pname"] {
     background-color: var(--white1);
     color: var(--black1);
     border: 1px solid var(--black1);
