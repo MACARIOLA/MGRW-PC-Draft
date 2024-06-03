@@ -11,11 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_product'])) {
         die("Connection failed: ". $conn->connect_error);
     }
 
+    // Retrieve and sanitize input values
     $product_products_id = mysqli_real_escape_string($conn, $_POST['product_products_id']);
     $product_name = mysqli_real_escape_string($conn, $_POST['product_name']);
     $product_unit_price = mysqli_real_escape_string($conn, $_POST['product_unit_price']);
     $product_total_units = intval($_POST['product_total_units']);
 
+    // Check if the product ID already exists
     $check_sql = "SELECT COUNT(*) AS count FROM inventory WHERE products_id =?";
     $check_stmt = $conn->prepare($check_sql);
     $check_stmt->bind_param("s", $product_products_id);
@@ -26,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_product'])) {
     if ($check_row['count'] > 0) {
         echo "<script>alert('Error: A product with the same ID already exists.'); window.location.href='../admin-inventory.php';</script>";
     } else {
+        // Check if the product name already exists
         $check_sql = "SELECT COUNT(*) AS count FROM inventory WHERE products_name =?";
         $check_stmt = $conn->prepare($check_sql);
         $check_stmt->bind_param("s", $product_name);
@@ -36,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_product'])) {
         if ($check_row['count'] > 0) {
             echo "<script>alert('Error: A product with the same name already exists.'); window.location.href='../admin-inventory.php';</script>";
         } else {
+            // Handle the image file upload
             if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] == 0) {
                 $file_tmp = $_FILES['product_image']['tmp_name'];
                 $file_contents = file_get_contents($file_tmp);
@@ -44,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_product'])) {
                 $product_image = null;
             }
 
+            // Prepare and bind
             $stmt = $conn->prepare("INSERT INTO inventory
             (products_id,
             products_name,
@@ -53,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_product'])) {
             reserved_units)
             VALUES (?,?,?,?,?, 0)");
 
+            // Check if prepare() failed
             if (!$stmt) {
                 die("Prepare failed: ". $conn->error);
             }
@@ -64,16 +70,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_product'])) {
             $product_unit_price,
             $product_total_units);
 
+            // Execute the statement
             if ($stmt->execute()) {
-                echo "<script>alert('Product added successfully.'); window.location.href='../admin-inventory.php';</script>";
+                // Refresh the page
+                header("Location: ../admin-inventory.php");
+                exit();
             } else {
                 echo "Error: ". $stmt->error;
             }
 
+            // Close statement
             $stmt->close();
         }
     }
 
+    // Close check statement and connection
     $check_stmt->close();
     $conn->close();
 }    
