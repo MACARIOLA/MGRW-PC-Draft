@@ -97,7 +97,7 @@
             <div class="box">
                 <div class="icon">02</div>
                 <div class="content">
-                    <h3>Vission</h3>
+                    <h3>Vision</h3>
                     <p>Become indispensable to our customers by offering computer products and services that assist them in achieving their goals.</p>
                 </div>
             </div>
