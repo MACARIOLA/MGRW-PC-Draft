@@ -36,6 +36,28 @@ section{
     margin: 2rem 0;
 }
 
+#sortTotalUnitsButton {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    outline: inherit;
+}
+
+.sticky-header thead th {
+    position: sticky;
+    top: 0;
+    background-color: #151515;
+    z-index: 1;
+}
+
+.sticky-header thead th {
+    padding: 10px;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
 .table__header {
     padding: 50px 40px;
     width: 100%;
@@ -185,6 +207,26 @@ tr.low-stock {
 /* Orange background for medium stock */
 tr.medium-stock {
     background-color: #EE964B;
+}
+
+.status.post {
+    background-color: #86e49d;
+    color: #006b21;
+}
+
+.status.delete {
+    background-color: #d893a3;
+    color: #b30021;
+}
+
+.status.post:hover {
+    background-color: var(--white3);
+    color: var(--black1);
+}
+
+.status.delete:hover {
+    background-color: var(--white3);
+    color: var(--black1);
 }
 
 /* --------------
@@ -364,31 +406,6 @@ tr.medium-stock {
     text-align: center;
     align-content: center;
 }
-
-.status.post {
-    background-color: #86e49d;
-    color: #006b21;
-	border: 2px solid var(--black1);
-}
-
-.status.delete {
-    background-color: #d893a3;
-    color: #b30021;
-	border: 2px solid var(--black1);
-}
-
-.status.post:hover {
-    background-color: var(--white3);
-    color: var(--black1);
-	border: 2px solid var(--black1);
-}
-
-.status.delete:hover {
-    background-color: var(--white3);
-    color: var(--black1);
-	border: 2px solid var(--black1);
-}
-
 
 /* -------------
    BREAKPOINTS
