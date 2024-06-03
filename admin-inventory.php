@@ -86,7 +86,7 @@
                     <button class='add' data-toggle="modal" data-target="#addModal">ADD</button>
                 </section>
 
-                <section class="table__body">
+                            <section class="table__body">
                     <table id="inventoryTable">
                         <thead>
                             <tr>
@@ -100,16 +100,24 @@
                         </thead>
 
                         <tbody>
-                            <?php 
-                                $sql = "SELECT * FROM inventory";
-                                $result = mysqli_query($conn, $sql);
-                                if ($result && mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $row['products_id']; ?></td>
-                                                <td><?php echo $row['products_name']; ?></td>
-                                                <td>
+
+                        <?php 
+                        $sql = "SELECT * FROM inventory  ";
+                        $result = mysqli_query($conn, $sql);
+                        if ($result && mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $total_units = intval($row['total_units']); // Convert total_units to integer
+                                $row_class = '';
+                                if ($total_units < 6) {
+                                    $row_class = 'low-stock';
+                                } elseif ($total_units >= 6 && $total_units <= 20) {
+                                    $row_class = 'medium-stock';
+                                }
+                                ?>
+                                <tr  class="<?php echo $row_class; ?>">
+                                    <td><?php echo $row['products_id']; ?></td>
+                                    <td><?php echo $row['products_name']; ?></td>
+                                    <td>
                                                     <div class="image-container" onmouseover="showPreview(this)" onmouseout="hidePreview(this)">
                                                         <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="Product Image">
                                                     </div>
