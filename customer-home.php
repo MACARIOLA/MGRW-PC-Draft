@@ -16,6 +16,8 @@
         <?php 
             include "PHP/PROMOTION.php";
             session_start();
+            if (isset($_POST['confirmBtn']) || isset($_POST['confirmBtn2']) || isset($_POST['confirmBtn3']) || isset($_POST['confirmBtn4'])) {
+            include "PHP/customer-add-reservation.php";}
         ?>
 
         <!---------------
@@ -160,7 +162,7 @@
                     <label for="quantity">Quantity</label>
                     <input type="number" id="quantity" name="quantity" min="1" max="999" value="1" required>
                     <div class="btn-container">
-                        <button type="submit" id="confirmBtn">Confirm</button>
+                        <button type="submit" name="confirmBtn" id="confirmBtn">Confirm</button>
                         <button type="button" id="cancelBtn">Cancel</button>
                     </div>
                 </form>
@@ -345,19 +347,19 @@
                 <h2>Reservation For Sulit Laptops</h2>
                 <form id="reserveForm2" method="POST">
                     <label for="pName2">Product Name</label>
-                    <input type="pname" id="pName2" name="pname" placeholder="Enter Product Name" required>
+                    <input type="pname" id="pName2" name="pname2" placeholder="Enter Product Name" required>
                     <label for="fName">First Name</label>
-                    <input type="fname" id="fName2" name="fname" placeholder="Enter First Name" required>
+                    <input type="fname" id="fName2" name="fname2" placeholder="Enter First Name" required>
                     <label for="lName">Last Name</label>
-                    <input type="lname" id="lName2" name="lname" placeholder="Enter Last Name" required>
+                    <input type="lname" id="lName2" name="lname2" placeholder="Enter Last Name" required>
                     <label for="email">Email</label>
-                    <input type="email" id="email2" name="email" placeholder="Enter Email" required>
+                    <input type="email" id="email2" name="email2" placeholder="Enter Email" required>
                     <label for="contactNum">Contact Number</label>
-                    <input type="tel" id="contactNum2" name="contactNum" maxlength="11" value="09" required>
+                    <input type="tel" id="contactNum2" name="contactNum2" maxlength="11" value="09" required>
                     <label for="quantity">Quantity</label>
-                    <input type="number" id="quantity2" name="quantity" min="1" max="999" value="1" required>
+                    <input type="number" id="quantity2" name="quantity2" min="1" max="999" value="1" required>
                     <div class="btn-container">
-                        <button type="submit" id="confirmBtn2">Confirm</button>
+                        <button type="submit" name="confirmBtn2" id="confirmBtn2">Confirm</button>
                         <button type="button" id="cancelBtn2">Cancel</button>
                     </div>
                 </form>
@@ -542,19 +544,19 @@
                 <h2>Reservation For Sulit Printers</h2>
                 <form id="reserveForm3" method="POST">
                     <label for="pName3">Product Name</label>
-                    <input type="pname" id="pName3" name="pname" placeholder="Enter Product Name" required>
+                    <input type="pname" id="pName3" name="pname3" placeholder="Enter Product Name" required>
                     <label for="fName">First Name</label>
-                    <input type="fname" id="fName3" name="fname" placeholder="Enter First Name" required>
+                    <input type="fname" id="fName3" name="fname3" placeholder="Enter First Name" required>
                     <label for="lName">Last Name</label>
-                    <input type="lname" id="lName3" name="lname" placeholder="Enter Last Name" required>
+                    <input type="lname" id="lName3" name="lname3" placeholder="Enter Last Name" required>
                     <label for="email">Email</label>
-                    <input type="email" id="email3" name="email" placeholder="Enter Email" required>
+                    <input type="email" id="email3" name="email3" placeholder="Enter Email" required>
                     <label for="contactNum">Contact Number</label>
-                    <input type="tel" id="contactNum3" name="contactNum" maxlength="11" value="09" required>
+                    <input type="tel" id="contactNum3" name="contactNum3" maxlength="11" value="09" required>
                     <label for="quantity">Quantity</label>
-                    <input type="number" id="quantity3" name="quantity" min="1" max="999" value="1" required>
+                    <input type="number" id="quantity3" name="quantity3" min="1" max="999" value="1" required>
                     <div class="btn-container">
-                        <button type="submit" id="confirmBtn3">Confirm</button>
+                        <button type="submit" name="confirmBtn3" id="confirmBtn3">Confirm</button>
                         <button type="button" id="cancelBtn3">Cancel</button>
                     </div>
                 </form>
@@ -588,7 +590,7 @@
             
             // Open the reservation modal
             var reserveModal = document.getElementById("reserveprinterModal");
-            reserveModal.style.display = "block";
+            reserveModal.style.display = "block"; 
         });
     });
 
@@ -714,19 +716,19 @@
                 <h2>Reservation For Sulit Printers</h2>
                 <form id="reserveForm4" method="POST">
                     <label for="pName4">Product Name</label>
-                    <input type="pname" id="pName4" name="pname" placeholder="Enter Product Name" required>
+                    <input type="pname" id="pName4" name="pname4" placeholder="Enter Product Name" required>
                     <label for="fName">First Name</label>
-                    <input type="fname" id="fName4" name="fname" placeholder="Enter First Name" required>
+                    <input type="fname" id="fName4" name="fname4" placeholder="Enter First Name" required>
                     <label for="lName">Last Name</label>
-                    <input type="lname" id="lName4" name="lname" placeholder="Enter Last Name" required>
+                    <input type="lname" id="lName4" name="lname4" placeholder="Enter Last Name" required>
                     <label for="email">Email</label>
-                    <input type="email" id="email4" name="email" placeholder="Enter Email" required>
+                    <input type="email" id="email4" name="email4" placeholder="Enter Email" required>
                     <label for="contactNum">Contact Number</label>
-                    <input type="tel" id="contactNum4" name="contactNum" maxlength="11" value="09" required>
+                    <input type="tel" id="contactNum4" name="contactNum4" maxlength="11" value="09" required>
                     <label for="quantity">Quantity</label>
-                    <input type="number" id="quantity4" name="quantity" min="1" max="999" value="1" required>
+                    <input type="number" id="quantity4" name="quantity4" min="1" max="999" value="1" required>
                     <div class="btn-container">
-                        <button type="submit" id="confirmBtn4">Confirm</button>
+                        <button type="submit" name="confirmBtn4" id="confirmBtn4">Confirm</button>
                         <button type="button" id="cancelBtn4">Cancel</button>
                     </div>
                 </form>
