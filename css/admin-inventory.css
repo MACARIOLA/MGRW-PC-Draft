@@ -21,17 +21,6 @@
 /* --------------
     INVENTORY
 -------------- */
-.edit-button .btn {
-    margin-top:5px;
-    background: transparent;
-    border: none;
-}
-
-.edit-button .btn img {
-    width: 35px; 
-    cursor: pointer;
-}
-
 .table {
     width: 100%;
     height: 80vh;
@@ -107,6 +96,8 @@ section{
 
 .table__body th {
     text-align: center;
+    background-color: var(--gray2);
+    color: var(--white1);
 }
 
 .table__body td:first-child {
@@ -151,7 +142,7 @@ section{
 
 table {
     width: 100%;
-    background-color: var(--white3); /* Set consistent background color for the table */
+    background-color: var(--white3); 
 }
 
 td img {
@@ -188,12 +179,32 @@ tbody tr td img {
 }
 
 tr.low-stock {
-    background-color: #FF0000;
+    background-color: #EB616C;
 }
 
 /* Orange background for medium stock */
 tr.medium-stock {
-    background-color: #FFA500;
+    background-color: #EE964B;
+}
+
+.status.post {
+    background-color: #86e49d;
+    color: #006b21;
+}
+
+.status.delete {
+    background-color: #d893a3;
+    color: #b30021;
+}
+
+.status.post:hover {
+    background-color: var(--white3);
+    color: var(--black1);
+}
+
+.status.delete:hover {
+    background-color: var(--white3);
+    color: var(--black1);
 }
 
 /* --------------
@@ -374,26 +385,6 @@ tr.medium-stock {
     align-content: center;
 }
 
-.status.delete {
-    background-color: #d893a3;
-    color: #b30021;
-}
-
-.status.delete:hover {
-    background-color: transparent;
-    color: var(--black1);
-}
-
-.status.edit {
-    background-color: #86e49d;
-    color: #006b21;
-}
-
-.status.edit:hover {
-    background-color: transparent;
-    color: var(--black1);
-}
-
 /* -------------
    BREAKPOINTS
 -------------- */
@@ -409,10 +400,6 @@ tr.medium-stock {
 
     .table__header .input-group:hover {
         width: 60%;
-    }
-    
-    .edit-button .btn {
-        margin-right: -16px;
     }
     
     tbody tr td,
