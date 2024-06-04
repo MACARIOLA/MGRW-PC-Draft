@@ -107,38 +107,37 @@
         <!---------------
             SULIT PCS
         ---------------->
-       <section class="sulitPc">
-        <div class="text-center">
-            <h2>SULIT PC Sets</h2>
-            <p class="sentence1">Check out our best-selling computers, designed for performance and reliability.</p>
-        </div>
-
-        <div class="sulitPcContents">
-            <?php 
-                $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PC%'  ORDER BY RAND()  LIMIT 3";
-                $result = mysqli_query($conn, $sql);
-                if ($result && mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                     
-            ?>
-            <div class="row">
-               <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_id']; ?>">
-                <h4><?php echo $row['products_name']; ?></h4>
-                <h5><?php echo $row['products_id']; ?></h5>
-                <h6>₱<?php echo $row['unit_price']; ?></h6>
+        <section class="sulitPc">
+            <div class="text-center">
+                <h2>SULIT PC Sets</h2>
+                <p class="sentence1">Check out our best-selling computers, designed for performance and reliability.</p>
             </div>
-            <?php
+
+            <div class="sulitPcContents">
+                <?php 
+                    $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PC%'  ORDER BY RAND()  LIMIT 3";
+                    $result = mysqli_query($conn, $sql);
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                        
+                ?>
+                <div class="row">
+                <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt="<?php echo $row['products_id']; ?>">
+                    <h4><?php echo $row['products_name']; ?></h4>
+                    <h5><?php echo $row['products_id']; ?></h5>
+                    <h6>₱<?php echo $row['unit_price']; ?></h6>
+                </div>
+                <?php
+                        }
                     }
-                }
-            ?>
-        </div>
+                ?>
+            </div>
 
-        <div class="shortcut">
-            <a class="btn-fdbck" href="customer-pricelist.html">SULIT PC Pricelists</a>
-            <button class="btn-fdbck reserve1">Reserve</button>
-        </div>
-    </section>
-
+            <div class="shortcut">
+                <a class="btn-fdbck" href="customer-pricelist.html">SULIT PC Pricelists</a>
+                <button class="btn-fdbck reserve1">Reserve</button>
+            </div>
+        </section>
 
 
 
@@ -180,163 +179,155 @@
             JS FOR PC
         ---------------->
        <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    var photos = document.querySelectorAll(".sulitPcContents img");
+            document.addEventListener("DOMContentLoaded", function() {
+                var photos = document.querySelectorAll(".sulitPcContents img");
 
-    photos.forEach(function(photo) {
-        photo.addEventListener("click", function(event) {
-            event.preventDefault();
+                photos.forEach(function(photo) {
+                    photo.addEventListener("click", function(event) {
+                        event.preventDefault();
 
-            // Get product ID from image's alt attribute
-            var productId = this.getAttribute("alt");
+                        var productId = this.getAttribute("alt");
 
-            // Set product ID in the product name input field
-            var pNameInput = document.getElementById("pName");
-            pNameInput.value = productId;
-            
-            // Open the reservation modal
-            var reserveModal = document.getElementById("reservepcModal");
-            reserveModal.style.display = "block";
-        });
-    });
+                        var pNameInput = document.getElementById("pName");
+                        pNameInput.value = productId;
+                        
+                        var reserveModal = document.getElementById("reservepcModal");
+                        reserveModal.style.display = "block";
+                    });
+                });
 
-    var reserveButtons = document.querySelectorAll(".reserve1");
+                var reserveButtons = document.querySelectorAll(".reserve1");
 
-    reserveButtons.forEach(function(button) {
-        button.addEventListener("click", function(event) {
-            event.preventDefault(); 
+                reserveButtons.forEach(function(button) {
+                    button.addEventListener("click", function(event) {
+                        event.preventDefault(); 
 
-            var reserveModal = document.getElementById("reservepcModal");
+                        var reserveModal = document.getElementById("reservepcModal");
 
-            reserveModal.style.display = "block";
+                        reserveModal.style.display = "block";
 
-            // Set "SULIT PC" prefix in the product name input field
-            var pNameInput = document.getElementById("pName");
-            pNameInput.value = "SULIT PC ";
-        });
-    });
+                        var pNameInput = document.getElementById("pName");
+                        pNameInput.value = "SULIT PC ";
+                    });
+                });
 
-    var cancelButton = document.getElementById("cancelBtn");
+                var cancelButton = document.getElementById("cancelBtn");
 
-    cancelButton.addEventListener("click", function(event) {
-        event.preventDefault();
+                cancelButton.addEventListener("click", function(event) {
+                    event.preventDefault();
 
-        var reserveModal = document.getElementById("reservepcModal");
+                    var reserveModal = document.getElementById("reservepcModal");
 
-        reserveModal.style.display = "none";
-    });
+                    reserveModal.style.display = "none";
+                });
 
-    // Input modification for "SULIT PC" prefix
-    var pNameInput = document.getElementById("pName");
+                var pNameInput = document.getElementById("pName");
 
-    pNameInput.addEventListener("input", function() {
-        var enteredValue = this.value.replace("SULIT PC ", "");
-        this.value = "SULIT PC " + enteredValue.replace(/[^0-9]/g, '');
-    });
+                pNameInput.addEventListener("input", function() {
+                    var enteredValue = this.value.replace("SULIT PC ", "");
+                    this.value = "SULIT PC " + enteredValue.replace(/[^0-9]/g, '');
+                });
 
+                var firstNameInput = document.getElementById("fName");
+                var lastNameInput = document.getElementById("lName");
 
+                firstNameInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                });
 
+                lastNameInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                });
 
-            var firstNameInput = document.getElementById("fName");
-            var lastNameInput = document.getElementById("lName");
+                var contactNumInput = document.getElementById("contactNum");
 
-            firstNameInput.addEventListener("input", function() {
-                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                contactNumInput.addEventListener("input", function() {
+                    if (!this.value.startsWith("09")) {
+                        this.value = "09" + this.value.slice(2);
+                    }
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    if (this.value.length > 11) {
+                        this.value = this.value.slice(0, 11);
+                    }
+                });
+
+                var emailInput = document.getElementById("email");
+
+                emailInput.addEventListener("input", function() {
+                    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(this.value)) {
+                        this.setCustomValidity("Please enter a valid email address.");
+                    } else {
+                        this.setCustomValidity("");
+                    }
+                });
+
+                var quantityInput = document.getElementById("quantity");
+
+                quantityInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+
+                    if (this.value.length > 3) {
+                        this.value = this.value.slice(0, 3);
+                    }
+
+                    if (this.value === "" || parseInt(this.value) < 1) {
+                        this.value = "1";
+                    } else if (parseInt(this.value) > 999) {
+                        this.value = "999";
+                    }
+                });
+
+                quantityInput.addEventListener("blur", function() {
+                    if (this.value === "" || parseInt(this.value) < 1) {
+                        this.value = "1";
+                    }
+                });
+
+                quantityInput.value = "1";
+                quantityInput.addEventListener("keydown", function(e) {
+                    if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                        e.preventDefault();
+                    }
+                });
             });
-
-            lastNameInput.addEventListener("input", function() {
-                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-            });
-
-            var contactNumInput = document.getElementById("contactNum");
-
-            contactNumInput.addEventListener("input", function() {
-                if (!this.value.startsWith("09")) {
-                    this.value = "09" + this.value.slice(2);
-                }
-                this.value = this.value.replace(/[^0-9]/g, '');
-                if (this.value.length > 11) {
-                    this.value = this.value.slice(0, 11);
-                }
-            });
-
-            var emailInput = document.getElementById("email");
-
-            emailInput.addEventListener("input", function() {
-                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailPattern.test(this.value)) {
-                    this.setCustomValidity("Please enter a valid email address.");
-                } else {
-                    this.setCustomValidity("");
-                }
-            });
-
-            var quantityInput = document.getElementById("quantity");
-
-            quantityInput.addEventListener("input", function() {
-                this.value = this.value.replace(/[^0-9]/g, '');
-
-                if (this.value.length > 3) {
-                    this.value = this.value.slice(0, 3);
-                }
-
-                if (this.value === "" || parseInt(this.value) < 1) {
-                    this.value = "1";
-                } else if (parseInt(this.value) > 999) {
-                    this.value = "999";
-                }
-            });
-
-            quantityInput.addEventListener("blur", function() {
-                if (this.value === "" || parseInt(this.value) < 1) {
-                    this.value = "1";
-                }
-            });
-
-            quantityInput.value = "1";
-            quantityInput.addEventListener("keydown", function(e) {
-                if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
-                    e.preventDefault();
-                }
-            });
-        });
-    </script>
+        </script>
 
 
         <!---------------
           SULIT LAPTOPS
         ---------------->
-       <section class="sulitLaptop">
-        <div class="text-center">
-            <h2>SULIT LAPTOP Sets</h2>
-            <p class="sentence1">Discover our best-selling laptops, offering portability and power for your needs.</p>
-        </div>
+        <section class="sulitLaptop">
+            <div class="text-center">
+                <h2>SULIT LAPTOP Sets</h2>
+                <p class="sentence1">Discover our best-selling laptops, offering portability and power for your needs.</p>
+            </div>
 
-        <div class="sulitLaptopContents">
-        <?php 
-            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT LAPTOP%'  ORDER BY RAND()  LIMIT 3"; 
-            $result = mysqli_query($conn, $sql);
-            if ($result && mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    
-        ?>
-        <div class="row">
-         <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt2="<?php echo $row['products_id']; ?>">
-            <h4><?php echo $row['products_name']; ?></h4>
-            <h5><?php echo $row['products_id']; ?></h5>
-            <h6>₱<?php echo $row['unit_price']; ?></h6>
-        </div>
-        <?php
+            <div class="sulitLaptopContents">
+            <?php 
+                $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT LAPTOP%'  ORDER BY RAND()  LIMIT 3"; 
+                $result = mysqli_query($conn, $sql);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        
+            ?>
+            <div class="row">
+            <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt2="<?php echo $row['products_id']; ?>">
+                <h4><?php echo $row['products_name']; ?></h4>
+                <h5><?php echo $row['products_id']; ?></h5>
+                <h6>₱<?php echo $row['unit_price']; ?></h6>
+            </div>
+            <?php
+                    }
                 }
-            }
-        ?>
-        </div>
+            ?>
+            </div>
 
-        <div class="shortcut">
-            <a class="btn-fdbck2" href="customer-pricelist.html">SULIT LAPTOP Pricelists</a>
-            <button class="btn-fdbck reserve2">Reserve</button>
-        </div>
-    </section>
+            <div class="shortcut">
+                <a class="btn-fdbck2" href="customer-pricelist.html">SULIT LAPTOP Pricelists</a>
+                <button class="btn-fdbck reserve2">Reserve</button>
+            </div>
+        </section>
 
 
         <!---------------
@@ -376,163 +367,158 @@
         <!---------------
           JS FOR LAPTOP
         ---------------->
-       <script>
-         document.addEventListener("DOMContentLoaded", function() {
-    var photos = document.querySelectorAll(".sulitLaptopContents img");
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var photos = document.querySelectorAll(".sulitLaptopContents img");
 
-    photos.forEach(function(photo) {
-        photo.addEventListener("click", function(event) {
-            event.preventDefault();
+                photos.forEach(function(photo) {
+                    photo.addEventListener("click", function(event) {
+                        event.preventDefault();
 
-            // Get product ID from image's alt attribute
-            var productId = this.getAttribute("alt2");
+                        var productId = this.getAttribute("alt2");
 
-            // Set product ID in the product name input field
-            var pNameInput = document.getElementById("pName2");
-            pNameInput.value = productId;
-            
-            // Open the reservation modal
-            var reserveModal = document.getElementById("reservelaptopModal");
-            reserveModal.style.display = "block";
-        });
-    });
+                        var pNameInput = document.getElementById("pName2");
+                        pNameInput.value = productId;
+                        
+                        var reserveModal = document.getElementById("reservelaptopModal");
+                        reserveModal.style.display = "block";
+                    });
+                });
 
-    var reserveButtons = document.querySelectorAll(".reserve2");
+                var reserveButtons = document.querySelectorAll(".reserve2");
 
-    reserveButtons.forEach(function(button) {
-        button.addEventListener("click", function(event) {
-            event.preventDefault(); 
+                reserveButtons.forEach(function(button) {
+                    button.addEventListener("click", function(event) {
+                        event.preventDefault(); 
 
-            var reserveModal = document.getElementById("reservelaptopModal");
+                        var reserveModal = document.getElementById("reservelaptopModal");
 
-            reserveModal.style.display = "block";
+                        reserveModal.style.display = "block";
 
-            // Set "SULIT PC" prefix in the product name input field
-            var pNameInput = document.getElementById("pName2");
-            pNameInput.value = "SULIT LAPTOP ";
-        });
-    });
+                        var pNameInput = document.getElementById("pName2");
+                        pNameInput.value = "SULIT LAPTOP ";
+                    });
+                });
 
-    var cancelButton = document.getElementById("cancelBtn2");
+                var cancelButton = document.getElementById("cancelBtn2");
 
-    cancelButton.addEventListener("click", function(event) {
-        event.preventDefault();
+                cancelButton.addEventListener("click", function(event) {
+                    event.preventDefault();
 
-        var reserveModal = document.getElementById("reservelaptopModal");
+                    var reserveModal = document.getElementById("reservelaptopModal");
 
-        reserveModal.style.display = "none";
-    });
+                    reserveModal.style.display = "none";
+                });
 
-    // Input modification for "SULIT PC" prefix
-    var pNameInput = document.getElementById("pName2");
+                var pNameInput = document.getElementById("pName2");
 
-    pNameInput.addEventListener("input", function() {
-        var enteredValue = this.value.replace("SULIT LAPTOP ", "");
-        this.value = "SULIT LAPTOP " + enteredValue.replace(/[^0-9]/g, '');
-    });
+                pNameInput.addEventListener("input", function() {
+                    var enteredValue = this.value.replace("SULIT LAPTOP ", "");
+                    this.value = "SULIT LAPTOP " + enteredValue.replace(/[^0-9]/g, '');
+                });
 
-            var firstNameInput = document.getElementById("fName2");
-            var lastNameInput = document.getElementById("lName2");
+                var firstNameInput = document.getElementById("fName2");
+                var lastNameInput = document.getElementById("lName2");
 
-            firstNameInput.addEventListener("input", function() {
-                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                firstNameInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                });
+
+                lastNameInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                });
+
+                var contactNumInput = document.getElementById("contactNum2");
+
+                contactNumInput.addEventListener("input", function() {
+                    if (!this.value.startsWith("09")) {
+                        this.value = "09" + this.value.slice(2);
+                    }
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    if (this.value.length > 11) {
+                        this.value = this.value.slice(0, 11);
+                    }
+                });
+
+                var emailInput = document.getElementById("email2");
+
+                emailInput.addEventListener("input", function() {
+                    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(this.value)) {
+                        this.setCustomValidity("Please enter a valid email address.");
+                    } else {
+                        this.setCustomValidity("");
+                    }
+                });
+
+                var quantityInput = document.getElementById("quantity2");
+
+                quantityInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+
+                    // Limit to 3 characters
+                    if (this.value.length > 3) {
+                        this.value = this.value.slice(0, 3);
+                    }
+
+                    if (this.value === "" || parseInt(this.value) < 1) {
+                        this.value = "1";
+                    } else if (parseInt(this.value) > 999) {
+                        this.value = "999";
+                    }
+                });
+
+                quantityInput.addEventListener("blur", function() {
+                    if (this.value === "" || parseInt(this.value) < 1) {
+                        this.value = "1";
+                    }
+                });
+
+                quantityInput.value = "1";
+                quantityInput.addEventListener("keydown", function(e) {
+                    if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                        e.preventDefault();
+                    }
+                });
             });
-
-            lastNameInput.addEventListener("input", function() {
-                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-            });
-
-            var contactNumInput = document.getElementById("contactNum2");
-
-            contactNumInput.addEventListener("input", function() {
-                if (!this.value.startsWith("09")) {
-                    this.value = "09" + this.value.slice(2);
-                }
-                this.value = this.value.replace(/[^0-9]/g, '');
-                if (this.value.length > 11) {
-                    this.value = this.value.slice(0, 11);
-                }
-            });
-
-            var emailInput = document.getElementById("email2");
-
-            emailInput.addEventListener("input", function() {
-                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailPattern.test(this.value)) {
-                    this.setCustomValidity("Please enter a valid email address.");
-                } else {
-                    this.setCustomValidity("");
-                }
-            });
-
-            var quantityInput = document.getElementById("quantity2");
-
-            quantityInput.addEventListener("input", function() {
-                this.value = this.value.replace(/[^0-9]/g, '');
-
-                // Limit to 3 characters
-                if (this.value.length > 3) {
-                    this.value = this.value.slice(0, 3);
-                }
-
-                if (this.value === "" || parseInt(this.value) < 1) {
-                    this.value = "1";
-                } else if (parseInt(this.value) > 999) {
-                    this.value = "999";
-                }
-            });
-
-            quantityInput.addEventListener("blur", function() {
-                if (this.value === "" || parseInt(this.value) < 1) {
-                    this.value = "1";
-                }
-            });
-
-            quantityInput.value = "1";
-            quantityInput.addEventListener("keydown", function(e) {
-                if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
-                    e.preventDefault();
-                }
-            });
-        });
-    </script>
+        </script>
 
 
 
         <!---------------
           SULIT PRINTER
         ---------------->
-         <section class="sulitPrinter">
-        <div class="text-center">
-            <h2>SULIT PRINTER Sets</h2>
-            <p class="sentence1">Explore our best-selling printers, known for their quality and efficiency.</p>
-        </div>
+        <section class="sulitPrinter">
+            <div class="text-center">
+                <h2>SULIT PRINTER Sets</h2>
+                <p class="sentence1">Explore our best-selling printers, known for their quality and efficiency.</p>
+            </div>
 
-        <div class="sulitPrinterContents">
-        <?php 
-            $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PRINTER%'  ORDER BY RAND()  LIMIT 3"; 
-            $result = mysqli_query($conn, $sql);
-            if ($result && mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                  
-        ?>
-        <div class="row">
-           <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt3="<?php echo $row['products_id']; ?>">
-            <h4><?php echo $row['products_name']; ?></h4>
-            <h5><?php echo $row['products_id']; ?></h5>
-            <h6>₱<?php echo $row['unit_price']; ?></h6>
-        </div>
-        <?php
+            <div class="sulitPrinterContents">
+            <?php 
+                $sql = "SELECT * FROM inventory WHERE 	products_id  LIKE '%SULIT PRINTER%'  ORDER BY RAND()  LIMIT 3"; 
+                $result = mysqli_query($conn, $sql);
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    
+            ?>
+            <div class="row">
+            <img src="data:image;base64,<?php echo base64_encode($row['image']); ?>" alt3="<?php echo $row['products_id']; ?>">
+                <h4><?php echo $row['products_name']; ?></h4>
+                <h5><?php echo $row['products_id']; ?></h5>
+                <h6>₱<?php echo $row['unit_price']; ?></h6>
+            </div>
+            <?php
+                    }
                 }
-            }
-        ?>
-        </div>
+            ?>
+            </div>
 
-        <div class="shortcut">
-            <a class="btn-fdbck" href="customer-pricelist.html">SULIT PRINTER Pricelists</a>
-            <a class="btn-fdbck reserve3" href="customer-pricelist.html">Reserve</a>
-        </div>
-    </section>
+            <div class="shortcut">
+                <a class="btn-fdbck" href="customer-pricelist.html">SULIT PRINTER Pricelists</a>
+                <a class="btn-fdbck reserve3" href="customer-pricelist.html">Reserve</a>
+            </div>
+        </section>
 
 
 
@@ -573,130 +559,126 @@
         <!---------------
           JS FOR PRINTER
         ---------------->
-       <script>
-          document.addEventListener("DOMContentLoaded", function() {
-    var photos = document.querySelectorAll(".sulitPrinterContents img");
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var photos = document.querySelectorAll(".sulitPrinterContents img");
 
-    photos.forEach(function(photo) {
-        photo.addEventListener("click", function(event) {
-            event.preventDefault();
+                photos.forEach(function(photo) {
+                    photo.addEventListener("click", function(event) {
+                        event.preventDefault();
 
-            // Get product ID from image's alt attribute
-            var productId = this.getAttribute("alt3");
+                        var productId = this.getAttribute("alt3");
 
-            // Set product ID in the product name input field
-            var pNameInput = document.getElementById("pName3");
-            pNameInput.value = productId;
-            
-            // Open the reservation modal
-            var reserveModal = document.getElementById("reserveprinterModal");
-            reserveModal.style.display = "block"; 
-        });
-    });
+                        var pNameInput = document.getElementById("pName3");
+                        pNameInput.value = productId;
+                        
+                        var reserveModal = document.getElementById("reserveprinterModal");
+                        reserveModal.style.display = "block"; 
+                    });
+                });
 
-    var reserveButtons = document.querySelectorAll(".reserve3");
+                var reserveButtons = document.querySelectorAll(".reserve3");
 
-    reserveButtons.forEach(function(button) {
-        button.addEventListener("click", function(event) {
-            event.preventDefault(); 
+                reserveButtons.forEach(function(button) {
+                    button.addEventListener("click", function(event) {
+                        event.preventDefault(); 
 
-            var reserveModal = document.getElementById("reserveprinterModal");
+                        var reserveModal = document.getElementById("reserveprinterModal");
 
-            reserveModal.style.display = "block";
+                        reserveModal.style.display = "block";
 
-     
-            var pNameInput = document.getElementById("pName3");
-            pNameInput.value = "SULIT PRINTER ";
-        });
-    });
+                
+                        var pNameInput = document.getElementById("pName3");
+                        pNameInput.value = "SULIT PRINTER ";
+                    });
+                });
 
-    var cancelButton = document.getElementById("cancelBtn3");
+                var cancelButton = document.getElementById("cancelBtn3");
 
-    cancelButton.addEventListener("click", function(event) {
-        event.preventDefault();
+                cancelButton.addEventListener("click", function(event) {
+                    event.preventDefault();
 
-        var reserveModal = document.getElementById("reserveprinterModal");
+                    var reserveModal = document.getElementById("reserveprinterModal");
 
-        reserveModal.style.display = "none";
-    });
+                    reserveModal.style.display = "none";
+                });
 
-    // Input modification for "SULIT PC" prefix
-    var pNameInput = document.getElementById("pName3");
+                var pNameInput = document.getElementById("pName3");
 
-    pNameInput.addEventListener("input", function() {
-        var enteredValue = this.value.replace("SULIT PRINTER ", "");
-        this.value = "SULIT PRINTER " + enteredValue.replace(/[^0-9]/g, '');
-    });
+                pNameInput.addEventListener("input", function() {
+                    var enteredValue = this.value.replace("SULIT PRINTER ", "");
+                    this.value = "SULIT PRINTER " + enteredValue.replace(/[^0-9]/g, '');
+                });
 
 
-            var firstNameInput = document.getElementById("fName3");
-            var lastNameInput = document.getElementById("lName3");
+                var firstNameInput = document.getElementById("fName3");
+                var lastNameInput = document.getElementById("lName3");
 
-            firstNameInput.addEventListener("input", function() {
-                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                firstNameInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                });
+
+                lastNameInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+                });
+
+                var contactNumInput = document.getElementById("contactNum3");
+
+                contactNumInput.addEventListener("input", function() {
+                    if (!this.value.startsWith("09")) {
+                        this.value = "09" + this.value.slice(2);
+                    }
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    if (this.value.length > 11) {
+                        this.value = this.value.slice(0, 11);
+                    }
+                });
+
+                var emailInput = document.getElementById("email3");
+
+                emailInput.addEventListener("input", function() {
+                    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(this.value)) {
+                        this.setCustomValidity("Please enter a valid email address.");
+                    } else {
+                        this.setCustomValidity("");
+                    }
+                });
+
+                var quantityInput = document.getElementById("quantity3");
+
+                quantityInput.addEventListener("input", function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+
+                    // Limit to 3 characters
+                    if (this.value.length > 3) {
+                        this.value = this.value.slice(0, 3);
+                    }
+
+                    if (this.value === "" || parseInt(this.value) < 1) {
+                        this.value = "1";
+                    } else if (parseInt(this.value) > 999) {
+                        this.value = "999";
+                    }
+                });
+
+                quantityInput.addEventListener("blur", function() {
+                    if (this.value === "" || parseInt(this.value) < 1) {
+                        this.value = "1";
+                    }
+                });
+
+                quantityInput.value = "1";
+                quantityInput.addEventListener("keydown", function(e) {
+                    if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
+                        e.preventDefault();
+                    }
+                });
             });
+        </script>
 
-            lastNameInput.addEventListener("input", function() {
-                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-            });
-
-            var contactNumInput = document.getElementById("contactNum3");
-
-            contactNumInput.addEventListener("input", function() {
-                if (!this.value.startsWith("09")) {
-                    this.value = "09" + this.value.slice(2);
-                }
-                this.value = this.value.replace(/[^0-9]/g, '');
-                if (this.value.length > 11) {
-                    this.value = this.value.slice(0, 11);
-                }
-            });
-
-            var emailInput = document.getElementById("email3");
-
-            emailInput.addEventListener("input", function() {
-                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailPattern.test(this.value)) {
-                    this.setCustomValidity("Please enter a valid email address.");
-                } else {
-                    this.setCustomValidity("");
-                }
-            });
-
-            var quantityInput = document.getElementById("quantity3");
-
-            quantityInput.addEventListener("input", function() {
-                this.value = this.value.replace(/[^0-9]/g, '');
-
-                // Limit to 3 characters
-                if (this.value.length > 3) {
-                    this.value = this.value.slice(0, 3);
-                }
-
-                if (this.value === "" || parseInt(this.value) < 1) {
-                    this.value = "1";
-                } else if (parseInt(this.value) > 999) {
-                    this.value = "999";
-                }
-            });
-
-            quantityInput.addEventListener("blur", function() {
-                if (this.value === "" || parseInt(this.value) < 1) {
-                    this.value = "1";
-                }
-            });
-
-            quantityInput.value = "1";
-            quantityInput.addEventListener("keydown", function(e) {
-                if ((e.key === "Backspace" || e.key === "Delete") && this.value.length === 1 && this.value === "1") {
-                    e.preventDefault();
-                }
-            });
-        });
-    </script>
-
-  <!---------------
-          SULIT ACCESSORY
+        <!---------------
+         SULIT ACCESSORY
         ---------------->
 
         <section class="otherAcc">
@@ -712,13 +694,13 @@
         </section>
 
 
+
         <!---------------
           ACCESSORY MODAL
         ---------------->
-
         <div id="reserveothersModal" class="modal">
             <div class="modal-content othersmodal">
-                <h2>Reservation For Sulit Printers</h2>
+                <h2>Reservation For Accessories</h2>
                 <form id="reserveForm4" method="POST">
                     <label for="pName4">Product Name</label>
                     <input type="pname" id="pName4" name="pname4" placeholder="Enter Product Name" required>
@@ -748,25 +730,25 @@
         </div>
 
         <!---------------
-          JS FOR ACCESSORY 
+         JS FOR ACCESSORY 
         ---------------->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 var reserveButtons = document.querySelectorAll(".reserve4");
 
                 reserveButtons.forEach(function(button) {
-                button.addEventListener("click", function(event) {
-                 event.preventDefault(); 
+                    button.addEventListener("click", function(event) {
+                        event.preventDefault(); 
 
-                 var reserveModal = document.getElementById("reserveothersModal");
+                        var reserveModal = document.getElementById("reserveothersModal");
 
-                reserveModal.style.display = "block";
+                        reserveModal.style.display = "block";
 
-        
-                var pNameInput = document.getElementById("pName4");
-                pNameInput.value = "SULIT ACCESSORY ";
-            });
-        });
+            
+                        var pNameInput = document.getElementById("pName4");
+                        pNameInput.value = "SULIT ACCESSORY ";
+                    });
+                });
 
                 var cancelButton = document.getElementById("cancelBtn4");
 
@@ -840,15 +822,13 @@
                         e.preventDefault();
                     }
                 });
-
-              
             });
         </script>
 
 
 
         <!---------------
-            FOOTER
+             FOOTER
         ---------------->
         <footer class="footer">
             <div class="footer-content">
@@ -870,7 +850,7 @@
                 <ul>
                     <li><a href="customer-privacy.html">Privacy Policy</a></li>                
                     <li><a href="customer-terms.html">Terms of Service</a></li>
-                    <li><a href="admin-login.php">Admin-Panel</a></li>
+                    <li><a href="admin-login.html">Admin-Panel</a></li>
                 </ul>
             </div>
 
@@ -885,7 +865,7 @@
         </footer>
 
         <!---------------
-        COPYRIGHTS
+           COPYRIGHTS
         ---------------->
         <div class="copyrights">
             <p>Copyrights 2024 <span>MGWR PC</span> All Rights Reserved</p>
