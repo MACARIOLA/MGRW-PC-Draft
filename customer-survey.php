@@ -110,8 +110,8 @@
             <label>Email (Optional)</label><br><br>
             <input type="text" id="email" name="email" placeholder="Enter Your Email" class="box"><br><br>
 
-            <label>Age (Optional)</label><br><br>
-            <input type="text" id="age" name="age" placeholder="Enter Your Age" class="box"><br><br>
+            <label>Age</label><br><br>
+            <input type="text" id="age" name="age" placeholder="Enter Your Age" class="box" required><br><br>
 
             <label id="head1">1. How was your experience with the MGWR PC Online website?</label><br><br>
                 <div class="radio-container">
