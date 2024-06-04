@@ -162,7 +162,7 @@
             <h4>Help</h4>
             <ul>
                 <li><a href="customer-privacy.html">Privacy Policy</a></li>                
-                <li><a href="customer-term.html">Terms of Service</a></li>
+                <li><a href="customer-terms.html">Terms of Service</a></li>
             </ul>
         </div>
 
