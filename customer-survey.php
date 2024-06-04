@@ -104,14 +104,14 @@
 
     <form id="surveyForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="showSuccessModal(event)">
         <div id="content1">
-            <label>Name</label><br><br>
-            <input type="text" id="name" name="name" placeholder="Enter your name" class="box" required><br><br>
+            <label>Name (Optional)</label><br><br>
+            <input type="text" id="name" name="name" placeholder="Enter your name" class="box"><br><br>
 
-            <label>Email</label><br><br>
-            <input type="text" id="email" name="email" placeholder="Enter Your Email" class="box" required><br><br>
+            <label>Email (Optional)</label><br><br>
+            <input type="text" id="email" name="email" placeholder="Enter Your Email" class="box"><br><br>
 
             <label>Age (Optional)</label><br><br>
-            <input type="text" id="age" name="age" placeholder="Enter Your Age" class="box" required><br><br>
+            <input type="text" id="age" name="age" placeholder="Enter Your Age" class="box"><br><br>
 
             <label id="head1">1. How was your experience with the MGWR PC Online website?</label><br><br>
                 <div class="radio-container">
