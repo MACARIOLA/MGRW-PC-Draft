@@ -21,16 +21,31 @@
     <!---------------
            PHP
     ---------------->
-    <?php
-        if (isset($_POST['update_product'])) {
-            @include 'PHP/admin-config.php';
-            @include 'PHP/admin-update-add-reservation.php';
-        }
-        else{
-            @include 'PHP/admin-config.php';
-            @include 'PHP/admin-update-reservation.php';
-        }
+
+        <?php
+    session_start();
+
+    if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+        // Redirect to the login page if not logged in
+        echo "<script>
+                alert('Unidentified login credentials');
+                window.location.href = 'admin-login.php';
+            </script>";
+        exit();
+    }
+
     ?>
+        <?php
+            if (isset($_POST['update_product'])) {
+                @include 'PHP/admin-config.php';
+                @include 'PHP/admin-update-add-reservation.php';
+            }
+            else{
+                @include 'PHP/admin-config.php';
+                @include 'PHP/admin-update-reservation.php';
+            }
+        ?>
+
 
     <!---------------
           FONTS
