@@ -106,7 +106,7 @@
                 <div class="map-container">
                     <div class="mapBg"></div>
                     <div class="map">
-                        <iframe src="https://www.google.com/maps/d/embed?mid=13sQ_EYgIUgIqghJZe89MJseYKkAAYFw&hl=en&ehbc=2E312F" width="640" height="480"></iframe>
+                    <iframe src="https://www.google.com/maps/d/embed?mid=1mUUmyxGucfWrvwh3zchU5NWZ8jUoRJ0&ehbc=2E312F" width="640" height="480"></iframe>
                     </div>
                 </div>
             </div>
