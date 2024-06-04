@@ -18,7 +18,7 @@
                   </script>";
             exit();
         }
-        
+          include 'PHP/admin-logout.php';
         ?>
 
 
@@ -70,6 +70,9 @@
             <a href="admin-cms.php" style="--i:2">CMS</a>
             <a href="admin-feedback.php" style="--i:3">Feedbacks</a>
             <a href="admin-contact-us.php" style="--i:4">Inbox</a>
+            <form  method="post"     >
+                 <button type="submit" style="--i:5" name="LG">Logout</button>
+             </form>
         </nav>
     </header>
 
