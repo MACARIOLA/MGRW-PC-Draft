@@ -99,13 +99,35 @@ body {
     display: none;
 }
 
-.navbar a {
+.navbar {
+    display: flex;
+}
+
+.navbar a, .navbar button{
     font-size: 1.15rem;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
     margin-left: 2.5rem;
     transition: 0.3s ease;
+}
+
+.navbar button{
+    font-size: 1.15rem;
+    color: var(--mgwrpcMain2);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2.5rem;
+    transition: 0.3s ease;
+    background-color: transparent;
+    border: 0px;
+    display: flex;
+}
+
+.navbar button:hover {
+    color: #b30021;
+    transition: color 0.3s ease, background-color 0.3s ease; 
+    transform: scale(1.06px);
 }
 
 .navbar a:hover {
