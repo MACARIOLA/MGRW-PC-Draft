@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+   
     <!---------------
            PHP
     ---------------->
     <?php include "PHP/PROMOTION.php"; ?>
     <?php include "PHP/save_content.php"; ?>
+
+    <?php
+        session_start();
+
+        if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+            // Redirect to the login page if not logged in
+            echo "<script>
+                    alert('Unidentified login credentials');
+                    window.location.href = 'admin-login.php';
+                </script>";
+            exit();
+        }
+
+        ?>
 
     <!---------------
            TAB
