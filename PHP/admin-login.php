@@ -28,7 +28,6 @@ if ($result->num_rows > 0) {
     $_SESSION['admin_logged_in'] = true;
 
     echo "<script>
-            alert('valid login credentials');
             window.location.href = 'admin-analytics.php';
           </script>";
     exit();
