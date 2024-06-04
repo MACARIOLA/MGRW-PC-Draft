@@ -5,13 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!---------------
-            TAB
+               TAB
         ---------------->
         <title>MGWR PC | Home</title>
         <link rel="icon" href="Images/Tab Icon.png" type="image/x-icon">
 
         <!---------------
-            PHP
+               PHP
         ---------------->
         <?php 
             include "PHP/PROMOTION.php";
@@ -28,14 +28,14 @@
         <script src="js/mainscript.js"></script>
 
         <!---------------
-            FONTS
+              FONTS
         ---------------->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
         <!---------------
-            ICONS
+              ICONS
         ---------------->
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     </head>
@@ -44,7 +44,7 @@
 
     <body>
         <!---------------
-            NAVBAR
+             NAVBAR
         ---------------->
         <header class="header">
             <a href="customer-home.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
@@ -748,6 +748,13 @@
                         var pNameInput = document.getElementById("pName4");
                         pNameInput.value = "SULIT ACCESSORY ";
                     });
+                });
+
+                var pNameInput = document.getElementById("pName4");
+
+                pNameInput.addEventListener("input", function() {   
+                    var enteredValue = this.value.replace("SULIT ACCESSORY ", "");
+                    this.value = "SULIT ACCESSORY " + enteredValue.replace(/[^0-9]/g, '');
                 });
 
                 var cancelButton = document.getElementById("cancelBtn4");
