@@ -91,25 +91,46 @@ function updateInventoryBasedOnReservations($conn, $IDreserve) {
             echo "Error updating total units in inventory: " . $conn->error;
         }
     } else {
-        echo "<script>alert('No confirmed reservation found with the specified reservation ID.');</script>";
+        echo "<script>alert('No confirmed reservation found with the specified reservation Product ID.');</script>";
     }
 }
 
-// Function to confirm reservation
+
+// Function to confirm reservation with quantity check
 function confirmReservation($conn, $IDreserve) {
-    // SQL update query
-    $sql = "UPDATE `reservation` SET status='Confirmed' WHERE IDreservation=?";
-    $stmt = $conn->prepare($sql);
+    // Check if the reserved quantity exceeds the available units in inventory
+    $checkQuantitySQL = "SELECT reservation.reserved_units, inventory.total_units FROM reservation JOIN inventory ON reservation.Prod_categ = inventory.id WHERE reservation.IDreservation=?";
+    $stmt = $conn->prepare($checkQuantitySQL);
     $stmt->bind_param("s", $IDreserve);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $reservedQuantity = $row['reserved_units'];
+        $totalUnits = $row['total_units'];
 
-    if ($stmt->execute()) {
-        error_log("Reservation confirmed successfully");
-        echo "<script>alert('Reservation confirmed successfully.');</script>";
+        if ($reservedQuantity <= $totalUnits) {
+            // SQL update query
+            $sql = "UPDATE `reservation` SET status='Confirmed' WHERE IDreservation=?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $IDreserve);
+
+            if ($stmt->execute()) {
+                error_log("Reservation confirmed successfully");
+                echo "<script>alert('Reservation confirmed successfully.');</script>";
+            } else {
+                error_log("Failed to confirm reservation: " . $conn->error);
+                echo "<script>alert('Failed to confirm reservation.');</script>";
+            }
+        } else {
+            echo "<script>alert('Insufficient quantity. Cannot confirm reservation.');</script>";
+        }
     } else {
-        error_log("Failed to confirm reservation: " . $conn->error);
-        echo "<script>alert('Failed to confirm reservation.');</script>";
+        echo "<script>alert('Reservation not found.');</script>";
     }
 }
+
 
 // Function to cancel reservation
 function cancelReservation($conn, $IDreserve) {
