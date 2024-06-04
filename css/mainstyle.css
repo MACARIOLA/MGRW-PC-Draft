@@ -185,7 +185,7 @@ body {
         left: 0;
         width: 100%;
         height: 0;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(15px); 
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
         overflow: hidden;
@@ -214,6 +214,10 @@ body {
 
     .navbar .active::after {
         display: none;
+    }
+
+    .navbar {
+        display: inline-block;
     }
 }
 
