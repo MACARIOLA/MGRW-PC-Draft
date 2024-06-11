@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!---------------
+            TAB
+        ---------------->
+        <title>MGWR PC | Inventory</title>
+        <link rel="icon" href="Images/Tab Icon.png" type="image/x-icon">
+
+        <!---------------
+            CSS & JS
+        ---------------->
+        <link rel="stylesheet" href="css/super-admin-inventory.css">
+        <link rel="stylesheet" href="css/admin-mainstyle.css">
+        <script src="js/admin-inventory.js"></script>
+
+        <!---------------
+            FONTS
+        ---------------->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!---------------
+            ICONS
+        ---------------->
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-oP7mI/HC6pVx2jzrLnMlqA25eXHVTQwYb3CgeCLHq/9ItT5qro5BxxL5tWnfqFi/OA7NTVAtTAjyQq62oyC7Ig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+
+
+    <body>
+        <!---------------
+            NAVBAR
+        ---------------->
+        <header class="header">
+            <a href="super-admin-analytics.php"><img src="Images/MGWR PC Logo.png" alt="" class="logo"></a>
+
+            <input type="checkbox" id="check">
+            <label for="check" class="icons">
+                <img src="Images/Menu.png" alt="" id="menu-icon">
+                <img src="Images/MenuX.png" alt="" id="close-icon">
+            </label>
+
+            <nav class="navbar">
+                <a href="super-admin-analytics.php" style="--i:0">Analytics</a>
+                <a class="active" href="super-admin-inventory.html" style="--i:1">Inventory</a>
+                <a href="super-admin-inbox.php" style="--i:4">Inbox</a>
+            </nav>
+        </header> 
+
+
+
+        <!---------------
+            TABLES
+        ---------------->
+        <div class="container-main">
+            <div class="container1">
+                <main class="table" id="customers_table">
+
+                    <!---------------
+                        INVENTORY
+                    ---------------->
+                    <section class="table__header">
+                        <h2>REQUESTS</h2>
+                        <div class="input-group">
+                            <input type="search" placeholder="Search Data..." id="inventorySearchInput" onkeyup="searchTable()">
+                            <img src="images/search.png" alt="">
+                        </div>
+                    </section>
+
+                    <section class="table__body">
+                        <table id="inventoryTable" class="sticky-header">
+                            <thead>
+                                <tr>
+                                    <th> REQUEST </th>
+                                    <th> PRODUCT ID </th>
+                                    <th> PRODUCT NAME </th>
+                                    <th> IMAGE </th>
+                                    <th>
+                                        <button type="button" id="sortTotalUnitsButton">TOTAL UNITS</button>
+                                    </th>                                
+                                    <th> RESERVED UNITS </th>
+                                    <th colspan="2">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td> Added </td> <!-- When Added Color Green Font Color -->
+                                    <td> SULIT PC 1 </td>
+                                    <td> ATHLON 3000G </td>
+                                    <td>
+                                        <div class="image-container">
+                                            <img src="Images/Sulit PC 1.jpg" alt="Product Image">
+                                        </div>
+                                    </td>
+                                    <td> 5 </td>
+                                    <td> 0 </td>
+                                    <td>
+                                        <button class="status post btn-secondary">Confirm</button>
+                                    </td>
+                                    <td>
+                                        <button class="status delete">Reject</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td> Deleted </td> <!-- When Added Color Red Font Color -->
+                                    <td> SULIT PC 1 </td>
+                                    <td> ATHLON 3000G </td>
+                                    <td>
+                                        <div class="image-container">
+                                            <img src="Images/Sulit PC 1.jpg" alt="Product Image">
+                                        </div>
+                                    </td>
+                                    <td> 5 </td>
+                                    <td> 0 </td>
+                                    <td>
+                                        <button class="status post btn-secondary">Confirm</button>
+                                    </td>
+                                    <td>
+                                        <button class="status delete">Reject</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td> Edited </td> <!-- When Added Color Orange Font Color -->
+                                    <td> SULIT PC 1 </td>
+                                    <td> ATHLON 3000G </td>
+                                    <td>
+                                        <div class="image-container">
+                                            <img src="Images/Sulit PC 1.jpg" alt="Product Image">
+                                        </div>
+                                    </td>
+                                    <td> 5 </td>
+                                    <td> 0 </td>
+                                    <td>
+                                        <button class="status post btn-secondary">Confirm</button>
+                                    </td>
+                                    <td>
+                                        <button class="status delete">Reject</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
